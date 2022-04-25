@@ -4,8 +4,8 @@
     "name": "Portfolio"
   },
   "api": {
-    "projectId": "gqcns6bz",
-    "dataset": "development"
+    "projectId": "3xswih3e",
+    "dataset": "production"
   },
   "plugins": [
     "@sanity/base",
