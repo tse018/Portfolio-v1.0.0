@@ -1,2 +1,2 @@
-# VUE-SANITY-boilerplate
-This is pre-build vue-sanity boilerplate
+# PORTFOLIO
+Stay tuned for more information coming soon
