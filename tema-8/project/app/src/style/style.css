@@ -6,7 +6,7 @@ body {
 }
 
 /* Mobile */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
    body {
       font-size: var(--mobile-font-size-default);
    }
@@ -27,7 +27,7 @@ body {
 }
 
 /* Tablet */
-@media screen and (min-width: 801px) {
+@media screen and (min-width: 601px) {
    body {
       font-size: var(--tablet-font-size-default);
    }
