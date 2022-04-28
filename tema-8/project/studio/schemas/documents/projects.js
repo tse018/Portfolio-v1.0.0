@@ -12,9 +12,8 @@ export default {
          title: 'Slug',
          name: 'slug',
          type: 'slug',
-         description: 'Click on generate button for default slug, or write in prefered slug',
          options: {
-            soruce: 'title',
+            source: 'title',
          },
          validation: Rule => Rule.required().error('Need to fill in this field for better SEO')
       },
