@@ -7,6 +7,5 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
 </style>
