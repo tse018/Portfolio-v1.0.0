@@ -29,12 +29,14 @@
             </li>
          </ul>
       </nav>
-
-      <nav class="header__container-mobile">
-         <MobileMenu :icon="'menuOpen'" />
-      </nav>
    </header>
+
+   <aside class="header__container-mobile">
+      <MobileMenu />
+   </aside>
 </template>
+
+
 
 <script>
 import MobileMenu from '../components/MobileMenu.vue';
@@ -48,14 +50,24 @@ export default {
 
 <style>
 .header-container {
-   position: relative;
-   
-   height: 50px;
+   border: 2px solid red;
+   position: fixed;
+   height: 110px;
+   width: 100%;
+   padding: 20px;
+   z-index: 100;
 }
 
 .header-container__desktop-elements {
    display: flex;
-   padding: 0 15px 0 15px;
+   width: 100%;
+   border: 2px soild red;
+   margin: -35px 0 0 30px;
+}
+
+.header-container__desktop-element {
+   display: flex;
+   flex-wrap: wrap;
 }
 
 @media screen and (max-width: 600px) {
@@ -87,5 +99,7 @@ export default {
       display: block;
    }
 }
+
+
 </style>
 

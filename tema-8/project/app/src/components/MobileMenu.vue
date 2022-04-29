@@ -1,54 +1,54 @@
 <template>
-   <button @click="displayMenu">
-      <Icons :icon="'menuOpen'" />
+   <button class="mobile-toggle" @click="displayMenu">
+      <Icons v-if="!showNavbar" :icon="'menuOpen'" />
+      <Icons v-else :icon="'menuClose'" />
    </button>
 
-      <ul v-if="this.menuVisible">
-         <li>
+   <nav class="mobile-toggle__container" v-if="showNavbar">
+      <ul class="mobile-toggle__container-elements">
+         <li class="mobile-toggle__container-element">
             About
          </li>
 
-         <li>
+         <li class="mobile-toggle__container-element">
             Education
          </li>
 
-         <li>
+         <li class="mobile-toggle__container-element">
             Projects
          </li>
 
-         <li>
+         <li class="mobile-toggle__container-element">
             Contact
          </li>
-      
-         <li>
+
+         <li class="mobile-toggle__container-element">
             Resume
          </li>
       </ul>
+   </nav>
 </template>
 
 <script>
-import Icons from '../components/Icons.vue';
+import Icons from "../components/Icons.vue";
 
 export default {
    components: {
       Icons,
    },
-
    data() {
       return {
-         menuVisible: false,
-      }
+         showNavbar: false,
+      };
    },
 
    methods: {
       displayMenu() {
-         this.menuVisible = !this.menuVisible;
-      }
-   }
-
-}
+         this.showNavbar = !this.showNavbar;
+      },
+   },
+};
 </script>
 
 <style>
-
 </style>
