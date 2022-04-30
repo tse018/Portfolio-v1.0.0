@@ -8,8 +8,17 @@
 import Header from '../components/Header.vue';
 import Footer from '../components/Footer.vue';
 
+import mediaQuery from '../mixins/mediaQuery.js';
+
 export default {
-	components: { Header, Footer }
+   mixins: [
+      mediaQuery
+   ],
+
+	components: {
+      Header, 
+      Footer 
+   }
 }
 </script>
 

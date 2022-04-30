@@ -1,91 +1,117 @@
 <template>
    <header class="header-container">
-      <section class="header-container__logo">
-         <RouterLink :to="{name: 'home'}">
-            <img src="/images/favicon-32x32.png" alt="page logo"/>
-         </RouterLink>
-      </section>
+      <nav class="header-container__navbar">
+         <ul class="header-container__navbar-elements">
+            <RouterLink :to="{ name: 'home' }" class="header-container__navbar--logo">
+               <img src="/images/favicon-32x32.png" alt="page logo" class="header-container__logo-image" />
+            </RouterLink>
 
-      <nav class="header-container__desktop">
-         <ul class="header-container__desktop-elements">
-            <li class="header-container__desktop-element">
-               About 
+            <li class="header-container__navbar-element--mobile">
+               <MobileMenu />
             </li>
 
-            <li class="header-container__desktop-element">
+            <li class="header-container__navbar-element">
+               About
+            </li>
+
+            <li class="header-container__navbar-element">
                Education
             </li>
 
-            <li class="header-container__desktop-element">
+            <li class="header-container__navbar-element">
                Projects
             </li>
 
-            <li class="header-container__desktop-element">
+            <li class="header-container__navbar-element">
                Contact
             </li>
-      
-            <li class="header-container__desktop-element">
+
+            <li class="header-container__navbar-element">
                Resume
             </li>
          </ul>
-      </nav>
-
-      <nav class="header__container-mobile">
-         <MobileMenu :icon="'menuOpen'" />
       </nav>
    </header>
 </template>
 
 <script>
-import MobileMenu from '../components/MobileMenu.vue';
+import MobileMenu from "../components/MobileMenu.vue";
 
 export default {
    components: {
       MobileMenu,
-   }
-}
+   },
+};
 </script>
 
-<style>
-.header-container {
-   position: relative;
-   
-   height: 50px;
-}
-
-.header-container__desktop-elements {
-   display: flex;
-   padding: 0 15px 0 15px;
-}
-
+<style scoped>
+/* Mobile */
 @media screen and (max-width: 600px) {
-   .header__container-mobile {
-      display: block;
+   .header-container {
+      position: fixed;
+      width: 100%;
    }
 
-   .header-container__desktop {
+   .header-container__logo-image {
+      margin: 0 0 0 10px;
+   }
+
+   .header-container__navbar-element--mobile {
+      display: flex;
+      justify-content: end;
+      margin: -30px 10px 0 0;
+   }
+
+   .header-container__navbar-element {
       display: none;
    }
 }
 
 @media screen and (min-width: 601px) {
-   .header__container-mobile {
-      display: block;
+   .header-container {
+      position: fixed;
+      width: 100%;
    }
 
-   .header-container__desktop {
+   .header-container__logo-image {
+      margin: 25px 0 0 20px;
+   }
+
+   .header-container__navbar-element--mobile {
+      display: flex;
+      justify-content: end;
+      margin: -50px 10px 0 0;
+   }
+
+   .header-container__navbar-element {
       display: none;
    }
 }
 
-@media screen and (min-width: 1200px) {
-   .header__container-mobile {
-      display: none;
+@media screen and (min-width: 1200px ) {
+   .header-container {
+      position: fixed;
+      width: 100%;
+      height: 100px;
    }
 
-   .header-container__desktop {
-      display: block;
+   .header-container__navbar--logo {
+      position: absolute;
+      left: 0;
+   }
+
+   .header-container__navbar-elements {
+      display: flex;
+      justify-content: end;
+   }
+
+   .header-container__navbar-element {
+      display: flex;
+      padding: 20px;
+   }
+
+   .header-container__navbar-element--mobile {
+      display: none;
    }
 }
 </style>
-

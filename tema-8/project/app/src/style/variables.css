@@ -9,7 +9,7 @@
 	--font-color-highligth: #64ffda;
 
 	/* body margin */
-	--margin: 30px 80px 0 80px;
+	--margin-mobile: 30px 0 0 0;
 
 	/* Mobile font-sizes */
 	--mobile-font-size-title: 50px;

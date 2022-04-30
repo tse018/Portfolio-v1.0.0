@@ -1,5 +1,4 @@
 body {
-   margin: var(--margin);
    background: var(--background-primary);
    color: var(--font-color-primary);
    font-weight: var(--font-weigth-default);
@@ -9,6 +8,7 @@ body {
 @media screen and (max-width: 600px) {
    body {
       font-size: var(--mobile-font-size-default);
+      margin: var(--margin-mobile);
    }
    
    h1 {

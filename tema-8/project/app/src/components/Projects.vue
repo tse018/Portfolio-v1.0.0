@@ -3,7 +3,6 @@
 
 <script>
 export default {
-
 }
 </script>
 
