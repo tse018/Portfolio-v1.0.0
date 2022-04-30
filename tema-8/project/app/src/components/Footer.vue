@@ -1,5 +1,4 @@
 <template>
-  kjlkjk
 </template>
 
 <script>
