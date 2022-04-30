@@ -89,18 +89,26 @@ export default {
 }
 
 @media screen and (min-width: 1200px ) {
+   .header-container {
+      position: fixed;
+      width: 100%;
+      height: 100px;
+   }
+
+   .header-container__navbar--logo {
+      position: absolute;
+      left: 0;
+   }
+
    .header-container__navbar-elements {
-      border: 2px solid red;
       display: flex;
-      justify-content: space-between;
-      width: 100vw;
+      justify-content: end;
    }
 
    .header-container__navbar-element {
       display: flex;
       padding: 20px;
    }
-
 
    .header-container__navbar-element--mobile {
       display: none;
