@@ -1,5 +1,5 @@
 <template>
-   <main class="main-container" ref="scroll-container" @mousewheel="scroll">
+   <main class="main-container" ref="scroll_container" @mousewheel="scrollX">
       <section class="main-container__section">
          <LandingPage />
       </section>
@@ -97,12 +97,13 @@ export default {
       height: 100%;
       width: 500%;
       display: flex;
+      overflow-x: hidden;
+      display: flex;
    }
 
    .main-container__section {
       height: 100vh;
       width: 100vw;
-      overflow: hidden;
    }
 
    .main-container__section--projects {

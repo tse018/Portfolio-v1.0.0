@@ -1,7 +1,7 @@
 <template>
    <Header />
+   <RouterView :key="$route.fullPath" />
    <Footer />
-   <RouterView :key="$route.fullPath"/>
 </template>
 
 <script>

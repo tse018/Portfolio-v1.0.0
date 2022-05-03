@@ -1,5 +1,7 @@
+import about from './modules/about.js';
+
 export default {
-   state() {
-      return {}
+   modules: {
+      about,
    }
 };

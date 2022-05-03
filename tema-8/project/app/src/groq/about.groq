@@ -1,0 +1,9 @@
+*[_type == 'about'] {
+   title,
+   introduction,
+   education,
+   professional,
+   techStack[]-> {
+      name
+   }
+}

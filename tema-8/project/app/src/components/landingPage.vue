@@ -9,16 +9,14 @@
       </h2>
 
       <h2 class="section-introduction__portfolio">
-         Portfolio
+         PORTFOLIO
       </h2>
 
-      <button class="section-introduction__github">
-         <a href="https://github.com/tse018" target="_blank" class="section-introduction__github-link">
-            Check out my Github!
-         </a>
-      </button>
+      <a href="https://github.com/tse018" target="_blank" class="section-introduction__github">
+         Check out my Github!
+      </a>
 
-      <button class="section-introduction__left-arrow" @click="scrollTo(about)">
+      <button class="section-introduction__left-arrow" @click="scrollTo">
          <Icons :icon="'left'" />
       </button>
    </section>
@@ -128,28 +126,21 @@ export default {
    }
 
    .section-introduction__github {
-      grid-column: 3 / 6;
+      grid-column: 3 / 7;
       grid-row: 5;
       border: 2px solid aqua;
       height: 100px;
       color: aqua;
-      padding: 20px;
+      padding: 25px 0 0 0; 
       opacity: 0.6;
       transition: 0.3s;
+      text-align: center;
+      text-decoration: none;
    }
 
    .section-introduction__github:hover {
       opacity: 1;
       background-color: aquamarine;
-      color: black;
-   }
-
-   .section-introduction__github-link {
-      text-decoration: none;
-      color: white;
-   }
-
-   .section-introduction__github-link:hover {
       color: black;
    }
 

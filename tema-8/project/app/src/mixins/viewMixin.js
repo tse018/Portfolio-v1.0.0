@@ -9,9 +9,11 @@ export default {
 	},
 
 	methods: {
-		async sanityFetch(query, params) {
-			this.result = await sanity.fetch(query, params);
-			this.loading = false;
+		async sanityFetchAbout(query) {
+			this.result = await sanity.fetch(query);
+			this.$store.dispatch('addAboutContent', this.result);
+
+			this.loading = this.$store.getters.getError;
 		},
 
 		metaTags(meta) {
