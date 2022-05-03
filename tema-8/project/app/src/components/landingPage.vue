@@ -25,13 +25,7 @@
 <script>
 import Icons from '../components/Icons.vue';
 
-import scrollMixin from '../mixins/scrollTo.js';
-
 export default {
-   mixins: [
-      scrollMixin
-   ],
-
    components: {
       Icons,
    },
@@ -40,7 +34,7 @@ export default {
       scrollTo() {
          const element = document.getElementById('about');
          element.scrollIntoView({ behavior: 'smooth' });
-      }
+      },
    }
 }
 </script>

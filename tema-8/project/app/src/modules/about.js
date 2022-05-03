@@ -2,22 +2,18 @@ export default {
    state() {
       return {
          about: [],
-         errors: ''
       }
    },
 
    mutations: {
-      setAboutContent(state, content) {
-         state.about = content;
+      setAboutContent(state, about) {
+         state.about = about;
       },
-      setError(state, errors) {
-         state.errors = errors
-      }
    },
 
    actions: {
-      addAboutContent({commit}, content) {
-         commit('setAboutContent', content);
+      addAboutContent({commit}, about) {
+         commit('setAboutContent', about);
       },
    },
 
@@ -25,8 +21,5 @@ export default {
       getAboutContent(state) {
          return state.about;
       },
-      getError(state) {
-         return state.errors;
-      }
    },
 };

@@ -1,32 +1,23 @@
 <template>
-<div v-if="loading"> Loading...</div>
+   <div v-if="loading"> Loading...</div>
    <div v-else>
-      <section class="about-container">
-         <div v-for="content in about">
-            <h2 class="about-container__title">
-               {{ content }}
-            </h2>
-         </div>
-      </section>
+      {{ about }}
    </div>
 </template>
 
 <script>
-import query from '../groq/about.groq?raw';
-import viewMixin from '../mixins/viewMixin.js';
+import viewMixin from '../mixins/sanityMixin.js';
 
 export default {
-   mixins: [ viewMixin ],
-   
-   async created() {
-      await this.sanityFetchAbout(query);
-   },
+   mixins: [
+      viewMixin,
+   ],
 
    computed: {
       about() {
          return this.$store.getters.getAboutContent;
-      },
-   }
+      }
+   },
 };
 </script>
 
