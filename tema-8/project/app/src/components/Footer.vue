@@ -14,7 +14,7 @@ export default {
 
 <style>
 .footer-container {
-  position:absolute;
+  position: fixed;
   bottom:0;
   width:100%;
   height:60px;   /* Height of the footer */

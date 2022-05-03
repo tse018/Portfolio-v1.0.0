@@ -11,19 +11,33 @@
             </li>
 
             <li class="header-container__navbar-element">
-               About
+               <a href="/">
+                  Home
+               </a>
             </li>
 
             <li class="header-container__navbar-element">
-               Education
+               <a href="/about">
+                  About
+               </a>
             </li>
 
             <li class="header-container__navbar-element">
-               Projects
+               <a href="/education">
+                  Education
+               </a>
             </li>
 
             <li class="header-container__navbar-element">
-               Contact
+               <a href="/projects">
+                  Projects
+               </a>
+            </li>
+
+            <li class="header-container__navbar-element">
+               <a href="/contact">
+                  Contact
+               </a>
             </li>
 
             <li class="header-container__navbar-element">
@@ -108,6 +122,7 @@ export default {
    .header-container__navbar-element {
       display: flex;
       padding: 20px;
+      cursor: pointer;
    }
 
    .header-container__navbar-element--mobile {

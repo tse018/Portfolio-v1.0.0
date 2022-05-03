@@ -1,7 +1,7 @@
 <template>
    <Header />
+   <RouterView :key="$route.fullPath" />
    <Footer />
-   <RouterView :key="$route.fullPath"/>
 </template>
 
 <script>
@@ -18,7 +18,7 @@ export default {
 	components: {
       Header, 
       Footer 
-   }
+   },
 }
 </script>
 
