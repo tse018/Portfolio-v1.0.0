@@ -49,6 +49,18 @@ export default {
       Contact,
       Icons,
    },
+
+   data() {
+      return {
+         selected: 'Home'
+      }
+   },
+
+   methods: {
+      setSelected(tab) {
+         this.selected = tab;
+      }
+   }
 };
 </script>
 
