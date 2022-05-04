@@ -3,7 +3,7 @@
       <h1 class="section-introduction__name">
          THANUSHAN SELLATHURAI
       </h1>
-
+      
       <h2 class="section-introduction__work-title">
          FRONT-END DEVELOPER
       </h2>
@@ -28,6 +28,17 @@ import Icons from '../components/Icons.vue';
 export default {
    components: {
       Icons,
+   },
+
+   async created() {
+      await this.$store.dispatch('fectchSanityData');
+      this.$store.state.data;
+   },
+
+   computed: {
+      data() {
+         return this.$store.getters.getData;
+      }
    },
 
    methods: {

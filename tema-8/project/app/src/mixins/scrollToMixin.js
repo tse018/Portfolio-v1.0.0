@@ -5,10 +5,5 @@ export default {
       element.scrollIntoView({behavior: "smooth" });
       window.location.href(`#${routet}`);
    },
-
-   scrollTo() {
-      const element = document.getElementById('about');
-      element.scrollIntoView({ behavior: 'smooth' });
-   },
 };
 

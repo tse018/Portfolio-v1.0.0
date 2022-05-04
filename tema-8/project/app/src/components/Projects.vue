@@ -1,8 +1,7 @@
 <template>
-   <div v-if="loading"> Loading...</div>
-   <div v-else>
+   <h2>
       {{ projects }}
-   </div>
+   </h2>
 </template>
 
 <script>
@@ -10,7 +9,7 @@
 export default {
    computed: {
       projects() {
-         return this.$store.getters.getProjectsContent;
+         return this.$store.getters.getProjects;
       }
    },
 };

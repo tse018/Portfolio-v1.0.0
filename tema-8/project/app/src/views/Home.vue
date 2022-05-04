@@ -1,7 +1,9 @@
 <template>
    <main class="main-container" ref="scroll_container" @mousewheel="scrollX">
       <section class="main-container__section">
-         <LandingPage />
+         <div id="#">
+            <LandingPage />
+         </div>
       </section>
 
       <section class="main-container__section">

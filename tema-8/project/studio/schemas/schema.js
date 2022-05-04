@@ -1,10 +1,11 @@
 import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
+import about from './documents/about.js';
+import course from './documents/course.js';
 import education from './documents/education.js';
 import projects from './documents/projects.js';
 import techStack from './documents/techStack.js';
-import about from './documents/about.js';
 
 export default createSchema({
   name: 'default',
@@ -13,5 +14,6 @@ export default createSchema({
     education,
     techStack,
     about,
+    course
   ]),
 })

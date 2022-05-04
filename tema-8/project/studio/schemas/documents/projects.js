@@ -1,53 +1,69 @@
 export default {
-   title: 'Projects',
-   name: 'project',
-   type: 'document',
+   title: "Projects",
+   name: "project",
+   type: "document",
    fields: [
       {
-         title: 'Title',
-         name: 'title',
-         type: 'string',
+         title: "Title",
+         name: "title",
+         type: "string",
       },
       {
-         title: 'Slug',
-         name: 'slug',
-         type: 'slug',
+         title: "Slug",
+         name: "slug",
+         type: "slug",
          options: {
-            source: 'title',
+            source: "title",
          },
-         validation: Rule => Rule.required().error('Need to fill in this field for better SEO')
+         validation: (Rule) =>
+            Rule.required().error("Need to fill in this field for better SEO"),
       },
       {
-         title: 'Preview',
-         name: 'preview',
-         type: 'image',
+         title: "Preview",
+         name: "preview",
+         type: "image",
          options: {
-            hotspot: true // option to edit picture size in sanity 
+            hotspot: true, // option to edit picture size in sanity
          },
       },
       {
-         title: 'Description',
-         name: 'description',
-         type: 'text',
+         title: "Description",
+         name: "description",
+         type: "array",
+         of: [
+            {
+               type: "block",
+               marks: {
+                  decorators: [
+                     { title: "Strong", value: "strong" },
+                     { title: "Emphasis", value: "em" },
+                     { title: "Code", value: "code" },
+                     { title: "Highlight", value: "highlight" },
+                  ],
+               },
+            },
+         ],
       },
       {
-         title: 'Tech Stack',
-         name: 'techStack',
-         type: 'array',
-         of: [{
-            type: 'reference',
-            to: [{ type: 'tech'}]
-         }]
+         title: "Tech Stack",
+         name: "techStack",
+         type: "array",
+         of: [
+            {
+               type: "reference",
+               to: [{ type: "tech" }],
+            },
+         ],
       },
       {
-         title: 'Github',
-         name: 'github',
-         type: 'string',
+         title: "Github",
+         name: "github",
+         type: "string",
       },
       {
-         title: 'Netlify',
-         name: 'netlify',
-         type: 'string',
+         title: "Netlify",
+         name: "netlify",
+         type: "string",
       },
-   ]
-}
+   ],
+};

@@ -9,26 +9,22 @@ import Header from '../components/Header.vue';
 import Footer from '../components/Footer.vue';
 
 import sanityMixin from '../mixins/sanityMixin.js';
-import scrollToMixin from '../mixins/scrollToMixin.js';
 import seoMixin from '../mixins/seoMixin.js';
-
-import query from '../groq/portfolio.groq?raw';
 
 export default {
    mixins: [
       sanityMixin,
-      scrollToMixin,
       seoMixin,
    ],
    
    async created() {
-      await this.sanityFetchPortfolio(query);
+      this.fetchSanity();
 
       this.metaTags({
          title: 'Thanushan Sellathurai Portfolio',
 		});
    },
-
+   
 	components: {
       Header, 
       Footer 
