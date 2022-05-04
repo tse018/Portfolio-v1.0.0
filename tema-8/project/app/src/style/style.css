@@ -10,20 +10,19 @@ body {
       font-size: var(--mobile-font-size-default);
       margin: var(--margin-mobile);
    }
-   
+
    h1 {
       font-size: var(--mobile-font-size-title);
       font-weight: var(--font-weigth-bold);
    }
-   
+
    h2 {
       font-size: var(--mobile-font-size-undertitle);
    }
-   
+
    h3 {
       font-size: var(--mobile-font-size-secondary-undertitle);
    }
-   
 }
 
 /* Tablet */
@@ -31,16 +30,16 @@ body {
    body {
       font-size: var(--tablet-font-size-default);
    }
-   
+
    h1 {
       font-size: var(--tablet-font-size-title);
       font-weight: var(--font-weigth-bold);
    }
-   
+
    h2 {
       font-size: var(--tablet-font-size-undertitle);
    }
-   
+
    h3 {
       font-size: var(--tablet-font-size-secondary-undertitle);
    }
@@ -51,16 +50,16 @@ body {
    body {
       font-size: var(--desktop-font-size-default);
    }
-   
+
    h1 {
       font-size: var(--desktop-font-size-title);
       font-weight: var(--font-weigth-bold);
    }
-   
+
    h2 {
       font-size: var(--desktop-font-size-undertitle);
    }
-   
+
    h3 {
       font-size: var(--desktop-font-size-secondary-undertitle);
    }

@@ -1,7 +1,9 @@
 <template>
    <main class="main-container" ref="scroll_container" @mousewheel="scrollX">
       <section class="main-container__section">
-         <LandingPage />
+         <div id="#">
+            <LandingPage />
+         </div>
       </section>
 
       <section class="main-container__section">
@@ -38,13 +40,7 @@ import Projects from "../components/Projects.vue";
 import Contact from "../components/Contact.vue";
 import Icons from "../components/Icons.vue";
 
-import scrollMixin from '../mixins/scrollTo.js';
-
 export default {
-   mixins: [
-      scrollMixin
-   ],
-
    components: {
       LandingPage,
       About,

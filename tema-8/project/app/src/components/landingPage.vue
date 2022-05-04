@@ -3,7 +3,7 @@
       <h1 class="section-introduction__name">
          THANUSHAN SELLATHURAI
       </h1>
-
+      
       <h2 class="section-introduction__work-title">
          FRONT-END DEVELOPER
       </h2>
@@ -25,22 +25,27 @@
 <script>
 import Icons from '../components/Icons.vue';
 
-import scrollMixin from '../mixins/scrollTo.js';
-
 export default {
-   mixins: [
-      scrollMixin
-   ],
-
    components: {
       Icons,
+   },
+
+   async created() {
+      await this.$store.dispatch('fectchSanityData');
+      this.$store.state.data;
+   },
+
+   computed: {
+      data() {
+         return this.$store.getters.getData;
+      }
    },
 
    methods: {
       scrollTo() {
          const element = document.getElementById('about');
          element.scrollIntoView({ behavior: 'smooth' });
-      }
+      },
    }
 }
 </script>

@@ -1,22 +1,6 @@
-import sanity from '../sanity.js';
-
 export default {
-	data() {
-		return {
-			loading: true,
-			result: null
-		}
-	},
-
-	methods: {
-		async sanityFetchAbout(query) {
-			this.result = await sanity.fetch(query);
-			this.$store.dispatch('addAboutContent', this.result);
-
-			this.loading = this.$store.getters.getError;
-		},
-
-		metaTags(meta) {
+   methods: {
+      metaTags(meta) {
 			const currentURL = window.location.origin + this.$route.path;
 			
 			if (meta.title) {
@@ -35,5 +19,5 @@ export default {
 			document.querySelector('link[rel="canonical"]').setAttribute('href', currentURL);
 			document.querySelector('meta[property="og:url"]').setAttribute('content', currentURL);
 		}
-	}
+   }
 }

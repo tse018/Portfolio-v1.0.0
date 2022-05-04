@@ -1,6 +1,6 @@
 <template>
    <Header />
-   <RouterView :key="$route.fullPath" />
+   <RouterView  />
    <Footer />
 </template>
 
@@ -8,13 +8,23 @@
 import Header from '../components/Header.vue';
 import Footer from '../components/Footer.vue';
 
-import mediaQuery from '../mixins/mediaQuery.js';
+import sanityMixin from '../mixins/sanityMixin.js';
+import seoMixin from '../mixins/seoMixin.js';
 
 export default {
    mixins: [
-      mediaQuery
+      sanityMixin,
+      seoMixin,
    ],
+   
+   async created() {
+      this.fetchSanity();
 
+      this.metaTags({
+         title: 'Thanushan Sellathurai Portfolio',
+		});
+   },
+   
 	components: {
       Header, 
       Footer 

@@ -16,7 +16,11 @@ export default {
       {
          title: 'Courses',
          name: 'courses',
-         type: 'string',
+         type: 'array',
+         of: [{
+            type: 'reference',
+            to: [{ type: 'course'}]
+         }]
       },
       {
          title: 'Start date',

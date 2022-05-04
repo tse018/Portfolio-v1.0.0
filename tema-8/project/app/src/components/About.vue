@@ -1,32 +1,71 @@
 <template>
-<div v-if="loading"> Loading...</div>
+   <div v-if="loading">
+      Error: {{ error }}
+   </div>
+
    <div v-else>
-      <section class="about-container">
-         <div v-for="content in about">
-            <h2 class="about-container__title">
-               {{ content }}
-            </h2>
-         </div>
+      <section class="about-container" v-for="content in about">
+         <h2 class="about-container__title">
+            {{ content.title }}
+         </h2>
+         <p class="about-container__introduction-field">
+            {{ content.introduction }}
+         </p>
+
+         <p class="about-container__professional-field">
+            {{ content.professional }}
+         </p>
+
+         <p class="about-container__education-field">
+            {{ content.education }}
+         </p>
+
+         <ul class="about-container__tech-elements" v-for="(tech, index) in techStack" :key="tech + index">
+            <li class="about-container__tech-element">
+               {{ tech.name }}
+            </li>
+         </ul>
+
+         <button class="button__rigth-arrow" @click="scrollToHome">
+            <Icons :icon="'rigth'" />
+         </button>
+
+         <button class="button__left-arrow" @click="scrollToEducation">
+            <Icons :icon="'left'" />
+         </button>
       </section>
    </div>
 </template>
 
 <script>
-import query from '../groq/about.groq?raw';
-import viewMixin from '../mixins/viewMixin.js';
+import Icons from "../components/Icons.vue";
 
 export default {
-   mixins: [ viewMixin ],
-   
-   async created() {
-      await this.sanityFetchAbout(query);
+   components: {
+      Icons,
    },
 
    computed: {
       about() {
-         return this.$store.getters.getAboutContent;
+         return this.$store.getters.getAbout;
       },
-   }
+
+      techStack() {
+         return this.$store.getters.getTech;
+      },
+   },
+
+   methods: {
+      scrollToEducation() {
+         const element = document.getElementById("education");
+         element.scrollIntoView({ behavior: "smooth" });
+      },
+
+      scrollToHome() {
+         const element = document.getElementById("#");
+         element.scrollIntoView({ behavior: "smooth" });
+      },
+   },
 };
 </script>
 
@@ -37,13 +76,47 @@ export default {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       gap: 20px;
-      border: 2px solid red;
    }
 
    .about-container__title {
-      border: 2px solid red;
-      grid-column: 5;
+      grid-column: 3 / 8;
+      grid-row: 1;
    }
 
+   .about-container__introduction-field {
+      grid-column: 2 / 8;
+      grid-row: 2;
+      font-size: 20px;
+   }
+
+   .about-container__professional-field {
+      grid-column: 2 / 8;
+      grid-row: 3;
+      font-size: 20px;
+   }
+
+   .about-container__education-field {
+      grid-column: 2 / 8;
+      grid-row: 4;
+      font-size: 20px;
+   }
+
+   /* animation */
+   .about-container__tech-element {
+      grid-column: 2;
+   }
+
+
+   .button__left-arrow {
+      grid-column: 12;
+      grid-row: 3;
+      margin-top: -25px; /* Need to fix */
+   }
+
+   .button__rigth-arrow {
+      grid-column: 1;
+      grid-row: 3;
+      margin-top: -50px;
+   }
 }
 </style>
