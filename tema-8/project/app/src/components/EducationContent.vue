@@ -1,22 +1,21 @@
 <template>
-   <div v-show="isActive">
-      <slot></slot>
+   <div v-for="item in education">
+
+         {{ item.institute }}
+
    </div>
 </template>
 
 <script>
 export default {
-   props: {
-      name: { required: true },
-      selected: { default: false },
-   },
-   data: () => {
-      return {
-         isActive: false,
-      };
-   },
-   mounted() {
-      this.isActive = this.selected;
-   },
-};
+   computed: {
+      education() {
+         return this.$store.getters.getEducation;
+      }
+   }
+}
 </script>
+
+<style>
+
+</style>

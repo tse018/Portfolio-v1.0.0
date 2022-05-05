@@ -1,5 +1,5 @@
 <template>
-
+   <Header />
    <RouterView  />
    <Footer />
 </template>
@@ -29,6 +29,10 @@ export default {
       Header, 
       Footer 
    },
+
+   methods: {
+      
+   }
 }
 </script>
 

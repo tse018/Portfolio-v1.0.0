@@ -7,7 +7,7 @@
       </section>
 
       <section class="main-container__section">
-         <div id="about">
+         <div ref='about' id="about">
             <About />
          </div>
       </section>
@@ -41,6 +41,7 @@ import Contact from "../components/Contact.vue";
 import Icons from "../components/Icons.vue";
 
 export default {
+
    components: {
       LandingPage,
       About,
@@ -49,18 +50,6 @@ export default {
       Contact,
       Icons,
    },
-
-   data() {
-      return {
-         selected: 'Home'
-      }
-   },
-
-   methods: {
-      setSelected(tab) {
-         this.selected = tab;
-      }
-   }
 };
 </script>
 
