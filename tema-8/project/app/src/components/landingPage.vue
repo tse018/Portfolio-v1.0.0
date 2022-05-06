@@ -185,7 +185,7 @@ export default {
 
    .section-introduction__github:hover,
    .section-introduction__github:focus {
-      box-shadow: inset 14em 0 0 0 var(--font-color-highligth);
+      box-shadow: inset 400px 0 0 0 var(--font-color-highligth);
       color: black;
    }
 

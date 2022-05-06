@@ -40,6 +40,7 @@ import Projects from "../components/Projects.vue";
 import Contact from "../components/Contact.vue";
 import Icons from "../components/Icons.vue";
 
+
 export default {
    components: {
       LandingPage,
@@ -86,9 +87,6 @@ export default {
 
 /* Desktop */
 @media screen and (min-width: 1200px) {
-
-
-
    .main-container {
       height: 100%;
       width: 500%;
@@ -102,7 +100,7 @@ export default {
    }
 
    .main-container__section--projects {
-      min-height: 1000px;
+      min-height: 100%;
       width: 100%;
       overflow: auto;
    }
