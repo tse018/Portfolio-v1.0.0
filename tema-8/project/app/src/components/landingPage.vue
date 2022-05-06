@@ -135,13 +135,14 @@ export default {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       gap: 20px;
-      margin-top: 100px;
+      
    }
 
    .section-introduction__name {
       grid-column: 2 / 12;
       grid-row: 3;
       padding: 20px;
+      margin-top: 100px;
    }
 
    .section-introduction__work-title {

@@ -44,13 +44,13 @@ export default {
 
 <style>
 .education-container{
-   margin-top: 100px;
    display: grid;
    grid-template-columns: repeat(12, 1fr);
    gap: 20px;
 }
 
 .education-container__title {
+   margin-top: 100px;
    grid-column: 5 / 9;
 }
 

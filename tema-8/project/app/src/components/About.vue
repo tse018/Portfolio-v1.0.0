@@ -1,5 +1,5 @@
 <template>
-   <div v-if="loading"> Error: {{ error }}</div>
+   <div v-if="loading">Error: {{ error }}</div>
 
    <div v-else>
       <section class="about-container" v-for="content in about">
@@ -25,7 +25,7 @@
                   </p>
                </div>
 
-               <button @click="readMore"> {{ buttonText }}</button>
+               <button @click="readMore">{{ buttonText }}</button>
             </article>
          </div>
 
@@ -40,11 +40,14 @@
             </ul>
          </div>
 
-         <button class="button__rigth-arrow" @click="scrollToHome">
+         <button class="about-container__button__rigth" @click="scrollToHome">
             <Icons :icon="'rigth'" />
          </button>
 
-         <button class="button__left-arrow" @click="scrollToEducation">
+         <button
+            class="about-container__button__left-arrow"
+            @click="scrollToEducation"
+         >
             <Icons :icon="'left'" />
          </button>
       </section>
@@ -52,16 +55,16 @@
 </template>
 
 <script>
-import sanityMixin from '../mixins/sanityMixin.js';
+import sanityMixin from "../mixins/sanityMixin.js";
 import Icons from "../components/Icons.vue";
 
 export default {
    mixins: [sanityMixin],
-   
+
    data() {
       return {
          readMoreClicked: false,
-      }
+      };
    },
 
    components: {
@@ -82,8 +85,8 @@ export default {
       },
 
       buttonText() {
-         return this.readMoreClicked ? 'Read Less' : 'Read more'; 
-      }
+         return this.readMoreClicked ? "Read Less" : "Read more";
+      },
    },
 
    methods: {
@@ -98,51 +101,27 @@ export default {
       },
 
       readMore() {
-         return this.readMoreClicked = !this.readMoreClicked;
-      }
+         return (this.readMoreClicked = !this.readMoreClicked);
+      },
    },
 };
 </script>
 
 <style scoped>
-@media screen and (min-width: 1200px) {
-   .about-container {
-      margin: 100px 0 0 0;
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 20px;
-   }
+.about-container {
+   display: flex;
+   flex-flow: row wrap;
+}
 
-   .about-container__introduction-container {
-      grid-column: 2 / 9;
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-   }
+.about-container__introduction-container {
+   margin: 100px 0 0 100px;
+   width: 85%;
+   height: 50%;
+   border: 2px solid red;
+}
 
-   .about-container__introduction-title {
-      grid-column: 2 / 12;
-   }
 
-   .about-container__introduction-field {
-      grid-column: 1 / 12;
-      position: relative;
-      font-size: var(--desktop-font-size-paragraph);
-   }
-
-   .about-container__tech-container {
-      grid-column: 9 / 11;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-   }
-
-   .about-container__tech-title {
-      grid-column: span 3;
-      text-align: center;
-      font-size: var(--desktop-font-size-secondary-undertitle);
-   }
-
-   .about-container__tech-animation {
+.about-container__tech-animation {
       position: relative;
       top: 20px;
       animation: rotation 10s linear infinite;
@@ -162,15 +141,4 @@ export default {
       }
    }
 
-   .button__left-arrow {
-      grid-column: 12;
-      grid-row: 1;
-      margin-top: -25px; /* Need to fix */
-   }
-
-   .button__rigth-arrow {
-      grid-column: 1;
-      grid-row: 1;
-   }
-}
 </style>

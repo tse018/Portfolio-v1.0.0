@@ -58,15 +58,16 @@ export default {
    .main-container {
       height: 100vh;
       width: 100vw;
-      overflow-x: scroll;
-      scroll-behavior: smooth;
-      scroll-snap-type: y mandatory;
    }
 
    .main-container__section {
       width: 100vw;
       height: 100vh;
-      scroll-snap-align: start;
+   }
+
+   .main-container__section {
+      width: 100vw;
+      height: 100vh;
    }
 }
 
@@ -75,36 +76,34 @@ export default {
    .main-container {
       height: 100vh;
       width: 100vw;
-      overflow-x: scroll;
-      scroll-behavior: smooth;
-      scroll-snap-type: y mandatory;
    }
 
    .main-container__section {
       width: 100vw;
       height: 100vh;
-      scroll-snap-align: start;
    }
 }
 
 /* Desktop */
 @media screen and (min-width: 1200px) {
+
+
+
    .main-container {
       height: 100%;
       width: 500%;
       display: flex;
-      overflow-x: hidden;
-      display: flex;
+      overflow-y: hidden;
    }
 
    .main-container__section {
-      height: 100vh;
-      width: 100vw;
+      height: 100%;
+      width: 100%;
    }
 
    .main-container__section--projects {
       min-height: 1000px;
-      width: 100vw;
+      width: 100%;
       overflow: auto;
    }
 }
