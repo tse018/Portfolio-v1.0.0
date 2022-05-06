@@ -3,7 +3,7 @@
       <h1 class="section-introduction__name" :style="style">
          THANUSHAN SELLATHURAI
       </h1>
-
+      
       <h2 class="section-introduction__work-title">
          FRONT-END DEVELOPER
       </h2>
@@ -63,7 +63,7 @@ export default {
 
          let x = e.offsetX;
          let y = e.offsetY;
-         
+
          if(this !== e.target) {
             x = x + e.target.offsetLeft;
             y = y + e.target.offsetTop;

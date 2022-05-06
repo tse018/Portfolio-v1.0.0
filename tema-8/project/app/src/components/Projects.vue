@@ -1,7 +1,9 @@
 <template>
-   <h2>
-      {{ projects }}
-   </h2>
+   <section class="projects-container">
+      <div v-for="project in projects.slice(0,3)">
+         {{ project.title }}
+      </div>
+   </section>
 </template>
 
 <script>
@@ -15,4 +17,12 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.projects-container {
+   margin-top: 100px;
+   border: 2px solid red;
+   display: grid;
+   grid-template-columns: repeat(12, 1fr);
+   gap: 20px;
+}
+</style>

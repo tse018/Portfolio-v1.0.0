@@ -29,6 +29,10 @@ export default {
       Header, 
       Footer 
    },
+
+   methods: {
+      
+   }
 }
 </script>
 
