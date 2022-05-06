@@ -1,7 +1,6 @@
 <template>
    <section ref="container" @mousemove="mouseMove" class="section-introduction">
-      <h1 class="section-introduction__name" :style="{style}">
-         {{ style }}
+      <h1 class="section-introduction__name" :style="style">
          THANUSHAN SELLATHURAI
       </h1>
 
@@ -33,6 +32,7 @@ export default {
       };
    },
 
+
    components: {
       Icons,
    },
@@ -44,8 +44,7 @@ export default {
 
       style() {
          return {
-            textShadow: `'${this.xWalk}px' + ${this.yWalk}px + #FFFFF'`
-         
+            textShadow: `${this.xWalk}px ${this.yWalk}px var(--font-shadow-effect)`,
          }
       },
    },
@@ -57,24 +56,21 @@ export default {
       },
 
       mouseMove(e) {
+         /* https://stackoverflow.com/questions/21064101/understanding-offsetwidth-clientwidth-scrollwidth-and-height-respectively */
+
          const width = this.$refs['container'].offsetWidth;
          const heigth = this.$refs['container'].offsetHeight;
 
          let x = e.offsetX;
          let y = e.offsetY;
-         //console.log(x, y)
          
          if(this !== e.target) {
             x = x + e.target.offsetLeft;
             y = y + e.target.offsetTop;
-            //console.log(x,y)
          }
 
          this.xWalk= Math.round((x / width * this.walk) - (this.walk / 2));
          this.yWalk = Math.round((y / heigth * this.walk) - (this.walk / 2));
-         console.log(this.xWalk, this.yWalk)
-         //console.log(this.xWalk)
-         //console.log(this.yWalk)
       },
    },
 };
