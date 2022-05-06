@@ -9,6 +9,8 @@
 	--font-color-highligth: #64ffda;
 	--font-shadow-effect: #14011dbe;
 
+	
+
 	/* body margin */
 	--margin-mobile: 30px 0 0 0;
 
@@ -27,8 +29,10 @@
 	/* Desktop font-sizes */
 	--desktop-font-size-title: 80px;
 	--desktop-font-size-undertitle: 50px;
-	--desktop-font-size-secondary-undertitle: 42px;
+	--desktop-font-size-secondary-undertitle: 40px;
 	--desktop-font-size-default: 28px;
+	--desktop-font-size-paragraph: 25px;
+	--desktop-font-size-animation: 22px;
 
 	/* font-weigth */
 	--font-weigth-bold: 800;
