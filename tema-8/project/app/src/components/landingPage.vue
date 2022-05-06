@@ -1,11 +1,9 @@
 <template>
-   <section @mousemove="mouseMove" class="section-introduction">
-      <h1 class="section-introduction__name" :style="{ textShadow: `${xWalk}px ${yWalk}px #14011dbe` }">
+   <section ref="container" @mousemove="mouseMove" class="section-introduction">
+      <h1 class="section-introduction__name" :style="style">
          THANUSHAN SELLATHURAI
       </h1>
-
-      {{ style }}
-
+      
       <h2 class="section-introduction__work-title">
          FRONT-END DEVELOPER
       </h2>
@@ -29,14 +27,11 @@ export default {
    data() {
       return {
          walk: 100,
-         offsetWidth: 0,
-         offsetHeigth: 0,
-         offsetX: 0,
-         offsetY: 0,
-         xWalk: 0,
-         yWalk: 0,
+         xWalk: null,
+         yWalk: null,
       };
    },
+
 
    components: {
       Icons,
@@ -49,7 +44,7 @@ export default {
 
       style() {
          return {
-            
+            textShadow: `${this.xWalk}px ${this.yWalk}px var(--font-shadow-effect)`,
          }
       },
    },
@@ -61,8 +56,10 @@ export default {
       },
 
       mouseMove(e) {
-         const width = this.offsetWidth;
-         const heigth = this.offsetHeigth;
+         /* https://stackoverflow.com/questions/21064101/understanding-offsetwidth-clientwidth-scrollwidth-and-height-respectively */
+
+         const width = this.$refs['container'].offsetWidth;
+         const heigth = this.$refs['container'].offsetHeight;
 
          let x = e.offsetX;
          let y = e.offsetY;
