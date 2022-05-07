@@ -257,7 +257,7 @@ export default {
       color: var(--font-color-highligth);
       text-align: center;
       padding: 20px;
-      max-height: 100px;
+      min-height: 100px;
       transition: 0.5s;
       text-align: center;
       text-decoration: none;
