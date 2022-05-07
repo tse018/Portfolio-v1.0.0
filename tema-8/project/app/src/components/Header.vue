@@ -60,7 +60,7 @@ export default {
 
 <style scoped>
 /* Mobile */
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1999px) {
    .header-container {
       position: fixed;
       width: 100%;
@@ -82,7 +82,7 @@ export default {
 }
 
 /* desktop */
-@media screen and (min-width: 981px ) {
+@media screen and (min-width: 1200px ) {
    .header-container {
       position: fixed;
       width: 100%;

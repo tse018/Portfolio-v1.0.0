@@ -2,8 +2,6 @@ body {
    background: var(--background-primary);
    color: var(--font-color-primary);
    font-weight: var(--font-weigth-default);
-   height: 100%;
-   width: 100%;
 }
 
 /* Mobile */
@@ -28,7 +26,26 @@ body {
 }
 
 /* Tablet */
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 601px) and (max-width: 980px) {
+   body {
+      font-size: var(--tablet-font-size-default);
+   }
+
+   h1 {
+      font-size: var(--tablet-font-size-title);
+      font-weight: var(--font-weigth-bold);
+   }
+
+   h2 {
+      font-size: var(--tablet-font-size-undertitle);
+   }
+
+   h3 {
+      font-size: var(--tablet-font-size-secondary-undertitle);
+   }
+}
+
+@media screen and (min-width: 981) and (max-width: 1200px) {
    body {
       font-size: var(--tablet-font-size-default);
    }
