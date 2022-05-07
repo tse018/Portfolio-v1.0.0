@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style scoped>
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 980px) {
    .mobile-toggle {
       z-index: 100;
    }
@@ -79,34 +79,7 @@ export default {
    }
 }
 
-@media screen and (min-width: 601px) {
-   .mobile-toggle {
-      z-index: 100;
-   }
-
-   .mobile-toggle__container{
-      position: absolute;
-      width: 70%;
-      height: 95vh;
-      top: 0;
-      right: 0;
-      background-color: transparent;
-   }
-
-   .mobile-toggle__container-elements {
-      width: 100%;
-      height: 100%;
-      z-index: 100;
-      text-align: center;
-      padding: 10px 0 0 0;
-   }
-
-   .mobile-toggle__container-element {
-      margin-top: 50px;
-   }
-}
-
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 981px) {
    .mobile-toggle {
       z-index: 100;
       margin: 20px 20px 0 0;

@@ -60,7 +60,7 @@ export default {
 
 <style scoped>
 /* Mobile */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 980px) {
    .header-container {
       position: fixed;
       width: 100%;
@@ -81,28 +81,8 @@ export default {
    }
 }
 
-@media screen and (min-width: 601px) {
-   .header-container {
-      position: fixed;
-      width: 100%;
-   }
-
-   .header-container__logo-image {
-      margin: 25px 0 0 20px;
-   }
-
-   .header-container__navbar-element--mobile {
-      display: flex;
-      justify-content: end;
-      margin: -50px 10px 0 0;
-   }
-
-   .header-container__navbar-element {
-      display: none;
-   }
-}
-
-@media screen and (min-width: 1200px ) {
+/* desktop */
+@media screen and (min-width: 981px ) {
    .header-container {
       position: fixed;
       width: 100%;

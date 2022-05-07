@@ -77,65 +77,95 @@ export default {
 </script>
 
 <style scoped>
-/* Mobile */
+/* Mobile 0 - 600px */
 @media screen and (max-width: 600px) {
    .section-introduction {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 20px;
+      width: 100%;
+      margin-bottom: 40px;
    }
 
    .section-introduction__name {
-      grid-column: 1 / 5;
-      grid-row: 5;
-      margin: 0 0 0 25px;
+      grid-column: span 3;
+      text-align: center;
+      padding: 20px;
+      min-height: 100px;
+      margin: 100px 0 0 0px;
    }
 
    .section-introduction__work-title {
-      grid-column: 1 / 5;
-      grid-row: 6;
-      margin: -45px 0 0 30px;
+      grid-column: span 4;
+      text-align: left;
+      padding: 20px;
+      min-height: 100px;
+      margin: -50px 0 0 0;
    }
+
+   .section-introduction__github {
+      grid-column: span 3;
+      text-align: left;
+      padding: 20px;
+      margin: 0 20;
+      min-height: 50px;
+      border: 2px solid var(--font-color-highligth);
+      color: var(--font-color-highligth);
+      text-align: center;
+      text-decoration: none;
+      transition: 0.5s;
+   }
+
+   .section-introduction__github:hover,
+   .section-introduction__github:focus {
+      box-shadow: inset 400px 0 0 var(--font-color-highligth);
+      color: black;
+
+   }
+
 
    .section-introduction__portfolio {
       grid-column: 3;
-      grid-row: 20;
+      order: 1;
+      text-align: center;
+      padding: 20px;
+      min-height: 100px;
+      margin: 100px -60px 0 0;
+      animation: color-change 3s infinite;
+   }
+
+   @keyframes color-change {
+      0% {
+         color: white;
+      }
+      50% {
+         color: red;
+      }
+      100% {
+         color: aqua;
+      }
+   }
+
+   .section-introduction__left-arrow {
+      display: none;
    }
 }
 
-/* Tablet */
-@media screen and (min-width: 600px) {
-   .section-introduction {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-   }
-
-   .section-introduction__name {
-      grid-column: 1 / 5;
-      grid-row: 5;
-      margin: 0 0 0 25px;
-   }
-
-   .section-introduction__work-title {
-      grid-column: 1 / 5;
-      grid-row: 6;
-      margin: -45px 0 0 30px;
-   }
-
-   .section-introduction__portfolio {
-      grid-column: 3;
-      grid-row: 20;
-   }
-}
-
-/* Desktop */
-@media screen and (min-width: 1200px) {
+/* tablet 601px - 980px */
+@media screen and (min-width: 601px) {
    .section-introduction {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       gap: 20px;
-      
+   }
+}
+
+/* Desktop from 981px and higher  */
+@media screen and (min-width: 981px) {
+   .section-introduction {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
    }
 
    .section-introduction__name {
@@ -146,7 +176,7 @@ export default {
    }
 
    .section-introduction__work-title {
-      grid-column: 2 / 13;
+      grid-column: 2 / 12;
       grid-row: 4;
       padding: 20px;
       margin: -100px 0 0 40px;
@@ -154,7 +184,7 @@ export default {
 
    .section-introduction__portfolio {
       grid-column: 11;
-      grid-row: 8;
+      grid-row: 12;
       animation: color-change 3s infinite;
       font-size: var(--desktop-font-size-undertitle);
    }
@@ -172,7 +202,7 @@ export default {
    }
 
    .section-introduction__github {
-      grid-column: 3 / 7;
+      grid-column: 3 / 6;
       grid-row: 5;
       border: 2px solid var(--font-color-highligth);
       height: 100px;
