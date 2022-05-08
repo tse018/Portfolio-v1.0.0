@@ -105,10 +105,10 @@ export default {
    }
 
    .section-introduction__github {
-      grid-column: span 3;
-      text-align: left;
+      grid-column: 1 / span 4;
+      text-align: center;
       padding: 20px;
-      margin: 0 20;
+      margin: 0 100px;
       min-height: 50px;
       border: 2px solid var(--font-color-highligth);
       color: var(--font-color-highligth);
