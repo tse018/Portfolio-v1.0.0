@@ -1,7 +1,7 @@
 <template>
    <section ref="container" @mousemove="mouseMove" class="section-introduction">
-      <h1 class="section-introduction__name" :style="style">
-         THANUSHAN SELLATHURAI
+      <h1 class="section-introduction__name" :style="textShadow, opacity">
+         THANUSHAN SELLATHURAI 
       </h1>
 
       <h2 class="section-introduction__work-title">
@@ -42,12 +42,13 @@ export default {
          return this.$store.getters.getData;
       },
 
-      style() {
+      textShadow() {
          return {
             textShadow: `${this.xWalk}px ${this.yWalk}px var(--font-shadow-effect)`,
-         }
+         };
       },
    },
+
 
    methods: {
       scrollTo() {
@@ -92,12 +93,12 @@ export default {
       text-align: center;
       padding: 20px;
       min-height: 100px;
-      margin: 100px 0 0 0px;
+      margin: 100px 50px 0 50px;
    }
 
    .section-introduction__work-title {
       grid-column: span 4;
-      text-align: left;
+      text-align: center;
       padding: 20px;
       min-height: 100px;
       margin: -50px 0 0 0;
@@ -128,7 +129,7 @@ export default {
       text-align: center;
       padding: 20px;
       min-height: 100px;
-      margin: 100px -60px 0 0;
+      margin: 80px -60px 0 0;
       animation: color-change 3s infinite;
    }
 
@@ -271,12 +272,7 @@ export default {
    }
 
    .section-introduction__left-arrow {
-      display: block;
-      position: absolute;
-      bottom: 30%;
-      left: 50%;
-      right: 50%;
-      transform: rotate(90deg);
+      display: none;
    }
 
    .section-introduction__portfolio {

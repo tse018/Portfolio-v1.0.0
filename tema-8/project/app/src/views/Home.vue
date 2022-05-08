@@ -40,8 +40,12 @@ import Projects from "../components/Projects.vue";
 import Contact from "../components/Contact.vue";
 import Icons from "../components/Icons.vue";
 
+import scrollToMixin from '../mixins/scrollToMixin.js';
+
 
 export default {
+   //mixins: [scrollToMixin],
+
    components: {
       LandingPage,
       About,
@@ -63,14 +67,10 @@ export default {
    }
 
    .main-container__section {
-      width: 100vw;
-      height: 100vh;
+      min-width: 100vw;
+      min-height: 100vh;
    }
 
-   .main-container__section {
-      width: 100vw;
-      height: 100vh;
-   }
 }
 
 /* Tablet */
@@ -78,6 +78,7 @@ export default {
    .main-container {
       height: 100vh;
       width: 100vw;
+      overflow-x: hidden;
    }
 
    .main-container__section {

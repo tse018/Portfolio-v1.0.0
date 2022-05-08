@@ -11,31 +11,31 @@
             </li>
 
             <li class="header-container__navbar-element">
-               <a href="/">
+               <a href="#">
                   Home
                </a>
             </li>
 
             <li class="header-container__navbar-element">
-               <a href="/about">
+               <a href="#about">
                   About
                </a>
             </li>
 
             <li class="header-container__navbar-element">
-               <a href="/education">
+               <a href="#education">
                   Education
                </a>
             </li>
 
             <li class="header-container__navbar-element">
-               <a href="/projects">
+               <a href="#projects">
                   Projects
                </a>
             </li>
 
             <li class="header-container__navbar-element">
-               <a href="/contact">
+               <a href="#contact">
                   Contact
                </a>
             </li>
