@@ -25,7 +25,7 @@
       </section>
 
       <section class="main-container__section">
-         <div id="contact">
+         <div id="/contact">
             <Contact />
          </div>
       </section>
@@ -40,11 +40,10 @@ import Projects from "../components/Projects.vue";
 import Contact from "../components/Contact.vue";
 import Icons from "../components/Icons.vue";
 
-import scrollToMixin from '../mixins/scrollToMixin.js';
-
+import sectionParamsMixin from '../mixins/sectionParamsMixin.js';
 
 export default {
-   //mixins: [scrollToMixin],
+   //mixins: [sectionParamsMixin],
 
    components: {
       LandingPage,

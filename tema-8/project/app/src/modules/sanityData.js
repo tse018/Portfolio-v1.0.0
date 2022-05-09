@@ -1,5 +1,5 @@
 import sanity from "../sanity.js";
-import query from "../groq/portfolio.groq?raw";
+import query from "../groq/bigSanityFetch.groq?raw";
 
 export default {
    state() {

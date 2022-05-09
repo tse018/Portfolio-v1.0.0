@@ -1,14 +1,13 @@
 <template>
-   <section ref="container" @mousemove="mouseMove" class="section-introduction">
-      <h1 class="section-introduction__name" :style="textShadow, opacity">
-         THANUSHAN SELLATHURAI 
+   <section
+      ref="text-shadow" @mousemove="mouseMove" class="section-introduction">
+      <h1 class="section-introduction__name" :style="textShadow">
+         THANUSHAN SELLATHURAI
       </h1>
 
       <h2 class="section-introduction__work-title">
          FRONT-END DEVELOPER
       </h2>
-
-      <h2 class="section-introduction__portfolio">PORTFOLIO</h2>
 
       <a href="https://github.com/tse018" target="_blank" class="section-introduction__github">
          Check out my Github!
@@ -32,7 +31,6 @@ export default {
       };
    },
 
-
    components: {
       Icons,
    },
@@ -44,13 +42,15 @@ export default {
 
       textShadow() {
          return {
-            textShadow: `${this.xWalk}px ${this.yWalk}px var(--font-shadow-effect)`,
+            // why variable color interfere when hovering arrow?
+            // other colors doesn´t............
+            textShadow: `${this.xWalk}px ${this.yWalk}px black`,
          };
       },
    },
 
-
    methods: {
+      // need to create utility function for those clickable buttons to next section
       scrollTo() {
          const element = document.getElementById("about");
          element.scrollIntoView({ behavior: "smooth" });
@@ -59,19 +59,23 @@ export default {
       mouseMove(e) {
          /* https://stackoverflow.com/questions/21064101/understanding-offsetwidth-clientwidth-scrollwidth-and-height-respectively */
 
-         const width = this.$refs['container'].offsetWidth;
-         const heigth = this.$refs['container'].offsetHeight;
+         // getting width and heigth from section container
+         const width = this.$refs["text-shadow"].offsetWidth;
+         const heigth = this.$refs["text-shadow"].offsetHeight;
 
+         // getting mouseposistion from X and Y
          let x = e.offsetX;
          let y = e.offsetY;
-         
-         if(this !== e.target) {
+
+         // can use globalThis, this or window to compare mouse location to the browser posistion
+         if (globalThis !== e.target) {
             x = x + e.target.offsetLeft;
             y = y + e.target.offsetTop;
          }
 
-         this.xWalk= Math.round((x / width * this.walk) - (this.walk / 2));
-         this.yWalk = Math.round((y / heigth * this.walk) - (this.walk / 2));
+         // rounding up to whole number, and calculating how much text shadow will mouse based on the mouse location
+         this.xWalk = Math.round((x / width) * this.walk - this.walk / 2);
+         this.yWalk = Math.round((y / heigth) * this.walk - this.walk / 2);
       },
    },
 };
@@ -102,6 +106,19 @@ export default {
       padding: 20px;
       min-height: 100px;
       margin: -50px 0 0 0;
+      animation: color-change 3s infinite;
+   }
+
+   @keyframes color-change {
+      0% {
+         color: white;
+      }
+      50% {
+         color: red;
+      }
+      100% {
+         color: aqua;
+      }
    }
 
    .section-introduction__github {
@@ -123,35 +140,13 @@ export default {
       color: black;
    }
 
-   .section-introduction__portfolio {
-      grid-column: 3;
-      order: 1;
-      text-align: center;
-      padding: 20px;
-      min-height: 100px;
-      margin: 80px -60px 0 0;
-      animation: color-change 3s infinite;
-   }
-
-   @keyframes color-change {
-      0% {
-         color: white;
-      }
-      50% {
-         color: red;
-      }
-      100% {
-         color: aqua;
-      }
-   }
-
    .section-introduction__left-arrow {
       display: none;
    }
 }
 
 /* tablet 601px - 960px */
-@media screen and (min-width:601px) and (max-width:980px){
+@media screen and (min-width: 601px) and (max-width: 980px) {
    .section-introduction {
       display: grid;
       grid-template-columns: repeat(8, 1fr);
@@ -175,6 +170,19 @@ export default {
       padding: 20px;
       min-height: 100px;
       margin: -50px 0 0 0;
+      animation: color-change 3s infinite;
+   }
+
+   @keyframes color-change {
+      0% {
+         color: white;
+      }
+      50% {
+         color: red;
+      }
+      100% {
+         color: aqua;
+      }
    }
 
    .section-introduction__github {
@@ -194,30 +202,6 @@ export default {
    .section-introduction__github:focus {
       box-shadow: inset 400px 0 0 var(--font-color-highligth);
       color: black;
-   }
-
-   .section-introduction__portfolio {
-      grid-column: 6;
-      order: 1;
-      grid-row: 4;
-      margin-top: 100px;
-      text-align: center;
-      padding: 20px;
-      min-height: 100px;
-      margin: 60px -100px 0 0;
-      animation: color-change 3s infinite;
-   }
-
-   @keyframes color-change {
-      0% {
-         color: white;
-      }
-      50% {
-         color: red;
-      }
-      100% {
-         color: aqua;
-      }
    }
 
    .section-introduction__left-arrow {
@@ -250,6 +234,19 @@ export default {
       min-height: 100px;
       margin: -80px 0 0 80px;
       font-size: var(--desktop-font-size-undertitle);
+      animation: color-change 3s infinite;
+   }
+
+   @keyframes color-change {
+      0% {
+         color: white;
+      }
+      50% {
+         color: red;
+      }
+      100% {
+         color: aqua;
+      }
    }
 
    .section-introduction__github {
@@ -273,30 +270,6 @@ export default {
 
    .section-introduction__left-arrow {
       display: none;
-   }
-
-   .section-introduction__portfolio {
-      grid-column: 12;
-      order: 1;
-      grid-row: 4;
-      margin-top: 100px;
-      text-align: center;
-      padding: 20px;
-      min-height: 100px;
-      animation: color-change 3s infinite;
-      font-size: var(--desktop-font-size-undertitle);
-   }
-
-   @keyframes color-change {
-      0% {
-         color: white;
-      }
-      50% {
-         color: red;
-      }
-      100% {
-         color: aqua;
-      }
    }
 }
 
@@ -323,6 +296,7 @@ export default {
       padding: 20px;
       min-height: 100px;
       margin: -80px 0 0 -250px;
+      animation: color-change 3s infinite;
    }
 
    .section-introduction__github {
@@ -349,17 +323,6 @@ export default {
       position: absolute;
       right: 0;
       top: 50%;
-   }
-
-   .section-introduction__portfolio {
-      grid-column: 11;
-      grid-row: 4;
-      order: 1;
-      text-align: center;
-      padding: 20px;
-      min-height: 100px;
-      animation: color-change 3s infinite;
-      font-size: var(--desktop-font-size-undertitle);
    }
 
    @keyframes color-change {

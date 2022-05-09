@@ -11,7 +11,7 @@
             </li>
 
             <li class="header-container__navbar-element">
-               <a href="#">
+               <a href="/">
                   Home
                </a>
             </li>
@@ -29,7 +29,7 @@
             </li>
 
             <li class="header-container__navbar-element">
-               <a href="#projects">
+               <a href="projects">
                   Projects
                </a>
             </li>
@@ -108,5 +108,9 @@ export default {
    .header-container__navbar-element--mobile {
       display: none;
    }
+
+
+
+   
 }
 </style>

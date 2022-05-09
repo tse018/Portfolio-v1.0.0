@@ -32,10 +32,7 @@
          </div>
 
          <div class="about-container__tech-container">
-            <ul
-               class="about-container__tech-animation"
-               v-for="(tech, index) in techStack"
-            >
+            <ul class="about-container__tech-animation" v-for="(tech, index) in techStack">
                <li class="about-container__tech-element">
                   {{ tech.name }}
                </li>
@@ -46,10 +43,7 @@
             <Icons :icon="'rigth'" />
          </button>
 
-         <button
-            class="about-container__button-left"
-            @click="scrollToEducation"
-         >
+         <button class="about-container__button-left" @click="scrollToEducation">
             <Icons :icon="'left'" />
          </button>
       </section>
@@ -67,6 +61,12 @@ export default {
       return {
          readMoreClicked: false,
       };
+   },
+
+   created() {
+      this.article = this.$store.getters.getAbout.find((article) => {
+         article._type === this.$route.params.id
+      })
    },
 
    components: {
@@ -160,24 +160,6 @@ export default {
       flex-wrap: wrap;
    }
 
-   .about-container__tech-animation {
-      animation: rotation 10s linear infinite;
-      width: 100px;
-      font-size: var(--desktop-font-size-animation);
-   }
-
-   /* stops the animation when hovering the element */
-   .about-container__tech-animation:hover {
-      animation-play-state: paused;
-      cursor: wait;
-   }
-
-   @keyframes rotation {
-      100% {
-         transform: rotate(360deg) rotateY(360deg) rotateX(360deg);
-      }
-   }
-
    .about-container__tech-element {
       margin: 10px;
    }
@@ -255,24 +237,6 @@ export default {
       height: 100%;
       display: flex;
       flex-wrap: wrap;
-   }
-
-   .about-container__tech-animation {
-      animation: rotation 10s linear infinite;
-      width: 100px;
-      font-size: var(--desktop-font-size-animation);
-   }
-
-   /* stops the animation when hovering the element */
-   .about-container__tech-animation:hover {
-      animation-play-state: paused;
-      cursor: wait;
-   }
-
-   @keyframes rotation {
-      100% {
-         transform: rotate(360deg) rotateY(360deg) rotateX(360deg);
-      }
    }
 
    .about-container__tech-element {
@@ -353,26 +317,6 @@ export default {
       display: flex;
       flex-wrap: wrap;
       margin: 50px;
-   }
-
-   .about-container__tech-animation {
-      position: relative;
-      top: 20px;
-      animation: rotation 10s linear infinite;
-      width: 100px;
-      font-size: var(--desktop-font-size-animation);
-   }
-
-   /* stops the animation when hovering the element */
-   .about-container__tech-animation:hover {
-      animation-play-state: paused;
-      cursor: wait;
-   }
-
-   @keyframes rotation {
-      100% {
-         transform: rotate(360deg) rotateY(360deg) rotateX(360deg);
-      }
    }
 
    .about-container__tech-element {
@@ -467,18 +411,6 @@ export default {
       animation: rotation 10s linear infinite;
       width: 100px;
       font-size: var(--desktop-font-size-animation);
-   }
-
-   /* stops the animation when hovering the element */
-   .about-container__tech-animation:hover {
-      animation-play-state: paused;
-      cursor: wait;
-   }
-
-   @keyframes rotation {
-      100% {
-         transform: rotate(360deg) rotateY(360deg) rotateX(360deg);
-      }
    }
 
    .about-container__tech-element {
