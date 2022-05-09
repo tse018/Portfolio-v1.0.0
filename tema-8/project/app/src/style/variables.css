@@ -19,16 +19,19 @@
 	--mobile-font-size-default: 22px;
 
 	/* Tablet font-sizes */
-	--tablet-font-size-title: 66px;
+	--tablet-font-size-title: 50px;
 	--tablet-font-size-undertitle: 40px;
 	--tablet-font-size-secondary-undertitle: 32px;
+	--tablet-font-size-footer: 28px;
 	--tablet-font-size-default: 24px;
 
 	/* Desktop font-sizes */
 	--desktop-font-size-title: 80px;
 	--desktop-font-size-undertitle: 50px;
-	--desktop-font-size-secondary-undertitle: 42px;
+	--desktop-font-size-secondary-undertitle: 40px;
 	--desktop-font-size-default: 28px;
+	--desktop-font-size-paragraph: 25px;
+	--desktop-font-size-animation: 22px;
 
 	/* font-weigth */
 	--font-weigth-bold: 800;

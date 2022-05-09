@@ -7,18 +7,15 @@
 </template>
 
 <script>
-export default {
-
-}
 </script>
 
 <style>
 .footer-container {
   position: fixed;
-  bottom:0;
-  width:100%;
-  height:60px;   /* Height of the footer */
-  background:#6cf;
+  bottom: 0;
+  width: 100%;
+  height: 60px;   /* Height of the footer */
+  background: #6cf;
 }
 
 .footer-container__content {
@@ -26,4 +23,9 @@ export default {
   text-align: center;
 }
 
+@media screen and (min-width: 981px) and (max-width: 1200px) {
+  .footer-container__content {
+    font-size: var(--tablet-font-size-footer);
+  }
+}
 </style>

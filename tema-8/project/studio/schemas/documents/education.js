@@ -14,13 +14,24 @@ export default {
          type: 'string',
       },
       {
-         title: 'Courses',
-         name: 'courses',
-         type: 'array',
-         of: [{
-            type: 'reference',
-            to: [{ type: 'course'}]
-         }]
+         title: "Description",
+         name: "description",
+         description:
+            "description about this course",
+         type: "array",
+         of: [
+            {
+               type: "block",
+               marks: {
+                  decorators: [
+                     { title: "Strong", value: "strong" },
+                     { title: "Emphasis", value: "em" },
+                     { title: "Code", value: "code" },
+                     { title: "Highlight", value: "highlight" },
+                  ],
+               },
+            },
+         ],
       },
       {
          title: 'Start date',

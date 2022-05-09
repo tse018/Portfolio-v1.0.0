@@ -25,7 +25,7 @@
       </section>
 
       <section class="main-container__section">
-         <div id="contact">
+         <div id="/contact">
             <Contact />
          </div>
       </section>
@@ -40,7 +40,11 @@ import Projects from "../components/Projects.vue";
 import Contact from "../components/Contact.vue";
 import Icons from "../components/Icons.vue";
 
+import sectionParamsMixin from '../mixins/sectionParamsMixin.js';
+
 export default {
+   //mixins: [sectionParamsMixin],
+
    components: {
       LandingPage,
       About,
@@ -58,16 +62,14 @@ export default {
    .main-container {
       height: 100vh;
       width: 100vw;
-      overflow-x: scroll;
-      scroll-behavior: smooth;
-      scroll-snap-type: y mandatory;
+      overflow-x: hidden;
    }
 
    .main-container__section {
-      width: 100vw;
-      height: 100vh;
-      scroll-snap-align: start;
+      min-width: 100vw;
+      min-height: 100vh;
    }
+
 }
 
 /* Tablet */
@@ -75,15 +77,12 @@ export default {
    .main-container {
       height: 100vh;
       width: 100vw;
-      overflow-x: scroll;
-      scroll-behavior: smooth;
-      scroll-snap-type: y mandatory;
+      overflow-x: hidden;
    }
 
    .main-container__section {
       width: 100vw;
       height: 100vh;
-      scroll-snap-align: start;
    }
 }
 
@@ -93,18 +92,17 @@ export default {
       height: 100%;
       width: 500%;
       display: flex;
-      overflow-x: hidden;
-      display: flex;
+      overflow-y: hidden;
    }
 
    .main-container__section {
-      height: 100vh;
-      width: 100vw;
+      height: 100%;
+      width: 100%;
    }
 
    .main-container__section--projects {
-      min-height: 1000px;
-      width: 100vw;
+      min-height: 100%;
+      width: 100%;
       overflow: auto;
    }
 }
