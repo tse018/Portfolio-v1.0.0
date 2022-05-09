@@ -250,7 +250,7 @@ export default {
    }
 
    .section-introduction__github {
-      grid-column: 6 / 12;
+      grid-column: 4 / 10;
       border: 2px solid var(--font-color-highligth);
       color: var(--font-color-highligth);
       text-align: center;
@@ -300,7 +300,7 @@ export default {
    }
 
    .section-introduction__github {
-      grid-column: 3 / span 4;
+      grid-column: 3 / span 3;
       margin-top: 100px;
       border: 2px solid var(--font-color-highligth);
       color: var(--font-color-highligth);
