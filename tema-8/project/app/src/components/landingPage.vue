@@ -68,7 +68,7 @@ export default {
          let y = e.offsetY;
 
          // can use globalThis, this or window to compare mouse location to the browser posistion
-         if (globalThis !== e.target) {
+         if (window !== e.target) {
             x = x + e.target.offsetLeft;
             y = y + e.target.offsetTop;
          }

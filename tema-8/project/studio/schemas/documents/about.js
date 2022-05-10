@@ -37,17 +37,6 @@ export default {
          ],
       },
       {
-         title: "Tech Stack",
-         name: "techStack",
-         type: "array",
-         of: [
-            {
-               type: "reference",
-               to: [{ type: "tech" }],
-            },
-         ],
-      },
-      {
          title: "Photo",
          name: "photo",
          type: "image",

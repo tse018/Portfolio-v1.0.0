@@ -21,7 +21,6 @@
                      {{ content.introduction[1].children[0].text }}
                      <br />
                      <br />
-                     {{ content.introduction[2].children[0].text }}
                   </p>
                </div>
 
@@ -125,7 +124,7 @@ export default {
       text-align: center;
    }
 
-   .about-container__introction-scroll {
+   .about-container__introduction-scroll {
       height: 100px;
       overflow: scroll;
    }

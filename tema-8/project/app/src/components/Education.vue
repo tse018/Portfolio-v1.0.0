@@ -1,21 +1,21 @@
 <template>
    <section class="education-container">
       <h2 class="education-container__title">
-         {{ title }}
+         Where have I studied
       </h2>
 
-      <div class="education-container__content-container">
-         <div class="education-container__tabs-container">
-            <ul class="education-container__tabs-elements">
-               <li class="education-container__tabs-element" v-for="school in education">
-                  {{ school.institute}}
+      <div class="education-container__tabs-container" v-for="school in education">
+         <div class="education-container__navigation-container">
+            <ul class="education-container__navigation-elements">
+               <li class="education-container__navigation-element">
+                  {{ school.institute }}
                </li>
             </ul>
          </div>
 
          <div class="education-container__tabs-content">
-            <p class="education-container__tabs-paragraph" v-for="content in education">
-               {{ content.description }}
+            <p class="education-container__tabs-paragraph" v-for="paragraph in school.description">
+               {{ paragraph.children[0].text }}
             </p>
          </div>
       </div>
@@ -26,7 +26,6 @@
 export default {
    data() {
       return {
-         title: 'What have I studied',
          activeTab: 1,
       }
    },
@@ -42,38 +41,35 @@ export default {
 <style>
 .education-container {
    width: 100%;
-   margin: 100px 0 0 0;
+   padding: 100px 0 0 0;
 }
 
 .education-container__title {
    text-align: center;
 }
 
-.education-container__content-container {
+.education-container__tabs-container {
    display: flex;
-   min-height: 450px;
+   min-height: 100px;
    margin: 0 80px;
    border: 2px solid red;
 }
 
-.education-container__tabs-container {
-   width: 50%;
-   height: 450px;
-   padding: 50px;
+.education-container__navigation-container {
+   min-width: max-content;
+   max-height: 100px;
+   padding: 20px;
+   border: 2px solid white;
 }
 
-.education-container__tabs-element {
-   padding: 20px;
+.education-container__navigation-elements {
+   padding-bottom: 50px;
 }
+
 
 .education-container__tabs-content {
-   border: 2px solid red;
    padding: 20px;
-   width: 100%;
+   border: 2px solid green;
+   margin-left: 20px;
 }
-
-
-
-
-
 </style>
