@@ -21,7 +21,10 @@ export default {
       {
          title: "Preview",
          name: "preview",
-         type: "image",
+         type: "array",
+         of: [{
+            type: 'image'
+         }],
          options: {
             hotspot: true, // option to edit picture size in sanity
          },

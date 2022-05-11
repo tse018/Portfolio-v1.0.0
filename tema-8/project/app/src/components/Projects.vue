@@ -1,7 +1,9 @@
 <template>
-   <h2>
-      {{ projects }}
-   </h2>
+   <section>
+      <article class="project-container" v-for="project in projects">
+         {{ project.title }}
+      </article>
+   </section>
 </template>
 
 <script>
@@ -15,4 +17,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.project-container {
+   border: 2px solid red;
+}
+</style>

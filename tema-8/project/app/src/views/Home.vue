@@ -14,11 +14,11 @@
 
       <section class="main-container__section">
          <div id="education">
-            <Education />
+            <Education/>
          </div>
       </section>
 
-      <section class="main-container__section--projects">
+      <section class="main-container__section">
          <div id="projects">
             <Projects />
          </div>
@@ -39,6 +39,7 @@ import Education from "../components/Education.vue";
 import Projects from "../components/Projects.vue";
 import Contact from "../components/Contact.vue";
 import Icons from "../components/Icons.vue";
+
 
 import sectionParamsMixin from '../mixins/sectionParamsMixin.js';
 
@@ -98,12 +99,6 @@ export default {
    .main-container__section {
       height: 100%;
       width: 100%;
-   }
-
-   .main-container__section--projects {
-      min-height: 100%;
-      width: 100%;
-      overflow: auto;
    }
 }
 </style>

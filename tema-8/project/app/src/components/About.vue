@@ -14,11 +14,8 @@
                </p>
 
                <div v-else>
-                  <p class="about-container__introduction-scroll">
-                     {{ content.introduction[0].children[0].text }}
-                     <br />
-                     <br />
-                     {{ content.introduction[1].children[0].text }}
+                  <p class="about-container__introduction-scroll" v-for="paragraph in content.introduction">
+                     {{ paragraph.children[0].text }}
                      <br />
                      <br />
                   </p>
@@ -60,12 +57,6 @@ export default {
       return {
          readMoreClicked: false,
       };
-   },
-
-   created() {
-      this.article = this.$store.getters.getAbout.find((article) => {
-         article._type === this.$route.params.id
-      })
    },
 
    components: {
@@ -114,7 +105,6 @@ export default {
    .about-container {
       display: flex;
       flex-flow: row wrap;
-      position: relative;
    }
 
    .about-container__introduction-container {
@@ -130,11 +120,11 @@ export default {
    }
 
    .about-container__introduction-title {
-      font-size: var(--desktop-font-size-secondary-undertitle);
+      font-size: var(--mobile-font-size-secondary-undertitle);
    }
 
    .about-container__introduction-field {
-      font-size: var(--desktop-font-size-paragraph);
+      font-size: var(--mobile-font-size-default);
    }
 
    .about-container__read-button {
