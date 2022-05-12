@@ -47,7 +47,6 @@ import Contact from "../components/Contact.vue";
 import Icons from "../components/Icons.vue";
 import Tech from '../components/Tech.vue';
 
-
 import sectionParamsMixin from '../mixins/sectionParamsMixin.js';
 
 export default {

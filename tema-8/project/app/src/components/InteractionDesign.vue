@@ -1,7 +1,4 @@
 <template>
-   <section class="collapsible">
-
-   </section>
 </template>
 
 <script>

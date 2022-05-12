@@ -13,6 +13,7 @@ export default {
       setDataContent(state, data) {
          state.data = data;
       },
+      
       setError(state, error) {
          state.error = error;
       },
@@ -43,21 +44,35 @@ export default {
       },
 
       getEducation(state) {
-         return state.data.filter(
-            (education) => education._type === "education"
-         );
+         return state.data.filter((education) => education._type === "education");
       },
 
       getProjects(state) {
          return state.data.filter((project) => project._type === "project");
       },
 
-      getTech(state) {
-         return state.data.filter((tech) => tech._type === 'tech');
+      getBackend(state) {
+         return state.data.filter((backend) => backend._type === 'backendDevelopment');
       },
 
-      getCourse(state) {
-         return state.data.filter((course) => course._type === 'course');
+      getDatabase(state) {
+         return state.data.filter((database) => database._type === 'database');
+      },
+
+      getFrontend(state) {
+         return state.data.filter((frontend) => frontend._type === 'frontendDevelopment');
+      },
+
+      getInteractionDesign(state) {
+         return state.data.filter((interaction) => interaction._type === 'interactionDesign')
+      },
+
+      getSemanticTechnology(state) {
+         return state.data.filter((semantic) => semantic._type === 'semanticTechnology');
+      },
+
+      getSystemDevelopment(state) {
+         return state.data.filter((system) => system._type === 'systemDevelopment');
       },
 
       getError(state) {

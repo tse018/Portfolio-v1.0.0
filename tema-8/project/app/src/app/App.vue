@@ -16,6 +16,11 @@ export default {
       sanityMixin,
       seoMixin,
    ],
+
+   components: {
+      Header, 
+      Footer 
+   },
    
    async created() {
       this.fetchSanity();
@@ -23,11 +28,6 @@ export default {
       this.metaTags({
          title: 'Thanushan Sellathurai Portfolio',
 		});
-   },
-   
-	components: {
-      Header, 
-      Footer 
    },
 }
 </script>
