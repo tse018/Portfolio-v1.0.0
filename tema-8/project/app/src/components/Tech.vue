@@ -9,17 +9,43 @@
             {{ stack.name }}
          </li>
       </ul>
+
+      <button class="tech-container__button-rigth" @click="scrollToHome">
+         <Icons :icon="'rigth'" />
+      </button>
+
+         <button class="tech-container__button-left" @click="scrollToTech">
+            <Icons :icon="'left'" />
+         </button>
    </section>
 </template>
 
 <script>
+import Icons from '../components/Icons.vue';
+
 export default {
+   components: {
+      Icons,
+   },
+
    computed: {
       tech() {
          // getting tech data from VUEX and sorting by ASC
          return this.$store.getters.getTech.sort((a, b) => {
             return (a.name < b.name ? 1 : -1);
          });
+      },
+   },
+
+   methods: {
+      scrollToTech() {
+         const element = document.getElementById("about");
+         element.scrollIntoView({ behavior: "smooth" });
+      },
+
+      scrollToHome() {
+         const element = document.getElementById("education");
+         element.scrollIntoView({ behavior: "smooth" });
       },
    },
 };
@@ -30,6 +56,7 @@ export default {
    padding: 100px;
    display: flex;
    flex-wrap: wrap;
+   position: relative;
 }
 
 .tech-container__title {
@@ -52,4 +79,19 @@ export default {
    list-style-type: "👉";
    min-width: 100px;
 }
+
+.tech-container__button-left {
+   position: absolute;
+   left: 0.5%;
+   top: 30%;
+}
+
+.tech-container__button-rigth {
+   position: absolute;
+   right: 0.5%;
+   top: 30%;
+}
+
+
+
 </style>

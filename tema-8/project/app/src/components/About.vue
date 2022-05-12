@@ -27,11 +27,11 @@
             </article>
          </div>
 
-         <button class="about-container__button-rigth" @click="scrollToHome">
+         <button class="about-container__button-rigth" @click="scrollToTech">
             <Icons :icon="'rigth'" />
          </button>
 
-         <button class="about-container__button-left" @click="scrollToTech">
+         <button class="about-container__button-left" @click="scrollToHome">
             <Icons :icon="'left'" />
          </button>
       </section>
@@ -349,18 +349,17 @@ export default {
       color: black;
    }
 
-   .about-container__button-rigth {
+   .about-container__button-left {
       position: absolute;
-      top: 55%;
+      top: 56%;
       left: 0;
       margin-left: 15px;
    }
 
-   .about-container__button-left {
+   .about-container__button-rigth {
       position: absolute;
-      top: 55%;
-      right: 0;
-      margin-right: -15px;
+      right: 0.5%;
+      top: 30%;
    }
 
    /* width */

@@ -14,7 +14,7 @@
       </a>
 
       <button class="section-introduction__left-arrow" @click="scrollTo">
-         <Icons :icon="'left'" />
+         <Icons :icon="'rigth'" />
       </button>
    </section>
 </template>
@@ -322,8 +322,8 @@ export default {
 
    .section-introduction__left-arrow {
       position: absolute;
-      right: 0;
-      top: 50%;
+      right: 0.5%;
+      top: 42.3%;
    }
 
    @keyframes color-change {

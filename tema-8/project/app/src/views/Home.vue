@@ -12,7 +12,7 @@
          </div>
       </section>
 
-      <section class="main-container__section--tech">
+      <section class="main-container__section">
          <div id="tech">
             <Tech />
          </div>
@@ -106,12 +106,7 @@ export default {
    .main-container__section {
       height: 100%;
       width: 100%;
-   }
-
-   .main-container__section--tech {
       overflow: scroll;
-      width: 100%;
-      height: 100%;
    }
 }
 </style>

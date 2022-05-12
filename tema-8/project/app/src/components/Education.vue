@@ -12,7 +12,7 @@
          </nav>
 
          <div class="education__content-container">
-            <article class="education__content-article" v-for="content in education" v-show="activeTab === content._id">
+            <article class="education__content-article" v-for="content in education" v-show="currentTab === content._id">
                <h3 class="education__content-title">
                   {{ content.studyProgram }}
                </h3>
@@ -23,12 +23,27 @@
                </p>
             </article>
          </div>
+
+         <button class="education-container__button-left" @click="scrollToTech">
+            <Icons :icon="'left'" />
+         </button>
+
+         <button class="education-container__button-rigth" @click="scrollToHome">
+            <Icons :icon="'rigth'" />
+         </button>
+
       </section>
    </div>
 </template>
 
 <script>
+import Icons from '../components/Icons.vue';
+
 export default {
+   components: {
+      Icons,
+   },
+
    data() {
       return {
          currentTab: "",
@@ -50,6 +65,19 @@ export default {
          this.currentTab =_id;
          console.log(this.currentTab)
       },
+
+      scrollToTech() {
+         const element = document.getElementById("tech");
+         element.scrollIntoView({ behavior: "smooth" });
+      },
+
+      scrollToHome() {
+         const element = document.getElementById("projects");
+         element.scrollIntoView({ behavior: "smooth" });
+      },
+
+
+
    },
 };
 </script>
@@ -117,6 +145,7 @@ export default {
    width: 100%;
    height: 100%;
    padding: 100px;
+   position: relative;
 }
 
 .education__container {
@@ -157,4 +186,18 @@ export default {
 .education__content-paragraph {
    padding: 0 30px;
 }
+
+.education-container__button-left {
+   position: absolute;
+   top: 38%;
+   left: 0.5%;
+}
+
+.education-container__button-rigth {
+   position: absolute;
+   top: 38%;
+   right: 0.5%;
+}
+
+
 </style>
