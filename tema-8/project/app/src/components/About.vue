@@ -27,19 +27,11 @@
             </article>
          </div>
 
-         <div class="about-container__tech-container">
-            <ul class="about-container__tech-animation" v-for="(tech, index) in techStack">
-               <li class="about-container__tech-element">
-                  {{ tech.name }}
-               </li>
-            </ul>
-         </div>
-
          <button class="about-container__button-rigth" @click="scrollToHome">
             <Icons :icon="'rigth'" />
          </button>
 
-         <button class="about-container__button-left" @click="scrollToEducation">
+         <button class="about-container__button-left" @click="scrollToTech">
             <Icons :icon="'left'" />
          </button>
       </section>
@@ -72,18 +64,14 @@ export default {
          return this.$store.getters.getError;
       },
 
-      techStack() {
-         return this.$store.getters.getTech;
-      },
-
       buttonText() {
          return this.readMoreClicked ? "Read Less" : "Read more";
       },
    },
 
    methods: {
-      scrollToEducation() {
-         const element = document.getElementById("education");
+      scrollToTech() {
+         const element = document.getElementById("tech");
          element.scrollIntoView({ behavior: "smooth" });
       },
 
@@ -141,40 +129,12 @@ export default {
       color: black;
    }
 
-   .about-container__tech-container {
-      padding: 50px;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-wrap: wrap;
-   }
-
-   .about-container__tech-element {
-      margin: 10px;
-   }
-
    .about-container__button-rigth {
       display: none;
    }
 
    .about-container__button-left {
       display: none;
-   }
-
-   /* width */
-   ::-webkit-scrollbar {
-      width: 10px;
-   }
-
-   /* Handle */
-   ::-webkit-scrollbar-thumb {
-      background: var(--font-color-highligth);
-      border-radius: 10px;
-   }
-
-   /* Handle on hover */
-   ::-webkit-scrollbar-thumb:hover {
-      background: var(--font-color-highligth);
    }
 }
 
@@ -272,7 +232,6 @@ export default {
 
    .about-container__introction-scroll {
       height: 100px;
-      overflow: scroll;
    }
 
    .about-container__introduction-title {
@@ -350,12 +309,14 @@ export default {
       display: flex;
       flex-flow: row wrap;
       position: relative;
+      width: 100%;
    }
 
    .about-container__introduction-container {
-      margin: 100px 0 0 100px;
-      width: 60%;
-      height: 500px;
+      margin: 100px auto;
+      max-width: 80%;
+      min-height: 100px;
+      padding: 20px;
    }
 
    .about-container__introction-scroll {
@@ -365,23 +326,17 @@ export default {
 
    .about-container__introduction-title {
       font-size: var(--desktop-font-size-secondary-undertitle);
+      margin-left: 25px;
    }
 
    .about-container__introduction-field {
       font-size: var(--desktop-font-size-paragraph);
-   }
-
-   .about-container__tech-container {
-      margin-top: 80px;
       padding: 25px;
-      width: 30%;
-      height: 100%;
-      display: flex;
-      flex-wrap: wrap;
+      width: 100%;
    }
 
    .about-container__read-button {
-      margin: 20px 50px 0 50px;
+      margin: 20px 0;
       width: 200px;
       transition: 0.9s;
       color: var(--font-color-highligth);
@@ -392,18 +347,6 @@ export default {
    .about-container__read-button:focus {
       box-shadow: inset 200px 0 0 0 var(--font-color-highligth);
       color: black;
-   }
-
-   .about-container__tech-animation {
-      position: relative;
-      top: 20px;
-      animation: rotation 10s linear infinite;
-      width: 100px;
-      font-size: var(--desktop-font-size-animation);
-   }
-
-   .about-container__tech-element {
-      margin: 10px;
    }
 
    .about-container__button-rigth {

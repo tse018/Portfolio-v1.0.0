@@ -99,6 +99,7 @@ video {
 
 body {
    line-height: 1.5;
+   overflow-anchor: none;
 }
 
 ol,

@@ -12,6 +12,12 @@
          </div>
       </section>
 
+      <section class="main-container__section--tech">
+         <div id="tech">
+            <Tech />
+         </div>
+      </section>
+
       <section class="main-container__section">
          <div id="education">
             <Education/>
@@ -39,6 +45,7 @@ import Education from "../components/Education.vue";
 import Projects from "../components/Projects.vue";
 import Contact from "../components/Contact.vue";
 import Icons from "../components/Icons.vue";
+import Tech from '../components/Tech.vue';
 
 
 import sectionParamsMixin from '../mixins/sectionParamsMixin.js';
@@ -53,6 +60,7 @@ export default {
       Projects,
       Contact,
       Icons,
+      Tech,
    },
 };
 </script>
@@ -70,7 +78,6 @@ export default {
       min-width: 100vw;
       min-height: 100vh;
    }
-
 }
 
 /* Tablet */
@@ -91,7 +98,7 @@ export default {
 @media screen and (min-width: 1200px) {
    .main-container {
       height: 100%;
-      width: 500%;
+      width: 600%;
       display: flex;
       overflow-y: hidden;
    }
@@ -99,6 +106,12 @@ export default {
    .main-container__section {
       height: 100%;
       width: 100%;
+   }
+
+   .main-container__section--tech {
+      overflow: scroll;
+      width: 100%;
+      height: 100%;
    }
 }
 </style>

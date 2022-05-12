@@ -3,7 +3,7 @@
       <section class="education__container">
          <nav class="education__tabs-container">
             <ul class="education__tabs-elements">
-               <li class="education__tabs-element" v-for="school in education" :style="activeStyle">
+               <li class="education__tabs-element" v-for="school in education">
                   <a class="education__tabs-click" @click="changeTab(school._id)">
                      {{ school.institute }}
                   </a>
@@ -12,7 +12,7 @@
          </nav>
 
          <div class="education__content-container">
-            <article class="education__content-article" v-for="content in education" v-show="currentTab === content._id">
+            <article class="education__content-article" v-for="content in education" v-show="activeTab === content._id">
                <h3 class="education__content-title">
                   {{ content.studyProgram }}
                </h3>
@@ -32,7 +32,6 @@ export default {
    data() {
       return {
          currentTab: "",
-         activeClass: 1,
       };
    },
 
@@ -44,18 +43,12 @@ export default {
       activeTab() {
          return this.$store.getters.getEducation[0]._id;
       },
-
-      activeStyle() {
-         return {
-            borderBottom: "2px solid var(--font-color-highligth)",
-            color: "var(--font-color-highligth)",
-         };
-      },
    },
 
    methods: {
       changeTab(_id) {
-         this.currentTab = _id;
+         this.currentTab =_id;
+         console.log(this.currentTab)
       },
    },
 };

@@ -288,6 +288,7 @@ export default {
       text-align: center;
       padding: 20px;
       min-height: 100px;
+      font-weight: var(--font-weigth-bold);
    }
 
    .section-introduction__work-title {
