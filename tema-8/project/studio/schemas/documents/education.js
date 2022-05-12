@@ -34,6 +34,14 @@ export default {
          ],
       },
       {
+         title: "Courses",
+         name: "courses",
+         type: "array",
+         of: [{
+            type: 'string'
+         }],
+      },
+      {
          title: 'Start date',
          name: 'startDate',
          type: 'date',

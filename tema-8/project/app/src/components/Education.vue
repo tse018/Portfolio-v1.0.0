@@ -4,7 +4,10 @@
          <nav class="education__tabs-container">
             <ul class="education__tabs-elements">
                <li class="education__tabs-element" v-for="school in education">
-                  <a class="education__tabs-click" @click="changeTab(school._id)">
+                  <a
+                     class="education__tabs-click"
+                     @click="changeTab(school._id)"
+                  >
                      {{ school.institute }}
                   </a>
                </li>
@@ -12,12 +15,19 @@
          </nav>
 
          <div class="education__content-container">
-            <article class="education__content-article" v-for="content in education" v-show="currentTab === content._id">
+            <article
+               class="education__content-article"
+               v-for="content in education"
+               v-show="currentTab === content._id"
+            >
                <h3 class="education__content-title">
                   {{ content.studyProgram }}
                </h3>
-               <p class="education__content-paragraph" v-for="paragraph in content.description">
-                  {{ paragraph.children[0].text }} 
+               <p
+                  class="education__content-paragraph"
+                  v-for="paragraph in content.description"
+               >
+                  {{ paragraph.children[0].text }}
                   <br />
                   <br />
                </p>
@@ -28,16 +38,18 @@
             <Icons :icon="'left'" />
          </button>
 
-         <button class="education-container__button-rigth" @click="scrollToHome">
+         <button
+            class="education-container__button-rigth"
+            @click="scrollToHome"
+         >
             <Icons :icon="'rigth'" />
          </button>
-
       </section>
    </div>
 </template>
 
 <script>
-import Icons from '../components/Icons.vue';
+import Icons from "../components/Icons.vue";
 
 export default {
    components: {
@@ -62,8 +74,8 @@ export default {
 
    methods: {
       changeTab(_id) {
-         this.currentTab =_id;
-         console.log(this.currentTab)
+         this.currentTab = _id;
+         console.log(this.currentTab);
       },
 
       scrollToTech() {
@@ -75,14 +87,11 @@ export default {
          const element = document.getElementById("projects");
          element.scrollIntoView({ behavior: "smooth" });
       },
-
-
-
    },
 };
 </script>
 
-<style>
+<style scoped>
 /* mobile */
 @media screen and (max-width: 600px) {
    .education {
@@ -113,7 +122,6 @@ export default {
       padding: 20px;
       font-size: var(--mobile-font-size-secondary-undertitle);
       text-align: center;
-      
    }
 
    .education__tabs-click {
@@ -137,6 +145,14 @@ export default {
    .education__content-paragraph {
       font-size: var(--mobile-font-size-default);
       line-height: 30px;
+   }
+
+   .education-container__button-left {
+      display: none;
+   }
+
+   .education-container__button-rigth {
+      display: none;
    }
 }
 
@@ -198,6 +214,4 @@ export default {
    top: 38%;
    right: 0.5%;
 }
-
-
 </style>

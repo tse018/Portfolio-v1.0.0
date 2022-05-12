@@ -38,23 +38,12 @@ export default {
                type: "block",
                marks: {
                   decorators: [
-                     { title: "Strong", value: "strong" },
-                     { title: "Emphasis", value: "em" },
-                     { title: "Code", value: "code" },
+                     { title: "Strong",    value: "strong" },
+                     { title: "Emphasis",  value: "em" },
+                     { title: "Code",      value: "code" },
                      { title: "Highlight", value: "highlight" },
                   ],
                },
-            },
-         ],
-      },
-      {
-         title: "Tech Stack",
-         name: "techStack",
-         type: "array",
-         of: [
-            {
-               type: "reference",
-               to: [{ type: "tech" }],
             },
          ],
       },

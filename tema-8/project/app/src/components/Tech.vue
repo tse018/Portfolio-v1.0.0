@@ -1,7 +1,7 @@
 <template>
    <section class="tech-container">
       <h2 class="tech-container__title">
-         Here are a my technologies I’ve been working with
+         Here are technologies I’ve been working with
       </h2>
 
       <ul class="tech-container__list-elements">
@@ -14,14 +14,14 @@
          <Icons :icon="'rigth'" />
       </button>
 
-         <button class="tech-container__button-left" @click="scrollToTech">
-            <Icons :icon="'left'" />
-         </button>
+      <button class="tech-container__button-left" @click="scrollToTech">
+         <Icons :icon="'left'" />
+      </button>
    </section>
 </template>
 
 <script>
-import Icons from '../components/Icons.vue';
+import Icons from "../components/Icons.vue";
 
 export default {
    components: {
@@ -32,7 +32,7 @@ export default {
       tech() {
          // getting tech data from VUEX and sorting by ASC
          return this.$store.getters.getTech.sort((a, b) => {
-            return (a.name < b.name ? 1 : -1);
+            return a.name < b.name ? 1 : -1;
          });
       },
    },
@@ -52,6 +52,42 @@ export default {
 </script>
 
 <style>
+@media screen and (max-width: 600px) {
+   .tech-container {
+      padding: 100px;
+      display: flex;
+      flex-wrap: wrap;
+      position: relative;
+   }
+
+   .tech-container__title {
+      width: 100%;
+      font-size: var(--mobile-font-size-secondary-undertitle);
+   }
+
+   .tech-container__list-elements {
+      width: 100%;
+      padding: 50px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+   }
+
+   .tech-container__list-element {
+      list-style-type: "👉";
+   }
+
+   .tech-container__button-left {
+      display: none;
+   }
+
+   .tech-container__button-rigth {
+      display: none;
+   }
+}
+
+/* desktop */
+@media screen and (min-width: 1200px) {
 .tech-container {
    padding: 100px;
    display: flex;
@@ -91,7 +127,5 @@ export default {
    right: 0.5%;
    top: 30%;
 }
-
-
-
+}
 </style>

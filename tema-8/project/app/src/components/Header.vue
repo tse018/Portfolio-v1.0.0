@@ -23,14 +23,14 @@
             </li>
 
             <li class="header-container__navbar-element">
-               <a href="/tech">
-                  Tech
+               <a href="/education">
+                  Education
                </a>
             </li>
 
             <li class="header-container__navbar-element">
-               <a href="/education">
-                  Education
+               <a href="/tech">
+                  Tech
                </a>
             </li>
 

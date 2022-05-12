@@ -4,23 +4,9 @@ export default {
    type: "document",
    fields: [
       {
-         title: "Title",
-         name: "title",
-         type: "string",
-      },
-      {
-         title: "Slug",
-         name: "slug",
-         type: "slug",
-         options: {
-            source: "title",
-         },
-      },
-      {
          title: "Introduction",
          name: "introduction",
-         description:
-            "Short introduction about yourself, 4-5 sentences is enough.",
+         description: "Short introduction about yourself, 4-5 sentences is enough.",
          type: "array",
          of: [
             {

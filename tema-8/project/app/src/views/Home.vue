@@ -13,14 +13,14 @@
       </section>
 
       <section class="main-container__section">
-         <div id="tech">
-            <Tech />
+         <div id="education">
+            <Education/>
          </div>
       </section>
 
       <section class="main-container__section">
-         <div id="education">
-            <Education/>
+         <div id="tech">
+            <Tech />
          </div>
       </section>
 
