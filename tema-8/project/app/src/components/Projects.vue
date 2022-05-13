@@ -45,11 +45,7 @@ export default {
          currentTab: '',
       }
    },
-
-   mounted() {
-      console.log(this.projects)
-   },
-
+   
    computed: {
       projects() {
          return this.$store.getters.getProjects.sort((a, b) => {

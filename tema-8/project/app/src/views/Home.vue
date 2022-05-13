@@ -31,7 +31,7 @@
       </section>
 
       <section class="main-container__section">
-         <div id="/contact">
+         <div id="contact">
             <Contact />
          </div>
       </section>
@@ -50,7 +50,7 @@ import Tech from '../components/Tech.vue';
 import sectionParamsMixin from '../mixins/sectionParamsMixin.js';
 
 export default {
-   //mixins: [sectionParamsMixin],
+   mixins: [sectionParamsMixin],
 
    components: {
       LandingPage,

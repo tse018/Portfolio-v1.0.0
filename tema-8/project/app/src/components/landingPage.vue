@@ -22,7 +22,11 @@
 <script>
 import Icons from "../components/Icons.vue";
 
+import sectionParamsMixin from '../mixins/sectionParamsMixin.js';
+
 export default {
+   mixins: [sectionParamsMixin],
+
    data() {
       return {
          walk: 100,
