@@ -89,7 +89,7 @@ export default {
       position: fixed;
       width: 100%;
       height: 100px;
-      background-color: var(--background-secondary);
+      background-color: var(--background-header);
       opacity: 0.5;
    }
 

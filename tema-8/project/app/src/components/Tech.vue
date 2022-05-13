@@ -1,7 +1,7 @@
 <template>
    <section class="technology-container">
       <h2 class="technology-container__title">
-         Here are a few technologies I have been working with
+         Few technologies I have been working with
       </h2>
 
       <div class="technology-container__flex-wrapper">
@@ -33,6 +33,14 @@
             </Collapsible>
          </div>
       </div>
+
+      <button class="technology-container__scroll-rigth">
+         <Icons :icon="'rigth'" />
+      </button>
+
+      <button class="technology-container__scroll-left">
+         <Icons :icon="'left'" />
+      </button>
    </section>
 </template>
 
@@ -41,11 +49,23 @@ import Backend from "../components/Backend.vue";
 import Collapsible from "../components/Collapsible.vue";
 import Database from "../components/Database.vue";
 import Frontend from "../components/Frontend.vue";
+import Icons from '../components/Icons.vue';
 import InteractionDesign from "../components/InteractionDesign.vue";
 import SemanticTechnology from "../components/SemanticTechnology.vue";
 import SystemDevelopment from "../components/SystemDevelopment.vue";
 
 export default {
+      components: {
+      Backend,
+      Collapsible,
+      Database,
+      Frontend,
+      Icons,
+      InteractionDesign,
+      SemanticTechnology,
+      SystemDevelopment,
+   },
+
    data() {
       return {
          title: {
@@ -58,22 +78,13 @@ export default {
          },
       };
    },
-
-   components: {
-      Backend,
-      Collapsible,
-      Database,
-      Frontend,
-      InteractionDesign,
-      SemanticTechnology,
-      SystemDevelopment,
-   },
 };
 </script>
 
 <style scoped>
 .technology-container {
    padding-top: 100px;
+   position: relative;
 }
 
 .technology-container__title {
@@ -94,5 +105,17 @@ export default {
 .technology-container__item-2 {
    flex: 50%;
    flex-wrap: wrap;
+}
+
+.technology-container__scroll-rigth {
+   position: absolute;
+   right: 1;
+   top: 40vh;
+}
+
+.technology-container__scroll-left {
+   position: absolute;
+   left: 0vw;
+   top: 40vh;
 }
 </style>
