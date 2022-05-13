@@ -105,7 +105,7 @@ export default {
    .main-container__section {
       height: 100%;
       width: 100%;
-      overflow: scroll;
+      overflow: auto;
    }
 }
 </style>

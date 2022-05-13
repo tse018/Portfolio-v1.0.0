@@ -1,2 +1,2 @@
 # Frontend Developer Portfolio
-Creating my own portfolio using vuejs and content rendering from sanity.
+Creating my own frontend developer portfolio using vuejs and content rendering from sanity.

@@ -64,7 +64,7 @@ export default {
       },
 
       getInteractionDesign(state) {
-         return state.data.filter((interaction) => interaction._type === 'interactionDesign')
+         return state.data.filter((interaction) => interaction._type === 'interactionDesign');
       },
 
       getSemanticTechnology(state) {
