@@ -4,6 +4,8 @@
 	--background-primary: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
 	--background-primary: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+	--background-secondary: #141E30;
+
 	--font-color-primary: #e6f1ff;
 	--font-color-secondary: white;
 	--font-color-highligth: #64ffda;

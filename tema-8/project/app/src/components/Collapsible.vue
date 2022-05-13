@@ -70,6 +70,13 @@ export default {
    min-width: 500px;
 }
 
+/* so when user click on Interaction design,
+   Semantic Technology get some more space bottom 
+*/
+.collapsible:nth-child(3) {
+   margin-bottom: 100px;
+}
+
 .collapsible__content {
    padding: 20px;
    width: 500px;
