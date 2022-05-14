@@ -1,5 +1,5 @@
 <template>
-   <img class="github__contributions" src="https://ghchart.rshah.org/tse018" alt="picture of my github profile number of contributions done day for day ">
+   <img class="github__contributions" src="https://ghchart.rshah.org/243B55/tse018" alt="picture of my github profile number of contributions done day for day ">
 
    <a href="https://github.com/tse018" target="_blank" class="section-introduction__github">
       Check out my Github!

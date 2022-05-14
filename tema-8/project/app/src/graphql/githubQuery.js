@@ -1,4 +1,4 @@
-const data = {
+export default graphql = {
    "query": `query { 
       user(login: "${username}") {
          name
@@ -26,4 +26,4 @@ const data = {
          }
       }
    }`
-}
+};
