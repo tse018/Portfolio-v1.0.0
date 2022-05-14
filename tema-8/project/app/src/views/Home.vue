@@ -3,6 +3,7 @@
       <section class="main-container__section">
          <div id="#">
             <LandingPage />
+            <Github />
          </div>
       </section>
 
@@ -40,6 +41,7 @@
 
 <script>
 import LandingPage from "../components/landingPage.vue";
+import Github from '../components/Github.vue';
 import About from "../components/About.vue";
 import Education from "../components/Education.vue";
 import Projects from "../components/Projects.vue";
@@ -54,6 +56,7 @@ export default {
 
    components: {
       LandingPage,
+      Github,
       About,
       Education,
       Projects,

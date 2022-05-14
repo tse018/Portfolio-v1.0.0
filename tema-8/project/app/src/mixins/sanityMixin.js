@@ -8,7 +8,7 @@ export default {
 	
 	methods: {
 		fetchSanity() {
-			this.$store.dispatch('fectchSanityData', this.result)
+			this.$store.dispatch('fetchSanityData', this.result)
 			this.loading = this.$store.getters.getError;
 		},
 	},

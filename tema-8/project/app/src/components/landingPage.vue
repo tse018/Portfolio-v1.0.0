@@ -9,10 +9,6 @@
          FRONT-END DEVELOPER
       </h2>
 
-      <a href="https://github.com/tse018" target="_blank" class="section-introduction__github">
-         Check out my Github!
-      </a>
-
       <button class="section-introduction__left-arrow" @click="scrollTo">
          <Icons :icon="'rigth'" />
       </button>
@@ -125,25 +121,6 @@ export default {
       }
    }
 
-   .section-introduction__github {
-      grid-column: 1 / span 4;
-      text-align: center;
-      padding: 20px;
-      margin: 0 100px;
-      min-height: 50px;
-      border: 2px solid var(--font-color-highligth);
-      color: var(--font-color-highligth);
-      text-align: center;
-      text-decoration: none;
-      transition: 0.5s;
-   }
-
-   .section-introduction__github:hover,
-   .section-introduction__github:focus {
-      box-shadow: inset 400px 0 0 var(--font-color-highligth);
-      color: black;
-   }
-
    .section-introduction__left-arrow {
       display: none;
    }
@@ -187,25 +164,6 @@ export default {
       100% {
          color: aqua;
       }
-   }
-
-   .section-introduction__github {
-      grid-column: 2 / span 6;
-      text-align: left;
-      padding: 20px;
-      margin: 0 auto 0;
-      min-height: 50px;
-      border: 2px solid var(--font-color-highligth);
-      color: var(--font-color-highligth);
-      text-align: center;
-      text-decoration: none;
-      transition: 0.5s;
-   }
-
-   .section-introduction__github:hover,
-   .section-introduction__github:focus {
-      box-shadow: inset 400px 0 0 var(--font-color-highligth);
-      color: black;
    }
 
    .section-introduction__left-arrow {
@@ -253,25 +211,6 @@ export default {
       }
    }
 
-   .section-introduction__github {
-      grid-column: 4 / 10;
-      border: 2px solid var(--font-color-highligth);
-      color: var(--font-color-highligth);
-      text-align: center;
-      padding: 20px;
-      min-height: 100px;
-      transition: 0.5s;
-      text-align: center;
-      text-decoration: none;
-      font-size: var(--tablet-font-size-secondary-undertitle);
-   }
-
-   .section-introduction__github:hover,
-   .section-introduction__github:focus {
-      box-shadow: inset 400px 0 0 0 var(--font-color-highligth);
-      color: black;
-   }
-
    .section-introduction__left-arrow {
       display: none;
    }
@@ -302,26 +241,6 @@ export default {
       min-height: 100px;
       margin: -80px 0 0 -250px;
       animation: color-change 3s infinite;
-   }
-
-   .section-introduction__github {
-      grid-column: 3 / span 3;
-      margin-top: 100px;
-      border: 2px solid var(--font-color-highligth);
-      color: var(--font-color-highligth);
-      text-align: center;
-      padding: 20px;
-      min-height: 100px;
-      transition: 0.8s;
-      text-align: center;
-      text-decoration: none;
-      font-size: var(--tablet-font-size-secondary-undertitle);
-   }
-
-   .section-introduction__github:hover,
-   .section-introduction__github:focus {
-      box-shadow: inset 600px 0 0 0 var(--font-color-highligth);
-      color: black;
    }
 
    .section-introduction__left-arrow {

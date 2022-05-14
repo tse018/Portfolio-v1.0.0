@@ -20,7 +20,7 @@ export default {
    },
 
    actions: {
-      async fectchSanityData(state) {
+      async fetchSanityData(state) {
          const response = await sanity.fetch(query);
          try {
             if (response) {
