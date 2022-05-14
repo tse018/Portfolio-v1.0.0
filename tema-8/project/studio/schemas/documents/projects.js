@@ -48,6 +48,14 @@ export default {
          ],
       },
       {
+         title: "Tech Stack",
+         name: "techStack",
+         type: "array",
+         of: [{
+            type: 'string'
+         }]
+      },
+      {
          title: "Github",
          name: "github",
          type: "string",

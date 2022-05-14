@@ -5,9 +5,10 @@
       <section class="about-container" v-for="content in about">
          <div class="about-container__introduction-container">
             <h2 class="about-container__introduction-title">
-               {{ content.title }}
+               About me
             </h2>
 
+            <!-- desktop -->
             <article class="about-container__introduction-field">
                <p v-if="!readMoreClicked">
                   {{ content.introduction[0].children[0].text }}

@@ -1,10 +1,6 @@
 <template>
    <div class="projects-container">
-      <section class="projects-container__wrapper">
-         <h2 class="projects-container__title">
-            Some Things I have built 
-         </h2>
-         
+      <section class="projects-container__flex-navbar">
          <nav class="projects-container__navbar">
             <ul class="projects-container__navbar-elements">
                <li class="projects-container__navbar-element" v-for="project in projects">
@@ -15,25 +11,23 @@
             </ul>
          </nav>
 
-         <div class="projects-container__flex-wrapper">
-            <figure class="projects-container__image-container" v-for="project in projects">
-               <div class="projects-container__image" v-for="image in project.preview">
-                  <img :src="image.asset._ref" />
+         <div class="projects-container__flex-content">
+            <article class="projects-container__description-container">
+               <div class="projects-container__paragraph" v-for="project in projects">
+                  <div v-for="paragraph in project.description">
+                     {{ paragraph.children[0].text }}
+                  </div>
                </div>
-               <figcaption class="projects-container__image-description">
-               </figcaption>
-            </figure>
-
-            <article class="projects-container__content" v-for="project in projects">
-               <p class="projects-container__paragraph">
-                  fdgfdg
-               </p>
             </article>
+
+         <div class="projects-container__tech-container">
+            <ul class="projects-container__tech-elements" v-for="project in projects">
+               <li class="projects-container__tech-element"  v-for="tech in project.techStack">
+                  {{ tech }}
+               </li>
+            </ul>
          </div>
-         
-         <ul class="projects-container__tech-elements">
-            <li class="projects-container__tech-element">dfgfdgd</li>
-         </ul> 
+      </div>
       </section>
    </div>
 </template>
@@ -45,13 +39,16 @@ export default {
          currentTab: '',
       }
    },
-   
    computed: {
       projects() {
          return this.$store.getters.getProjects.sort((a, b) => {
             return a.title > b.title ? 1 : -1;
          });
       },
+
+      images() {
+         return this.$store.getters.getProjectImages;
+      }
    },
 };
 </script>
@@ -63,42 +60,60 @@ export default {
    height: 100%;
 }
 
-.projects-container__wrapper {
-   border: 2px solid white;
-   width: 100%;
-   height: 100%;
+.projects-container__flex-navbar {
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: column;
 }
 
 .projects-container__navbar {
-   width: 80%;
-   max-height: 100px;
-   margin: 0 auto;
-}
-
-.projects-container__navbar-elements {
+   width: 100%;
    display: flex;
    justify-content: center;
    padding: 20px;
+   border: 2px solid red;
+}
+
+.projects-container__navbar-elements {
+   border: 2px solid green; 
+   display: flex;
+   padding: 20px;
+   min-width: 100px;
+   overflow: auto;
 }
 
 .projects-container__navbar-element {
-   color: var(--font-color-highligth);
+   border: 2px solid white;
+   padding: 20px;
+   width: 200px;
+   text-align: center;
+}
+
+.projects-container__navbar-tab {
+   cursor: pointer;
+}
+
+.projects-container__flex-content {
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: row;
+   border: 2px solid red;
+}
+
+.projects-container__description-container {
+   width: 60%;
+   border: 2px solid darkblue;
+   min-height: 100px;
+}
+
+.projects-container__paragraph {
    padding: 20px;
 }
 
-.projects-container__flex-wrapper {
-   display: flex;
-}
-
-.projects-container__image-container {
-   margin: 20px 0 0 1.8vw;
-   width: 60%;
-   min-height: 100px;
-}
-
-.projects-container__content {
-   margin: 20px 10vw 0 20px;
+.projects-container__tech-container {
+   border: 2px solid red;
    width: 40%;
-   min-height: 100px;
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
 }
 </style>

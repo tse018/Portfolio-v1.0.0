@@ -50,7 +50,7 @@ export default {
       getProjects(state) {
          return state.data.filter((project) => project._type === "project");
       },
-
+      
       getBackend(state) {
          return state.data.filter((backend) => backend._type === 'backendDevelopment');
       },
