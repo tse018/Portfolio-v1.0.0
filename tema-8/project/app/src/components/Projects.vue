@@ -189,7 +189,6 @@ export default {
    display: flex;
    flex-wrap: wrap;
    flex-direction: row;
-   border-bottom: 2px solid var(--font-color-highligth);
 }
 .projects-container__tech-title {
    width: 100%;
