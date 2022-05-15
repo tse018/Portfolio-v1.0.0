@@ -9,6 +9,7 @@ export default {
    methods: {
       fetchGithub() {
          this.$store.dispatch('fetchGithubData' )
-      }
+      },
+      
    }
 }

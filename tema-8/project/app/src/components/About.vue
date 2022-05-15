@@ -27,30 +27,18 @@
                </button>
             </article>
          </div>
-
-         <button class="about-container__button-rigth" @click="scrollToTech">
-            <Icons :icon="'rigth'" />
-         </button>
-
-         <button class="about-container__button-left" @click="scrollToHome">
-            <Icons :icon="'left'" />
-         </button>
       </section>
    </div>
 </template>
 
 <script>
-import sanityMixin from "../mixins/sanityMixin.js";
 import Icons from "../components/Icons.vue";
 
-export default {
-   mixins: [sanityMixin],
+import sanityMixin from "../mixins/sanityMixin.js";
+import readMoreClicked from "../mixins/readMoreButtonMixin.js";
 
-   data() {
-      return {
-         readMoreClicked: false,
-      };
-   },
+export default {
+   mixins: [sanityMixin, readMoreClicked],
 
    components: {
       Icons,
@@ -64,10 +52,6 @@ export default {
       error() {
          return this.$store.getters.getError;
       },
-
-      buttonText() {
-         return this.readMoreClicked ? "Read Less" : "Read more";
-      },
    },
 
    methods: {
@@ -79,10 +63,6 @@ export default {
       scrollToHome() {
          const element = document.getElementById("#");
          element.scrollIntoView({ behavior: "smooth" });
-      },
-
-      readMore() {
-         return (this.readMoreClicked = !this.readMoreClicked);
       },
    },
 };

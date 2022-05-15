@@ -18,18 +18,21 @@ export default {
 
    actions: {
       async fetchGithubData(state) {
-         const response = await fetch('https://api.github/graphql',{ method: 'Post', body: JSON.stringify(graphql), headers: headers});
-         const data = await response.json();
+         const url = 'https://api.github.com/users/tse018/repos';
+         const response = await fetch(url);
          try {
             if (response.status >= 200 && response.status < 300) {
-               state.commit("setGithubContent", response);
+               state.commit('setGithubContent');
             } else {
-               throw new Error("Something Went Wrong");
+               if (response.status === 404) {
+                  throw new Error('URL Not Found')
+               }
+               throw new Error('Something went Wrong')
             }
          } catch (error) {
-            state.commit("setError", error);
-         }
-      }
+            state.commit('setError', error);
+         };
+      },
    },
 
    getters: {

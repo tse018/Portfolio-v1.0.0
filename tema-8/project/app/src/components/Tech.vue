@@ -1,8 +1,8 @@
 <template>
    <section class="technology-container">
-      <h2 class="technology-container__title">
-         Few technologies I have been working with
-      </h2>
+      <h3 class="technology-container__title">
+         Click to see some of the tech I have been working on 
+      </h3>
 
       <div class="technology-container__flex-wrapper">
          <div class="technology-container__item-1">
@@ -33,14 +33,6 @@
             </Collapsible>
          </div>
       </div>
-
-      <button class="technology-container__scroll-rigth">
-         <Icons :icon="'rigth'" />
-      </button>
-
-      <button class="technology-container__scroll-left">
-         <Icons :icon="'left'" />
-      </button>
    </section>
 </template>
 
@@ -82,6 +74,20 @@ export default {
 </script>
 
 <style scoped>
+@media screen and (max-width: 600px) {
+   .technology-container__flex-wrapper {
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+}
+
+
+.technology-container__item-2 {
+   margin-top: -80px;
+}
+
+
+}
 .technology-container {
    padding-top: 100px;
    position: relative;
@@ -102,6 +108,7 @@ export default {
    flex: 50%;
    flex-wrap: wrap;
 }
+
 .technology-container__item-2 {
    flex: 50%;
    flex-wrap: wrap;

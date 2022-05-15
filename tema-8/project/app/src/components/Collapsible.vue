@@ -80,6 +80,7 @@ export default {
 .collapsible__content {
    padding: 20px;
    width: 500px;
+   min-height: 100px;
    margin-top: -45px;
    color: var(--font-color-highligth);
 }

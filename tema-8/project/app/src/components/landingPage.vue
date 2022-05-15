@@ -9,6 +9,10 @@
          FRONT-END DEVELOPER
       </h2>
 
+      <a href="https://github.com/tse018" target="_blank" class="section-introduction__github">
+         Check out my Github!
+      </a>
+
       <button class="section-introduction__left-arrow" @click="scrollTo">
          <Icons :icon="'rigth'" />
       </button>

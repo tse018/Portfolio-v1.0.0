@@ -1,9 +1,7 @@
 <template>
    <img class="github__contributions" src="https://ghchart.rshah.org/243B55/tse018" alt="picture of my github profile number of contributions done day for day ">
 
-   <a href="https://github.com/tse018" target="_blank" class="section-introduction__github">
-      Check out my Github!
-   </a>
+   
 </template>
 
 <script>
@@ -12,54 +10,6 @@ export default {
       return {
          key: import.meta.env.VITE_GITHUB_ID,
       };
-   },
-   async created() {
-      async function getContributions(token, username) {
-         const headers = {
-            Authorization: `bearer ${username}`,
-         };
-
-         const query = {
-            query: `query {
-      user(login: "tse018") {
-         name
-         contributionsCollection(from: "2021-08-29T00:00:00.000+00:00") {
-            contributionCalendar {
-               colors
-               totalContributions
-               weeks {
-                  contributionDays{
-                  weekday,
-                  date,
-                  contributionCount,
-                  color
-               }
-               firstDay
-            }
-            months {
-               name
-               year,
-               firstDay,
-               totalWeeks
-                  }
-               }
-            }
-         }
-      }
-   }`,
-         };
-
-         const response = await fetch("https://api.github.com/graphql", {
-            method: "POST",
-            body: JSON.stringify(query),
-            headers: headers,
-         });
-         const data = await response.json();
-         return data;
-      }
-
-      const data = await getContributions("token", "tse018");
-      console.log(data);
    },
 };
 </script>
