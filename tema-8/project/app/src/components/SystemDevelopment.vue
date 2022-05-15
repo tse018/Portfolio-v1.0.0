@@ -1,0 +1,41 @@
+<template>
+   <section class="system-container">
+      <ul class="system-container__elements">
+         <li class="system-container__element" v-for="content in systemDevelopment">
+            {{ content.technology }}
+         </li>
+      </ul>
+   </section>
+</template>
+
+<script>
+export default {
+   computed: {
+      systemDevelopment() {
+         return this.$store.getters.getSystemDevelopment.sort((a, b) => {
+            return (a.technology > b.technology ? 1: -1);
+         });
+      },
+   },
+};
+</script>
+
+<style scoped>
+.system-container {
+   border: 2px solid var(--font-color-highligth);
+   width: 500px;
+   padding-top: 10px;
+   margin-bottom: 100px;
+}
+
+.system-container__elements {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   gap: 20px;
+}
+
+.system-container__element {
+   text-align: center;
+   padding: 10px;
+}
+</style>

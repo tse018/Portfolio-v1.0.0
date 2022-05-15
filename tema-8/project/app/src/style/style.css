@@ -88,4 +88,19 @@ span {
    display: inline;
 }
 
+   /* width */
+   ::-webkit-scrollbar {
+      width: 10px;
+      margin-left: 200px;
+   }
 
+   /* Handle */
+   ::-webkit-scrollbar-thumb {
+      background: var(--font-color-highligth);
+      border-radius: 10px;
+   }
+
+   /* Handle on hover */
+   ::-webkit-scrollbar-thumb:hover {
+      background: var(--font-color-highligth);
+   }

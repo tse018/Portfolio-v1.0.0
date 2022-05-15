@@ -1,79 +1,196 @@
 <template>
-   <section class="education-container">
-      <h2 class="education-container__title">
-         {{ title }}
-      </h2>
-
-      <div class="education-container__content-container">
-         <div class="education-container__tabs-container">
-            <ul class="education-container__tabs-elements">
-               <li class="education-container__tabs-element" v-for="school in education">
-                  {{ school.institute}}
+   <div class="education">
+      <section class="education__container">
+         <nav class="education__tabs-container">
+            <ul class="education__tabs-elements">
+               <li class="education__tabs-element" v-for="school in education">
+                  <a class="education__tabs-click" @click="changeTab(school._id)">
+                     {{ school.institute }}
+                  </a>
                </li>
             </ul>
-         </div>
+         </nav>
 
-         <div class="education-container__tabs-content">
-            <p class="education-container__tabs-paragraph" v-for="content in education">
-               {{ content.description }}
-            </p>
+         <div class="education__content-container">
+            <article class="education__content-article" v-for="content in education" v-show="activeTab === content._id">
+               <h3 class="education__content-title">
+                  {{ content.studyProgram }}
+               </h3>
+
+               <p class="education__content-paragraph" v-for="paragraph in content.description">
+                  {{ paragraph.children[0].text }}
+                  <br />
+                  <br />
+               </p>
+            </article>
          </div>
-      </div>
-   </section>
+      </section>
+   </div>
 </template>
 
 <script>
+import Icons from "../components/Icons.vue";
+
 export default {
+   components: {
+      Icons,
+   },
+
    data() {
       return {
-         title: 'What have I studied',
-         activeTab: 1,
-      }
+         currentTab: "",
+      };
    },
 
    computed: {
       education() {
          return this.$store.getters.getEducation;
       },
+
+      activeTab() {
+         return this.$store.getters.getEducation[0]._id;
+      },
+   },
+
+   methods: {
+      changeTab(_id) {
+         this.currentTab = _id;
+      },
+
+      scrollToTech() {
+         const element = document.getElementById("tech");
+         element.scrollIntoView({ behavior: "smooth" });
+      },
+
+      scrollToHome() {
+         const element = document.getElementById("projects");
+         element.scrollIntoView({ behavior: "smooth" });
+      },
    },
 };
 </script>
 
-<style>
-.education-container {
+<style scoped>
+/* mobile */
+@media screen and (max-width: 600px) {
+   .education {
+      min-width: 100%;
+      min-height: 100%;
+      margin-bottom: 100%;
+   }
+
+   .education__container {
+      display: flex;
+      flex-wrap: wrap;
+      min-width: 100%;
+      margin: 0 -100px;
+   }
+
+   .education__tabs-container {
+      min-width: max-content;
+      min-height: max-content;
+      padding: 20px;
+      margin: 0 auto;
+   }
+
+   .education__tabs-elements {
+      padding: 20px;
+   }
+
+   .education__tabs-element {
+      padding: 20px;
+      font-size: var(--mobile-font-size-secondary-undertitle);
+      text-align: center;
+   }
+
+   .education__tabs-click {
+      cursor: pointer;
+   }
+
+   .education__content-container {
+      min-width: 100%;
+   }
+
+   .education__content-article {
+      min-height: 100%;
+      min-width: 100%;
+   }
+
+   .education__content-title {
+      text-align: center;
+      margin-bottom: 20px;
+   }
+
+   .education__content-paragraph {
+      font-size: var(--mobile-font-size-default);
+      line-height: 30px;
+   }
+
+   .education-container__button-left {
+      display: none;
+   }
+
+   .education-container__button-rigth {
+      display: none;
+   }
+}
+
+/* desktop */
+.education {
    width: 100%;
-   margin: 100px 0 0 0;
+   height: 100%;
+   padding: 100px;
+   position: relative;
 }
 
-.education-container__title {
-   text-align: center;
-}
-
-.education-container__content-container {
+.education__container {
    display: flex;
-   min-height: 450px;
-   margin: 0 80px;
-   border: 2px solid red;
 }
 
-.education-container__tabs-container {
-   width: 50%;
-   height: 450px;
+.education__tabs-container {
+   min-width: max-content;
+   min-height: max-content;
+   padding: 20px;
+}
+
+.education__tabs-elements {
+   padding: 20px;
+}
+
+.education__tabs-element {
+   padding: 25px;
+}
+
+.education__tabs-click {
+   cursor: pointer;
+}
+
+.education__content-container {
+   width: 80%;
+}
+
+.education__content-article {
    padding: 50px;
+   min-height: 100px;
 }
 
-.education-container__tabs-element {
-   padding: 20px;
+.education__content-title {
+   padding: 0 30px;
 }
 
-.education-container__tabs-content {
-   border: 2px solid red;
-   padding: 20px;
-   width: 100%;
+.education__content-paragraph {
+   padding: 0 30px;
 }
 
+.education-container__button-left {
+   position: absolute;
+   top: 38%;
+   left: 0.5%;
+}
 
-
-
-
+.education-container__button-rigth {
+   position: absolute;
+   top: 38%;
+   right: 0.5%;
+}
 </style>

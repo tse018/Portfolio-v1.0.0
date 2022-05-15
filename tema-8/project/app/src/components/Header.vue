@@ -11,37 +11,39 @@
             </li>
 
             <li class="header-container__navbar-element">
-               <a href="/">
+               <a class="header-container__navbar-link" href="/">
                   Home
                </a>
             </li>
 
             <li class="header-container__navbar-element">
-               <a href="#about">
+               <a class="header-container__navbar-link" href="/about">
                   About
                </a>
             </li>
 
             <li class="header-container__navbar-element">
-               <a href="#education">
+               <a class="header-container__navbar-link" href="/education">
                   Education
                </a>
             </li>
 
             <li class="header-container__navbar-element">
-               <a href="projects">
+               <a class="header-container__navbar-link" href="/tech">
+                  Tech
+               </a>
+            </li>
+
+            <li class="header-container__navbar-element">
+               <a class="header-container__navbar-link" href="/projects">
                   Projects
                </a>
             </li>
 
             <li class="header-container__navbar-element">
-               <a href="#contact">
+               <a class="header-container__navbar-link" href="/contact">
                   Contact
                </a>
-            </li>
-
-            <li class="header-container__navbar-element">
-               Resume
             </li>
          </ul>
       </nav>
@@ -60,7 +62,7 @@ export default {
 
 <style scoped>
 /* Mobile */
-@media screen and (max-width: 1999px) {
+@media screen and (max-width: 1200px) {
    .header-container {
       position: fixed;
       width: 100%;
@@ -82,11 +84,13 @@ export default {
 }
 
 /* desktop */
-@media screen and (min-width: 1200px ) {
+@media screen and (min-width: 1201px ) {
    .header-container {
       position: fixed;
       width: 100%;
       height: 100px;
+      background-color: var(--background-header);
+      opacity: 0.5;
    }
 
    .header-container__navbar--logo {
@@ -96,7 +100,7 @@ export default {
 
    .header-container__navbar-elements {
       display: flex;
-      justify-content: end;
+      justify-content: center;
    }
 
    .header-container__navbar-element {
@@ -109,8 +113,9 @@ export default {
       display: none;
    }
 
-
-
-   
+   .header-container__navbar-link {
+      color: var(--font-color-highligth);
+      padding: 20px;
+   }
 }
 </style>

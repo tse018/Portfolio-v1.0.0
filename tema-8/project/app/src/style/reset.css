@@ -99,6 +99,7 @@ video {
 
 body {
    line-height: 1.5;
+   overflow-anchor: none;
 }
 
 ol,
@@ -150,3 +151,6 @@ button {
    border: none;
 }
 
+a {
+   text-decoration: none;
+}

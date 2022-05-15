@@ -14,7 +14,7 @@
       </a>
 
       <button class="section-introduction__left-arrow" @click="scrollTo">
-         <Icons :icon="'left'" />
+         <Icons :icon="'rigth'" />
       </button>
    </section>
 </template>
@@ -22,7 +22,11 @@
 <script>
 import Icons from "../components/Icons.vue";
 
+import sectionParamsMixin from '../mixins/sectionParamsMixin.js';
+
 export default {
+   mixins: [sectionParamsMixin],
+
    data() {
       return {
          walk: 100,
@@ -68,7 +72,7 @@ export default {
          let y = e.offsetY;
 
          // can use globalThis, this or window to compare mouse location to the browser posistion
-         if (globalThis !== e.target) {
+         if (window !== e.target) {
             x = x + e.target.offsetLeft;
             y = y + e.target.offsetTop;
          }
@@ -121,25 +125,6 @@ export default {
       }
    }
 
-   .section-introduction__github {
-      grid-column: 1 / span 4;
-      text-align: center;
-      padding: 20px;
-      margin: 0 100px;
-      min-height: 50px;
-      border: 2px solid var(--font-color-highligth);
-      color: var(--font-color-highligth);
-      text-align: center;
-      text-decoration: none;
-      transition: 0.5s;
-   }
-
-   .section-introduction__github:hover,
-   .section-introduction__github:focus {
-      box-shadow: inset 400px 0 0 var(--font-color-highligth);
-      color: black;
-   }
-
    .section-introduction__left-arrow {
       display: none;
    }
@@ -183,25 +168,6 @@ export default {
       100% {
          color: aqua;
       }
-   }
-
-   .section-introduction__github {
-      grid-column: 2 / span 6;
-      text-align: left;
-      padding: 20px;
-      margin: 0 auto 0;
-      min-height: 50px;
-      border: 2px solid var(--font-color-highligth);
-      color: var(--font-color-highligth);
-      text-align: center;
-      text-decoration: none;
-      transition: 0.5s;
-   }
-
-   .section-introduction__github:hover,
-   .section-introduction__github:focus {
-      box-shadow: inset 400px 0 0 var(--font-color-highligth);
-      color: black;
    }
 
    .section-introduction__left-arrow {
@@ -249,25 +215,6 @@ export default {
       }
    }
 
-   .section-introduction__github {
-      grid-column: 6 / 12;
-      border: 2px solid var(--font-color-highligth);
-      color: var(--font-color-highligth);
-      text-align: center;
-      padding: 20px;
-      min-height: 100px;
-      transition: 0.5s;
-      text-align: center;
-      text-decoration: none;
-      font-size: var(--tablet-font-size-secondary-undertitle);
-   }
-
-   .section-introduction__github:hover,
-   .section-introduction__github:focus {
-      box-shadow: inset 400px 0 0 0 var(--font-color-highligth);
-      color: black;
-   }
-
    .section-introduction__left-arrow {
       display: none;
    }
@@ -288,6 +235,7 @@ export default {
       text-align: center;
       padding: 20px;
       min-height: 100px;
+      font-weight: var(--font-weigth-bold);
    }
 
    .section-introduction__work-title {
@@ -299,30 +247,10 @@ export default {
       animation: color-change 3s infinite;
    }
 
-   .section-introduction__github {
-      grid-column: 3 / span 4;
-      margin-top: 100px;
-      border: 2px solid var(--font-color-highligth);
-      color: var(--font-color-highligth);
-      text-align: center;
-      padding: 20px;
-      min-height: 100px;
-      transition: 0.8s;
-      text-align: center;
-      text-decoration: none;
-      font-size: var(--tablet-font-size-secondary-undertitle);
-   }
-
-   .section-introduction__github:hover,
-   .section-introduction__github:focus {
-      box-shadow: inset 600px 0 0 0 var(--font-color-highligth);
-      color: black;
-   }
-
    .section-introduction__left-arrow {
       position: absolute;
-      right: 0;
-      top: 50%;
+      right: 0.5%;
+      top: 42.3%;
    }
 
    @keyframes color-change {

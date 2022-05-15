@@ -1,8 +1,9 @@
 <template>
-   <main class="main-container" ref="scroll_container" @mousewheel="scrollX">
+   <main class="main-container">
       <section class="main-container__section">
          <div id="#">
             <LandingPage />
+            <Github />
          </div>
       </section>
 
@@ -14,18 +15,24 @@
 
       <section class="main-container__section">
          <div id="education">
-            <Education />
+            <Education/>
          </div>
       </section>
 
-      <section class="main-container__section--projects">
+      <section class="main-container__section">
+         <div id="tech">
+            <Tech />
+         </div>
+      </section>
+
+      <section class="main-container__section">
          <div id="projects">
             <Projects />
          </div>
       </section>
 
       <section class="main-container__section">
-         <div id="/contact">
+         <div id="contact">
             <Contact />
          </div>
       </section>
@@ -34,24 +41,28 @@
 
 <script>
 import LandingPage from "../components/landingPage.vue";
+import Github from '../components/Github.vue';
 import About from "../components/About.vue";
 import Education from "../components/Education.vue";
 import Projects from "../components/Projects.vue";
 import Contact from "../components/Contact.vue";
 import Icons from "../components/Icons.vue";
+import Tech from '../components/Tech.vue';
 
 import sectionParamsMixin from '../mixins/sectionParamsMixin.js';
 
 export default {
-   //mixins: [sectionParamsMixin],
+   mixins: [sectionParamsMixin],
 
    components: {
       LandingPage,
+      Github,
       About,
       Education,
       Projects,
       Contact,
       Icons,
+      Tech,
    },
 };
 </script>
@@ -69,7 +80,6 @@ export default {
       min-width: 100vw;
       min-height: 100vh;
    }
-
 }
 
 /* Tablet */
@@ -90,18 +100,13 @@ export default {
 @media screen and (min-width: 1200px) {
    .main-container {
       height: 100%;
-      width: 500%;
+      width: 600%;
       display: flex;
       overflow-y: hidden;
    }
 
    .main-container__section {
       height: 100%;
-      width: 100%;
-   }
-
-   .main-container__section--projects {
-      min-height: 100%;
       width: 100%;
       overflow: auto;
    }

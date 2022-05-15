@@ -4,6 +4,8 @@
 	--background-primary: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
 	--background-primary: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+	--background-header: #141E30;
+
 	--font-color-primary: #e6f1ff;
 	--font-color-secondary: white;
 	--font-color-highligth: #64ffda;
@@ -14,9 +16,9 @@
 
 	/* Mobile font-sizes */
 	--mobile-font-size-title: 45px;
-	--mobile-font-size-undertitle: 32px;
-	--mobile-font-size-secondary-undertitle: 28px;
-	--mobile-font-size-default: 22px;
+	--mobile-font-size-undertitle: 30px;
+	--mobile-font-size-secondary-undertitle: 25px;
+	--mobile-font-size-default: 18px;
 
 	/* Tablet font-sizes */
 	--tablet-font-size-title: 50px;
@@ -28,8 +30,8 @@
 	/* Desktop font-sizes */
 	--desktop-font-size-title: 80px;
 	--desktop-font-size-undertitle: 50px;
-	--desktop-font-size-secondary-undertitle: 40px;
-	--desktop-font-size-default: 28px;
+	--desktop-font-size-secondary-undertitle: 26px;
+	--desktop-font-size-default: 24px;
 	--desktop-font-size-paragraph: 25px;
 	--desktop-font-size-animation: 22px;
 

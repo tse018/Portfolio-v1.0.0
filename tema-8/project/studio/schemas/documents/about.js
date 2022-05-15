@@ -4,23 +4,9 @@ export default {
    type: "document",
    fields: [
       {
-         title: "Title",
-         name: "title",
-         type: "string",
-      },
-      {
-         title: "Slug",
-         name: "slug",
-         type: "slug",
-         options: {
-            source: "title",
-         },
-      },
-      {
          title: "Introduction",
          name: "introduction",
-         description:
-            "Short introduction about yourself, 4-5 sentences is enough.",
+         description: "Short introduction about yourself, 4-5 sentences is enough.",
          type: "array",
          of: [
             {
@@ -33,17 +19,6 @@ export default {
                      { title: "Highlight", value: "highlight" },
                   ],
                },
-            },
-         ],
-      },
-      {
-         title: "Tech Stack",
-         name: "techStack",
-         type: "array",
-         of: [
-            {
-               type: "reference",
-               to: [{ type: "tech" }],
             },
          ],
       },

@@ -21,7 +21,10 @@ export default {
       {
          title: "Preview",
          name: "preview",
-         type: "image",
+         type: "array",
+         of: [{
+            type: 'image'
+         }],
          options: {
             hotspot: true, // option to edit picture size in sanity
          },
@@ -35,9 +38,9 @@ export default {
                type: "block",
                marks: {
                   decorators: [
-                     { title: "Strong", value: "strong" },
-                     { title: "Emphasis", value: "em" },
-                     { title: "Code", value: "code" },
+                     { title: "Strong",    value: "strong" },
+                     { title: "Emphasis",  value: "em" },
+                     { title: "Code",      value: "code" },
                      { title: "Highlight", value: "highlight" },
                   ],
                },
@@ -48,12 +51,9 @@ export default {
          title: "Tech Stack",
          name: "techStack",
          type: "array",
-         of: [
-            {
-               type: "reference",
-               to: [{ type: "tech" }],
-            },
-         ],
+         of: [{
+            type: 'string'
+         }]
       },
       {
          title: "Github",

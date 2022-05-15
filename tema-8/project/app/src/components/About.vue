@@ -5,23 +5,20 @@
       <section class="about-container" v-for="content in about">
          <div class="about-container__introduction-container">
             <h2 class="about-container__introduction-title">
-               {{ content.title }}
+               About me
             </h2>
 
+            <!-- desktop -->
             <article class="about-container__introduction-field">
                <p v-if="!readMoreClicked">
                   {{ content.introduction[0].children[0].text }}
                </p>
 
                <div v-else>
-                  <p class="about-container__introduction-scroll">
-                     {{ content.introduction[0].children[0].text }}
+                  <p class="about-container__introduction-scroll" v-for="paragraph in content.introduction">
+                     {{ paragraph.children[0].text }}
                      <br />
                      <br />
-                     {{ content.introduction[1].children[0].text }}
-                     <br />
-                     <br />
-                     {{ content.introduction[2].children[0].text }}
                   </p>
                </div>
 
@@ -30,44 +27,18 @@
                </button>
             </article>
          </div>
-
-         <div class="about-container__tech-container">
-            <ul class="about-container__tech-animation" v-for="(tech, index) in techStack">
-               <li class="about-container__tech-element">
-                  {{ tech.name }}
-               </li>
-            </ul>
-         </div>
-
-         <button class="about-container__button-rigth" @click="scrollToHome">
-            <Icons :icon="'rigth'" />
-         </button>
-
-         <button class="about-container__button-left" @click="scrollToEducation">
-            <Icons :icon="'left'" />
-         </button>
       </section>
    </div>
 </template>
 
 <script>
-import sanityMixin from "../mixins/sanityMixin.js";
 import Icons from "../components/Icons.vue";
 
+import sanityMixin from "../mixins/sanityMixin.js";
+import readMoreClicked from "../mixins/readMoreButtonMixin.js";
+
 export default {
-   mixins: [sanityMixin],
-
-   data() {
-      return {
-         readMoreClicked: false,
-      };
-   },
-
-   created() {
-      this.article = this.$store.getters.getAbout.find((article) => {
-         article._type === this.$route.params.id
-      })
-   },
+   mixins: [sanityMixin, readMoreClicked],
 
    components: {
       Icons,
@@ -81,29 +52,17 @@ export default {
       error() {
          return this.$store.getters.getError;
       },
-
-      techStack() {
-         return this.$store.getters.getTech;
-      },
-
-      buttonText() {
-         return this.readMoreClicked ? "Read Less" : "Read more";
-      },
    },
 
    methods: {
-      scrollToEducation() {
-         const element = document.getElementById("education");
+      scrollToTech() {
+         const element = document.getElementById("tech");
          element.scrollIntoView({ behavior: "smooth" });
       },
 
       scrollToHome() {
          const element = document.getElementById("#");
          element.scrollIntoView({ behavior: "smooth" });
-      },
-
-      readMore() {
-         return (this.readMoreClicked = !this.readMoreClicked);
       },
    },
 };
@@ -115,7 +74,6 @@ export default {
    .about-container {
       display: flex;
       flex-flow: row wrap;
-      position: relative;
    }
 
    .about-container__introduction-container {
@@ -125,17 +83,17 @@ export default {
       text-align: center;
    }
 
-   .about-container__introction-scroll {
+   .about-container__introduction-scroll {
       height: 100px;
       overflow: scroll;
    }
 
    .about-container__introduction-title {
-      font-size: var(--desktop-font-size-secondary-undertitle);
+      font-size: var(--mobile-font-size-secondary-undertitle);
    }
 
    .about-container__introduction-field {
-      font-size: var(--desktop-font-size-paragraph);
+      font-size: var(--mobile-font-size-default);
    }
 
    .about-container__read-button {
@@ -152,40 +110,12 @@ export default {
       color: black;
    }
 
-   .about-container__tech-container {
-      padding: 50px;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-wrap: wrap;
-   }
-
-   .about-container__tech-element {
-      margin: 10px;
-   }
-
    .about-container__button-rigth {
       display: none;
    }
 
    .about-container__button-left {
       display: none;
-   }
-
-   /* width */
-   ::-webkit-scrollbar {
-      width: 10px;
-   }
-
-   /* Handle */
-   ::-webkit-scrollbar-thumb {
-      background: var(--font-color-highligth);
-      border-radius: 10px;
-   }
-
-   /* Handle on hover */
-   ::-webkit-scrollbar-thumb:hover {
-      background: var(--font-color-highligth);
    }
 }
 
@@ -283,7 +213,6 @@ export default {
 
    .about-container__introction-scroll {
       height: 100px;
-      overflow: scroll;
    }
 
    .about-container__introduction-title {
@@ -361,12 +290,14 @@ export default {
       display: flex;
       flex-flow: row wrap;
       position: relative;
+      width: 100%;
    }
 
    .about-container__introduction-container {
-      margin: 100px 0 0 100px;
-      width: 60%;
-      height: 500px;
+      margin: 100px auto;
+      max-width: 80%;
+      min-height: 100px;
+      padding: 20px;
    }
 
    .about-container__introction-scroll {
@@ -376,23 +307,17 @@ export default {
 
    .about-container__introduction-title {
       font-size: var(--desktop-font-size-secondary-undertitle);
+      margin-left: 25px;
    }
 
    .about-container__introduction-field {
       font-size: var(--desktop-font-size-paragraph);
-   }
-
-   .about-container__tech-container {
-      margin-top: 80px;
       padding: 25px;
-      width: 30%;
-      height: 100%;
-      display: flex;
-      flex-wrap: wrap;
+      width: 100%;
    }
 
    .about-container__read-button {
-      margin: 20px 50px 0 50px;
+      margin: 20px 0;
       width: 200px;
       transition: 0.9s;
       color: var(--font-color-highligth);
@@ -405,30 +330,17 @@ export default {
       color: black;
    }
 
-   .about-container__tech-animation {
-      position: relative;
-      top: 20px;
-      animation: rotation 10s linear infinite;
-      width: 100px;
-      font-size: var(--desktop-font-size-animation);
-   }
-
-   .about-container__tech-element {
-      margin: 10px;
-   }
-
-   .about-container__button-rigth {
+   .about-container__button-left {
       position: absolute;
-      top: 55%;
+      top: 56%;
       left: 0;
       margin-left: 15px;
    }
 
-   .about-container__button-left {
+   .about-container__button-rigth {
       position: absolute;
-      top: 55%;
-      right: 0;
-      margin-right: -15px;
+      right: 0.5%;
+      top: 30%;
    }
 
    /* width */
