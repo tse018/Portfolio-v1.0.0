@@ -1,31 +1,32 @@
 <template>
-   <section
-      ref="text-shadow" @mousemove="mouseMove" class="section-introduction">
-      <h1 class="section-introduction__name" :style="textShadow">
-         THANUSHAN SELLATHURAI
-      </h1>
+   <div v-if="loading">Loading...</div>
+   <div v-else>
+      <section ref="text-shadow" @mousemove="mouseMove" class="section-introduction">
+         <h1 class="section-introduction__name" :style="textShadow">
+            THANUSHAN SELLATHURAI
+         </h1>
 
-      <h2 class="section-introduction__work-title">
-         FRONT-END DEVELOPER
-      </h2>
+         <h2 class="section-introduction__work-title">
+            FRONT-END DEVELOPER
+         </h2>
 
-      <a href="https://github.com/tse018" target="_blank" class="section-introduction__github">
-         Check out my Github!
-      </a>
+         <a href="https://github.com/tse018" target="_blank" class="section-introduction__github">
+            Check out my Github!
+         </a>
 
-      <button class="section-introduction__left-arrow" @click="scrollTo">
-         <Icons :icon="'rigth'" />
-      </button>
-   </section>
+         <button class="section-introduction__left-arrow" @click="scrollTo">
+            <Icons :icon="'rigth'" />
+         </button>
+      </section>
+   </div>
 </template>
 
 <script>
 import Icons from "../components/Icons.vue";
-
-import sectionParamsMixin from '../mixins/sectionParamsMixin.js';
+import sanityMixin from '../mixins/sanityMixin';
 
 export default {
-   mixins: [sectionParamsMixin],
+   mixins: [sanityMixin],
 
    data() {
       return {

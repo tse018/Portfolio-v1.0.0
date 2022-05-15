@@ -1,37 +1,44 @@
 <template>
-   <div class="education">
-      <section class="education__container">
-         <nav class="education__tabs-container">
-            <ul class="education__tabs-elements">
-               <li class="education__tabs-element" v-for="school in education">
-                  <a class="education__tabs-click" @click="changeTab(school._id)">
-                     {{ school.institute }}
-                  </a>
-               </li>
-            </ul>
-         </nav>
+   <div v-if="loading">Loading...</div>
+   <div v-else>
+      <div class="education">
+         <section class="education__container">
+            <nav class="education__tabs-container">
+               <ul class="education__tabs-elements">
+                  <li class="education__tabs-element" v-for="school in education">
+                     <a class="education__tabs-click" @click="changeTab(school._id)">
+                        {{ school.institute }}
+                     </a>
+                  </li>
+               </ul>
+            </nav>
 
-         <div class="education__content-container">
-            <article class="education__content-article" v-for="content in education" v-show="activeTab === content._id">
-               <h3 class="education__content-title">
-                  {{ content.studyProgram }}
-               </h3>
+            <div class="education__content-container">
+               <article class="education__content-article" v-for="content in education" v-show="activeTab === content._id">
+                  <h3 class="education__content-title">
+                     {{ content.studyProgram }}
+                  </h3>
 
-               <p class="education__content-paragraph" v-for="paragraph in content.description">
-                  {{ paragraph.children[0].text }}
-                  <br />
-                  <br />
-               </p>
-            </article>
-         </div>
-      </section>
+                  <p class="education__content-paragraph" v-for="paragraph in content.description">
+                     {{ paragraph.children[0].text }}
+                     <br />
+                     <br />
+                  </p>
+               </article>
+            </div>
+         </section>
+      </div>
    </div>
 </template>
 
 <script>
 import Icons from "../components/Icons.vue";
 
+import sanityMixin from '../mixins/sanityMixin';
+
 export default {
+   mixins: [sanityMixin],
+
    components: {
       Icons,
    },

@@ -47,7 +47,7 @@ import Education from "../components/Education.vue";
 import Projects from "../components/Projects.vue";
 import Contact from "../components/Contact.vue";
 import Icons from "../components/Icons.vue";
-import Tech from '../components/Tech.vue';
+import Tech from '../components/TechSection.vue';
 
 import sectionParamsMixin from '../mixins/sectionParamsMixin.js';
 
