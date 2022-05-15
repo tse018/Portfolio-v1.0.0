@@ -126,6 +126,7 @@ export default {
    padding: 20px;
    width: 200px;
    text-align: center;
+   min-width: max-content;
 }
 
 .projects-container__navbar-tab {

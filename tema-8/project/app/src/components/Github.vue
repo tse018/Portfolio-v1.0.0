@@ -1,7 +1,5 @@
 <template>
    <img class="github__contributions" src="https://ghchart.rshah.org/243B55/tse018" alt="picture of my github profile number of contributions done day for day ">
-
-   
 </template>
 
 <script>
