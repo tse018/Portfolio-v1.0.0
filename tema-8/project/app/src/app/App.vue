@@ -8,26 +8,10 @@
 import Header from '../components/Header.vue';
 import Footer from '../components/Footer.vue';
 
-import sanityMixin from '../mixins/sanityMixin.js';
-import seoMixin from '../mixins/seoMixin.js';
-
 export default {
-   mixins: [
-      sanityMixin,
-      seoMixin,
-   ],
-
    components: {
       Header, 
       Footer 
-   },
-   
-   async created() {
-      this.fetchSanity();
-
-      this.metaTags({
-         title: 'Thanushan Sellathurai Portfolio',
-		});
    },
 }
 </script>

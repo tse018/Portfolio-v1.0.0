@@ -248,6 +248,25 @@ export default {
       animation: color-change 3s infinite;
    }
 
+   .section-introduction__github {
+      grid-column: span 4;
+      text-align: center;
+   padding: 20px;
+   margin: 0 auto;
+   min-height: 50px;
+   border: 2px solid var(--font-color-highligth);
+   color: var(--font-color-highligth);
+   text-align: center;
+   text-decoration: none;
+   transition: 0.5s;
+}
+
+.section-introduction__github:hover,
+.section-introduction__github:focus {
+   box-shadow: inset 400px 0 0 var(--font-color-highligth);
+   color: black;
+}
+
    .section-introduction__left-arrow {
       position: absolute;
       right: 0.5%;

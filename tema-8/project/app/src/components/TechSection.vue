@@ -3,7 +3,7 @@
    <div v-else>
       <section class="technology-container">
          <h3 class="technology-container__title">
-            Click to see some of the tech I have been working on 
+            Tech Stack Overview
          </h3>
 
          <div class="technology-container__flex-wrapper">

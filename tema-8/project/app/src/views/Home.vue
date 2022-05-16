@@ -1,7 +1,7 @@
 <template>
    <main class="main-container">
       <section class="main-container__section">
-         <div id="#">
+         <div id="home">
             <LandingPage />
             <Github />
          </div>
@@ -49,10 +49,14 @@ import Contact from "../components/Contact.vue";
 import Icons from "../components/Icons.vue";
 import Tech from '../components/TechSection.vue';
 
-import sectionParamsMixin from '../mixins/sectionParamsMixin.js';
+import sanityMixin from '../mixins/sanityMixin.js';
+import seoMixin from '../mixins/seoMixin.js';
 
 export default {
-   mixins: [sectionParamsMixin],
+   mixins: [
+      sanityMixin,
+      seoMixin,
+   ],
 
    components: {
       LandingPage,
@@ -63,6 +67,16 @@ export default {
       Contact,
       Icons,
       Tech,
+   },
+
+   async created() {
+      this.fetchSanity();
+
+      this.metaTags({
+         title: 'Thanushan Sellathurai Portfolio',
+		});
+
+      alert(this.$route.params.id)
    },
 };
 </script>

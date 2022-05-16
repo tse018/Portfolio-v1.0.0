@@ -4,6 +4,11 @@
          <button class="collapsible__toggle" @click="toggle">
             <div class="collapsible__name">
                {{ title }}
+
+            <!--
+               <Icons :icon="'collapsed'" />
+               <Icons :icon="'notCollapsed'" />
+               -->
             </div>
          </button>
       </div>
@@ -83,5 +88,15 @@ export default {
    min-height: 100px;
    margin-top: -45px;
    color: var(--font-color-highligth);
+}
+
+.collapsible__name {
+   transition: 2s;
+}
+
+.collapsible__name:hover,
+.collapsible__name:focus {
+   box-shadow: inset 500px 0 0 0 var(--font-color-highligth);
+   color: black;
 }
 </style>

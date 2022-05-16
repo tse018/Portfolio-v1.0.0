@@ -1,3 +1,5 @@
+//import githubQuery from '../graphql/githubQuery.graphql';
+
 export default {
    state() {
       return {
@@ -18,8 +20,8 @@ export default {
 
    actions: {
       async fetchGithubData(state) {
-         const url = 'https://api.github.com/users/tse018/repos';
-         const response = await fetch(url);
+         const url = 'https://api.github.com/graphql';
+         const response = await fetch(githubQuery);
          try {
             if (response.status >= 200 && response.status < 300) {
                state.commit('setGithubContent');

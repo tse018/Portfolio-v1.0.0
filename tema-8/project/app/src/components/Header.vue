@@ -11,37 +11,37 @@
             </li>
 
             <li class="header-container__navbar-element">
-               <a class="header-container__navbar-link" href="/">
+               <a class="header-container__navbar-link" @click="scrollIt('home')">
                   Home
                </a>
             </li>
 
             <li class="header-container__navbar-element">
-               <a class="header-container__navbar-link" href="/about">
+               <a class="header-container__navbar-link" @click="scrollIt('about')">
                   About
                </a>
             </li>
 
             <li class="header-container__navbar-element">
-               <a class="header-container__navbar-link" href="/education">
+               <a class="header-container__navbar-link" @click="scrollIt('education')">
                   Education
                </a>
             </li>
 
             <li class="header-container__navbar-element">
-               <a class="header-container__navbar-link" href="/tech">
+               <a class="header-container__navbar-link" @click="scrollIt('tech')">
                   Tech
                </a>
             </li>
 
             <li class="header-container__navbar-element">
-               <a class="header-container__navbar-link" href="/projects">
+               <a class="header-container__navbar-link" @click="scrollIt('projects')">
                   Projects
                </a>
             </li>
 
             <li class="header-container__navbar-element">
-               <a class="header-container__navbar-link" href="/contact">
+               <a class="header-container__navbar-link" @click="scrollIt('contact')">
                   Contact
                </a>
             </li>
@@ -53,9 +53,30 @@
 <script>
 import MobileMenu from "../components/MobileMenu.vue";
 
+import sectionParamsMixin from '../mixins/sectionParamsMixin.js';
+
 export default {
+   mixins: [sectionParamsMixin],
+
+   data() {
+      return {
+         path: '/',
+      }
+   },
+
    components: {
       MobileMenu,
+   },
+
+   methods: {
+      scrollIt(routet) {
+         const element = document.getElementById(routet);
+         element.scrollIntoView({ behavior: "smooth" });
+         window.location.element(`#${routet}`);
+
+         this.$router.push(this.path + routet);
+         console.log(this.$router.params.id)
+      },
    },
 };
 </script>
@@ -66,6 +87,7 @@ export default {
    .header-container {
       position: fixed;
       width: 100%;
+      z-index: 100;
    }
 
    .header-container__logo-image {
@@ -91,6 +113,7 @@ export default {
       height: 100px;
       background-color: var(--background-header);
       opacity: 0.5;
+      z-index: 100;
    }
 
    .header-container__navbar--logo {
@@ -106,7 +129,6 @@ export default {
    .header-container__navbar-element {
       display: flex;
       padding: 20px;
-      cursor: pointer;
    }
 
    .header-container__navbar-element--mobile {
@@ -116,6 +138,7 @@ export default {
    .header-container__navbar-link {
       color: var(--font-color-highligth);
       padding: 20px;
+      cursor: pointer;
    }
 }
 </style>

@@ -76,14 +76,12 @@ export default {
 
    computed: {
       projects() {
-         return this.$store.getters.getProjects.sort((a, b) => {
-            return a.title > b.title ? 1 : -1;
-         });
+         return this.$store.getters.getProjects;
       },
 
       activeTab() {
          return this.$store.getters.getProjects[0]._id;
-      },
+      }
    },
 
    methods: {

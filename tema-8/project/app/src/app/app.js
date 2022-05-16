@@ -11,12 +11,16 @@ const app_store = createStore(store);
 const router = createRouter({
    routes: routes,
    history: createWebHistory(),
-   scrollBehavior() {
+   scrollBehavior(to, from, savedPosistion) {
       window.scrollTo({
          top: 0,
          left: 0,
          behavior: "smooth",
       });
+
+      if (to.hash) {
+         return { el: to.hash }
+      }
    },
 });
 

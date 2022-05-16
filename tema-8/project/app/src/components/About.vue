@@ -5,10 +5,9 @@
       <section class="about-container" v-for="content in about">
          <div class="about-container__introduction-container">
             <h2 class="about-container__introduction-title">
-               About me
+               {{ content.title }}
             </h2>
 
-            <!-- desktop -->
             <article class="about-container__introduction-field">
                <p v-if="!readMoreClicked">
                   {{ content.introduction[0].children[0].text }}
@@ -32,17 +31,11 @@
 </template>
 
 <script>
-import Icons from "../components/Icons.vue";
-
 import sanityMixin from "../mixins/sanityMixin.js";
 import readMoreClicked from "../mixins/readMoreButtonMixin.js";
 
 export default {
    mixins: [sanityMixin, readMoreClicked],
-
-   components: {
-      Icons,
-   },
 
    computed: {
       about() {
@@ -81,11 +74,6 @@ export default {
       width: 100%;
       min-height: 100px;
       text-align: center;
-   }
-
-   .about-container__introduction-scroll {
-      height: 100px;
-      overflow: scroll;
    }
 
    .about-container__introduction-title {
