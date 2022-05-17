@@ -1,37 +1,37 @@
 <template>
    <main class="main-container">
-      <section class="main-container__section">
+      <section class="main-container__section" ref="home">
          <div id="home">
             <LandingPage />
             <Github />
          </div>
       </section>
 
-      <section class="main-container__section">
+      <section class="main-container__section" ref="about">
          <div id="about">
             <About />
          </div>
       </section>
 
-      <section class="main-container__section">
+      <section class="main-container__section" ref="education">
          <div id="education">
             <Education/>
          </div>
       </section>
 
-      <section class="main-container__section">
+      <section class="main-container__section" ref="tech">
          <div id="tech">
             <Tech />
          </div>
       </section>
 
-      <section class="main-container__section">
+      <section class="main-container__section" ref="projects">
          <div id="projects">
             <Projects />
          </div>
       </section>
 
-      <section class="main-container__section">
+      <section class="main-container__section" ref="contact">
          <div id="contact">
             <Contact />
          </div>
@@ -50,14 +50,17 @@ import Icons from "../components/Icons.vue";
 import Tech from '../components/TechSection.vue';
 
 import sanityMixin from '../mixins/sanityMixin.js';
-import seoMixin from '../mixins/seoMixin.js';
 
 export default {
-   mixins: [
-      sanityMixin,
-      seoMixin,
-   ],
+   mixins: [ sanityMixin],
 
+   props: {
+      ref: {
+         type: String,
+      }
+   },
+
+   
    components: {
       LandingPage,
       Github,
@@ -71,13 +74,16 @@ export default {
 
    async created() {
       this.fetchSanity();
-
-      this.metaTags({
-         title: 'Thanushan Sellathurai Portfolio',
-		});
-
-      alert(this.$route.params.id)
    },
+
+   mounted() {
+      console.log(this.$refs)
+   },
+
+   unmounted() {
+
+   }
+
 };
 </script>
 

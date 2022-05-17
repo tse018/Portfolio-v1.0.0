@@ -14,7 +14,19 @@
             </nav>
 
             <div class="education__content-container">
-               <article class="education__content-article" v-for="content in education" v-show="activeTab === content._id">
+               <article class="education__content-article" v-for="content in education" v-show="activeTab === content._id && !currentTab">
+                  <h3 class="education__content-title">
+                     {{ content.studyProgram }}
+                  </h3>
+
+                  <p class="education__content-paragraph" v-for="paragraph in content.description">
+                     {{ paragraph.children[0].text }}
+                     <br />
+                     <br />
+                  </p>
+               </article>
+
+               <article class="education__content-article" v-for="content in education" v-show="currentTab === content._id">
                   <h3 class="education__content-title">
                      {{ content.studyProgram }}
                   </h3>
@@ -45,10 +57,10 @@ export default {
 
    data() {
       return {
+         tab: false,
          currentTab: "",
       };
    },
-
    computed: {
       education() {
          return this.$store.getters.getEducation;
@@ -62,16 +74,7 @@ export default {
    methods: {
       changeTab(_id) {
          this.currentTab = _id;
-      },
-
-      scrollToTech() {
-         const element = document.getElementById("tech");
-         element.scrollIntoView({ behavior: "smooth" });
-      },
-
-      scrollToHome() {
-         const element = document.getElementById("projects");
-         element.scrollIntoView({ behavior: "smooth" });
+         console.log(this.currentTab)
       },
    },
 };

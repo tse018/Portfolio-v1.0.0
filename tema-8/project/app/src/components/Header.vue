@@ -53,14 +53,16 @@
 <script>
 import MobileMenu from "../components/MobileMenu.vue";
 
-import sectionParamsMixin from '../mixins/sectionParamsMixin.js';
-
 export default {
-   mixins: [sectionParamsMixin],
-
    data() {
       return {
-         path: '/',
+         
+      };
+   },
+
+   props: {
+      ref: {
+         type: String,
       }
    },
 
@@ -73,9 +75,6 @@ export default {
          const element = document.getElementById(routet);
          element.scrollIntoView({ behavior: "smooth" });
          window.location.element(`#${routet}`);
-
-         this.$router.push(this.path + routet);
-         console.log(this.$router.params.id)
       },
    },
 };
@@ -106,7 +105,7 @@ export default {
 }
 
 /* desktop */
-@media screen and (min-width: 1201px ) {
+@media screen and (min-width: 1201px) {
    .header-container {
       position: fixed;
       width: 100%;
