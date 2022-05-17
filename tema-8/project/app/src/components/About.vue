@@ -32,7 +32,7 @@
 
 <script>
 import sanityMixin from "../mixins/sanityMixin.js";
-import readMoreClicked from "../mixins/readMoreButtonMixin.js";
+import readMoreClicked from "../mixins/readMoreButtonMixins.js";
 
 export default {
    mixins: [sanityMixin, readMoreClicked],

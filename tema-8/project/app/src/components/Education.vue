@@ -46,21 +46,16 @@
 <script>
 import Icons from "../components/Icons.vue";
 
-import sanityMixin from '../mixins/sanityMixin';
+import sanityMixin from '../mixins/sanityMixin.js';
+import changeTab from '../mixins/changeTabsMixins.js';
 
 export default {
-   mixins: [sanityMixin],
+   mixins: [sanityMixin, changeTab],
 
    components: {
       Icons,
    },
 
-   data() {
-      return {
-         tab: false,
-         currentTab: "",
-      };
-   },
    computed: {
       education() {
          return this.$store.getters.getEducation;
@@ -68,13 +63,6 @@ export default {
 
       activeTab() {
          return this.$store.getters.getEducation[0]._id;
-      },
-   },
-
-   methods: {
-      changeTab(_id) {
-         this.currentTab = _id;
-         console.log(this.currentTab)
       },
    },
 };

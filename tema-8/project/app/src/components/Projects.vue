@@ -13,7 +13,51 @@
 
          <div class="projects-container__flex-content">
             <article class="projects-container__description-container">
-               <div class="projects-container__description-content" v-for="project in projects" v-show="activeTab === project._id">
+               <div class="projects-container__description-content" v-for="project in projects" v-show="activeTab === project._id && !currentTab">
+                  <h3 class="projects-container__description-title">
+                     {{ project.title.toUpperCase() }} description
+                  </h3>
+
+                  <div class="projects-container__paragraph-container">
+                     <p v-if="!readMoreClicked" class="projects-container__paragraph-preview">
+                        {{ project.description[0].children[0].text }}
+                     </p>
+
+                     <div v-else class="projects-container__paragraph-full">
+                        <p v-for="paragraph in project.description">
+                           {{ paragraph.children[0].text}} <br />
+                        </p>
+                     </div>
+
+                     <button class="projects-container__read-button" @click="readMore">
+                        {{ buttonText }}
+                     </button>
+
+                     <div class="projects-container__tech-container">
+                        <h3 class="projects-container__tech-title">
+                           Tech stack used for {{ project.title.toUpperCase() }}:
+                        </h3>
+                        
+                        <ul class="projects-container__tech-elements" v-for=" tech in project.techStack">
+                           <li class="projects-container__tech-element">
+                              {{ tech }}
+                           </li>
+                        </ul>
+                     </div>
+
+                     <ul class="projects-container__link-elements">
+                        <li class="projects-container__link-element">
+                           Github: <a class="projects-container__link" :href="`${project.github}`" target="_blank" > {{ project.github}} </a>
+                        </li>
+
+                        <li class="projects-container__link-element">
+                           Netlify: <a class="projects-container__link" :href="`${project.netlify}`" target="_blank" > {{ project.netlify}} </a>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+
+               <div class="projects-container__description-content" v-for="project in projects" v-show="currentTab === project._id">
                   <h3 class="projects-container__description-title">
                      {{ project.title.toUpperCase() }} description
                   </h3>
@@ -63,16 +107,11 @@
 </template>
 
 <script>
-import readMoreClicked from "../mixins/readMoreButtonMixin.js";
+import readMoreClicked from "../mixins/readMoreButtonMixins.js";
+import changeTab from '../mixins/changeTabsMixins.js';
 
 export default {
-   mixins: [readMoreClicked],
-
-   data() {
-      return {
-         currentTab: "",
-      };
-   },
+   mixins: [readMoreClicked, changeTab],
 
    computed: {
       projects() {
@@ -82,13 +121,6 @@ export default {
       activeTab() {
          return this.$store.getters.getProjects[0]._id;
       }
-   },
-
-   methods: {
-      changeTab(_id) {
-         this.currentTab = _id;
-         //console.log(this.currentTab)
-      },
    },
 };
 </script>
