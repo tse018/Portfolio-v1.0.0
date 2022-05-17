@@ -20,7 +20,7 @@ export default {
    computed: {
       semanticTechnology() {
          return this.$store.getters.getSemanticTechnology.sort((a, b) => {
-            return (a.technology > b.technology ? 1: -1);
+            return (a.technology < b.technology ? 1: -1);
          });
       },
    },

@@ -1,5 +1,6 @@
 <template>
-   <div class="projects-container">
+   <div v-if="loading">Loading...</div>
+   <div v-else class="projects-container">
       <section class="projects-container__flex-navbar">
          <nav class="projects-container__navbar">
             <ul class="projects-container__navbar-elements">
@@ -79,7 +80,7 @@
 
                      <div class="projects-container__tech-container">
                         <h3 class="projects-container__tech-title">
-                           Tech stack used for {{ project.title.toUpperCase() }}:
+                           {{ project.title }} Tech Stack: 
                         </h3>
                         
                         <ul class="projects-container__tech-elements" v-for=" tech in project.techStack">
@@ -107,11 +108,12 @@
 </template>
 
 <script>
+import sanityMixin from '../mixins/sanityMixin.js';
 import readMoreClicked from "../mixins/readMoreButtonMixins.js";
 import changeTab from '../mixins/changeTabsMixins.js';
 
 export default {
-   mixins: [readMoreClicked, changeTab],
+   mixins: [sanityMixin, readMoreClicked, changeTab],
 
    computed: {
       projects() {

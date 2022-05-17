@@ -93,12 +93,6 @@ export default {
    border-radius: 30px;
 }
 
-.linked {
-   width: 28px;
-   height: 26px;
-   cursor: pointer;
-}
-
 .left-arrow {
    width: 70px;
    height: 70px;
@@ -110,15 +104,5 @@ export default {
    height: 70px;
 }
 
-.collapsed {
-   width: 40px;
-   height: 40px;
-   background-color: white;
-}
 
-.not-collapsed {
-   width: 40px;
-   height: 40px;
-   background: white;
-}
 </style>

@@ -20,7 +20,7 @@ export default {
    computed: {
       database() {
          return this.$store.getters.getDatabase.sort((a, b) => {
-            return (a.technology > b.technology ? 1: -1)
+            return (a.technology < b.technology ? 1: -1)
          });
       },
    },

@@ -3,7 +3,7 @@
    <div v-else>
       <section class="technology-container">
          <h3 class="technology-container__title">
-            Tech Stack Overview
+            TECH STACK OVERVIEW
          </h3>
 
          <div class="technology-container__flex-wrapper">
@@ -68,12 +68,12 @@ export default {
    data() {
       return {
          title: {
-            backend: "Backend Development",
-            database: "Database",
-            frontend: "Frontend Development",
-            interactionDesign: "Interaction Design",
-            semanticTechnology: "Semantic Technology",
-            systemDevelopment: "System Development",
+            backend: "BACKEND DEVELOPMENT",
+            database: "DATABASE",
+            frontend: "FRONTEND DEVELOPMENT",
+            interactionDesign: "INTERACTION DESIGN",
+            semanticTechnology: "SEMANTIC TECHNOLOGY",
+            systemDevelopment: "SYSTEM DEVELOPMENT",
          },
       };
    },

@@ -20,7 +20,7 @@ export default {
    computed: {
       frontend() {
          return this.$store.getters.getFrontend.sort((a, b) => {
-            return (a.technology > b.technology ? 1: -1)
+            return (a.technology < b.technology ? 1: -1)
          });
       },
    },

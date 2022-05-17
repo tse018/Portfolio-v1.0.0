@@ -2,47 +2,13 @@
    <header class="header-container">
       <nav class="header-container__navbar">
          <ul class="header-container__navbar-elements">
-            <RouterLink :to="{ name: 'home' }" class="header-container__navbar--logo">
-               <img src="/images/favicon-32x32.png" alt="page logo" class="header-container__logo-image" />
-            </RouterLink>
-
             <li class="header-container__navbar-element--mobile">
                <MobileMenu />
             </li>
 
-            <li class="header-container__navbar-element">
-               <a class="header-container__navbar-link" @click="scrollIt('home')">
-                  Home
-               </a>
-            </li>
-
-            <li class="header-container__navbar-element">
-               <a class="header-container__navbar-link" @click="scrollIt('about')">
-                  About
-               </a>
-            </li>
-
-            <li class="header-container__navbar-element">
-               <a class="header-container__navbar-link" @click="scrollIt('education')">
-                  Education
-               </a>
-            </li>
-
-            <li class="header-container__navbar-element">
-               <a class="header-container__navbar-link" @click="scrollIt('tech')">
-                  Tech
-               </a>
-            </li>
-
-            <li class="header-container__navbar-element">
-               <a class="header-container__navbar-link" @click="scrollIt('projects')">
-                  Projects
-               </a>
-            </li>
-
-            <li class="header-container__navbar-element">
-               <a class="header-container__navbar-link" @click="scrollIt('contact')">
-                  Contact
+            <li v-for="data in navbar" class="header-container__navbar-element">
+               <a class="header-container__navbar-link" @click="scrollIt(data.id)">
+                  {{ data.section }}
                </a>
             </li>
          </ul>
@@ -56,14 +22,33 @@ import MobileMenu from "../components/MobileMenu.vue";
 export default {
    data() {
       return {
-         
+         navbar: [
+            {
+               id: 'home',
+               section: 'HOME',
+            },
+            {
+               id: 'about',
+               section: 'ABOUT',
+            },
+            {
+               id: 'education',
+               section: 'EDUCATION',
+            },
+            {
+               id: 'tech',
+               section: 'TECH',
+            },
+            {
+               id: 'projects',
+               section: 'PROJECTS',
+            },
+            {
+               id: 'contact',
+               section: 'CONTACT',
+            },
+         ]
       };
-   },
-
-   props: {
-      ref: {
-         type: String,
-      }
    },
 
    components: {
@@ -89,10 +74,6 @@ export default {
       z-index: 100;
    }
 
-   .header-container__logo-image {
-      margin: 0 0 0 10px;
-   }
-
    .header-container__navbar-element--mobile {
       display: flex;
       justify-content: end;
@@ -115,10 +96,6 @@ export default {
       z-index: 100;
    }
 
-   .header-container__navbar--logo {
-      position: absolute;
-      left: 0;
-   }
 
    .header-container__navbar-elements {
       display: flex;

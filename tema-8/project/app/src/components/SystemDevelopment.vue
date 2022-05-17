@@ -20,7 +20,7 @@ export default {
    computed: {
       systemDevelopment() {
          return this.$store.getters.getSystemDevelopment.sort((a, b) => {
-            return (a.technology > b.technology ? 1: -1);
+            return (a.technology < b.technology ? 1: -1);
          });
       },
    },

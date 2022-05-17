@@ -50,16 +50,10 @@ import Icons from "../components/Icons.vue";
 import Tech from '../components/TechSection.vue';
 
 import sanityMixin from '../mixins/sanityMixin.js';
+import intersectionObserver from '../mixins/intersectionObserver.js';
 
 export default {
-   mixins: [ sanityMixin],
-
-   props: {
-      ref: {
-         type: String,
-      }
-   },
-
+   mixins: [ sanityMixin ],
    
    components: {
       LandingPage,
@@ -75,15 +69,6 @@ export default {
    async created() {
       this.fetchSanity();
    },
-
-   mounted() {
-      console.log(this.$refs)
-   },
-
-   unmounted() {
-
-   }
-
 };
 </script>
 
