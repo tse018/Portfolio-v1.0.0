@@ -1,20 +1,22 @@
 <template>
    <div v-if="loading">Loading...</div>
    <div v-else>
-      <img class="github__contributions" src="https://ghchart.rshah.org/243B55/tse018" alt="picture of my github profile number of contributions done day for day " />
-      <h3>
+      <div class="github-container">
+      <img class="github-container__contributions" src="https://ghchart.rshah.org/243B55/tse018" alt="picture of my github profile number of contributions done day for day " />
+      <h3 class="github-container__title">
          Total Contributions:
-      </h3>
 
-      <div v-for="content in result">
-         <div v-for="contributions in content">
-            {{ contributions.totalContributions }}
+         <div v-for="content in result">
+            <div v-for="contributions in content">
+               {{ contributions.totalContributions }}
+            </div>
          </div>
-      </div>
+      </h3>
 
       <a href="https://github.com/tse018" target="_blank" class="section-introduction__github">
             Check out my Github!
       </a>
+   </div>
    </div>
 </template>
 
@@ -63,13 +65,14 @@ export default {
             }
          }
       }`,
-      };
+   };
 
       const response = await fetch(url, {
          method: "POST",
          body: JSON.stringify(body),
          headers: headers,
       });
+
       const { data } = await response.json();
       const { user } = data;
       this.result = user;
@@ -78,11 +81,26 @@ export default {
 </script>
 
 <style>
-.github__contributions {
+.github-container {
+   display: flex;
+   flex-direction: column;
+}
+
+.github-container__contributions {
    margin: 0 auto;
    position: relative;
    display: flex;
    width: 60%;
    height: 20%;
 }
+
+.github-container__title {
+   display: flex;
+   width: 50%;
+   justify-content: left;
+   margin: auto;
+   font-size: 20px;
+   font-style: italic;
+}
+
 </style>
