@@ -4,8 +4,13 @@ export default {
    type: "document",
    fields: [
       {
-         title: "Information",
-         name: "information",
+         title: "Title",
+         name: "title",
+         type: "string",
+      },
+      {
+         title: "Description",
+         name: "Description",
          type: "array",
          of: [
             {

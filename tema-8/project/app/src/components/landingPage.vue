@@ -1,13 +1,13 @@
 <template>
    <div v-if="loading">Loading...</div>
    <div v-else>
-      <section ref="text-shadow" @mousemove="mouseMove" class="section-introduction">
-         <h1 class="section-introduction__name" :style="textShadow">
+      <section ref="text-shadow" class="section-introduction">
+         <h1 class="section-introduction__name">
             THANUSHAN SELLATHURAI
          </h1>
 
          <h2 class="section-introduction__work-title">
-            FRONT-END DEVELOPER
+            JUNIOR FRONT-END DEVELOPER
          </h2>
          
          <button class="section-introduction__left-arrow" @click="scrollTo">
@@ -24,14 +24,6 @@ import sanityMixin from '../mixins/sanityMixin';
 export default {
    mixins: [sanityMixin],
 
-   data() {
-      return {
-         walk: 100,
-         xWalk: null,
-         yWalk: null,
-      };
-   },
-
    components: {
       Icons,
    },
@@ -40,14 +32,6 @@ export default {
       data() {
          return this.$store.getters.getData;
       },
-
-      textShadow() {
-         return {
-            // why variable color interfere when hovering arrow?
-            // other colors doesn´t............
-            textShadow: `${this.xWalk}px ${this.yWalk}px black`,
-         };
-      },
    },
 
    methods: {
@@ -55,29 +39,7 @@ export default {
       scrollTo() {
          const element = document.getElementById("about");
          element.scrollIntoView({ behavior: "smooth" });
-      },
-
-      mouseMove(e) {
-         /* https://stackoverflow.com/questions/21064101/understanding-offsetwidth-clientwidth-scrollwidth-and-height-respectively */
-
-         // getting width and heigth from section container
-         const width = this.$refs["text-shadow"].offsetWidth;
-         const heigth = this.$refs["text-shadow"].offsetHeight;
-
-         // getting mouseposistion from X and Y
-         let x = e.offsetX;
-         let y = e.offsetY;
-
-         // can use globalThis, this or window to compare mouse location to the browser posistion
-         if (window !== e.target) {
-            x = x + e.target.offsetLeft;
-            y = y + e.target.offsetTop;
-         }
-
-         // rounding up to whole number, and calculating how much text shadow will mouse based on the mouse location
-         this.xWalk = Math.round((x / width) * this.walk - this.walk / 2);
-         this.yWalk = Math.round((y / heigth) * this.walk - this.walk / 2);
-      },
+      }
    },
 };
 </script>

@@ -150,7 +150,8 @@ export default {
 
 .projects-container__navbar-elements {
    display: flex;
-   min-width: 100px;
+   justify-content: center;
+   min-width: 100%;
    overflow: auto;
 }
 

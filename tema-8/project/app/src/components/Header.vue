@@ -56,10 +56,11 @@ export default {
    },
 
    methods: {
-      scrollIt(routet) {
-         const element = document.getElementById(routet);
+      scrollIt(anchor) {
+         const element = document.getElementById(anchor);
+         // scrollIntoView works only for google chrome, not safari
          element.scrollIntoView({ behavior: "smooth" });
-         window.location.element(`#${routet}`);
+         window.location.element(`#${anchor}`);
       },
    },
 };

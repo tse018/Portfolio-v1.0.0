@@ -2,16 +2,10 @@
    <div v-if="loading">Loading...</div>
    <div v-else>
       <section class="contact-container">
-         <div class="contact-container__content-container">
-            <h3 class="contact-container__content-title">Get in touch</h3>
-
-            <p class="contact-container__content-paragraph">
-               I am currently located Oslo, Norway.
-            </p>
-
-            <a class="contact-container__content-link" href="mailto:thanushan.s@hotmail.com" target="_blank">
-               Say Hello by sending a mail
-            </a>
+         <div v-for="data in contact">
+            <h3>
+               {{ data.title }}
+            </h3>
          </div>
 
          <div class="contact-container__map-container">
@@ -19,6 +13,7 @@
                <div id="geocoder" class="geocoder"></div>
             </div>
          </div>
+
       </section>
    </div>
 </template>
@@ -47,6 +42,12 @@ export default {
       });
 
       this.searchLocationGeoCoder(map)
+   },
+
+   computed: {
+      contact() {
+         return this.$store.getters.getContact;
+      }
    },
 
    methods: {
@@ -92,18 +93,24 @@ export default {
 .contact-container {
    padding-top: 100px;
    display: flex;
+   position: relative;
 }
 
 .contact-container__content-container {
    width: 30%;
+   height: 100%;
+   border: 2px solid green;
 }
 
 .contact-container__map-container {
    width: 70%;
+   height: 100%;
+   border: 2px solid red;
+   
 }
 
 .contact-container__map {
    width: 100%;
-   height: 600px;
+   height: 80vh;
 }
 </style>

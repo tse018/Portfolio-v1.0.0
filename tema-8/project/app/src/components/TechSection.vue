@@ -81,55 +81,25 @@ export default {
 </script>
 
 <style scoped>
-@media screen and (max-width: 600px) {
-   .technology-container__flex-wrapper {
-   display: flex;
-   flex-direction: column;
-   flex-wrap: wrap;
-}
-
-
-.technology-container__item-2 {
-   margin-top: -80px;
-}
-
-
-}
 .technology-container {
-   padding-top: 100px;
    position: relative;
+   height: 100%;
+   width: 100%;
+   padding-top: 100px;
 }
 
 .technology-container__title {
    text-align: center;
    padding: 20px;
-   margin-bottom: 20px;
+   margin: 20px auto 20px auto;
    font-size: var(--desktop-font-size-secondary-undertitle);
 }
 
 .technology-container__flex-wrapper {
    display: flex;
-}
-
-.technology-container__item-1 {
-   flex: 50%;
    flex-wrap: wrap;
-}
-
-.technology-container__item-2 {
-   flex: 50%;
-   flex-wrap: wrap;
-}
-
-.technology-container__scroll-rigth {
-   position: absolute;
-   right: 1;
-   top: 40vh;
-}
-
-.technology-container__scroll-left {
-   position: absolute;
-   left: 0vw;
-   top: 40vh;
+   flex-direction: row;
+   justify-content: center;
+   gap: 10%;
 }
 </style>

@@ -2,17 +2,17 @@
    <div v-if="loading">Loading...</div>
    <div v-else>
       <div class="github-container">
-      <img class="github-container__contributions" src="https://ghchart.rshah.org/243B55/tse018" alt="picture of my github profile number of contributions done day for day " />
-      <h3 class="github-container__title">
-         Total Contributions:
-
-         <div v-for="content in result">
-            <div v-for="contributions in content">
+         <h3 class="github-container__title">
+            Contribution count:
+         <span v-for="content in result">
+            <span v-for="contributions in content">
                {{ contributions.totalContributions }}
-            </div>
-         </div>
+            </span>
+         </span>
       </h3>
 
+      <img class="github-container__contributions" src="https://ghchart.rshah.org/243B55/tse018" alt="picture of my github profile number of contributions done day for day " />
+      
       <a href="https://github.com/tse018" target="_blank" class="section-introduction__github">
             Check out my Github!
       </a>
@@ -103,4 +103,23 @@ export default {
    font-style: italic;
 }
 
+.section-introduction__github {
+   grid-column: span 4;
+   text-align: center;
+   padding: 20px;
+   margin: 0 auto;
+   min-height: 50px;
+   border: 2px solid var(--font-color-highligth);
+   color: var(--font-color-highligth);
+   text-align: center;
+   text-decoration: none;
+   transition: 0.5s;
+   border: 2px solid red;
+}
+
+.section-introduction__github:hover,
+.section-introduction__github:focus {
+   box-shadow: inset 400px 0 0 var(--font-color-highligth);
+   color: black;
+}
 </style>

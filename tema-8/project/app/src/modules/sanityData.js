@@ -75,6 +75,10 @@ export default {
          return state.data.filter((system) => system._type === 'systemDevelopment');
       },
 
+      getContact(state) {
+         return state.data.filter((contact) => contact._type === 'contact');
+      },
+
       getError(state) {
          return state.error;
       },

@@ -50,7 +50,6 @@ import Icons from "../components/Icons.vue";
 import Tech from '../components/TechSection.vue';
 
 import sanityMixin from '../mixins/sanityMixin.js';
-import intersectionObserver from '../mixins/intersectionObserver.js';
 
 export default {
    mixins: [ sanityMixin ],
