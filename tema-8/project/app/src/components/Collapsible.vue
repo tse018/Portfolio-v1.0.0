@@ -4,11 +4,6 @@
          <button class="collapsible__toggle" @click="toggle">
             <div class="collapsible__name">
                {{ title }}
-
-            <!--
-               <Icons :icon="'collapsed'" />
-               <Icons :icon="'notCollapsed'" />
-               -->
             </div>
          </button>
       </div>
@@ -36,6 +31,7 @@ export default {
    props: {
       title: {
          type: String,
+         // if props title fails, this will show instead
          default: "Click to see more",
       },
    },
@@ -76,7 +72,7 @@ export default {
 }
 
 /* so when user click on Interaction design,
-   Semantic Technology get some more space bottom 
+   Semantic Technology get some more space bottom
 */
 .collapsible:nth-child(3) {
    margin-bottom: 100px;

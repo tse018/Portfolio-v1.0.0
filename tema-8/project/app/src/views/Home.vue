@@ -65,6 +65,7 @@ export default {
       Tech,
    },
 
+
    async created() {
       this.fetchSanity();
    },

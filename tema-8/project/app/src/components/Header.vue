@@ -7,7 +7,7 @@
             </li>
 
             <li v-for="data in navbar" class="header-container__navbar-element">
-               <a class="header-container__navbar-link" @click="scrollIt(data.id)">
+               <a class="header-container__navbar-link" @click="scrollTo(data.id)">
                   {{ data.section }}
                </a>
             </li>
@@ -56,7 +56,7 @@ export default {
    },
 
    methods: {
-      scrollIt(anchor) {
+      scrollTo(anchor) {
          const element = document.getElementById(anchor);
          // scrollIntoView works only for google chrome, not safari
          element.scrollIntoView({ behavior: "smooth" });
