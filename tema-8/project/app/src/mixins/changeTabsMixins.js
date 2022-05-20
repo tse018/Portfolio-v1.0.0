@@ -2,8 +2,10 @@ export default {
    data() {
       return {
          currentTab: "",
+         active: false,
       }
    },
+
 
    methods: {
       changeTab(_id) {

@@ -12,7 +12,8 @@
   bottom: 0;
   width: 100%;
   height: 60px;   /* Height of the footer */
-  background: #6cf;
+  background: var(--background-footer-color);
+  z-index: 100;
 }
 
 .footer-container__content {

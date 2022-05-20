@@ -2,10 +2,20 @@
    <div v-if="loading">Loading...</div>
    <div v-else>
       <section class="contact-container">
-         <div v-for="data in contact">
-            <h3>
+         <div
+            class="contact-container__content-container"
+            v-for="data in contact"
+         >
+            <h3 class="contact-container__title">
                {{ data.title }}
             </h3>
+
+            <div
+               class="contact-container__content-paragraph"
+               v-for="paragraph in data.description"
+            >
+               {{ paragraph }}
+            </div>
          </div>
 
          <div class="contact-container__map-container">
@@ -13,7 +23,6 @@
                <div id="geocoder" class="geocoder"></div>
             </div>
          </div>
-
       </section>
    </div>
 </template>
@@ -38,16 +47,16 @@ export default {
          container: "map", // container ID
          style: "mapbox://styles/mapbox/streets-v11", // style URL
          center: [10.75, 59.91], // starting position [lng, lat]
-         zoom: 13, // starting zoom
+         zoom: 13, // starting zoom 
       });
 
-      this.searchLocationGeoCoder(map)
+      this.searchLocationGeoCoder(map);
    },
 
    computed: {
       contact() {
          return this.$store.getters.getContact;
-      }
+      },
    },
 
    methods: {
@@ -76,13 +85,6 @@ export default {
             },
          });
 
-         // trying to add place details when user search on a country
-         geocoder.on("result", function ({ result }) {
-            console.log(result.place_name);
-            // figure how to create add layer so when user search country
-            // popup will appear after the search with details about that country.
-         });
-
          document.getElementById("geocoder").appendChild(geocoder.onAdd(map));
       },
    },
@@ -91,6 +93,8 @@ export default {
 
 <style scoped>
 .contact-container {
+   width: 100%;
+   height: 100%;
    padding-top: 100px;
    display: flex;
    position: relative;
@@ -98,19 +102,16 @@ export default {
 
 .contact-container__content-container {
    width: 30%;
-   height: 100%;
    border: 2px solid green;
 }
 
 .contact-container__map-container {
-   width: 70%;
-   height: 100%;
    border: 2px solid red;
-   
+   width: 70%;
 }
 
 .contact-container__map {
    width: 100%;
-   height: 80vh;
+   height: 100%;
 }
 </style>

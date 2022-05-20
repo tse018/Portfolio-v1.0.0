@@ -3,7 +3,7 @@
    <div v-else>
       <div class="github-container">
          <h3 class="github-container__title">
-            Contribution count:
+            Github Contributions:
          <span v-for="content in result">
             <span v-for="contributions in content">
                {{ contributions.totalContributions }}

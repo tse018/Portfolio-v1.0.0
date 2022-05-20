@@ -161,14 +161,6 @@ export default {
       margin: 10px;
    }
 
-   .about-container__button-rigth {
-      display: none;
-   }
-
-   .about-container__button-left {
-      display: none;
-   }
-
    /* width */
    ::-webkit-scrollbar {
       width: 10px;
@@ -316,19 +308,6 @@ export default {
    .about-container__read-button:focus {
       box-shadow: inset 200px 0 0 0 var(--font-color-highligth);
       color: black;
-   }
-
-   .about-container__button-left {
-      position: absolute;
-      top: 56%;
-      left: 0;
-      margin-left: 15px;
-   }
-
-   .about-container__button-rigth {
-      position: absolute;
-      right: 0.5%;
-      top: 30%;
    }
 
    /* width */

@@ -5,6 +5,7 @@
 	--background-primary: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 	--background-header: #141E30;
+	--background-footer-color: #6cf;
 
 	--font-color-primary: #e6f1ff;
 	--font-color-secondary: white;

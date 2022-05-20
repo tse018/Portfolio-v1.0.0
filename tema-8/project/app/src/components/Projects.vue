@@ -20,19 +20,11 @@
                   </h3>
 
                   <div class="projects-container__paragraph-container">
-                     <p v-if="!readMoreClicked" class="projects-container__paragraph-preview">
-                        {{ project.description[0].children[0].text }}
-                     </p>
-
-                     <div v-else class="projects-container__paragraph-full">
+                     <div class="projects-container__paragraph-full">
                         <p v-for="paragraph in project.description">
-                           {{ paragraph.children[0].text}} <br />
+                           {{ paragraph.children[0].text }} <br />
                         </p>
                      </div>
-
-                     <button class="projects-container__read-button" @click="readMore">
-                        {{ buttonText }}
-                     </button>
 
                      <div class="projects-container__tech-container">
                         <h3 class="projects-container__tech-title">
@@ -64,19 +56,11 @@
                   </h3>
 
                   <div class="projects-container__paragraph-container">
-                     <p v-if="!readMoreClicked" class="projects-container__paragraph-preview">
-                        {{ project.description[0].children[0].text }}
-                     </p>
-
-                     <div v-else class="projects-container__paragraph-full">
+                     <div class="projects-container__paragraph-full">
                         <p v-for="paragraph in project.description">
-                           {{ paragraph.children[0].text}} <br />
+                           {{ paragraph.children[0].text}} 
                         </p>
                      </div>
-
-                     <button class="projects-container__read-button" @click="readMore">
-                        {{ buttonText }}
-                     </button>
 
                      <div class="projects-container__tech-container">
                         <h3 class="projects-container__tech-title">

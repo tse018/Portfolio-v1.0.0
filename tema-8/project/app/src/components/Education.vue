@@ -3,10 +3,10 @@
    <div v-else>
       <div class="education">
          <section class="education__container">
-            <nav class="education__tabs-container">
-               <ul class="education__tabs-elements">
-                  <li class="education__tabs-element" v-for="school in education">
-                     <a class="education__tabs-click" @click="changeTab(school._id)">
+            <nav class="education__container-navbar">
+               <ul class="education__container-elements">
+                  <li class="education__container-element" v-for="school in education">
+                     <a class="education__container-tab" @click="changeTab(school._id)">
                         {{ school.institute }}
                      </a>
                   </li>
@@ -19,23 +19,48 @@
                      {{ content.studyProgram }}
                   </h3>
 
-                  <p class="education__content-paragraph" v-for="paragraph in content.description">
+                  <p class="education__content-length">
+                     {{ content.startDate }} - {{ content.endDate }}
+                  </p>
+
+                  <p class="education__content-paragraph" v-if="!readMoreClicked">
+                     {{ content.description[0].children[0].text}}
+                  </p>
+
+                  <p v-else class="education__content-paragraph" v-for="paragraph in content.description">
                      {{ paragraph.children[0].text }}
                      <br />
                      <br />
                   </p>
-               </article>
 
+                  <button class="education__content-button" @click="readMore">
+                     {{ buttonText }}
+                  </button>
+               </article>
+               
+               
                <article class="education__content-article" v-for="content in education" v-show="currentTab === content._id">
                   <h3 class="education__content-title">
                      {{ content.studyProgram }}
                   </h3>
 
-                  <p class="education__content-paragraph" v-for="paragraph in content.description">
+                  <p class="education__content-length">
+                     {{ content.startDate }} - {{ content.endDate }}
+                  </p>
+
+                  <p v-if="!readMoreClicked" class="education__content-paragraph">
+                     {{ content.description[0].children[0].text}}
+                  </p>
+
+                  <p v-else class="education__content-paragraph" v-for="paragraph in content.description">
                      {{ paragraph.children[0].text }}
                      <br />
                      <br />
                   </p>
+
+                  <button class="education__content-button" @click="readMore">
+                     {{ buttonText }}
+                  </button>
                </article>
             </div>
          </section>
@@ -48,9 +73,10 @@ import Icons from "../components/Icons.vue";
 
 import sanityMixin from '../mixins/sanityMixin.js';
 import changeTab from '../mixins/changeTabsMixins.js';
+import readMoreButtonMixin from '../mixins/readMoreButtonMixins.js';
 
 export default {
-   mixins: [sanityMixin, changeTab],
+   mixins: [sanityMixin, changeTab, readMoreButtonMixin],
 
    components: {
       Icons,
@@ -84,24 +110,24 @@ export default {
       margin: 0 -100px;
    }
 
-   .education__tabs-container {
+   .education__container-navbar {
       min-width: max-content;
       min-height: max-content;
       padding: 20px;
       margin: 0 auto;
    }
 
-   .education__tabs-elements {
+   .education__container-elements {
       padding: 20px;
    }
 
-   .education__tabs-element {
+   .education__container-element {
       padding: 20px;
       font-size: var(--mobile-font-size-secondary-undertitle);
       text-align: center;
    }
 
-   .education__tabs-click {
+   .education__container-click {
       cursor: pointer;
    }
 
@@ -123,21 +149,13 @@ export default {
       font-size: var(--mobile-font-size-default);
       line-height: 30px;
    }
-
-   .education-container__button-left {
-      display: none;
-   }
-
-   .education-container__button-rigth {
-      display: none;
-   }
 }
 
 /* desktop */
 .education {
-   width: 100%;
-   height: 100%;
-   padding: 100px;
+   min-width: 100%;
+   min-height: 100%;
+   padding: 100px 100px 0 100px;
    position: relative;
 }
 
@@ -145,21 +163,22 @@ export default {
    display: flex;
 }
 
-.education__tabs-container {
+.education__container-navbar {
    min-width: max-content;
    min-height: max-content;
    padding: 20px;
 }
 
-.education__tabs-elements {
+.education__container-elements {
    padding: 20px;
 }
 
-.education__tabs-element {
+.education__container-element {
    padding: 25px;
+   border-left: 5px solid gray;
 }
 
-.education__tabs-click {
+.education__container-tab:after {
    cursor: pointer;
 }
 
@@ -176,19 +195,30 @@ export default {
    padding: 0 30px;
 }
 
+.education__content-length {
+   padding: 0 30px;
+   font-style: italic;
+}
+
 .education__content-paragraph {
    padding: 0 30px;
 }
 
-.education-container__button-left {
-   position: absolute;
-   top: 38%;
-   left: 0.5%;
+.education__content-button {
+   margin: 20px 20px;
+   width: 200px;
+   transition: 0.9s;
+   color: var(--font-color-highligth);
+   border: 2px solid var(--font-color-highligth);
 }
 
-.education-container__button-rigth {
-   position: absolute;
-   top: 38%;
-   right: 0.5%;
+.education__content-button:hover,
+.education__content-button:focus {
+   box-shadow: inset 200px 0 0 0 var(--font-color-highligth);
+   color: black;
+}
+
+.red {
+   background-color: red;
 }
 </style>

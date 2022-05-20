@@ -40,12 +40,12 @@
 </template>
 
 <script>
-import LandingPage from "../components/landingPage.vue";
-import Github from '../components/Github.vue';
 import About from "../components/About.vue";
-import Education from "../components/Education.vue";
-import Projects from "../components/Projects.vue";
 import Contact from "../components/Contact.vue";
+import Education from "../components/Education.vue";
+import Github from '../components/Github.vue';
+import LandingPage from "../components/landingPage.vue";
+import Projects from "../components/Projects.vue";
 import Icons from "../components/Icons.vue";
 import Tech from '../components/TechSection.vue';
 

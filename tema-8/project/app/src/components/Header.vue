@@ -8,7 +8,9 @@
 
             <li v-for="data in navbar" class="header-container__navbar-element">
                <a class="header-container__navbar-link" @click="scrollTo(data.id)">
-                  {{ data.section }}
+                  <RouterLink class="header-container__navbar-link" :to="{ name: 'home', params: {id: data.id} }">
+                     {{ data.section}}
+                  </RouterLink>
                </a>
             </li>
          </ul>
@@ -24,7 +26,7 @@ export default {
       return {
          navbar: [
             {
-               id: 'home',
+               id: '',
                section: 'HOME',
             },
             {
