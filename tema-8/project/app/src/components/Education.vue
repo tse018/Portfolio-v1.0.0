@@ -175,7 +175,6 @@ export default {
 
 .education__container-element {
    padding: 25px;
-   border-left: 5px solid gray;
 }
 
 .education__container-tab:after {

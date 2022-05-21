@@ -10,7 +10,7 @@ export default {
       },
       {
          title: "Description",
-         name: "Description",
+         name: "description",
          type: "array",
          of: [
             {

@@ -6,10 +6,20 @@
                <MobileMenu />
             </li>
 
-            <li v-for="(data, index) in navbar" class="header-container__navbar-element">
-               <a class="header-container__navbar-link" @click="scrollTo(data.id)" :key="data.id">
-                  <RouterLink class="header-container__navbar-link" :to="{ name: 'home', params: {id: data.id} }">
-                     {{ data.section}}
+            <li
+               v-for="(data, index) in navbar"
+               class="header-container__navbar-element"
+            >
+               <a
+                  class="header-container__navbar-link"
+                  @click="scrollTo(data.id)"
+                  :key="data.id"
+               >
+                  <RouterLink
+                     class="header-container__navbar-link"
+                     :to="{ name: 'home', params: { id: data.id } }"
+                  >
+                     {{ data.section }}
                   </RouterLink>
                </a>
             </li>
@@ -26,28 +36,28 @@ export default {
       return {
          navbar: [
             {
-               id: '',
-               section: 'HOME',
+               id: "",
+               section: "HOME",
             },
             {
-               id: 'about',
-               section: 'ABOUT',
+               id: "about",
+               section: "ABOUT",
             },
             {
-               id: 'education',
-               section: 'EDUCATION',
+               id: "education",
+               section: "EDUCATION",
             },
             {
-               id: 'tech',
-               section: 'TECH',
+               id: "tech",
+               section: "TECH",
             },
             {
-               id: 'projects',
-               section: 'PROJECTS',
+               id: "projects",
+               section: "PROJECTS",
             },
             {
-               id: 'contact',
-               section: 'CONTACT',
+               id: "contact",
+               section: "CONTACT",
             },
          ],
       };
@@ -99,7 +109,6 @@ export default {
       z-index: 100;
    }
 
-
    .header-container__navbar-elements {
       display: flex;
       justify-content: center;
@@ -120,7 +129,7 @@ export default {
       cursor: pointer;
    }
 
-
+   /* highligthing the active routerlink button */
    .router-link-active {
       text-decoration: 5px underline var(--font-color-highligth);
    }

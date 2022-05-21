@@ -10,18 +10,14 @@
                {{ data.title }}
             </h3>
 
-            <div
-               class="contact-container__content-paragraph"
-               v-for="paragraph in data.description"
-            >
-               {{ paragraph }}
+            <div v-for="paragraph in data.description">
+               {{ paragraph.children[0].text }}
             </div>
          </div>
 
          <div class="contact-container__map-container">
-            <div class="contact-container__map" id="map">
-               <div id="geocoder" class="geocoder"></div>
-            </div>
+            <div id="geocoder" class="geocoder"></div>
+            <div class="contact-container__map" id="map"></div>
          </div>
       </section>
    </div>
@@ -29,6 +25,7 @@
 
 <script>
 import sanityMixin from "../mixins/sanityMixin.js";
+
 import mapboxgl from "mapbox-gl";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 
@@ -38,19 +35,12 @@ export default {
    data() {
       return {
          mapbox_id: import.meta.env.VITE_MAPBOX_ID,
+         markers: {}
       };
    },
 
    mounted() {
-      mapboxgl.accessToken = this.mapbox_id;
-      const map = new mapboxgl.Map({
-         container: "map", // container ID
-         style: "mapbox://styles/mapbox/streets-v11", // style URL
-         center: [10.75, 59.91], // starting position [lng, lat]
-         zoom: 13, // starting zoom 
-      });
-
-      this.searchLocationGeoCoder(map);
+      this.creatingMapbox();
    },
 
    computed: {
@@ -60,6 +50,32 @@ export default {
    },
 
    methods: {
+      creatingMapbox() {
+         mapboxgl.accessToken = this.mapbox_id;
+         const map = new mapboxgl.Map({
+            container: "map", // container ID
+            style: "mapbox://styles/mapbox/streets-v11", // style URL
+            center: [10.818701, 59.904822], // starting position [lng, lat]
+            zoom: 11, // starting zoom
+         });
+
+         this.creatingMarker(map);
+         this.message(map);
+      },
+
+      creatingMarker(map) {
+         // Create a new marker, set the longitude and latitude, and add it to the map.
+         new mapboxgl.Marker().setLngLat([10.818701, 59.904822]).addTo(map);
+      },
+
+      message(map) {
+         const popup = new mapboxgl.Popup({ closeOnClick: false })
+         .setLngLat([10.81, 59.93822])
+         .setHTML('<p class="mapbox__email">thanushan.s@hotmail.com</p><p class="mapbox__number">+47 90110611</p>')
+         .addTo(map);
+      },
+
+
       searchLocationGeoCoder(map) {
          const geocoder = new MapboxGeocoder({
             accessToken: mapboxgl.accessToken,
@@ -84,14 +100,13 @@ export default {
                },
             },
          });
-
          document.getElementById("geocoder").appendChild(geocoder.onAdd(map));
       },
    },
 };
 </script>
 
-<style scoped>
+<style>
 .contact-container {
    width: 100%;
    height: 100%;
@@ -113,5 +128,29 @@ export default {
 .contact-container__map {
    width: 100%;
    height: 100%;
+}
+
+.mapboxgl-popup-close-button {
+   display: none;
+}
+
+.mapboxgl-popup-content {
+   border: 2px solid var(--font-color-highligth);
+   background: var(--background-primary);
+   min-width: max-content;
+}
+
+.mapbox__email {
+   font-size: var(--tablet-font-size-secondary-undertitle);
+   font-family: 'Open Sans', sans-serif;
+   color: var(--font-color-highligth);
+   padding: 10px;
+}
+
+.mapbox__number {
+   font-size: var(--tablet-font-size-secondary-undertitle);
+   font-family: 'Open Sans', sans-serif;
+   color: var(--font-color-highligth);
+   padding: 10px;
 }
 </style>

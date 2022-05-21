@@ -1,37 +1,37 @@
 <template>
    <main class="main-container">
-      <section class="main-container__section" ref="home">
+      <section class="main-container__section">
          <div id="home">
             <LandingPage />
             <Github />
          </div>
       </section>
 
-      <section class="main-container__section" ref="about">
+      <section class="main-container__section">
          <div id="about">
             <About />
          </div>
       </section>
 
-      <section class="main-container__section" ref="education">
+      <section class="main-container__section">
          <div id="education">
             <Education/>
          </div>
       </section>
 
-      <section class="main-container__section" ref="tech">
+      <section class="main-container__section">
          <div id="tech">
             <Tech />
          </div>
       </section>
 
-      <section class="main-container__section" ref="projects">
+      <section class="main-container__section">
          <div id="projects">
             <Projects />
          </div>
       </section>
 
-      <section class="main-container__section" ref="contact">
+      <section class="main-container__section">
          <div id="contact">
             <Contact />
          </div>
@@ -64,7 +64,6 @@ export default {
       Icons,
       Tech,
    },
-
 
    async created() {
       this.fetchSanity();

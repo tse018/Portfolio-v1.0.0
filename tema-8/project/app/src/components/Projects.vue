@@ -16,7 +16,7 @@
             <article class="projects-container__description-container">
                <div class="projects-container__description-content" v-for="project in projects" v-show="activeTab === project._id && !currentTab">
                   <h3 class="projects-container__description-title">
-                     {{ project.title.toUpperCase() }} description
+                     {{ project.title.toUpperCase() }}
                   </h3>
 
                   <div class="projects-container__paragraph-container">
@@ -52,7 +52,7 @@
 
                <div class="projects-container__description-content" v-for="project in projects" v-show="currentTab === project._id">
                   <h3 class="projects-container__description-title">
-                     {{ project.title.toUpperCase() }} description
+                     {{ project.title.toUpperCase() }}
                   </h3>
 
                   <div class="projects-container__paragraph-container">
@@ -122,20 +122,17 @@ export default {
 
 .projects-container__flex-navbar {
    display: flex;
-   flex-wrap: wrap;
-   flex-direction: column;
 }
 
 .projects-container__navbar {
-   width: 100%;
    display: flex;
-   justify-content: center;
+   flex-direction: row;
+   margin: 5% 0 0 5%;
 }
 
 .projects-container__navbar-elements {
-   display: flex;
    justify-content: center;
-   min-width: 100%;
+   max-width: 400px;
    overflow: auto;
 }
 
@@ -158,19 +155,17 @@ export default {
 
 .projects-container__description-content {
    width: 100%;
-   margin-left: 20px;
 }
 
 .projects-container__description-title {
-   font-style: italic;
    padding: 0 20px;
+   margin-top: 5%;
+   text-align: center;
    color: var(--font-color-highligth);
 }
 
 .projects-container__paragraph-container {
-   width: 100%;
-   min-height: 100px;
-   padding: 20px;
+   padding: 5px 50px;
 }
 
 .projects-container__link {
