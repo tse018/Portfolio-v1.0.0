@@ -1,6 +1,6 @@
 <template>
    <Header />
-   <RouterView  />
+   <RouterView :key="$route.path"/>
    <Footer />
 </template>
 

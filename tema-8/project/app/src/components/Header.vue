@@ -6,8 +6,8 @@
                <MobileMenu />
             </li>
 
-            <li v-for="data in navbar" class="header-container__navbar-element">
-               <a class="header-container__navbar-link" @click="scrollTo(data.id)">
+            <li v-for="(data, index) in navbar" class="header-container__navbar-element">
+               <a class="header-container__navbar-link" @click="scrollTo(data.id)" :key="data.id">
                   <RouterLink class="header-container__navbar-link" :to="{ name: 'home', params: {id: data.id} }">
                      {{ data.section}}
                   </RouterLink>
@@ -49,7 +49,7 @@ export default {
                id: 'contact',
                section: 'CONTACT',
             },
-         ]
+         ],
       };
    },
 
@@ -118,6 +118,11 @@ export default {
       color: var(--font-color-highligth);
       padding: 20px;
       cursor: pointer;
+   }
+
+
+   .router-link-active {
+      text-decoration: 5px underline var(--font-color-highligth);
    }
 }
 </style>
