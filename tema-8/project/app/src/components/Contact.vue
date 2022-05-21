@@ -59,12 +59,11 @@ export default {
 
          this.blinkingCircle(map);
          this.message(map);
-         this.creatingGeoJSON(map);
       },
 
       message(map) {
          const popup = new mapboxgl.Popup({ closeOnClick: false })
-            .setLngLat([10.81, 59.93822])
+            .setLngLat([10.818701, 59.907522])
             .setHTML(
                '<p class="mapbox__email">thanushan.s@hotmail.com</p><p class="mapbox__number">+47 90110611</p>'
             )
