@@ -2,17 +2,16 @@
    <div v-if="loading">Loading...</div>
    <div v-else>
       <section class="contact-container">
-         <div
-            class="contact-container__content-container"
-            v-for="data in contact"
-         >
+         <div class="contact-container__content-container" v-for="data in contact">
             <h3 class="contact-container__title">
                {{ data.title }}
             </h3>
 
-            <div v-for="paragraph in data.description">
+            <div class="contact-container__paragraphs" v-for="paragraph in data.description">
                {{ paragraph.children[0].text }}
             </div>
+
+            <a href="mailto:${data.eMail}" target="_blank"> {{ data.eMail }} </a>
          </div>
 
          <div class="contact-container__map-container">
@@ -162,6 +161,7 @@ export default {
                   ],
                },
             });
+
             map.addLayer({
                id: "layer-with-pulsing-dot",
                type: "symbol",
@@ -187,10 +187,22 @@ export default {
 
 .contact-container__content-container {
    width: 30%;
+   padding: 20px;
 }
 
 .contact-container__map-container {
    width: 70%;
+}
+
+.contact-container__title {
+   color: var(--font-color-highligth);
+   text-align: center;
+   padding: 20px;
+}
+
+.contact-container__paragraphs {
+   padding: 20px;
+   text-align: center;
 }
 
 .contact-container__map {
@@ -221,4 +233,5 @@ export default {
    color: var(--font-color-highligth);
    padding: 10px;
 }
+
 </style>
