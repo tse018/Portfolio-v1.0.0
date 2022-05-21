@@ -16,7 +16,6 @@
          </div>
 
          <div class="contact-container__map-container">
-            <div id="geocoder" class="geocoder"></div>
             <div class="contact-container__map" id="map"></div>
          </div>
       </section>
@@ -27,7 +26,6 @@
 import sanityMixin from "../mixins/sanityMixin.js";
 
 import mapboxgl from "mapbox-gl";
-import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 
 export default {
    mixins: [sanityMixin],
@@ -35,7 +33,7 @@ export default {
    data() {
       return {
          mapbox_id: import.meta.env.VITE_MAPBOX_ID,
-         markers: {}
+         mapbox_map_id: import.meta.env.VITE_MAPBOX_MAP,
       };
    },
 
@@ -54,53 +52,126 @@ export default {
          mapboxgl.accessToken = this.mapbox_id;
          const map = new mapboxgl.Map({
             container: "map", // container ID
-            style: "mapbox://styles/mapbox/streets-v11", // style URL
+            style: `mapbox://styles/tse018/${this.mapbox_map_id}`, // style URL
             center: [10.818701, 59.904822], // starting position [lng, lat]
             zoom: 11, // starting zoom
          });
 
-         this.creatingMarker(map);
+         this.blinkingCircle(map);
          this.message(map);
-      },
-
-      creatingMarker(map) {
-         // Create a new marker, set the longitude and latitude, and add it to the map.
-         new mapboxgl.Marker().setLngLat([10.818701, 59.904822]).addTo(map);
+         this.creatingGeoJSON(map);
       },
 
       message(map) {
          const popup = new mapboxgl.Popup({ closeOnClick: false })
-         .setLngLat([10.81, 59.93822])
-         .setHTML('<p class="mapbox__email">thanushan.s@hotmail.com</p><p class="mapbox__number">+47 90110611</p>')
-         .addTo(map);
+            .setLngLat([10.81, 59.93822])
+            .setHTML(
+               '<p class="mapbox__email">thanushan.s@hotmail.com</p><p class="mapbox__number">+47 90110611</p>'
+            )
+            .addTo(map);
       },
 
+      blinkingCircle(map) {
+         const size = 200;
 
-      searchLocationGeoCoder(map) {
-         const geocoder = new MapboxGeocoder({
-            accessToken: mapboxgl.accessToken,
-            mapboxgl: mapboxgl,
+         // This implements `StyleImageInterface`
+         // to draw a pulsing dot icon on the map.
+         const pulsingDot = {
+            width: size,
+            height: size,
+            data: new Uint8Array(size * size * 4),
 
-            /* geocoder input field placeholder */
-            placeholder: "Search in mapbox",
-
-            /* adding easing in-out animation when searching for country  */
-            flyTo: {
-               bearing: 0,
-
-               // Control the flight curve, making it move slowly and
-               // zoom out almost completely before starting to pan.
-               speed: 0.2, // Make the flying slow.
-               curve: 4, // Change the speed at which it zooms out.
-
-               // This can be any easing function: it takes a number between
-               // 0 and 1 and returns another number between 0 and 1.
-               easing: (posistion) => {
-                  return posistion;
-               },
+            // When the layer is added to the map,
+            // get the rendering context for the map canvas.
+            onAdd: function () {
+               const canvas = document.createElement("canvas");
+               canvas.width = this.width;
+               canvas.height = this.height;
+               this.context = canvas.getContext("2d");
             },
+
+            // Call once before every frame where the icon will be used.
+            render: function () {
+               const duration = 1000;
+               const t = (performance.now() % duration) / duration;
+
+               const radius = (size / 2) * 0.3;
+               const outerRadius = (size / 2) * 0.7 * t + radius;
+               const context = this.context;
+
+               // Draw the outer circle.
+               context.clearRect(0, 0, this.width, this.height);
+               context.beginPath();
+               context.arc(
+                  this.width / 2,
+                  this.height / 2,
+                  outerRadius,
+                  0,
+                  Math.PI * 2
+               );
+               context.fillStyle = `rgba(255, 200, 200, ${1 - t})`;
+               context.fill();
+
+               // Draw the inner circle.
+               context.beginPath();
+               context.arc(
+                  this.width / 2,
+                  this.height / 2,
+                  radius,
+                  0,
+                  Math.PI * 2
+               );
+
+               context.fillStyle = "#64ffda";
+               context.strokeStyle = "#141E30";
+               context.lineWidth = 2 + 4 * (1 - t);
+               context.fill();
+               context.stroke();
+
+               // Update this image's data with data from the canvas.
+               this.data = context.getImageData(
+                  0,
+                  0,
+                  this.width,
+                  this.height
+               ).data;
+
+               // Continuously repaint the map, resulting
+               // in the smooth animation of the dot.
+               map.triggerRepaint();
+
+               // Return `true` to let the map know that the image was updated.
+               return true;
+            },
+         };
+
+         map.on("load", () => {
+            map.addImage("pulsing-dot", pulsingDot, { pixelRatio: 2 });
+
+            map.addSource("dot-point", {
+               type: "geojson",
+               data: {
+                  type: "FeatureCollection",
+                  features: [
+                     {
+                        type: "Feature",
+                        geometry: {
+                           type: "Point",
+                           coordinates: [10.818701, 59.904822], // icon position [lng, lat]
+                        },
+                     },
+                  ],
+               },
+            });
+            map.addLayer({
+               id: "layer-with-pulsing-dot",
+               type: "symbol",
+               source: "dot-point",
+               layout: {
+                  "icon-image": "pulsing-dot",
+               },
+            });
          });
-         document.getElementById("geocoder").appendChild(geocoder.onAdd(map));
       },
    },
 };
@@ -117,11 +188,9 @@ export default {
 
 .contact-container__content-container {
    width: 30%;
-   border: 2px solid green;
 }
 
 .contact-container__map-container {
-   border: 2px solid red;
    width: 70%;
 }
 
@@ -142,14 +211,14 @@ export default {
 
 .mapbox__email {
    font-size: var(--tablet-font-size-secondary-undertitle);
-   font-family: 'Open Sans', sans-serif;
+   font-family: "Open Sans", sans-serif;
    color: var(--font-color-highligth);
    padding: 10px;
 }
 
 .mapbox__number {
    font-size: var(--tablet-font-size-secondary-undertitle);
-   font-family: 'Open Sans', sans-serif;
+   font-family: "Open Sans", sans-serif;
    color: var(--font-color-highligth);
    padding: 10px;
 }
