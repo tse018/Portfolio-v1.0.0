@@ -11,7 +11,9 @@
                {{ paragraph.children[0].text }}
             </div>
 
-            <a href="mailto:${data.eMail}" target="_blank"> {{ data.eMail }} </a>
+            <a :href="`mailto:${data.eMail}`" target="_blank"> 
+               Say Hello 
+            </a>
          </div>
 
          <div class="contact-container__map-container">
