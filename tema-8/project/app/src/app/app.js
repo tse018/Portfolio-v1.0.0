@@ -32,6 +32,7 @@ const router = createRouter({
       }
       return { x: 0, y: 0 };
    },
+
 });
 
 createApp(App).use(app_store).use(router).mount("#app");

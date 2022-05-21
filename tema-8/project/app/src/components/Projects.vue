@@ -159,7 +159,7 @@ export default {
 
 .projects-container__description-title {
    padding: 0 20px;
-   margin-top: 5%;
+   margin: 50px auto 0;
    text-align: center;
    color: var(--font-color-highligth);
 }

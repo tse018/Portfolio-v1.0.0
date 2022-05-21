@@ -11,7 +11,9 @@
          </h2>
          
          <button class="section-introduction__left-arrow" @click="scrollTo">
-            <Icons :icon="'rigth'" />
+            <RouterLink class="header-container__navbar-link" :to="{ name: 'home', params: { id: 'about' } }">
+               <Icons :icon="'rigth'" />
+            </RouterLink>
          </button>
       </section>
    </div>

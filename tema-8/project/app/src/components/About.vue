@@ -309,21 +309,5 @@ export default {
       box-shadow: inset 200px 0 0 0 var(--font-color-highligth);
       color: black;
    }
-
-   /* width */
-   ::-webkit-scrollbar {
-      width: 10px;
-   }
-
-   /* Handle */
-   ::-webkit-scrollbar-thumb {
-      background: var(--font-color-highligth);
-      border-radius: 10px;
-   }
-
-   /* Handle on hover */
-   ::-webkit-scrollbar-thumb:hover {
-      background: var(--font-color-highligth);
-   }
 }
 </style>

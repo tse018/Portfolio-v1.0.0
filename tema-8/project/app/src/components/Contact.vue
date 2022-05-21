@@ -2,7 +2,10 @@
    <div v-if="loading">Loading...</div>
    <div v-else>
       <section class="contact-container">
-         <div class="contact-container__content-container" v-for="data in contact">
+         <div
+            class="contact-container__content-container"
+            v-for="data in contact"
+         >
             <h3 class="contact-container__title">
                {{ data.title }}
             </h3>
@@ -11,9 +14,7 @@
                {{ paragraph.children[0].text }}
             </div>
 
-            <a :href="`mailto:${data.eMail}`" target="_blank"> 
-               Say Hello 
-            </a>
+            <a class="contact-container__mail" :href="`mailto:${data.eMail}`" target="_blank"> Say Hello </a>
          </div>
 
          <div class="contact-container__map-container">
@@ -236,4 +237,20 @@ export default {
    padding: 10px;
 }
 
+.contact-container__mail {
+   display: flex;
+   justify-content: center;
+   margin: 20px auto;
+   padding: 20px;
+   width: 200px;
+   transition: 0.9s;
+   color: var(--font-color-highligth);
+   border: 2px solid var(--font-color-highligth);
+}
+
+.contact-container__mail:hover,
+.contact-container__mail:focus {
+   box-shadow: inset 200px 0 0 0 var(--font-color-highligth);
+   color: black;
+}
 </style>
