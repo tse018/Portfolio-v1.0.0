@@ -2,10 +2,7 @@
    <div v-if="loading">Loading...</div>
    <div v-else>
       <section class="contact-container">
-         <div
-            class="contact-container__content-container"
-            v-for="data in contact"
-         >
+         <div class="contact-container__content-container" v-for="data in contact">
             <h3 class="contact-container__title">
                {{ data.title }}
             </h3>
@@ -84,7 +81,7 @@ export default {
 
             // When the layer is added to the map,
             // get the rendering context for the map canvas.
-            onAdd: function () {
+            onAdd() {
                const canvas = document.createElement("canvas");
                canvas.width = this.width;
                canvas.height = this.height;
@@ -92,7 +89,7 @@ export default {
             },
 
             // Call once before every frame where the icon will be used.
-            render: function () {
+            render() {
                const duration = 1000;
                const t = (performance.now() % duration) / duration;
 
@@ -110,6 +107,7 @@ export default {
                   0,
                   Math.PI * 2
                );
+
                context.fillStyle = `rgba(255, 200, 200, ${1 - t})`;
                context.fill();
 
