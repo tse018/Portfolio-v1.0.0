@@ -8,14 +8,8 @@
                   PROJECTS
                </li>
 
-               <li
-                  class="projects-container__navbar-element"
-                  v-for="project in projects"
-               >
-                  <button
-                     class="projects-container__navbar-tab"
-                     @click="changeTab(project._id)"
-                  >
+               <li class="projects-container__navbar-element" v-for="project in projects">
+                  <button class="projects-container__navbar-tab" @click="changeTab(project._id)">
                      {{ project.title.toUpperCase() }}
                   </button>
                </li>
@@ -24,11 +18,7 @@
 
          <div class="projects-container__flex-content">
             <article class="projects-container__description-container">
-               <div
-                  class="projects-container__description-content"
-                  v-for="project in projects"
-                  v-show="activeTab === project._id && !currentTab"
-               >
+               <div class="projects-container__description-content" v-for="project in projects" v-show="activeTab === project._id && !currentTab">
                   <h3 class="projects-container__description-title">
                      {{ project.title.toUpperCase() }}
                   </h3>
@@ -46,10 +36,7 @@
                            {{ project.title.toUpperCase() }}:
                         </h3>
 
-                        <ul
-                           class="projects-container__tech-elements"
-                           v-for="tech in project.techStack"
-                        >
+                        <ul class="projects-container__tech-elements" v-for="tech in project.techStack">
                            <li class="projects-container__tech-element">
                               {{ tech }}
                            </li>
@@ -59,22 +46,14 @@
                      <ul class="projects-container__link-elements">
                         <li class="projects-container__link-element">
                            Github:
-                           <a
-                              class="projects-container__link"
-                              :href="`${project.github}`"
-                              target="_blank"
-                           >
+                           <a class="projects-container__link" :href="`${project.github}`" target="_blank">
                               {{ project.github }}
                            </a>
                         </li>
 
                         <li class="projects-container__link-element">
                            Netlify:
-                           <a
-                              class="projects-container__link"
-                              :href="`${project.netlify}`"
-                              target="_blank"
-                           >
+                           <a class="projects-container__link" :href="`${project.netlify}`" target="_blank">
                               {{ project.netlify }}
                            </a>
                         </li>
@@ -82,11 +61,7 @@
                   </div>
                </div>
 
-               <div
-                  class="projects-container__description-content"
-                  v-for="project in projects"
-                  v-show="currentTab === project._id"
-               >
+               <div class="projects-container__description-content" v-for="project in projects" v-show="currentTab === project._id">
                   <h3 class="projects-container__description-title">
                      {{ project.title.toUpperCase() }}
                   </h3>
@@ -103,10 +78,7 @@
                            {{ project.title }} Tech Stack:
                         </h3>
 
-                        <ul
-                           class="projects-container__tech-elements"
-                           v-for="tech in project.techStack"
-                        >
+                        <ul class="projects-container__tech-elements" v-for="tech in project.techStack">
                            <li class="projects-container__tech-element">
                               {{ tech }}
                            </li>
@@ -116,22 +88,14 @@
                      <ul class="projects-container__link-elements">
                         <li class="projects-container__link-element">
                            Github:
-                           <a
-                              class="projects-container__link"
-                              :href="`${project.github}`"
-                              target="_blank"
-                           >
+                           <a class="projects-container__link" :href="`${project.github}`" target="_blank">
                               {{ project.github }}
                            </a>
                         </li>
 
                         <li class="projects-container__link-element">
                            Netlify:
-                           <a
-                              class="projects-container__link"
-                              :href="`${project.netlify}`"
-                              target="_blank"
-                           >
+                           <a class="projects-container__link" :href="`${project.netlify}`" target="_blank">
                               {{ project.netlify }}
                            </a>
                         </li>
@@ -185,7 +149,6 @@ export default {
 
 .projects-container__navbar-header {
    text-align: center;
-   color: white;
    text-decoration: underline 2px var(--font-color-highligth);
    padding: 0 20px;
 }
@@ -209,13 +172,13 @@ export default {
    border: 2px solid var(--font-color-highligth);
    border-radius: 20%;
    min-width: 300px;
-   transition: 5s;
+   transition: 2s;
    cursor: pointer;
 }
 
 .projects-container__navbar-tab:hover,
 .projects-container__navbar-tab:focus {
-   box-shadow: inset 500px 0 0 0 var(--font-color-highligth);
+   box-shadow: inset 400px 0 0 0 var(--font-color-highligth);
    color: black;
 }
 

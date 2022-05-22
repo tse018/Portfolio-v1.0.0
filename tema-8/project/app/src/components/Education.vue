@@ -5,15 +5,12 @@
          <section class="education__container">
             <nav class="education__container-navbar">
                <ul class="education__container-elements">
-                  EDUCATION
-                  <li
-                     class="education__container-element"
-                     v-for="(school, index) in education"
-                  >
-                     <button
-                        class="education__container-tab"
-                        @click="changeTab(school._id)"
-                     >
+                  <li class="education__container__header-element">
+                     EDUCATION
+                  </li>
+
+                  <li class="education__container-element" v-for="(school, index) in education" >
+                     <button class="education__container-tab" @click="changeTab(school._id)">
                         {{ school.institute }}
                      </button>
                   </li>
@@ -21,11 +18,7 @@
             </nav>
 
             <div class="education__content-container">
-               <article
-                  class="education__content-article"
-                  v-for="content in education"
-                  v-show="currentTab === content._id"
-               >
+               <article class="education__content-article" v-for="content in education" v-show="currentTab === content._id">
                   <h3 class="education__content-title">
                      {{ content.studyProgram }}
                   </h3>
@@ -34,18 +27,11 @@
                      {{ content.startDate }} - {{ content.endDate }}
                   </p>
 
-                  <p
-                     v-if="!readMoreClicked"
-                     class="education__content-paragraph"
-                  >
+                  <p v-if="!readMoreClicked" class="education__content-paragraph">
                      {{ content.description[0].children[0].text }}
                   </p>
 
-                  <p
-                     v-else
-                     class="education__content-paragraph"
-                     v-for="paragraph in content.description"
-                  >
+                  <p v-else class="education__content-paragraph" v-for="paragraph in content.description">
                      {{ paragraph.children[0].text }}
                      <br />
                      <br />
@@ -56,11 +42,7 @@
                   </button>
                </article>
 
-               <article
-                  class="education__content-article"
-                  v-for="content in education"
-                  v-show="activeTab === content._id && !currentTab"
-               >
+               <article class="education__content-article" v-for="content in education" v-show="activeTab === content._id && !currentTab">
                   <h3 class="education__content-title">
                      {{ content.studyProgram }}
                   </h3>
@@ -69,18 +51,11 @@
                      {{ content.startDate }} - {{ content.endDate }}
                   </p>
 
-                  <p
-                     class="education__content-paragraph"
-                     v-if="!readMoreClicked"
-                  >
+                  <p class="education__content-paragraph" v-if="!readMoreClicked">
                      {{ content.description[0].children[0].text }}
                   </p>
 
-                  <p
-                     v-else
-                     class="education__content-paragraph"
-                     v-for="paragraph in content.description"
-                  >
+                  <p v-else class="education__content-paragraph" v-for="paragraph in content.description">
                      {{ paragraph.children[0].text }}
                      <br />
                      <br />
@@ -208,6 +183,12 @@ export default {
       padding: 20px;
    }
 
+   .education__container__header-element {
+      text-align: center;
+      text-decoration: underline 2px var(--font-color-highligth);
+      padding: 0 20px;
+   }
+
    .education__container-elements {
       padding: 20px;
    }
@@ -222,7 +203,7 @@ export default {
       border: 2px solid var(--font-color-highligth);
       border-radius: 20%;
       min-width: 200px;
-      transition: 5s;
+      transition: 3s;
       cursor: pointer;
    }
 

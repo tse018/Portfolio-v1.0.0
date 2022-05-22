@@ -19,6 +19,7 @@
 .footer-container__content {
   margin-top: 15px;
   text-align: center;
+  color: black;
 }
 
 @media screen and (min-width: 981px) and (max-width: 1200px) {
