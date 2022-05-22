@@ -46,6 +46,7 @@ export default {
 </script>
 
 <style scoped>
+/* mobile */
 @media screen and (max-width: 600px) {
    .about-container {
       min-height: max-content;

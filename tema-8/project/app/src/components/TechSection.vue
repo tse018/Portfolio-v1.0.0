@@ -2,7 +2,9 @@
    <div v-if="loading">Loading...</div>
    <div v-else>
       <section class="technology-container">
-         <h3 class="technology-container__title">TECH STACK OVERVIEW</h3>
+         <h3 class="technology-container__title">
+            TECH STACK OVERVIEW
+         </h3>
 
          <div class="technology-container__flex-wrapper">
             <div>

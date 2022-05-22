@@ -6,21 +6,9 @@
                <MobileMenu />
             </li>
 
-            <li
-               v-for="(data, index) in navbar"
-               class="header-container__navbar-element"
-            >
-               <a
-                  class="header-container__navbar-link"
-                  @click="scrollTo(data.id)"
-                  :key="data.id"
-               >
-                  <RouterLink
-                     class="header-container__navbar-link"
-                     :to="{ name: 'home', params: { id: data.id } }"
-                     :ref="data.id"
-                     
-                  >
+            <li v-for="(data, index) in navbar" class="header-container__navbar-element">
+               <a class="header-container__navbar-link" @click="scrollTo(data.id)" :key="data.id">
+                  <RouterLink class="header-container__navbar-link" :to="{ name: 'home', params: { id: data.id } }">
                      {{ data.section }}
                   </RouterLink>
                </a>
@@ -33,47 +21,13 @@
 <script>
 import MobileMenu from "../components/MobileMenu.vue";
 
+import scrollToSectionMixins from '../mixins/scrollToSectionsMixins.js';
+
 export default {
-   data() {
-      return {
-         navbar: [
-            {
-               id: null,
-               section: "HOME",
-            },
-            {
-               id: "about",
-               section: "ABOUT",
-            },
-            {
-               id: "education",
-               section: "EDUCATION",
-            },
-            {
-               id: "tech",
-               section: "TECH",
-            },
-            {
-               id: "projects",
-               section: "PROJECTS",
-            },
-            {
-               id: "contact",
-               section: "CONTACT",
-            },
-         ],
-      };
-   },
+   mixins: [scrollToSectionMixins],
 
    components: {
       MobileMenu,
-   },
-
-   methods: {
-      scrollTo(anchor) {
-         const element = document.getElementById(anchor);
-         element.scrollIntoView({ behavior: "smooth" });
-      },
    },
 };
 </script>
@@ -99,7 +53,6 @@ export default {
 }
 
 /* desktop */
-
 @media screen and (min-width: 1200px) {
    .header-container {
       position: fixed;

@@ -2,17 +2,16 @@
    <div v-if="loading">Loading...</div>
    <div v-else>
       <section class="section-introduction">
-         <h1 class="section-introduction__name">THANUSHAN SELLATHURAI</h1>
+         <h1 class="section-introduction__name">
+            THANUSHAN SELLATHURAI
+         </h1>
 
          <h2 class="section-introduction__work-title">
             JUNIOR FRONT-END DEVELOPER
          </h2>
 
-         <button class="section-introduction__arrow" @click="scrollTo">
-            <RouterLink
-               class="section-introduction__link"
-               :to="{ name: 'home', params: { id: 'about' } }"
-            >
+         <button class="section-introduction__arrow" @click="scrollTo" aria-label="go to about section">
+            <RouterLink class="section-introduction__link" :to="{ name: 'home', params: { id: 'about' } }">
                <Icons :icon="'rigth'" />
             </RouterLink>
          </button>
@@ -47,8 +46,6 @@ export default {
 </script>
 
 <style scoped>
-
-@media screen and (max-width: 600px) {
    .section-introduction__work-title {
       width: 100%;
       padding: 20px;
@@ -57,7 +54,6 @@ export default {
       justify-content: center;
       font-size: var(--mobile-font-size-secondary-undertitle);
    }
-}
 
 .section-introduction {
    display: flex;
@@ -67,8 +63,9 @@ export default {
 }
 
 .section-introduction__name {
-   margin-top: 150px;
+   margin-top: 10%;
    text-align: center;
+   font-size: var(--desktop-font-size-title);
 }
 
 .section-introduction__work-title {
@@ -76,6 +73,7 @@ export default {
    display: flex;
    justify-content: center;
    color: var(--font-color-highligth);
+   font-size: var(--desktop-font-size-undertitle);
 }
 
 .section-introduction__arrow {

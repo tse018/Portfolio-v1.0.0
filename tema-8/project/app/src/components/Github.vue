@@ -2,33 +2,21 @@
    <div v-if="loading">Loading...</div>
    <div v-else>
       <div class="github-container">
-         <img
-            class="github-container__contributions"
-            src="https://ghchart.rshah.org/243B55/tse018"
-            alt="picture of my github profile number of contributions done day for day "
-         />
+         <img class="github-container__contributions" src="https://ghchart.rshah.org/243B55/tse018" alt="picture of my github profile number of contributions done day for day " />
 
          <div class="github-container-wrapper">
-            <h3 class="github-container__title">Total GitHub contributions:</h3>
+            <h3 class="github-container__title">
+               Total GitHub contributions:
+            </h3>
 
-            <div
-               class="github-container__contribution-loop"
-               v-for="content in result"
-            >
-               <div
-                  class="github-container__contribution-number"
-                  v-for="contributions in content"
-               >
+            <div class="github-container__contribution-loop" v-for="content in result">
+               <div class="github-container__contribution-number" v-for="contributions in content">
                   {{ contributions.totalContributions }}
                </div>
             </div>
          </div>
 
-         <a
-            href="https://github.com/tse018"
-            target="_blank"
-            class="section-introduction__github"
-         >
+         <a href="https://github.com/tse018" target="_blank" class="section-introduction__github">
             Check out my Github!
          </a>
       </div>
