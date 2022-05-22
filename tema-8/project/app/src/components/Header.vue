@@ -2,47 +2,27 @@
    <header class="header-container">
       <nav class="header-container__navbar">
          <ul class="header-container__navbar-elements">
-            <RouterLink :to="{ name: 'home' }" class="header-container__navbar--logo">
-               <img src="/images/favicon-32x32.png" alt="page logo" class="header-container__logo-image" />
-            </RouterLink>
-
             <li class="header-container__navbar-element--mobile">
                <MobileMenu />
             </li>
 
-            <li class="header-container__navbar-element">
-               <a class="header-container__navbar-link" href="/">
-                  Home
-               </a>
-            </li>
-
-            <li class="header-container__navbar-element">
-               <a class="header-container__navbar-link" href="/about">
-                  About
-               </a>
-            </li>
-
-            <li class="header-container__navbar-element">
-               <a class="header-container__navbar-link" href="/education">
-                  Education
-               </a>
-            </li>
-
-            <li class="header-container__navbar-element">
-               <a class="header-container__navbar-link" href="/tech">
-                  Tech
-               </a>
-            </li>
-
-            <li class="header-container__navbar-element">
-               <a class="header-container__navbar-link" href="/projects">
-                  Projects
-               </a>
-            </li>
-
-            <li class="header-container__navbar-element">
-               <a class="header-container__navbar-link" href="/contact">
-                  Contact
+            <li
+               v-for="(data, index) in navbar"
+               class="header-container__navbar-element"
+            >
+               <a
+                  class="header-container__navbar-link"
+                  @click="scrollTo(data.id)"
+                  :key="data.id"
+               >
+                  <RouterLink
+                     class="header-container__navbar-link"
+                     :to="{ name: 'home', params: { id: data.id } }"
+                     :ref="data.id"
+                     
+                  >
+                     {{ data.section }}
+                  </RouterLink>
                </a>
             </li>
          </ul>
@@ -54,8 +34,46 @@
 import MobileMenu from "../components/MobileMenu.vue";
 
 export default {
+   data() {
+      return {
+         navbar: [
+            {
+               id: null,
+               section: "HOME",
+            },
+            {
+               id: "about",
+               section: "ABOUT",
+            },
+            {
+               id: "education",
+               section: "EDUCATION",
+            },
+            {
+               id: "tech",
+               section: "TECH",
+            },
+            {
+               id: "projects",
+               section: "PROJECTS",
+            },
+            {
+               id: "contact",
+               section: "CONTACT",
+            },
+         ],
+      };
+   },
+
    components: {
       MobileMenu,
+   },
+
+   methods: {
+      scrollTo(anchor) {
+         const element = document.getElementById(anchor);
+         element.scrollIntoView({ behavior: "smooth" });
+      },
    },
 };
 </script>
@@ -66,10 +84,7 @@ export default {
    .header-container {
       position: fixed;
       width: 100%;
-   }
-
-   .header-container__logo-image {
-      margin: 0 0 0 10px;
+      z-index: 100;
    }
 
    .header-container__navbar-element--mobile {
@@ -84,18 +99,15 @@ export default {
 }
 
 /* desktop */
-@media screen and (min-width: 1201px ) {
+
+@media screen and (min-width: 1200px) {
    .header-container {
       position: fixed;
       width: 100%;
       height: 100px;
       background-color: var(--background-header);
       opacity: 0.5;
-   }
-
-   .header-container__navbar--logo {
-      position: absolute;
-      left: 0;
+      z-index: 100;
    }
 
    .header-container__navbar-elements {
@@ -106,7 +118,6 @@ export default {
    .header-container__navbar-element {
       display: flex;
       padding: 20px;
-      cursor: pointer;
    }
 
    .header-container__navbar-element--mobile {
@@ -116,6 +127,12 @@ export default {
    .header-container__navbar-link {
       color: var(--font-color-highligth);
       padding: 20px;
+      cursor: pointer;
+   }
+
+   /* highligthing the active routerlink button */
+   .router-link-active {
+      text-decoration: 5px underline var(--font-color-highligth);
    }
 }
 </style>

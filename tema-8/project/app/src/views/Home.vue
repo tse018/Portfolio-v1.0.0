@@ -15,7 +15,7 @@
 
       <section class="main-container__section">
          <div id="education">
-            <Education/>
+            <Education />
          </div>
       </section>
 
@@ -40,19 +40,19 @@
 </template>
 
 <script>
-import LandingPage from "../components/landingPage.vue";
-import Github from '../components/Github.vue';
 import About from "../components/About.vue";
-import Education from "../components/Education.vue";
-import Projects from "../components/Projects.vue";
 import Contact from "../components/Contact.vue";
+import Education from "../components/Education.vue";
+import Github from "../components/Github.vue";
+import LandingPage from "../components/landingPage.vue";
+import Projects from "../components/Projects.vue";
 import Icons from "../components/Icons.vue";
-import Tech from '../components/Tech.vue';
+import Tech from "../components/TechSection.vue";
 
-import sectionParamsMixin from '../mixins/sectionParamsMixin.js';
+import sanityMixin from "../mixins/sanityMixin.js";
 
 export default {
-   mixins: [sectionParamsMixin],
+   mixins: [sanityMixin],
 
    components: {
       LandingPage,
@@ -64,6 +64,10 @@ export default {
       Icons,
       Tech,
    },
+
+   async created() {
+      this.fetchSanity();
+   },
 };
 </script>
 
@@ -71,8 +75,8 @@ export default {
 /* Mobile */
 @media screen and (max-width: 600px) {
    .main-container {
-      height: 100vh;
-      width: 100vw;
+      min-height: 100vh;
+      min-width: 100vw;
       overflow-x: hidden;
    }
 

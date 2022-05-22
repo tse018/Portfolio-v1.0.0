@@ -1,6 +1,6 @@
 <template>
    <Header />
-   <RouterView  />
+   <RouterView />
    <Footer />
 </template>
 
@@ -8,23 +8,17 @@
 import Header from '../components/Header.vue';
 import Footer from '../components/Footer.vue';
 
-import sanityMixin from '../mixins/sanityMixin.js';
 import seoMixin from '../mixins/seoMixin.js';
 
 export default {
-   mixins: [
-      sanityMixin,
-      seoMixin,
-   ],
+   mixins: [seoMixin],
 
    components: {
       Header, 
       Footer 
    },
-   
-   async created() {
-      this.fetchSanity();
 
+   async created() {
       this.metaTags({
          title: 'Thanushan Sellathurai Portfolio',
 		});

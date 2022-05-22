@@ -1,19 +1,26 @@
 <template>
-   <section class="database-container">
-      <ul class="database-container__elements">
-         <li class="database-container__element" v-for="stack in database">
-            {{ stack.technology }}
-         </li>
-      </ul>
-   </section>
+   <div v-if="loading">Loading...</div>
+   <div v-else>
+      <section class="database-container">
+         <ul class="database-container__elements">
+            <li class="database-container__element" v-for="stack in database">
+               {{ stack.technology }}
+            </li>
+         </ul>
+      </section>
+   </div>
 </template>
 
 <script>
+import sanityMixin from '../mixins/sanityMixin';
+
 export default {
+   mixins: [sanityMixin],
+
    computed: {
       database() {
          return this.$store.getters.getDatabase.sort((a, b) => {
-            return (a.technology > b.technology ? 1: -1)
+            return (a.technology < b.technology ? 1: -1)
          });
       },
    },

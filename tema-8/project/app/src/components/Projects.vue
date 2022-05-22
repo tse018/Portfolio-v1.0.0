@@ -1,44 +1,55 @@
 <template>
-   <div class="projects-container">
+   <div v-if="loading">Loading...</div>
+   <div v-else class="projects-container">
       <section class="projects-container__flex-navbar">
          <nav class="projects-container__navbar">
             <ul class="projects-container__navbar-elements">
-               <li class="projects-container__navbar-element" v-for="project in projects">
-                  <a class="projects-container__navbar-tab" @click="changeTab(project._id)">
+               <li class="projects-container__navbar-header">
+                  PROJECTS
+               </li>
+
+               <li
+                  class="projects-container__navbar-element"
+                  v-for="project in projects"
+               >
+                  <button
+                     class="projects-container__navbar-tab"
+                     @click="changeTab(project._id)"
+                  >
                      {{ project.title.toUpperCase() }}
-                  </a>
+                  </button>
                </li>
             </ul>
          </nav>
 
          <div class="projects-container__flex-content">
             <article class="projects-container__description-container">
-               <div class="projects-container__description-content" v-for="project in projects" v-show="activeTab === project._id">
+               <div
+                  class="projects-container__description-content"
+                  v-for="project in projects"
+                  v-show="activeTab === project._id && !currentTab"
+               >
                   <h3 class="projects-container__description-title">
-                     {{ project.title.toUpperCase() }} description
+                     {{ project.title.toUpperCase() }}
                   </h3>
 
                   <div class="projects-container__paragraph-container">
-                     <p v-if="!readMoreClicked" class="projects-container__paragraph-preview">
-                        {{ project.description[0].children[0].text }}
-                     </p>
-
-                     <div v-else class="projects-container__paragraph-full">
+                     <div class="projects-container__paragraph-full">
                         <p v-for="paragraph in project.description">
-                           {{ paragraph.children[0].text}} <br />
+                           {{ paragraph.children[0].text }} <br />
                         </p>
                      </div>
 
-                     <button class="projects-container__read-button" @click="readMore">
-                        {{ buttonText }}
-                     </button>
-
                      <div class="projects-container__tech-container">
                         <h3 class="projects-container__tech-title">
-                           Tech stack used for {{ project.title.toUpperCase() }}:
+                           Tech stack used for
+                           {{ project.title.toUpperCase() }}:
                         </h3>
-                        
-                        <ul class="projects-container__tech-elements" v-for=" tech in project.techStack">
+
+                        <ul
+                           class="projects-container__tech-elements"
+                           v-for="tech in project.techStack"
+                        >
                            <li class="projects-container__tech-element">
                               {{ tech }}
                            </li>
@@ -47,11 +58,82 @@
 
                      <ul class="projects-container__link-elements">
                         <li class="projects-container__link-element">
-                           Github: <a class="projects-container__link" :href="`${project.github}`" target="_blank" > {{ project.github}} </a>
+                           Github:
+                           <a
+                              class="projects-container__link"
+                              :href="`${project.github}`"
+                              target="_blank"
+                           >
+                              {{ project.github }}
+                           </a>
                         </li>
 
                         <li class="projects-container__link-element">
-                           Netlify: <a class="projects-container__link" :href="`${project.netlify}`" target="_blank" > {{ project.netlify}} </a>
+                           Netlify:
+                           <a
+                              class="projects-container__link"
+                              :href="`${project.netlify}`"
+                              target="_blank"
+                           >
+                              {{ project.netlify }}
+                           </a>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+
+               <div
+                  class="projects-container__description-content"
+                  v-for="project in projects"
+                  v-show="currentTab === project._id"
+               >
+                  <h3 class="projects-container__description-title">
+                     {{ project.title.toUpperCase() }}
+                  </h3>
+
+                  <div class="projects-container__paragraph-container">
+                     <div class="projects-container__paragraph-full">
+                        <p v-for="paragraph in project.description">
+                           {{ paragraph.children[0].text }}
+                        </p>
+                     </div>
+
+                     <div class="projects-container__tech-container">
+                        <h3 class="projects-container__tech-title">
+                           {{ project.title }} Tech Stack:
+                        </h3>
+
+                        <ul
+                           class="projects-container__tech-elements"
+                           v-for="tech in project.techStack"
+                        >
+                           <li class="projects-container__tech-element">
+                              {{ tech }}
+                           </li>
+                        </ul>
+                     </div>
+
+                     <ul class="projects-container__link-elements">
+                        <li class="projects-container__link-element">
+                           Github:
+                           <a
+                              class="projects-container__link"
+                              :href="`${project.github}`"
+                              target="_blank"
+                           >
+                              {{ project.github }}
+                           </a>
+                        </li>
+
+                        <li class="projects-container__link-element">
+                           Netlify:
+                           <a
+                              class="projects-container__link"
+                              :href="`${project.netlify}`"
+                              target="_blank"
+                           >
+                              {{ project.netlify }}
+                           </a>
                         </li>
                      </ul>
                   </div>
@@ -63,33 +145,20 @@
 </template>
 
 <script>
-import readMoreClicked from "../mixins/readMoreButtonMixin.js";
+import sanityMixin from "../mixins/sanityMixin.js";
+import readMoreClicked from "../mixins/readMoreButtonMixins.js";
+import changeTab from "../mixins/changeTabsMixins.js";
 
 export default {
-   mixins: [readMoreClicked],
-
-   data() {
-      return {
-         currentTab: "",
-      };
-   },
+   mixins: [sanityMixin, readMoreClicked, changeTab],
 
    computed: {
       projects() {
-         return this.$store.getters.getProjects.sort((a, b) => {
-            return a.title > b.title ? 1 : -1;
-         });
+         return this.$store.getters.getProjects;
       },
 
       activeTab() {
          return this.$store.getters.getProjects[0]._id;
-      },
-   },
-
-   methods: {
-      changeTab(_id) {
-         this.currentTab = _id;
-         //console.log(this.currentTab)
       },
    },
 };
@@ -106,19 +175,24 @@ export default {
 
 .projects-container__flex-navbar {
    display: flex;
-   flex-wrap: wrap;
-   flex-direction: column;
 }
 
 .projects-container__navbar {
-   width: 100%;
    display: flex;
-   justify-content: center;
+   flex-direction: row;
+   margin: 5% 0 0 5%;
+}
+
+.projects-container__navbar-header {
+   text-align: center;
+   color: white;
+   text-decoration: underline 2px var(--font-color-highligth);
+   padding: 0 20px;
 }
 
 .projects-container__navbar-elements {
-   display: flex;
-   min-width: 100px;
+   justify-content: center;
+   max-width: 400px;
    overflow: auto;
 }
 
@@ -126,10 +200,23 @@ export default {
    padding: 20px;
    width: 200px;
    text-align: center;
+   width: max-content;
 }
 
 .projects-container__navbar-tab {
+   padding: 20px;
+   color: var(--font-color-highligth);
+   border: 2px solid var(--font-color-highligth);
+   border-radius: 20%;
+   min-width: 300px;
+   transition: 5s;
    cursor: pointer;
+}
+
+.projects-container__navbar-tab:hover,
+.projects-container__navbar-tab:focus {
+   box-shadow: inset 500px 0 0 0 var(--font-color-highligth);
+   color: black;
 }
 
 .projects-container__flex-content {
@@ -140,19 +227,17 @@ export default {
 
 .projects-container__description-content {
    width: 100%;
-   margin-left: 20px;
 }
 
 .projects-container__description-title {
-   font-style: italic;
    padding: 0 20px;
+   margin: 50px auto 0;
+   text-align: center;
    color: var(--font-color-highligth);
 }
 
 .projects-container__paragraph-container {
-   width: 100%;
-   min-height: 100px;
-   padding: 20px;
+   padding: 5px 50px;
 }
 
 .projects-container__link {
@@ -188,7 +273,6 @@ export default {
    display: flex;
    flex-wrap: wrap;
    flex-direction: row;
-   border-bottom: 2px solid var(--font-color-highligth);
 }
 .projects-container__tech-title {
    width: 100%;
@@ -202,5 +286,4 @@ export default {
 .projects-container__tech-element {
    border-bottom: 2px solid var(--font-color-highligth);
 }
-
 </style>

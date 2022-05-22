@@ -1,19 +1,26 @@
 <template>
-   <section class="frontend-container">
-      <ul class="frontend-container__elements">
-         <li class="frontend-container__element" v-for="stack in frontend">
-            {{ stack.technology }}
-         </li>
-      </ul>
-   </section>
+   <div v-if="loading">Loading...</div>
+   <div v-else>
+      <section class="frontend-container">
+         <ul class="frontend-container__elements">
+            <li class="frontend-container__element" v-for="stack in frontend">
+               {{ stack.technology }}
+            </li>
+         </ul>
+      </section>
+   </div>
 </template>
 
 <script>
+import sanityMixin from '../mixins/sanityMixin';
+
 export default {
+   mixins: [sanityMixin],
+
    computed: {
       frontend() {
          return this.$store.getters.getFrontend.sort((a, b) => {
-            return (a.technology > b.technology ? 1: -1)
+            return (a.technology < b.technology ? 1: -1)
          });
       },
    },

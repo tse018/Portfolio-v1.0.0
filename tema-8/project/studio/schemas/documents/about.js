@@ -4,6 +4,11 @@ export default {
    type: "document",
    fields: [
       {
+         title: 'Title',
+         name: 'title',
+         type: 'string',
+      },
+      {
          title: "Introduction",
          name: "introduction",
          description: "Short introduction about yourself, 4-5 sentences is enough.",

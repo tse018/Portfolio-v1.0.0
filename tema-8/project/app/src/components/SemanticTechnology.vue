@@ -1,19 +1,26 @@
 <template>
-   <section class="semantic-container">
-      <ul class="semantic-container__elements">
-         <li class="semantic-container__element" v-for="stack in semanticTechnology">
-            {{ stack.technology }}
-         </li>
-      </ul>
-   </section>
+   <div v-if="loading">Loading...</div>
+   <div v-else>
+      <section class="semantic-container">
+         <ul class="semantic-container__elements">
+            <li class="semantic-container__element" v-for="stack in semanticTechnology">
+               {{ stack.technology }}
+            </li>
+         </ul>
+      </section>
+   </div>
 </template>
 
 <script>
+import sanityMixin from '../mixins/sanityMixin';
+
 export default {
+   mixins: [sanityMixin],
+
    computed: {
       semanticTechnology() {
          return this.$store.getters.getSemanticTechnology.sort((a, b) => {
-            return (a.technology > b.technology ? 1: -1);
+            return (a.technology < b.technology ? 1: -1);
          });
       },
    },

@@ -3,6 +3,7 @@ import schemaTypes  from 'all:part:@sanity/base/schema-type'
 
 import about              from './documents/about.js';
 import backend            from './documents/backend.js';
+import contact            from './documents/contact.js';
 import database           from './documents/database.js';
 import education          from './documents/education.js';
 import frontend           from './documents/frontend.js';
@@ -22,6 +23,7 @@ export default createSchema({
     semanticTech,
     systemDevelopment,
     education,
-    about
+    about,
+    contact,
   ]),
 });

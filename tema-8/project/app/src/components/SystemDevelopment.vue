@@ -1,19 +1,26 @@
 <template>
-   <section class="system-container">
-      <ul class="system-container__elements">
-         <li class="system-container__element" v-for="content in systemDevelopment">
-            {{ content.technology }}
-         </li>
-      </ul>
-   </section>
+   <div v-if="loading">Loading...</div>
+   <div v-else>
+      <section class="system-container">
+         <ul class="system-container__elements">
+            <li class="system-container__element" v-for="content in systemDevelopment">
+               {{ content.technology }}
+            </li>
+         </ul>
+      </section>
+   </div>
 </template>
 
 <script>
+import sanityMixin from '../mixins/sanityMixin';
+
 export default {
+   mixins: [sanityMixin],
+
    computed: {
       systemDevelopment() {
          return this.$store.getters.getSystemDevelopment.sort((a, b) => {
-            return (a.technology > b.technology ? 1: -1);
+            return (a.technology < b.technology ? 1: -1);
          });
       },
    },
