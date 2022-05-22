@@ -4,17 +4,31 @@
       <section class="projects-container__flex-navbar">
          <nav class="projects-container__navbar">
             <ul class="projects-container__navbar-elements">
-               <li class="projects-container__navbar-element" v-for="project in projects">
-                  <a class="projects-container__navbar-tab" @click="changeTab(project._id)">
+               <li class="projects-container__navbar-header">
+                  PROJECTS
+               </li>
+
+               <li
+                  class="projects-container__navbar-element"
+                  v-for="project in projects"
+               >
+                  <button
+                     class="projects-container__navbar-tab"
+                     @click="changeTab(project._id)"
+                  >
                      {{ project.title.toUpperCase() }}
-                  </a>
+                  </button>
                </li>
             </ul>
          </nav>
 
          <div class="projects-container__flex-content">
             <article class="projects-container__description-container">
-               <div class="projects-container__description-content" v-for="project in projects" v-show="activeTab === project._id && !currentTab">
+               <div
+                  class="projects-container__description-content"
+                  v-for="project in projects"
+                  v-show="activeTab === project._id && !currentTab"
+               >
                   <h3 class="projects-container__description-title">
                      {{ project.title.toUpperCase() }}
                   </h3>
@@ -28,10 +42,14 @@
 
                      <div class="projects-container__tech-container">
                         <h3 class="projects-container__tech-title">
-                           Tech stack used for {{ project.title.toUpperCase() }}:
+                           Tech stack used for
+                           {{ project.title.toUpperCase() }}:
                         </h3>
-                        
-                        <ul class="projects-container__tech-elements" v-for=" tech in project.techStack">
+
+                        <ul
+                           class="projects-container__tech-elements"
+                           v-for="tech in project.techStack"
+                        >
                            <li class="projects-container__tech-element">
                               {{ tech }}
                            </li>
@@ -40,17 +58,35 @@
 
                      <ul class="projects-container__link-elements">
                         <li class="projects-container__link-element">
-                           Github: <a class="projects-container__link" :href="`${project.github}`" target="_blank" > {{ project.github}} </a>
+                           Github:
+                           <a
+                              class="projects-container__link"
+                              :href="`${project.github}`"
+                              target="_blank"
+                           >
+                              {{ project.github }}
+                           </a>
                         </li>
 
                         <li class="projects-container__link-element">
-                           Netlify: <a class="projects-container__link" :href="`${project.netlify}`" target="_blank" > {{ project.netlify}} </a>
+                           Netlify:
+                           <a
+                              class="projects-container__link"
+                              :href="`${project.netlify}`"
+                              target="_blank"
+                           >
+                              {{ project.netlify }}
+                           </a>
                         </li>
                      </ul>
                   </div>
                </div>
 
-               <div class="projects-container__description-content" v-for="project in projects" v-show="currentTab === project._id">
+               <div
+                  class="projects-container__description-content"
+                  v-for="project in projects"
+                  v-show="currentTab === project._id"
+               >
                   <h3 class="projects-container__description-title">
                      {{ project.title.toUpperCase() }}
                   </h3>
@@ -58,16 +94,19 @@
                   <div class="projects-container__paragraph-container">
                      <div class="projects-container__paragraph-full">
                         <p v-for="paragraph in project.description">
-                           {{ paragraph.children[0].text}} 
+                           {{ paragraph.children[0].text }}
                         </p>
                      </div>
 
                      <div class="projects-container__tech-container">
                         <h3 class="projects-container__tech-title">
-                           {{ project.title }} Tech Stack: 
+                           {{ project.title }} Tech Stack:
                         </h3>
-                        
-                        <ul class="projects-container__tech-elements" v-for=" tech in project.techStack">
+
+                        <ul
+                           class="projects-container__tech-elements"
+                           v-for="tech in project.techStack"
+                        >
                            <li class="projects-container__tech-element">
                               {{ tech }}
                            </li>
@@ -76,11 +115,25 @@
 
                      <ul class="projects-container__link-elements">
                         <li class="projects-container__link-element">
-                           Github: <a class="projects-container__link" :href="`${project.github}`" target="_blank" > {{ project.github}} </a>
+                           Github:
+                           <a
+                              class="projects-container__link"
+                              :href="`${project.github}`"
+                              target="_blank"
+                           >
+                              {{ project.github }}
+                           </a>
                         </li>
 
                         <li class="projects-container__link-element">
-                           Netlify: <a class="projects-container__link" :href="`${project.netlify}`" target="_blank" > {{ project.netlify}} </a>
+                           Netlify:
+                           <a
+                              class="projects-container__link"
+                              :href="`${project.netlify}`"
+                              target="_blank"
+                           >
+                              {{ project.netlify }}
+                           </a>
                         </li>
                      </ul>
                   </div>
@@ -92,9 +145,9 @@
 </template>
 
 <script>
-import sanityMixin from '../mixins/sanityMixin.js';
+import sanityMixin from "../mixins/sanityMixin.js";
 import readMoreClicked from "../mixins/readMoreButtonMixins.js";
-import changeTab from '../mixins/changeTabsMixins.js';
+import changeTab from "../mixins/changeTabsMixins.js";
 
 export default {
    mixins: [sanityMixin, readMoreClicked, changeTab],
@@ -106,7 +159,7 @@ export default {
 
       activeTab() {
          return this.$store.getters.getProjects[0]._id;
-      }
+      },
    },
 };
 </script>
@@ -130,6 +183,13 @@ export default {
    margin: 5% 0 0 5%;
 }
 
+.projects-container__navbar-header {
+   text-align: center;
+   color: white;
+   text-decoration: underline 2px var(--font-color-highligth);
+   padding: 0 20px;
+}
+
 .projects-container__navbar-elements {
    justify-content: center;
    max-width: 400px;
@@ -140,11 +200,23 @@ export default {
    padding: 20px;
    width: 200px;
    text-align: center;
-   min-width: max-content;
+   width: max-content;
 }
 
 .projects-container__navbar-tab {
+   padding: 20px;
+   color: var(--font-color-highligth);
+   border: 2px solid var(--font-color-highligth);
+   border-radius: 20%;
+   min-width: 300px;
+   transition: 5s;
    cursor: pointer;
+}
+
+.projects-container__navbar-tab:hover,
+.projects-container__navbar-tab:focus {
+   box-shadow: inset 500px 0 0 0 var(--font-color-highligth);
+   color: black;
 }
 
 .projects-container__flex-content {
@@ -214,5 +286,4 @@ export default {
 .projects-container__tech-element {
    border-bottom: 2px solid var(--font-color-highligth);
 }
-
 </style>

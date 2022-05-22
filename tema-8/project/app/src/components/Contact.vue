@@ -223,7 +223,6 @@ export default {
 
 .mapbox__email {
    font-size: var(--tablet-font-size-secondary-undertitle);
-   font-family: "Open Sans", sans-serif;
    color: var(--font-color-highligth);
    padding: 10px;
 }

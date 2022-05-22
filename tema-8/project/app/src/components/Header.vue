@@ -18,6 +18,8 @@
                   <RouterLink
                      class="header-container__navbar-link"
                      :to="{ name: 'home', params: { id: data.id } }"
+                     :ref="data.id"
+                     
                   >
                      {{ data.section }}
                   </RouterLink>
@@ -36,7 +38,7 @@ export default {
       return {
          navbar: [
             {
-               id: "",
+               id: null,
                section: "HOME",
             },
             {
@@ -70,9 +72,7 @@ export default {
    methods: {
       scrollTo(anchor) {
          const element = document.getElementById(anchor);
-         // scrollIntoView works only for google chrome, not safari
          element.scrollIntoView({ behavior: "smooth" });
-         window.location.element(`#${anchor}`);
       },
    },
 };
@@ -99,7 +99,8 @@ export default {
 }
 
 /* desktop */
-@media screen and (min-width: 1201px) {
+
+@media screen and (min-width: 1200px) {
    .header-container {
       position: fixed;
       width: 100%;

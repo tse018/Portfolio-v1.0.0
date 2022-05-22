@@ -1,7 +1,7 @@
 <template>
    <main class="main-container">
       <section class="main-container__section">
-         <div id="home">
+         <div id="#">
             <LandingPage />
             <Github />
          </div>
@@ -15,7 +15,7 @@
 
       <section class="main-container__section">
          <div id="education">
-            <Education/>
+            <Education />
          </div>
       </section>
 
@@ -43,17 +43,17 @@
 import About from "../components/About.vue";
 import Contact from "../components/Contact.vue";
 import Education from "../components/Education.vue";
-import Github from '../components/Github.vue';
+import Github from "../components/Github.vue";
 import LandingPage from "../components/landingPage.vue";
 import Projects from "../components/Projects.vue";
 import Icons from "../components/Icons.vue";
-import Tech from '../components/TechSection.vue';
+import Tech from "../components/TechSection.vue";
 
-import sanityMixin from '../mixins/sanityMixin.js';
+import sanityMixin from "../mixins/sanityMixin.js";
 
 export default {
-   mixins: [ sanityMixin ],
-   
+   mixins: [sanityMixin],
+
    components: {
       LandingPage,
       Github,
@@ -75,8 +75,8 @@ export default {
 /* Mobile */
 @media screen and (max-width: 600px) {
    .main-container {
-      height: 100vh;
-      width: 100vw;
+      min-height: 100vh;
+      min-width: 100vw;
       overflow-x: hidden;
    }
 
