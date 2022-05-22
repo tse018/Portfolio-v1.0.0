@@ -184,7 +184,7 @@ export default {
    }
 
    .section-introduction__github {
-      margin: 0 300px;
+      margin: 0 18%;
       text-align: center;
       padding: 20px;
       min-height: 50px;

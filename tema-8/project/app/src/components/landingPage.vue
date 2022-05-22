@@ -59,7 +59,6 @@ export default {
    }
 }
 
-
 .section-introduction {
    display: flex;
    flex-direction: column;
@@ -76,6 +75,7 @@ export default {
    width: 100%;
    display: flex;
    justify-content: center;
+   color: var(--font-color-highligth);
 }
 
 .section-introduction__arrow {
