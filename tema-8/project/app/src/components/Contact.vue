@@ -62,9 +62,9 @@ export default {
 
       message(map) {
          const popup = new mapboxgl.Popup({ closeOnClick: false })
-            .setLngLat([10.818701, 59.907522])
+            .setLngLat([10.757933, 59.911491])
             .setHTML(
-               '<p class="mapbox__email">thanushan.s@hotmail.com</p><p class="mapbox__number">+47 90110611</p>'
+               '<p class="mapbox__email">thanushan.s@hotmail.com</p>'
             )
             .addTo(map);
       },
@@ -156,7 +156,7 @@ export default {
                         type: "Feature",
                         geometry: {
                            type: "Point",
-                           coordinates: [10.818701, 59.904822], // icon position [lng, lat]
+                           coordinates: [10.757933, 59.911491], // icon position [lng, lat]
                         },
                      },
                   ],
@@ -224,13 +224,6 @@ export default {
 
 .mapbox__email {
    font-size: var(--tablet-font-size-secondary-undertitle);
-   color: var(--font-color-highligth);
-   padding: 10px;
-}
-
-.mapbox__number {
-   font-size: var(--tablet-font-size-secondary-undertitle);
-   font-family: "Open Sans", sans-serif;
    color: var(--font-color-highligth);
    padding: 10px;
 }
