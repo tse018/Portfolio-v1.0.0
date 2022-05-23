@@ -3,7 +3,7 @@ export default {
       return {
          navbar: [
             {
-               id: null,
+               id: '',
                section: "HOME",
             },
             {
@@ -34,6 +34,7 @@ export default {
       scrollTo(anchor) {
          const element = document.getElementById(anchor);
          element.scrollIntoView({ behavior: "smooth" });
+         console.log('hei')
       },
    },
 };

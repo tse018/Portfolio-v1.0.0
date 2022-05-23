@@ -135,10 +135,9 @@ export default {
    }
 }
 
-
 @media screen and (min-width: 1200px) {
    .github-container {
-      margin-top: 50px;
+      margin-top: 2%;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -154,7 +153,8 @@ export default {
 
    .github-container__contributions {
       width: 70%;
-      margin: -40px auto 0 auto;
+      margin: 0px auto 0 auto;
+      height: auto;
    }
 
    .github-container-wrapper {

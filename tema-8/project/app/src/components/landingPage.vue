@@ -10,24 +10,30 @@
             JUNIOR FRONT-END DEVELOPER
          </h2>
 
-         <button class="section-introduction__arrow" @click="scrollTo" aria-label="go to about section">
-            <RouterLink class="section-introduction__link" :to="{ name: 'home', params: { id: 'about' } }">
+         <button class="section-introduction__arrow" @click="scrollTo('about')" aria-label="go to about section">
+            <RouterLink class="section-introduction__link" :to="{ name: 'home', params: { section: 'about' } }">
                <Icons :icon="'rigth'" />
             </RouterLink>
          </button>
+
+         <Github />
       </section>
    </div>
 </template>
 
 <script>
 import Icons from "../components/Icons.vue";
+import Github from "../components/Github.vue";
+
 import sanityMixin from "../mixins/sanityMixin";
+import scrollToSectionsMixins from '../mixins/scrollToSectionsMixins.js';
 
 export default {
-   mixins: [sanityMixin],
+   mixins: [sanityMixin, scrollToSectionsMixins],
 
    components: {
       Icons,
+      Github
    },
 
    computed: {
@@ -35,31 +41,17 @@ export default {
          return this.$store.getters.getData;
       },
    },
-
-   methods: {
-      scrollTo() {
-         const element = document.getElementById("about");
-         element.scrollIntoView({ behavior: "smooth" });
-      },
-   },
 };
 </script>
 
 <style scoped>
-   .section-introduction__work-title {
-      width: 100%;
-      padding: 20px;
-      margin: auto;
-      display: flex;
-      justify-content: center;
-      font-size: var(--mobile-font-size-secondary-undertitle);
-   }
-
 .section-introduction {
    display: flex;
    flex-direction: column;
    flex-wrap: wrap;
    position: relative;
+   /* micro adjustment for macbook pro 2017 screen, won´t show scollbar + scroll bit down */
+   height: 97vh;
 }
 
 .section-introduction__name {
@@ -79,7 +71,7 @@ export default {
 .section-introduction__arrow {
    position: absolute;
    right: 0;
-   bottom: 0%;
+   bottom: 50%;
 }
 
 @media screen and (max-width: 1200px) {

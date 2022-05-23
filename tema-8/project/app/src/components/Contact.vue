@@ -180,7 +180,7 @@ export default {
 <style>
 .contact-container {
    width: 100%;
-   height: 100%;
+   height: 97vh;
    padding-top: 100px;
    display: flex;
    position: relative;
@@ -189,10 +189,7 @@ export default {
 .contact-container__content-container {
    width: 30%;
    padding: 20px;
-}
-
-.contact-container__map-container {
-   width: 70%;
+   height: max-content;
 }
 
 .contact-container__title {
@@ -204,6 +201,10 @@ export default {
 .contact-container__paragraphs {
    padding: 20px;
    text-align: center;
+}
+
+.contact-container__map-container {
+   width: 70%;
 }
 
 .contact-container__map {

@@ -3,7 +3,6 @@
       <section class="main-container__section">
          <div id="#">
             <LandingPage />
-            <Github />
          </div>
       </section>
 
@@ -43,7 +42,6 @@
 import About from "../components/About.vue";
 import Contact from "../components/Contact.vue";
 import Education from "../components/Education.vue";
-import Github from "../components/Github.vue";
 import LandingPage from "../components/landingPage.vue";
 import Projects from "../components/Projects.vue";
 import Icons from "../components/Icons.vue";
@@ -56,7 +54,6 @@ export default {
 
    components: {
       LandingPage,
-      Github,
       About,
       Education,
       Projects,
