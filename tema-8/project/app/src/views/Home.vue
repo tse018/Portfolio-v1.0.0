@@ -78,15 +78,14 @@ export default {
       }); */
    computed: {
       horizontalScrolling() {
-         /*
          const scrollContainer = this.$refs["scroll-container"];
 
          scrollContainer.addEventListener("wheel", (evt) => {
             evt.preventDefault();
             scrollContainer.scrollLeft += evt.deltaY;
          }); 
-         */
-
+         
+/*
          const scrollContainer = this.$refs["scroll-container"];
          const scrollItem = this.$refs["scroll-item"];
 
@@ -123,6 +122,7 @@ export default {
 
             scrollContainer.scrollTo(scrollX, scrollY);
          });
+*/
       },
    },
 };
