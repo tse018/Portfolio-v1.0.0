@@ -1,41 +1,37 @@
 <template>
-   <main
-      class="main-container"
-      ref="scroll_container"
-      @mousewheel="horizontalScrolling"
-   >
+   <main class="main-container" ref="scroll-container" @mousewheel="horizontalScrolling">
       <section class="main-container__section">
          <div id="#">
             <LandingPage />
          </div>
       </section>
 
-      <section class="main-container__section">
-         <div id="about">
+      <section class="main-container__section--about">
+         <div id="about" ref="scroll-item">
             <About />
          </div>
       </section>
 
       <section class="main-container__section">
-         <div id="education">
+         <div id="education" ref="scroll-item">
             <Education />
          </div>
       </section>
 
       <section class="main-container__section">
-         <div id="tech">
+         <div id="tech" ref="scroll-item">
             <Tech />
          </div>
       </section>
 
       <section class="main-container__section">
-         <div id="projects">
+         <div id="projects" ref="scroll-item">
             <Projects />
          </div>
       </section>
 
       <section class="main-container__section">
-         <div id="contact">
+         <div id="contact" ref="scroll-item">
             <Contact />
          </div>
       </section>
@@ -80,55 +76,71 @@ export default {
             alert(this.$router.params.section);
          }
       }); */
+   computed: {
+      horizontalScrolling() {
+         /*
+         const scrollContainer = this.$refs["scroll-container"];
 
+         scrollContainer.addEventListener("wheel", (evt) => {
+            evt.preventDefault();
+            scrollContainer.scrollLeft += evt.deltaY;
+         }); 
+         */
 
+         const scrollContainer = this.$refs["scroll-container"];
+         const scrollItem = this.$refs["scroll-item"];
+
+         scrollContainer.addEventListener("wheel", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const delta = e.deltaY;
+
+            const maxScrollY = (scrollItem.offsetHeigth = scrollContainer.offsetHeigth);
+            const maxScrollX = scrollItem.offsetHeigth - scrollContainer.offsetWidth;
+
+            let scrollY = scrollContainer.scrollTop;
+            let scrollX = scrollContainer.scrollLeft;
+
+            if (scrollX > 0) {
+               scrollX += delta;
+
+               if (scrollX < 0) {
+                  scrollY -= scrollX;
+                  scrollX = 0;
+               }
+            } else {
+               scrollY += delta;
+
+               const overflow = scrollY - maxScrollY;
+               if (overflow > 0) {
+                  scrollX += overflow;
+                  scrollY = maxScrollY;
+               } else {
+                  scrollX = 0;
+               }
+            }
+
+            scrollContainer.scrollTo(scrollX, scrollY);
+         });
+      },
+   },
 };
 </script>
 
 <style scoped>
-/* Mobile */
-@media screen and (max-width: 600px) {
-   .main-container {
-      min-height: 100vh;
-      min-width: 100vw;
-   }
-
-   .main-container__section {
-      min-width: 100vw;
-      min-height: 100vh;
-   }
-}
-
-/* Tablet */
-@media screen and (min-width: 601px) {
-   .main-container {
-      height: 100vh;
-      width: 100vw;
-      overflow-x: hidden;
-   }
-
-   .main-container__section {
-      width: 100vw;
-      height: 100vh;
-   }
-}
 
 /* Desktop */
 @media screen and (min-width: 1200px) {
    .main-container {
-      height: 100%;
+      max-height: 100vh;
       display: flex;
+      overflow-y: hidden;
    }
 
    .main-container__section {
       height: 100%;
       width: 100%;
    }
-}
-
-section {
-   min-width: 100%;
-   min-height: 100%;
-   overscroll-behavior: contain;
 }
 </style>

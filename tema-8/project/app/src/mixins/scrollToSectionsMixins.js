@@ -3,10 +3,6 @@ export default {
       return {
          navbar: [
             {
-               id: '',
-               section: "HOME",
-            },
-            {
                id: "about",
                section: "ABOUT",
             },

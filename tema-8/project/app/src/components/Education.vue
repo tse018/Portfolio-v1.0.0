@@ -11,8 +11,13 @@
 
                   <li class="education__container-element" v-for="(school, index) in education" >
                      <button class="education__container-tab" @click="changeTab(school._id)">
-                        {{ school.institute }}
-                     </button>
+                        
+               
+
+                     <RouterLink class="header-container__navbar-link" :to="{ name: 'home', params: {section: school.institute } }">
+                     {{ school.institute }}
+                  </RouterLink>
+                  </button>
                   </li>
                </ul>
             </nav>
