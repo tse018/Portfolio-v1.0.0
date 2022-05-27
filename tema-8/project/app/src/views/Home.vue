@@ -104,6 +104,7 @@ export default {
       width: 600%;
       display: flex;
       overflow-y: hidden;
+      width: 50%;
    }
 
    .main-container__section {
