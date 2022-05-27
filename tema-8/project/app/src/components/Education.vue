@@ -173,10 +173,10 @@ export default {
 /* desktop */
 @media screen and (min-width: 1200px) {
    .education {
-      min-width: 100%;
-      min-height: 100%;
-      padding: 100px 100px 0 100px;
+      width: 100vw;
+      height: 100vh;
       position: relative;
+      border: 2px solid red;
    }
 
    .education__container {

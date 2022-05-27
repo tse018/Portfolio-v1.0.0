@@ -7,7 +7,7 @@
          </h1>
 
          <h2 class="section-introduction__work-title">
-            JUNIOR FRONT-END DEVELOPER
+            FRONT-END DEVELOPER
          </h2>
 
          <button class="section-introduction__arrow" @click="scrollTo('about')" aria-label="go to about section">
@@ -50,8 +50,8 @@ export default {
    flex-direction: column;
    flex-wrap: wrap;
    position: relative;
-   /* micro adjustment for macbook pro 2017 screen, won´t show scollbar + scroll bit down */
-   height: 97vh;
+   height: 100vh;
+   width: 100vw;
 }
 
 .section-introduction__name {

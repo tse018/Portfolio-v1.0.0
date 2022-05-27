@@ -65,7 +65,7 @@ export default {
    display: flex;
    flex-flow: row wrap;
    position: relative;
-   width: 100%;
+   width: 100vw;
 }
 
 .about-container__introduction-container {

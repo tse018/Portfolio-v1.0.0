@@ -5,11 +5,10 @@
             <li class="header-container__navbar-element--mobile">
                <MobileMenu />
             </li>
-
             <li v-for="(data, index) in navbar" class="header-container__navbar-element">
-               <a class="header-container__navbar-link" @click="scrollTo(data.id)" :key="data.id">
-                  <RouterLink class="header-container__navbar-link" :to="{ name: 'home', params: { section: data.id } }">
-                     {{ data.section }}
+               <a class="header-container__navbar-link" @click="scrollTo(data.path)" :key="data.id">
+                  <RouterLink class="header-container__navbar-link" :to="{ name: 'home', params: { section: data.path } }">
+                     {{ data.id }}
                   </RouterLink>
                </a>
             </li>
@@ -81,6 +80,10 @@ export default {
       color: var(--font-color-highligth);
       padding: 20px;
       cursor: pointer;
+   }
+
+   .header-container__navbar--0 {
+      text-decoration: 5px underline var(--font-color-highligth);
    }
 
    /* highligthing the active routerlink button */

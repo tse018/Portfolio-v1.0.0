@@ -1,7 +1,7 @@
 <template>
   <footer class="footer-container">
     <p class="footer-container__content">
-      Designed & Built by Thanushan Sellathurai
+      Built in Vue JS, Vuex, Vue Router, Sanity, 
     </p>
   </footer>
 </template>

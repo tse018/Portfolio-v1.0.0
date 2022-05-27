@@ -33,8 +33,8 @@ export default {
    },
 
    async created() {
-      const token = import.meta.env.VITE_GITHUB_KEY;
-      const username = import.meta.env.VITE_GITHUB_USERNAME;
+      const token = "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";
+      const username = "tse018";
 
       const headers = {
          Authorization: `bearer ${token}`,

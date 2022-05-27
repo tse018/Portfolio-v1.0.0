@@ -103,10 +103,12 @@ export default {
 
 @media screen and (min-width: 1200px) {
    .technology-container {
-      position: relative;
-      height: 100%;
-      width: 100%;
-      padding-top: 100px;
+      display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+   position: relative;
+   height: 100vh;
+   width: 100vw;
    }
 
    .technology-container__title {

@@ -3,38 +3,38 @@ export default {
       return {
          navbar: [
             {
-               id: '',
-               section: "HOME",
+               id: 'HOME',
+               path: "home"
             },
             {
-               id: "about",
-               section: "ABOUT",
+               id: 'ABOUT',
+               path: "about"
             },
             {
-               id: "education",
-               section: "EDUCATION",
+               id: 'EDUCATION',
+               path: "education"
             },
             {
-               id: "tech",
-               section: "TECH",
+               id: 'TECH',
+               path: "tech"
             },
             {
-               id: "projects",
-               section: "PROJECTS",
+               id: 'PROJECTS',
+               path: "projects"
             },
             {
-               id: "contact",
-               section: "CONTACT",
+               id: 'CONTACT',
+               path: "contact"
             },
          ],
       };
    },
-
+   
    methods: {
       scrollTo(anchor) {
          const element = document.getElementById(anchor);
+         console.log(element)
          element.scrollIntoView({ behavior: "smooth" });
-         console.log('hei')
       },
    },
 };
