@@ -33,7 +33,6 @@ export default {
    methods: {
       scrollTo(anchor) {
          const element = document.getElementById(anchor);
-         console.log(element)
          element.scrollIntoView({ behavior: "smooth" });
       },
    },

@@ -2,21 +2,32 @@
    <div v-if="loading">Loading...</div>
    <div v-else>
       <div class="github-container">
-         <img class="github-container__contributions" src="https://ghchart.rshah.org/243B55/tse018" alt="picture of my github profile number of contributions done day for day " />
+         <img
+            class="github-container__contributions"
+            src="https://ghchart.rshah.org/243B55/tse018"
+            alt="picture of my github profile number of contributions done day for day "
+         />
 
          <div class="github-container-wrapper">
-            <h3 class="github-container__title">
-               Total GitHub contributions:
-            </h3>
-
-            <div class="github-container__contribution-loop" v-for="content in result">
-               <div class="github-container__contribution-number" v-for="contributions in content">
+            <h3 class="github-container__title">Total GitHub contributions:</h3>
+            <div
+               class="github-container__contribution-loop"
+               v-for="content in result"
+            >
+               <div
+                  class="github-container__contribution-number"
+                  v-for="contributions in content"
+               >
                   {{ contributions.totalContributions }}
                </div>
             </div>
          </div>
 
-         <a href="https://github.com/tse018" target="_blank" class="section-introduction__github">
+         <a
+            href="https://github.com/tse018"
+            target="_blank"
+            class="section-introduction__github"
+         >
             Check out my Github!
          </a>
       </div>
@@ -33,8 +44,8 @@ export default {
    },
 
    async created() {
-      const token = "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";
-      const username = "tse018";
+      const token = import.meta.env.VITE_GITHUB_KEY
+      const username = import.meta.env.VITE_GITHUB_USERNAME
 
       const headers = {
          Authorization: `bearer ${token}`,
@@ -45,7 +56,7 @@ export default {
          query: `query {
             user(login: "${username}") {
                name
-               contributionsCollection(from: "2021-08-29T00:00:00.000+00:00") {
+               contributionsCollection {
                   contributionCalendar {
                   colors
                   totalContributions
@@ -69,13 +80,11 @@ export default {
          }
       }`,
       };
-
       const response = await fetch(url, {
          method: "POST",
          body: JSON.stringify(body),
          headers: headers,
       });
-
       const { data } = await response.json();
       const { user } = data;
       this.result = user;

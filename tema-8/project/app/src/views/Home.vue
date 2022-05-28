@@ -1,37 +1,70 @@
 <template>
-   <main class="main-container">
-      <component v-for="component in components" :is="component.name" :id="component.path" ref="components" />
+   <main class="main-container" ref="main">
+      <section class="main-container__section">
+         <div id="#">
+            <LandingPage />
+         </div>
+      </section>
+
+      <section class="main-container__section">
+         <div id="about">
+            <About />
+         </div>
+      </section>
+
+      <section class="main-container__section">
+         <div id="education">
+            <Education />
+         </div>
+      </section>
+
+      <section class="main-container__section">
+         <div id="tech">
+            <Tech />
+         </div>
+      </section>
+
+      <section class="main-container__section">
+         <div id="projects">
+            <Projects />
+         </div>
+      </section>
+
+      <section class="main-container__section">
+         <div id="contact">
+            <Contact />
+         </div>
+      </section>
    </main>
 </template>
 
 <script>
+import About from "../components/About.vue";
+import Contact from "../components/Contact.vue";
+import Education from "../components/Education.vue";
+import LandingPage from "../components/landingPage.vue";
+import Projects from "../components/Projects.vue";
+import Icons from "../components/Icons.vue";
+import Tech from "../components/TechSection.vue";
+
 import sanityMixin from "../mixins/sanityMixin.js";
-import changeParamsOnScroll from "../mixins/changeParamsOnScroll.js";
 
 export default {
-   mixins: [sanityMixin, changeParamsOnScroll],
+   mixins: [sanityMixin],
+
+   components: {
+      LandingPage,
+      About,
+      Education,
+      Projects,
+      Contact,
+      Icons,
+      Tech,
+   },
 
    async created() {
       this.fetchSanity();
    },
-
-   mounted() {
-      console.log(this.$refs.components)
-   }
-
-/*
-   mounted() {
-      const box = this.$refs['viewPort'];
-      const message = this.$refs['about'];
-
-      document.addEventListener('scroll', function() {
-         //return this.$route.params.section
-         console.log(this.$route.params.section)
-   }, {
-      passive: true,
-   });
-   },
-*/
 };
 </script>
 
