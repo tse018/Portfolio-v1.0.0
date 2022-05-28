@@ -3,8 +3,10 @@ export default {
       return {
          navbar: [
             {
+               // could do " ", but then users could click on header navigation twice will trigger
+               // scrollIntoView function and able to go back and forth which could cause bad user experience
                id: 'HOME',
-               path: "home"
+               path: "home" 
             },
             {
                id: 'ABOUT',

@@ -81,6 +81,10 @@ export default {
       padding: 20px;
       cursor: pointer;
    }
+   
+   .header-container__navbar-link:hover {
+      text-decoration: 5px underline var(--font-color-highligth);
+   }
 
    .header-container__navbar--0 {
       text-decoration: 5px underline var(--font-color-highligth);
