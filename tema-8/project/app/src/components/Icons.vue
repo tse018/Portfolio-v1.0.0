@@ -29,6 +29,12 @@ export default {
          type: String,
       },
    },
+
+   methods: {
+      navigate() {
+         
+      }
+   }
 };
 </script>
 

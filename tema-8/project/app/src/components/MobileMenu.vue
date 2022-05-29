@@ -7,9 +7,9 @@
    <nav class="mobile-toggle__container" v-if="showNavbar">
       <ul class="mobile-toggle__container-elements">
          <li v-for="(data, index) in navbar" class="mobile-toggle-__navbar-elements">
-            <a class="mobile-toggle__navbar-link" @click="scrollTo(data.id)" :key="data.id">
-               <RouterLink class="header-container__navbar-link" :to="{ name: 'home', params: { id: data.id } }">
-                  {{ data.section }}
+            <a class="mobile-toggle__navbar-link" @click="scrollTo(data.path)" :key="data.id">
+               <RouterLink class="header-container__navbar-link" :to="{ name: 'home', params: { id: data.path } }" @click="displayMenu">
+                  {{ data.id }}
                </RouterLink>
             </a>
          </li>
@@ -60,11 +60,10 @@ export default {
    }
 
    .mobile-toggle__container-elements {
-      width: 100%;
-      height: 100%;
+
       z-index: 100;
       text-align: center;
-      padding: 10px 0 0 0;
+      color: white;
    }
 
    .mobile-toggle__container-element {

@@ -28,6 +28,17 @@ export default {
    components: {
       MobileMenu,
    },
+
+   watch: {
+      $route() {
+         // this fixes the bug with when scroll to path: "/",
+         // users could click on same button twice and it would go back to front-page
+         // with this watch, prevents from doing that and redirect to fullPath /, instead of  showing /home fullPath
+         if(this.$route.fullPath === '/home') {
+            this.$router.push({ name: 'home'})
+         }
+      },
+   },
 };
 </script>
 
@@ -81,7 +92,7 @@ export default {
       padding: 20px;
       cursor: pointer;
    }
-   
+
    .header-container__navbar-link:hover {
       text-decoration: 5px underline var(--font-color-highligth);
    }
@@ -92,6 +103,10 @@ export default {
 
    /* highligthing the active routerlink button */
    .router-link-active {
+      text-decoration: 5px underline var(--font-color-highligth);
+   }
+
+   .active {
       text-decoration: 5px underline var(--font-color-highligth);
    }
 }

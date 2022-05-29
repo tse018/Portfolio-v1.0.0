@@ -65,17 +65,6 @@ export default {
    async created() {
       this.fetchSanity();
    },
-
-   watch: {
-      $route() {
-         // this fixes the bug with when scroll to path: "/",
-         // users could click on header nav buttons and click back and forth
-         // this prevents and redirect to fullPath /, instead of  showing /home fullPath
-         if(this.$route.fullPath === '/home') {
-            this.$router.push({ name: 'home'})
-         }
-      },
-   }
 };
 </script>
 

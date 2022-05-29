@@ -67,8 +67,8 @@
                </article>
             </div>
 
-            <button class="section-introduction__arrow" @click="scrollTo('about')" aria-label="go to about section">
-               <RouterLink class="section-introduction__link" :to="{ name: 'home', params: { section: 'about' } }">
+            <button class="section-introduction__arrow" @click="scrollTo('tech')" aria-label="click to tech section">
+               <RouterLink class="section-introduction__link" :to="{ name: 'home', params: { section: 'tech' } }">
                   <Icons :icon="'rigth'" />
                </RouterLink>
             </button>
@@ -84,9 +84,10 @@ import Collapsible from "../components/Collapsible.vue";
 import sanityMixin from "../mixins/sanityMixin.js";
 import changeTab from "../mixins/changeTabsMixins.js";
 import readMoreButtonMixin from "../mixins/readMoreButtonMixins.js";
+import scrollToSectionsMixins from '../mixins/scrollToSectionsMixins';
 
 export default {
-   mixins: [sanityMixin, changeTab, readMoreButtonMixin],
+   mixins: [sanityMixin, changeTab, readMoreButtonMixin, scrollToSectionsMixins],
 
    components: {
       Icons,

@@ -31,7 +31,7 @@ export default {
          ],
       };
    },
-   
+
    methods: {
       scrollTo(anchor) {
          const element = document.getElementById(anchor);

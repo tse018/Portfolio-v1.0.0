@@ -17,11 +17,9 @@ const router = createRouter({
          left: 0,
          behavior: "smooth",
       });
-
       /* 
          adding saving posistion / kinda local storage feature 
-         so when user leave the page and comes back 
-         will reload to that section user left
+         so when user refresh the page will reload to same location
       */
 
       if (savedPosition) {
@@ -34,4 +32,7 @@ const router = createRouter({
    },
 });
 
-createApp(App).use(app_store).use(router).mount("#app");
+createApp(App)
+   .use(app_store)
+   .use(router)
+   .mount("#app");
