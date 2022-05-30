@@ -66,12 +66,6 @@
                   </button>
                </article>
             </div>
-
-            <button class="section-introduction__arrow" @click="scrollTo('tech')" aria-label="click to tech section">
-               <RouterLink class="section-introduction__link" :to="{ name: 'home', params: { section: 'tech' } }">
-                  <Icons :icon="'rigth'" />
-               </RouterLink>
-            </button>
          </section>
       </div>
    </div>

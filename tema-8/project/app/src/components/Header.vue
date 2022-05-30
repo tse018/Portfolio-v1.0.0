@@ -5,6 +5,7 @@
             <li class="header-container__navbar-element--mobile">
                <MobileMenu />
             </li>
+            
             <li v-for="(data, index) in navbar" class="header-container__navbar-element">
                <a class="header-container__navbar-link" @click="scrollTo(data.path)" :key="data.id">
                   <RouterLink class="header-container__navbar-link" :to="{ name: 'home', params: { section: data.path } }">

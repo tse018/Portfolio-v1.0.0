@@ -2,12 +2,6 @@
    <div v-if="loading">Loading...</div>
 
    <div v-else>
-      <button class="section-introduction__arrow" @click="scrollTo('education')" aria-label="go to about section">
-            <RouterLink class="section-introduction__link" :to="{ name: 'home', params: { section: 'education' } }">
-               <Icons :icon="'rigth'" />
-            </RouterLink>
-         </button>
-
       <section class="about-container" v-for="content in about">
          <div class="about-container__introduction-container">
             <h2 class="about-container__introduction-title">

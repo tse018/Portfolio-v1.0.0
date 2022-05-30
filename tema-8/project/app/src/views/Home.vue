@@ -1,5 +1,5 @@
 <template>
-   <main class="main-container" ref="main">
+   <main class="main-container" ref="scroll-container" @mousewheel="horizontalScrolling">
       <section class="main-container__section">
          <div id="home">
             <LandingPage />
@@ -65,6 +65,19 @@ export default {
    async created() {
       this.fetchSanity();
    },
+
+   computed: {
+      horizontalScrolling() {
+         const scrollContainer = this.$refs["scroll-container"];
+         
+         if (window.innerWidth > 600) {
+            scrollContainer.addEventListener("wheel", (evt) => {
+               evt.preventDefault();
+               scrollContainer.scrollLeft += evt.deltaY;
+            });
+         }
+      },
+   },
 };
 </script>
 
@@ -100,16 +113,13 @@ export default {
 /* Desktop */
 @media screen and (min-width: 1200px) {
    .main-container {
-      height: 100%;
-      width: 600%;
+      max-height: 100vh;
       display: flex;
       overflow-y: hidden;
    }
-
    .main-container__section {
       height: 100%;
       width: 100%;
-      overflow: auto;
    }
 }
 </style>
