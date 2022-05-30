@@ -31,11 +31,6 @@
                      </div>
 
                      <div class="projects-container__tech-container">
-                        <h3 class="projects-container__tech-title">
-                           Tech stack used for
-                           {{ project.title.toUpperCase() }}:
-                        </h3>
-
                         <ul class="projects-container__tech-elements" v-for="tech in project.techStack">
                            <li class="projects-container__tech-element">
                               {{ tech }}
@@ -74,10 +69,6 @@
                      </div>
 
                      <div class="projects-container__tech-container">
-                        <h3 class="projects-container__tech-title">
-                           {{ project.title }} Tech Stack:
-                        </h3>
-
                         <ul class="projects-container__tech-elements" v-for="tech in project.techStack">
                            <li class="projects-container__tech-element">
                               {{ tech }}
@@ -195,7 +186,7 @@ export default {
 
 .projects-container__description-title {
    padding: 20px;
-   margin: 50px auto 0;
+   margin: 50px 0 0 0;
    text-align: center;
    color: var(--font-color-highligth);
 }
@@ -211,6 +202,10 @@ export default {
 
 .projects-container__link-elements {
    margin-top: 20px;
+}
+
+.projects-container__link-element {
+   margin: 20px;
 }
 
 .projects-container__link {
