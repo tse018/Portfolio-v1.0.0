@@ -8,8 +8,9 @@
             <h3 class="github-container__title">
                Total GitHub contributions:
             </h3>
-            <div class="github-container__loop" v-for="content in result">
-               <div class="github-container__number" v-for="contributions in content">
+            
+            <div v-for="content in result">
+               <div v-for="contributions in content">
                   {{ contributions.totalContributions }}
                </div>
             </div>
@@ -32,8 +33,8 @@ export default {
    },
 
    async created() {
-      const token = import.meta.env.VITE_GITHUB_KEY
-      const username = import.meta.env.VITE_GITHUB_USERNAME
+      const token = import.meta.env.VITE_GITHUB_KEY;
+      const username = import.meta.env.VITE_GITHUB_USERNAME;
 
       const headers = {
          Authorization: `bearer ${token}`,
@@ -81,105 +82,55 @@ export default {
 </script>
 
 <style>
-@media screen and (max-width: 1200px) {
-   .github-container {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-   }
-
-   .github-container__contributions {
-      max-width: 100%;
-      height: auto;
-      margin: 0 auto;
-      padding: 20px 20px 0 20px;
-   }
-
-   .github-container__wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-      justify-content: center;
-   }
-
-   .github-container__title {
-      font-size: var(--mobile-font-size-default);
-      font-style: italic;
-   }
-
-   .github-container__contribution-number {
-      font-style: italic;
-      padding: 0 2px;
-   }
-
-   .section-introduction__github {
-      width: 100%;
-      margin: 20px auto;
-      text-align: center;
-      padding: 20px;
-      max-width: max-content;
-      border: 2px solid var(--font-color-highligth);
-      color: var(--font-color-highligth);
-      text-align: center;
-      text-decoration: none;
-      transition: 2s;
-   }
-
-   .section-introduction__github:hover,
-   .section-introduction__github:focus {
-      box-shadow: inset 400px 0 0 var(--font-color-highligth);
-      color: black;
-   }
+@media screen and (max-width: 600px) {
+   
 }
 
-@media screen and (min-width: 1200px) {
-   .github-container {
-      margin-top: 2%;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-   }
+.github-container {
+   margin-top: 2%;
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+}
 
+.github-container__contributions {
+   width: 70%;
+   margin: 0px auto 0 auto;
+   height: auto;
+}
 
+.github-container__wrapper {
+   display: flex;
+   flex-direction: row;
+   padding: 0 20px;
+   margin-left: 50px;
+   font-size: 20px;
+}
 
-   .github-container__contributions {
-      width: 70%;
-      margin: 0px auto 0 auto;
-      height: auto;
-   }
+.github-container__contribution-number {
+   width: 100%;
+   font-style: italic;
+   margin-left: 5px;
+}
 
-   .github-container__wrapper {
-      display: flex;
-      flex-direction: row;
-      padding: 0 20px;
-      margin-left: 50px;
-      font-size: 20px;
-   }
+.section-introduction__github {
+   margin: 0 18%;
+   text-align: center;
+   padding: 20px;
+   min-height: 50px;
+   max-width: max-content;
+   border: 2px solid var(--font-color-highligth);
+   color: var(--font-color-highligth);
+   text-align: center;
+   text-decoration: none;
+   transition: 2s;
+   margin-top: -50px;
+}
 
-   .github-container__contribution-number {
-      width: 100%;
-      font-style: italic;
-      margin-left: 5px;
-   }
-
-   .section-introduction__github {
-      margin: 0 18%;
-      text-align: center;
-      padding: 20px;
-      min-height: 50px;
-      max-width: max-content;
-      border: 2px solid var(--font-color-highligth);
-      color: var(--font-color-highligth);
-      text-align: center;
-      text-decoration: none;
-      transition: 2s;
-   }
-
-   .section-introduction__github:hover,
-   .section-introduction__github:focus {
-      box-shadow: inset 400px 0 0 var(--font-color-highligth);
-      color: black;
-   }
+.section-introduction__github:hover,
+.section-introduction__github:focus {
+   box-shadow: inset 400px 0 0 var(--font-color-highligth);
+   color: black;
 }
 </style>

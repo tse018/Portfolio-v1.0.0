@@ -85,28 +85,13 @@ export default {
 /* Mobile */
 @media screen and (max-width: 600px) {
    .main-container {
-      min-height: 100vh;
-      min-width: 100vw;
-      overflow-x: hidden;
+      width: 100vw;
+      height: 100vh;
    }
 
    .main-container__section {
       min-width: 100vw;
       min-height: 100vh;
-   }
-}
-
-/* Tablet */
-@media screen and (min-width: 601px) {
-   .main-container {
-      height: 100vh;
-      width: 100vw;
-      overflow-x: hidden;
-   }
-
-   .main-container__section {
-      width: 100vw;
-      height: 100vh;
    }
 }
 

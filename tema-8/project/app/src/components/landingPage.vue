@@ -79,9 +79,24 @@ export default {
    z-index: 100;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 600px) {
    .section-introduction__arrow {
       display: none;
    }
+
+   .section-introduction {
+      padding: 20px;
+   }
+
+   .section-introduction__name {
+      font-size: 30px;
+   }
+
+   .section-introduction__work-title {
+      font-size: 24px;
+   }
+
+
+
 }
 </style>
