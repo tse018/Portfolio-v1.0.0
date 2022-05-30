@@ -180,8 +180,7 @@ export default {
    .education__container-navbar {
       min-width: max-content;
       min-height: max-content;
-      padding: 0 20px;
-      margin-top: ;
+      padding: 50px 20px;
    }
 
    .education__container__header-element {

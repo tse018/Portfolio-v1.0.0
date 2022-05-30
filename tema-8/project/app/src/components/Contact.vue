@@ -205,8 +205,9 @@ export default {
 }
 
 .contact-container__paragraphs {
-   padding: 20px;
-   text-align: center;
+   padding: 0 20px 20px 20px;
+   width: 30ch;
+   margin: auto;
 }
 
 .contact-container__map-container {
