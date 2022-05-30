@@ -73,11 +73,11 @@ export default {
    flex-flow: row wrap;
    position: relative;
    width: 100vw;
+   margin-top: 100px;
 }
 
 .about-container__introduction-container {
    margin: 100px auto;
-   max-width: 80%;
    min-height: 100px;
    padding: 20px;
 
@@ -92,7 +92,7 @@ export default {
 .about-container__introduction-field {
    font-size: var(--desktop-font-size-paragraph);
    padding: 25px;
-   width: 100%;
+   width: 60ch
 }
 
 .about-container__read-button {

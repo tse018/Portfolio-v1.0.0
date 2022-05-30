@@ -178,12 +178,16 @@ export default {
 </script>
 
 <style>
-.contact-container {
+#map {
    width: 100%;
-   height: 97vh;
+   height: 100%;
+}
+
+.contact-container {
+   width: 100vw;
+   height: 100vh;
    padding-top: 100px;
    display: flex;
-   position: relative;
 }
 
 .contact-container__content-container {
@@ -205,11 +209,6 @@ export default {
 
 .contact-container__map-container {
    width: 70%;
-}
-
-.contact-container__map {
-   width: 100%;
-   height: 100%;
 }
 
 .mapboxgl-popup-close-button {

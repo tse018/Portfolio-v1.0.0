@@ -2,32 +2,20 @@
    <div v-if="loading">Loading...</div>
    <div v-else>
       <div class="github-container">
-         <img
-            class="github-container__contributions"
-            src="https://ghchart.rshah.org/243B55/tse018"
-            alt="picture of my github profile number of contributions done day for day "
-         />
+         <img class="github-container__contributions" src="https://ghchart.rshah.org/243B55/tse018" alt="picture of my github profile number of contributions done day for day " />
 
-         <div class="github-container-wrapper">
-            <h3 class="github-container__title">Total GitHub contributions:</h3>
-            <div
-               class="github-container__contribution-loop"
-               v-for="content in result"
-            >
-               <div
-                  class="github-container__contribution-number"
-                  v-for="contributions in content"
-               >
+         <div class="github-container__wrapper">
+            <h3 class="github-container__title">
+               Total GitHub contributions:
+            </h3>
+            <div class="github-container__loop" v-for="content in result">
+               <div class="github-container__number" v-for="contributions in content">
                   {{ contributions.totalContributions }}
                </div>
             </div>
          </div>
 
-         <a
-            href="https://github.com/tse018"
-            target="_blank"
-            class="section-introduction__github"
-         >
+         <a href="https://github.com/tse018" target="_blank" class="section-introduction__github">
             Check out my Github!
          </a>
       </div>
@@ -107,7 +95,7 @@ export default {
       padding: 20px 20px 0 20px;
    }
 
-   .github-container-wrapper {
+   .github-container__wrapper {
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
@@ -153,12 +141,7 @@ export default {
       flex-wrap: wrap;
    }
 
-   .github-container__title {
-      display: flex;
-      justify-content: end;
-      font-size: 20px;
-      width: 80%;
-   }
+   
 
    .github-container__contributions {
       width: 70%;
@@ -166,7 +149,7 @@ export default {
       height: auto;
    }
 
-   .github-container-wrapper {
+   .github-container__wrapper {
       display: flex;
       flex-direction: row;
       padding: 0 20px;
@@ -198,6 +181,12 @@ export default {
    .section-introduction__github:focus {
       box-shadow: inset 400px 0 0 var(--font-color-highligth);
       color: black;
+   }
+}
+
+@media screen and (min-width: 2000px) {
+   .github-container {
+      border: 2px solid red;
    }
 }
 </style>

@@ -10,7 +10,7 @@
                   </li>
 
                   <li class="education__container-element" v-for="(school, index) in education" >
-                     <button class="education__container-tab" @click="changeTab(school._id)">
+                     <button class="education__container-tab" @click="changeTab(school._id)" :role="school.institute">
                         {{ school.institute }}
                      </button>
                   </li>
@@ -18,7 +18,7 @@
             </nav>
 
             <div class="education__content-container">
-               <article class="education__content-article" v-for="content in education" v-show="currentTab === content._id">
+               <article class="education__content-article" v-for="content in education" v-show="currentTab === content._id" :role="content.studyProgram">
                   <h3 class="education__content-title">
                      {{ content.studyProgram }}
                   </h3>
@@ -76,12 +76,12 @@ import Icons from "../components/Icons.vue";
 import Collapsible from "../components/Collapsible.vue";
 
 import sanityMixin from "../mixins/sanityMixin.js";
-import changeTab from "../mixins/changeTabsMixins.js";
+import changeTabsMixins from "../mixins/changeTabsMixins.js";
 import readMoreButtonMixin from "../mixins/readMoreButtonMixins.js";
 import scrollToSectionsMixins from '../mixins/scrollToSectionsMixins';
 
 export default {
-   mixins: [sanityMixin, changeTab, readMoreButtonMixin, scrollToSectionsMixins],
+   mixins: [sanityMixin, changeTabsMixins, readMoreButtonMixin, scrollToSectionsMixins],
 
    components: {
       Icons,
