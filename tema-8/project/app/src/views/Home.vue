@@ -2,7 +2,7 @@
    <Loader v-if="loading" />
    
    <div v-else>
-      <h2 ref="intro">
+      <h2 ref="intro" style="display: block">
          <div class="container">
             <div class="hi">
                Welcome!
@@ -10,7 +10,7 @@
          </div>
       </h2>
 
-      <main style="display: none" class="main-container" ref="main-container" @mousewheel="horizontalScrolling">
+      <main class="main-container" ref="main-container" @mousewheel="horizontalScrolling">
          <section class="main-container__section">
             <div id="home">
                <LandingPage />
@@ -61,9 +61,10 @@ import Tech from "../components/TechSection.vue";
 import Loader from "../components/Loader.vue";
 
 import sanityMixin from "../mixins/sanityMixin.js";
+import introAnimation from '../mixins/introAnimation';
 
 export default {
-   mixins: [sanityMixin],
+   mixins: [sanityMixin, introAnimation],
 
    components: {
       LandingPage,
@@ -79,12 +80,9 @@ export default {
    async created() {
       this.fetchSanity();
 
-      this.sleep(1000).then(() => {
-         this.$refs["main-container"].style.display = "block";
-      });
-      this.sleep(6000).then(() => {
+      this.sleep(3000).then(() => {
          this.$refs["intro"].style.display = "none";
-      });
+      }, 3000);
    },
 
    computed: {
@@ -97,12 +95,6 @@ export default {
                scrollContainer.scrollLeft += evt.deltaY;
             });
          }
-      },
-   },
-
-   methods: {
-      sleep(ms) {
-         return new Promise((resolve) => setTimeout(resolve, ms));
       },
    },
 };
@@ -141,25 +133,24 @@ export default {
    align-items: center;
    height: 100vh;
    overflow: hidden;
+   background-color: black;
 }
+
 .hi {
    font-size: 100px;
-   color: #3CDBC0;
-   animation-duration: 5s;
+   color: var(--font-color-highligth);
+   animation-duration: 3s;
    animation-name: intro;
-   animation-iteration-count: 1;
-   animation-timing-function: linear;
 }
 
 @keyframes intro {
    from {
-      transform: scale(10) rotate(-150deg);
+      transform: scale(0);
       opacity: 0;
-      color: white;
    }
 
    to {
-      transform: scale(1);
+      transform: scale(1) rotate(0);
       opacity: 1;
    }
 }

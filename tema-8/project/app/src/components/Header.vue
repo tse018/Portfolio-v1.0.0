@@ -1,5 +1,5 @@
 <template>
-   <header class="header-container">
+   <header class="header-container" ref="header" style="display: none">
       <nav class="header-container__navbar">
          <ul class="header-container__navbar-elements">
             <li class="header-container__navbar-element--mobile">
@@ -22,12 +22,19 @@
 import MobileMenu from "../components/MobileMenu.vue";
 
 import scrollToSectionMixins from '../mixins/scrollToSectionsMixins.js';
+import introAnimation from '../mixins/introAnimation.js';
 
 export default {
-   mixins: [scrollToSectionMixins],
+   mixins: [scrollToSectionMixins, introAnimation],
 
    components: {
       MobileMenu,
+   },
+
+   mounted() {
+      this.sleep(3000).then(() => {
+         this.$refs["header"].style.display = "block";
+      }, 3000);
    },
 
    watch: {
