@@ -1,5 +1,9 @@
 <template>
-   <main class="main-container" ref="scroll-container" @mousewheel="horizontalScrolling">
+   <main
+      class="main-container"
+      ref="scroll-container"
+      @mousewheel="horizontalScrolling"
+   >
       <section class="main-container__section">
          <div id="#">
             <LandingPage />
@@ -80,56 +84,27 @@ export default {
       horizontalScrolling() {
          const scrollContainer = this.$refs["scroll-container"];
 
-         scrollContainer.addEventListener("wheel", (evt) => {
-            evt.preventDefault();
-            scrollContainer.scrollLeft += evt.deltaY;
-         }); 
-         
-/*
-         const scrollContainer = this.$refs["scroll-container"];
-         const scrollItem = this.$refs["scroll-item"];
+         if (window.innerWidth > 600) {
+            scrollContainer.addEventListener("wheel", (evt) => {
+               evt.preventDefault();
+               scrollContainer.scrollLeft += evt.deltaY;
 
-         scrollContainer.addEventListener("wheel", (e) => {
-            e.preventDefault();
-            e.stopPropagation();
+               const rect = scrollContainer.getBoundingClientRect();
 
-            const delta = e.deltaY;
-
-            const maxScrollY = (scrollItem.offsetHeigth = scrollContainer.offsetHeigth);
-            const maxScrollX = scrollItem.offsetHeigth - scrollContainer.offsetWidth;
-
-            let scrollY = scrollContainer.scrollTop;
-            let scrollX = scrollContainer.scrollLeft;
-
-            if (scrollX > 0) {
-               scrollX += delta;
-
-               if (scrollX < 0) {
-                  scrollY -= scrollX;
-                  scrollX = 0;
-               }
-            } else {
-               scrollY += delta;
-
-               const overflow = scrollY - maxScrollY;
-               if (overflow > 0) {
-                  scrollX += overflow;
-                  scrollY = maxScrollY;
-               } else {
-                  scrollX = 0;
-               }
-            }
-
-            scrollContainer.scrollTo(scrollX, scrollY);
-         });
-*/
+               rect.left; // (relative to viewport)
+               rect.top; // (relative to viewport)
+               rect.left + window.scrollX; // (relative to document)
+               rect.top + window.scrollY;
+               
+               console.log(rect.top + window.scrollY);
+            })
+         }
       },
    },
 };
 </script>
 
 <style scoped>
-
 /* Desktop */
 @media screen and (min-width: 1200px) {
    .main-container {

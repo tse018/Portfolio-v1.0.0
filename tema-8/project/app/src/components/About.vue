@@ -101,4 +101,13 @@ export default {
    box-shadow: inset 200px 0 0 0 var(--font-color-highligth);
    color: black;
 }
+
+
+@media screen and (min-width: 600px) {
+   .about-container__introduction-field {
+      font-size: 20px;
+      width: 80ch;
+      border: 2px solid red;
+   }
+}
 </style>

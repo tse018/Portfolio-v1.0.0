@@ -233,7 +233,8 @@ export default {
    }
 
    .education__content-paragraph {
-      padding: 0 30px;
+      width: 60ch;
+      font-size: 20px;
    }
 
    .education__content-button {
