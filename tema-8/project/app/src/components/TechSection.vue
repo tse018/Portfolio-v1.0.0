@@ -2,10 +2,6 @@
    <div v-if="loading">Loading...</div>
    <div v-else>
       <section class="technology-container">
-         <h3 class="technology-container__title">
-            TECH STACK OVERVIEW
-         </h3>
-
          <div class="technology-container__flex-wrapper">
             <div>
                <Collapsible v-model:title="title.frontend">
@@ -83,17 +79,10 @@ export default {
 <style scoped>
 @media screen and (max-width: 600px) {
    .technology-container {
-      position: relative;
       height: 100%;
       width: 100%;
    }
-
-   .technology-container__title {
-      text-align: center;
-      padding: 20px;
-      font-size: var(--desktop-font-size-secondary-undertitle);
-   }
-
+   
    .technology-container__flex-wrapper {
       display: flex;
       flex-wrap: wrap;
@@ -103,19 +92,12 @@ export default {
 
 @media screen and (min-width: 1200px) {
    .technology-container {
-      display: flex;
+   display: flex;
    flex-direction: column;
    flex-wrap: wrap;
-   position: relative;
    height: 100vh;
    width: 100vw;
-   }
-
-   .technology-container__title {
-      text-align: center;
-      padding: 20px;
-      margin: 20px auto 20px auto;
-      font-size: var(--desktop-font-size-secondary-undertitle);
+   padding-top: 150px;
    }
 
    .technology-container__flex-wrapper {
