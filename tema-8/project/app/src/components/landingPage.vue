@@ -1,6 +1,4 @@
 <template>
-   <div v-if="loading">Loading...</div>
-   <div v-else>
       <section class="section-introduction">
          <h1 class="section-introduction__name">
             THANUSHAN SELLATHURAI
@@ -19,14 +17,12 @@
          <Github />
          <Footer />
       </section>
-   </div>
 </template>
 
 <script>
 import Icons from "../components/Icons.vue";
 import Github from "../components/Github.vue";
 import Footer from "../components/Footer.vue";
-
 
 import sanityMixin from "../mixins/sanityMixin";
 import scrollToSectionsMixins from '../mixins/scrollToSectionsMixins.js';
