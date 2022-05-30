@@ -17,6 +17,7 @@
          </button>
 
          <Github />
+         <Footer />
       </section>
    </div>
 </template>
@@ -24,6 +25,8 @@
 <script>
 import Icons from "../components/Icons.vue";
 import Github from "../components/Github.vue";
+import Footer from "../components/Footer.vue";
+
 
 import sanityMixin from "../mixins/sanityMixin";
 import scrollToSectionsMixins from '../mixins/scrollToSectionsMixins.js';
@@ -33,7 +36,8 @@ export default {
 
    components: {
       Icons,
-      Github
+      Github,
+      Footer,
    },
 
    computed: {
@@ -72,6 +76,7 @@ export default {
    position: absolute;
    right: 0;
    bottom: 50%;
+   z-index: 100;
 }
 
 @media screen and (max-width: 1200px) {

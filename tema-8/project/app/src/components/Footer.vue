@@ -8,7 +8,7 @@
 
 <style>
 .footer-container {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100%;
   height: 60px;   /* Height of the footer */
@@ -20,11 +20,5 @@
   margin-top: 15px;
   text-align: center;
   color: black;
-}
-
-@media screen and (min-width: 981px) and (max-width: 1200px) {
-  .footer-container__content {
-    font-size: var(--tablet-font-size-footer);
-  }
 }
 </style>

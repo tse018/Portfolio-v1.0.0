@@ -130,10 +130,9 @@ export default {
 
 <style scoped>
 .projects-container {
-   padding: 100px 0 0 0;
+   padding: 50px 0 0 0;
    width: 100vw;
    height: 100vh;
-   overflow: scroll;
    margin-bottom: 50px;
 }
 
@@ -144,7 +143,7 @@ export default {
 .projects-container__navbar {
    display: flex;
    flex-direction: row;
-   margin: 5% 0 0 5%;
+   margin: 100px 25px;
 }
 
 .projects-container__navbar-header {
@@ -190,17 +189,20 @@ export default {
 
 .projects-container__description-content {
    width: 100%;
+   height: 100%;
+   margin-left: 100px;
 }
 
 .projects-container__description-title {
-   padding: 0 20px;
+   padding: 20px;
    margin: 50px auto 0;
    text-align: center;
    color: var(--font-color-highligth);
 }
 
 .projects-container__paragraph-container {
-   padding: 5px 50px;
+   width: 60ch;
+   padding: 20px;
 }
 
 .projects-container__link {

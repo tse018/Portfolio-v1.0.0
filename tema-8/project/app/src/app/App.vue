@@ -1,12 +1,10 @@
 <template>
    <Header />
    <RouterView />
-   <Footer />
 </template>
 
 <script>
 import Header from '../components/Header.vue';
-import Footer from '../components/Footer.vue';
 
 import seoMixin from '../mixins/seoMixin.js';
 
@@ -15,7 +13,6 @@ export default {
 
    components: {
       Header, 
-      Footer 
    },
 
    async created() {

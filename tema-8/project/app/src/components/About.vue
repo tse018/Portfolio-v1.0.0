@@ -4,11 +4,11 @@
    <div v-else>
       <section class="about-container" v-for="content in about">
          <div class="about-container__introduction-container">
-            <h2 class="about-container__introduction-title">
+            <article class="about-container__introduction-field">
+               <h2 class="about-container__introduction-title">
                {{ content.title }}
             </h2>
 
-            <article class="about-container__introduction-field">
                <p v-if="!readMoreClicked">
                   {{ content.introduction[0].children[0].text }}
                </p>
@@ -73,34 +73,32 @@ export default {
    flex-flow: row wrap;
    position: relative;
    width: 100vw;
-   margin-top: 100px;
+   padding-top: 100px;
 }
 
 .about-container__introduction-container {
-   margin: 100px auto;
+   width: 100%;
+   display: flex;
+   justify-content: center;
    min-height: 100px;
-   padding: 20px;
-
 }
 
 .about-container__introduction-title {
    font-size: var(--desktop-font-size-secondary-undertitle);
-   margin-left: 25px;
-   text-align: center;
+   padding: 15px;
 }
 
 .about-container__introduction-field {
-   font-size: var(--desktop-font-size-paragraph);
-   padding: 25px;
-   width: 60ch
+   font-size: 20px;
+   width: 70ch;
 }
 
 .about-container__read-button {
-   margin: 20px 0;
    width: 200px;
    transition: 2s;
    color: var(--font-color-highligth);
    border: 2px solid var(--font-color-highligth);
+   margin-top: 20px;
 }
 
 .about-container__read-button:hover,
@@ -109,7 +107,20 @@ export default {
    color: black;
 }
 
-.section-introduction__arrow {
-   right: 5%;
+
+@media screen and (min-width: 2000px) {
+   .about-container__introduction-container {
+      padding-top: 50px;
+   }
+
+   .about-container__introduction-field {
+      font-size: 24px;
+      width: 60ch;
+   }
+
+   .about-container__read-button {
+      margin-top: 50px;
+}
+
 }
 </style>

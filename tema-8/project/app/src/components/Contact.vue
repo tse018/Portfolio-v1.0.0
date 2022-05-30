@@ -29,6 +29,7 @@ import mapboxgl from "mapbox-gl";
 export default {
    mixins: [sanityMixin],
 
+
    data() {
       return {
          mapbox_id: import.meta.env.VITE_MAPBOX_ID,
@@ -181,6 +182,7 @@ export default {
 #map {
    width: 100%;
    height: 100%;
+   pointer-events: none;
 }
 
 .contact-container {
@@ -242,5 +244,9 @@ export default {
 .contact-container__mail:focus {
    box-shadow: inset 200px 0 0 0 var(--font-color-highligth);
    color: black;
+}
+
+@media screen and (max-width: 600px) {
+   
 }
 </style>

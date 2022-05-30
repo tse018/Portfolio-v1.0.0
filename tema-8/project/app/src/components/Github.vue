@@ -141,7 +141,7 @@ export default {
       flex-wrap: wrap;
    }
 
-   
+
 
    .github-container__contributions {
       width: 70%;
@@ -174,19 +174,12 @@ export default {
       text-align: center;
       text-decoration: none;
       transition: 2s;
-      margin-top: -50px;
    }
 
    .section-introduction__github:hover,
    .section-introduction__github:focus {
       box-shadow: inset 400px 0 0 var(--font-color-highligth);
       color: black;
-   }
-}
-
-@media screen and (min-width: 2000px) {
-   .github-container {
-      border: 2px solid red;
    }
 }
 </style>

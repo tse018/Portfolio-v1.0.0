@@ -13,7 +13,7 @@ export default {
 
    methods: {
       readMore() {
-         return (this.readMoreClicked = !this.readMoreClicked);
+         return this.readMoreClicked = !this.readMoreClicked;
       }
    }
 }

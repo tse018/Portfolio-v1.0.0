@@ -170,8 +170,7 @@ export default {
    .education {
       width: 100vw;
       height: 100vh;
-      position: relative;
-      border: 2px solid red;
+      padding-top: 100px;
    }
 
    .education__container {
@@ -181,7 +180,8 @@ export default {
    .education__container-navbar {
       min-width: max-content;
       min-height: max-content;
-      padding: 20px;
+      padding: 0 20px;
+      margin-top: ;
    }
 
    .education__container__header-element {
@@ -222,6 +222,7 @@ export default {
    .education__content-article {
       padding: 50px;
       min-height: 100px;
+      font-size: 20px;
    }
 
    .education__content-title {
@@ -249,6 +250,14 @@ export default {
    .education__content-button:focus {
       box-shadow: inset 200px 0 0 0 var(--font-color-highligth);
       color: black;
+   }
+}
+
+
+@media screen and (min-width: 2000px) {
+   .education__content-container {
+      width: 60ch;
+      padding-bottom: 20px;
    }
 }
 </style>

@@ -1,3 +1,4 @@
+// been used both for components MobileMenu and Header v-for loop
 export default {
    data() {
       return {
