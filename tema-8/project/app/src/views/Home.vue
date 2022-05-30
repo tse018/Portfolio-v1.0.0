@@ -1,6 +1,6 @@
 <template>
    <Loader v-if="loading" />
-
+   
    <div v-else>
       <h2 ref="intro">
          <div class="container">
@@ -135,36 +135,32 @@ export default {
    }
 }
 
-
-
-
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   overflow: hidden;
 }
 .hi {
-  font-size: 100px;
-  color: #3CDBC0;
-  animation-duration: 5s;
-  animation-name: intro;
-  animation-iteration-count: 1;
-  animation-timing-function: linear;
+   font-size: 100px;
+   color: #3CDBC0;
+   animation-duration: 5s;
+   animation-name: intro;
+   animation-iteration-count: 1;
+   animation-timing-function: linear;
 }
 
 @keyframes intro {
-  from {
-    transform: scale(10) rotate(-150deg);
-    opacity: 0;
-    color: white;
-  }
+   from {
+      transform: scale(10) rotate(-150deg);
+      opacity: 0;
+      color: white;
+   }
 
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+   to {
+      transform: scale(1);
+      opacity: 1;
+   }
 }
-
 </style>
