@@ -97,15 +97,14 @@ export default {
    .technology {
       width: 100vw;
       height: 100vh;
-      padding: var(--scroll-padding-top);
    }
 
    .technology__grid-container {
-      width: 100%;
       display: grid;
       grid-template-columns: repeat(1, 1fr);
       gap: 20px;
-      padding-top: 50px;
+      width: 100vw;
+      margin-left: -100px;
    } 
 }
 </style>

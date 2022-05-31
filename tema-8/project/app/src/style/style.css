@@ -3,33 +3,11 @@ body {
    color: var(--font-color-primary);
 }
 
-@media screen and (max-width: 1200px) {
-   h1 {
-      font-size: var(--font-heading-l);
-   }
-
-   h2 {
-      font-size: var(--font-heading);
-   }
-
-   p {
-      font-size: var(--font-l);
-   }
-
-   a {
-      font-size: var(--font-xl);
-   }
-
-   li {
-      font-size: var(--font-l);
-   }
-
-   button {
-      font-size: var(--font-xl);
-   }
-}
-
 @media screen and (min-width: 1200px) {
+   body {
+      font-size: var(--font-xl);
+   }
+
    h1 {
       font-size: var(--font-heading-xxl);
    }
@@ -55,6 +33,37 @@ body {
    }
 
    li {
+      font-size: var(--font-xl);
+   }
+}
+
+@media screen and (max-width: 1200px) {
+
+   body {
+      font-size: var(--font-l);
+   }
+
+   h1 {
+      font-size: var(--font-heading-l);
+   }
+
+   h2 {
+      font-size: var(--font-heading);
+   }
+
+   p {
+      font-size: var(--font-l);
+   }
+
+   a {
+      font-size: var(--font-xl);
+   }
+
+   li {
+      font-size: var(--font-l);
+   }
+
+   button {
       font-size: var(--font-xl);
    }
 }
