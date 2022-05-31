@@ -257,7 +257,6 @@ export default {
    }
 
    .contact-container__content-container {
-      border: 2px solid red;
       width: 100%;
       display: flex;
       flex-direction: column;

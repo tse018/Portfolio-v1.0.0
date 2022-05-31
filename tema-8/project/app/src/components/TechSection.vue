@@ -15,12 +15,12 @@
                <SemanticTechnology />
             </Collapsible>
 
-            <Collapsible class="technology__grid-item" v-model:title="title.backend">
-               <Backend />
-            </Collapsible>
-
             <Collapsible class="technology__grid-item"  v-model:title="title.database">
                <Database />
+            </Collapsible>
+
+            <Collapsible class="technology__grid-item" v-model:title="title.backend">
+               <Backend />
             </Collapsible>
 
             <Collapsible class="technology__grid-item" v-model:title="title.systemDevelopment">

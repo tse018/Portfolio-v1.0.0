@@ -20,6 +20,10 @@ body {
       font-size: var(--font-xl);
    }
 
+   li {
+      font-size: var(--font-l);
+   }
+
    button {
       font-size: var(--font-xl);
    }
@@ -48,6 +52,10 @@ body {
 
    button {
       font-size: var(--font-xxl);
+   }
+
+   li {
+      font-size: var(--font-xl);
    }
 }
 

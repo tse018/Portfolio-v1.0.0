@@ -103,12 +103,10 @@ export default {
 </script>
 
 <style scoped>
-
 .education {
    width: 100vw;
    height: 100vh;
    padding: var(--scroll-padding-top);
-   overflow: auto;
 }
 
 .education__container {
