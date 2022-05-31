@@ -1,4 +1,41 @@
 <template>
+   <main class="main-container" ref="scroll-container" @mousewheel="horizontalScrolling">
+      <section class="main-container__section">
+         <div id="home">
+            <LandingPage />
+         </div>
+      </section>
+
+      <section class="main-container__section">
+         <div id="about">
+            <About />
+         </div>
+      </section>
+
+      <section class="main-container__section">
+         <div id="education">
+            <Education />
+         </div>
+      </section>
+
+      <section class="main-container__section">
+         <div id="tech">
+            <Tech />
+         </div>
+      </section>
+
+      <section class="main-container__section">
+         <div id="projects">
+            <Projects />
+         </div>
+      </section>
+
+      <section class="main-container__section">
+         <div id="contact">
+            <Contact />
+         </div>
+      </section>
+   </main>
 </template>
 
 <script>
