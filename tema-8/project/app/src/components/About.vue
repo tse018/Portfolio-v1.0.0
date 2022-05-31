@@ -85,6 +85,13 @@ export default {
    z-index: 100;
 }
 
+.about-container__read-button:hover,
+.about-container__read:focus {
+   box-shadow: var(--read-hover-focus);
+   color: var(--read-hover-focus-color);
+
+}
+
 .about-container__read-button--mobile {
    display: none;
 }
@@ -112,7 +119,7 @@ export default {
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1200px) {
    .about-container {
       overflow: auto;
    }
@@ -128,6 +135,7 @@ export default {
       padding: var(--read-padding);
       transition: var(--read-transition);
       border: var(--read-border-radius);
+      display: block;
    }
 
    .about-container__full-text {

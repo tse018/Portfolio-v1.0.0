@@ -13,6 +13,12 @@
                      <button class="education__tab-button" @click="changeTab(school._id)" :role="school.institute">
                         {{ school.institute }}
                      </button>
+                  </li> 
+
+                  <li class="education__element">
+                     <button class="education__read-button" @click="readMore">
+                        {{ buttonText }}
+                     </button>
                   </li>
                </ul>
             </nav>
@@ -36,10 +42,6 @@
                      <br />
                      <br />
                   </p>
-
-                  <button class="education__read-button" @click="readMore">
-                     {{ buttonText }}
-                  </button>
                </article>
 
                <article class="education__article" v-for="content in education" v-show="activeTab === content._id && !currentTab">
@@ -60,10 +62,6 @@
                      <br />
                      <br />
                   </p>
-
-                  <button class="education__read-button" @click="readMore">
-                     {{ buttonText }}
-                  </button>
                </article>
             </div>
          </section>
@@ -102,8 +100,89 @@ export default {
 
 <style scoped>
 .education {
-   border: 2px solid red;
    width: 100vw;
    height: 100vh;
+   padding: var(--scroll-padding-top);
 }
+
+.education__container {
+   display: flex;
+}
+
+.education__navbar {
+   min-width: max-content;
+   min-height: max-content;
+   padding: 50px 20px;
+}
+
+.education__elements {
+   text-align: center;
+   text-decoration: underline 2px var(--font-color-highligth);
+   padding: 0 20px;
+}
+
+.education__element {
+   padding: 20px;
+   font-size: var(--font-xxl);
+}
+
+.education__tab-button {
+   border: var(--tab-border);
+   padding: var(--tab-padding);
+   color: var(--tab-color);
+   min-width: var(--tab-width);
+   transition: var(--tab-transition);
+   cursor: pointer;
+}
+
+.education__tab-button:hover,
+.education__tab-button:focus {
+   box-shadow: var(--tab-hover-focus);
+   color: var(--tab-hover-focus-color);
+}
+
+.education__content-container {
+   width: 100%;
+   padding-top: 25px;
+}
+
+.education__article {
+   width: 100%;
+   padding: 2px;
+}
+
+.education__title {
+   display: flex;
+   justify-content: center;
+}
+
+.education__paragraph {
+   width: 60ch;
+   margin: auto;
+}
+
+.education__year {
+   display: flex;
+   justify-content: end;
+   margin: -55px 0 10px 0;
+   padding-top: 65px;
+   font-style: italic;
+}
+
+.education__read-button {
+   padding: var(--tab-padding);
+   border: var(--tab-border);
+   width: var(--tab-width);
+   color: var(--tab-color);
+   transition: var(--tab-transition);
+   margin-top: 100px;
+}
+
+.education__read-button:hover,
+.education__read-button:focus {
+   box-shadow: var(--read-hover-focus);
+   color: var(--read-hover-focus-color);
+
+}
+
 </style>

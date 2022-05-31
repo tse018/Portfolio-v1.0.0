@@ -7,7 +7,7 @@ export default {
 
    computed: {
       buttonText() {
-         return this.readMoreClicked ? "Read less" : "Read more";
+         return this.readMoreClicked ? "Read Less" : "Read More";
       },
    },
 
