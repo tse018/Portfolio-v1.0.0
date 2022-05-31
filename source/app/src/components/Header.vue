@@ -1,5 +1,5 @@
 <template>
-   <header class="header-container">
+   <header class="header-container" ref="header">
       <nav class="header-container__navbar">
          <ul class="header-container__navbar-elements">
             <li class="header-container__navbar-element--mobile">
@@ -22,12 +22,20 @@
 import MobileMenu from "../components/MobileMenu.vue";
 
 import scrollToSectionMixins from '../mixins/scrollToSectionsMixins.js';
+import introAnimation from '../mixins/introAnimation.js';
 
 export default {
-   mixins: [scrollToSectionMixins],
+   mixins: [scrollToSectionMixins, introAnimation],
 
    components: {
       MobileMenu,
+   },
+
+   mounted() {
+
+      this.sleep(3000).then(() => {
+         this.$refs["header"].style.display = "block";
+      }, 3000);
    },
 
    watch: {
@@ -36,7 +44,7 @@ export default {
          // users could click on same button twice and it would go back to front-page
          // with this watch, prevents from doing that and redirect to fullPath /, instead of  showing /home fullPath
          if(this.$route.fullPath === '/home') {
-            this.$router.push({ path: '/'})
+            this.$router.push("/");
          }
       },
    },
@@ -69,7 +77,7 @@ export default {
       position: fixed;
       width: 100%;
       height: 100px;
-      background-color: var(--background-header);
+      background-color: #141E30;
       opacity: 0.5;
       z-index: 100;
    }

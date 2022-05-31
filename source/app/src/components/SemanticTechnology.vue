@@ -45,4 +45,14 @@ export default {
    text-align: center;
    padding: 10px;
 }
+
+@media screen and (max-width: 1200px) {
+   .semantic-container {
+      width: 300px;
+   }
+
+   .semantic-container-container__elements{
+      grid-template-columns: repeat(1, 1fr);
+   }
+}
 </style>

@@ -4,21 +4,25 @@
       <div class="github-container">
          <img class="github-container__contributions" src="https://ghchart.rshah.org/243B55/tse018" alt="picture of my github profile number of contributions done day for day " />
 
-         <div class="github-container__wrapper">
+         <div class="github-container__flex-wrapper">
             <h3 class="github-container__title">
-               Total GitHub contributions:
+               Total GitHub Contributions:
             </h3>
             
             <div v-for="content in result">
                <div v-for="contributions in content">
-                  {{ contributions.totalContributions }}
+                  <p class="github-container__total-commits">
+                     {{ contributions.totalContributions }}
+                  </p>
                </div>
             </div>
-         </div>
+         </div>   
 
-         <a href="https://github.com/tse018" target="_blank" class="section-introduction__github">
-            Check out my Github!
-         </a>
+         <div class="github-container__link-wrapper">
+            <a href="https://github.com/tse018" target="_blank" class="github-container__link" aria-label="Go to my Github profile by clicking this link">
+               Check out my Github!
+            </a>
+         </div>
       </div>
    </div>
 </template>
@@ -82,55 +86,73 @@ export default {
 </script>
 
 <style>
-@media screen and (max-width: 600px) {
-   
-}
-
 .github-container {
-   margin-top: 2%;
-   position: relative;
+   width: 100%;
    display: flex;
    flex-direction: column;
-   flex-wrap: wrap;
 }
 
 .github-container__contributions {
-   width: 70%;
-   margin: 0px auto 0 auto;
-   height: auto;
+   padding: 50px 20px 0 20px;
+   width: 80%;
+   margin: auto;
 }
 
-.github-container__wrapper {
+.github-container__flex-wrapper {
    display: flex;
-   flex-direction: row;
-   padding: 0 20px;
-   margin-left: 50px;
-   font-size: 20px;
+   justify-content: end;
+   margin-inline: 200px;
 }
 
-.github-container__contribution-number {
-   width: 100%;
+.github-container__title {
+   font-size: var(--font-xxl);
+}
+
+.github-container__total-commits {
+   padding: 2px;
+   font-size: var(--font-xxl);
    font-style: italic;
-   margin-left: 5px;
-}
-
-.section-introduction__github {
-   margin: 0 18%;
-   text-align: center;
-   padding: 20px;
-   min-height: 50px;
-   max-width: max-content;
-   border: 2px solid var(--font-color-highligth);
    color: var(--font-color-highligth);
-   text-align: center;
-   text-decoration: none;
-   transition: 2s;
-   margin-top: -50px;
 }
 
-.section-introduction__github:hover,
-.section-introduction__github:focus {
-   box-shadow: inset 400px 0 0 var(--font-color-highligth);
-   color: black;
+.github-container__link-wrapper {
+   font-size: var(--font-xxl);
+   margin-inline: 200px;
 }
+
+.github-container__link {
+   border: var(--read-border-radius);
+   margin: var(--read-margin);
+   min-width: var(--read-width);
+   transition: var(--read-transition);
+   padding: var(--read-padding);
+   color: var(--read-color);
+}
+
+.github-container__link:hover,
+.github-container__link:focus {
+   box-shadow: var(--read-hover-focus);
+   color: var(--read-hover-focus-color);
+}
+
+@media screen and (max-width: 1200px) {
+   .github-container__contributions {
+      width: 100vw;
+      padding: 50px 20px 0 20px;
+   }
+
+   .github-container__flex-wrapper {
+      display: flex;
+      width: 100%;
+      margin-inline: 0;
+      justify-content: start;
+      padding-left: 50px;
+   }
+
+   .github-container__link-wrapper {
+      margin-inline: 0;
+      padding-top: 100px;
+   }
+}
+
 </style>

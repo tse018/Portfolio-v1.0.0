@@ -61,7 +61,6 @@ export default {
 .rigth-arrow {
    width: 70px;
    height: 70px;
-   margin-right: 40px;
    -webkit-animation: bounceRight 2s infinite;
    animation: bounceRight 2s infinite;
    fill: var(--font-color-primary);

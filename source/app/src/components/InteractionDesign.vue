@@ -44,4 +44,14 @@ export default {
    text-align: center;
    padding: 10px;
 }
+
+@media screen and (max-width: 1200px) {
+   .interaction-container {
+      width: 300px;
+   }
+
+   .interaction-container-container__elements{
+      grid-template-columns: repeat(1, 1fr);
+   }
+}
 </style>

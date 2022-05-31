@@ -3,13 +3,13 @@
    <div v-else>
       <section class="contact-container">
          <div class="contact-container__content-container" v-for="data in contact">
-            <h3 class="contact-container__title">
+            <h2 class="contact-container__title">
                {{ data.title }}
-            </h3>
+            </h2>
 
-            <div class="contact-container__paragraphs" v-for="paragraph in data.description">
+            <p class="contact-container__paragraphs" v-for="paragraph in data.description">
                {{ paragraph.children[0].text }}
-            </div>
+            </p>
 
             <a class="contact-container__mail" :href="`mailto:${data.eMail}`" target="_blank"> Say Hello </a>
          </div>
@@ -70,6 +70,7 @@ export default {
             .addTo(map);
       },
 
+      // got source code from https://docs.mapbox.com/mapbox-gl-js/example/add-image-animated/
       blinkingCircle(map) {
          const size = 200;
 
@@ -190,6 +191,8 @@ export default {
    height: 100vh;
    padding-top: 100px;
    display: flex;
+   flex-direction: row;
+   flex-wrap: wrap
 }
 
 .contact-container__content-container {
@@ -225,7 +228,7 @@ export default {
 }
 
 .mapbox__email {
-   font-size: var(--tablet-font-size-secondary-undertitle);
+   font-size: var(--font-heading-l);
    color: var(--font-color-highligth);
    padding: 10px;
 }
@@ -247,7 +250,18 @@ export default {
    color: black;
 }
 
-@media screen and (max-width: 600px) {
-   
+@media screen and (max-width: 1200px) {
+   #map {
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+   }
+
+   .contact-container__content-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+   }
 }
 </style>
