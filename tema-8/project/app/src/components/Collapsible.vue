@@ -71,5 +71,9 @@ export default {
    .collapsible__name {
       min-width: 300px;
    }
+
+   .collapsible__content {
+      width: 300px;
+   }
 }
 </style>
