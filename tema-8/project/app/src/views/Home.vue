@@ -92,7 +92,7 @@ export default {
       horizontalScrolling() {
          const scrollContainer = this.$refs["main-container"];
 
-         if (window.innerWidth > 600) {
+         if (window.innerWidth > 1200) {
             scrollContainer.addEventListener("wheel", (evt) => {
                evt.preventDefault();
                scrollContainer.scrollLeft += evt.deltaY;
@@ -111,7 +111,7 @@ export default {
 
 <style>
 /* Mobile */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1200px) {
    .main-container {
       width: 100vw;
       height: 100vh;

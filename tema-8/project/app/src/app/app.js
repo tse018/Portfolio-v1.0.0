@@ -16,11 +16,7 @@ const router = createRouter({
          top: 0,
          left: 0,
          behavior: "smooth",
-      });
-      /* 
-         adding saving posistion / kinda session storage feature 
-         so when user refresh the page will reload to same location
-      */
+      })
 
       if (savedPosition) {
          return savedPosition;

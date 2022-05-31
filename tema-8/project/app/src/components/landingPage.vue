@@ -61,6 +61,7 @@ export default {
 .section-introduction__work-title {
    display: flex;
    justify-content: center;
+   color: var(--font-color-highligth);
 }
 
 .section-introduction__arrow {
