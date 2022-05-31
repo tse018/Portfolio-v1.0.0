@@ -10,10 +10,9 @@
 
          <button class="section-introduction__arrow" @click="scrollTo('about')" aria-label="go to about section">
             <RouterLink class="section-introduction__link" :to="{ name: 'home', params: { section: 'about' } }">
-               <Icons class="section-introduction__arrow" :icon="'rigth'" />
+               <Icons :icon="'rigth'" />
             </RouterLink>
          </button>
-
          <Github />
          <Footer />
       </section>
@@ -68,5 +67,6 @@ export default {
    position: absolute;
    right: 0;
    bottom: 50vh;
+   margin-right: 20px;
 }
 </style>

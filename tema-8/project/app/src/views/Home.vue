@@ -60,6 +60,7 @@ import Projects from "../components/Projects.vue";
 import Icons from "../components/Icons.vue";
 import Tech from "../components/TechSection.vue";
 import Loader from "../components/Loader.vue";
+import Github from "../components/Github.vue";
 
 import sanityMixin from "../mixins/sanityMixin.js";
 
@@ -75,6 +76,7 @@ export default {
       Icons,
       Tech,
       Loader,
+      Github,
    },
 
    async created() {

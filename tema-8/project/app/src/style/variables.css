@@ -13,23 +13,25 @@
 	--font-m: 16px;
 	--font-l: 18px; 
 	--font-xl: 20px;
-	--font-xxl: 28px;
-	--font-heading: 32px;
+	--font-xxl: 22px;
+	--font-heading: 26px;
 	--font-heading-l: 48px;
 	--font-heading-xl: 72px;
 
 	--read-border-radius: 2px solid #64ffda;
-	--read-margin-left: 20px;
+	/* I dunno but if its below 60px transition button will blink when hovering */
+	--read-margin: 0 60px; 
 	--read-color: #64ffda;
 	--read-width: 200px;
+	--read-padding: 20px;
 	--read-transition: 2s;
-	--read-hover-focus: inset 200px 0 0 0 #64ffda;
+	--read-hover-focus: inset 300px 0 0 #64ffda;
 	--read-hover-focus-color: black;
 	
 	--tab-padding: 20px;
 	--tab-border: 2px solid #64ffda;
 	--tab-width: 200px;
-	--tab-transition: 3s;
+	--tab-transition: 2s;
 	--tab-color: #64ffda;
 	--tab-cursor: pointer;
 	--tab-hover-focus: inset 500px 0 0 0 #64ffda;

@@ -4,21 +4,25 @@
       <div class="github-container">
          <img class="github-container__contributions" src="https://ghchart.rshah.org/243B55/tse018" alt="picture of my github profile number of contributions done day for day " />
 
-         <div class="github-container__wrapper">
+         <div class="github-container__flex-wrapper">
             <h3 class="github-container__title">
-               Total GitHub contributions:
+               Total GitHub Contributions:
             </h3>
             
             <div v-for="content in result">
                <div v-for="contributions in content">
-                  {{ contributions.totalContributions }}
+                  <p class="github-container__total-commits">
+                     {{ contributions.totalContributions }}
+                  </p>
                </div>
             </div>
-         </div>
+         </div>   
 
-         <a href="https://github.com/tse018" target="_blank" class="section-introduction__github">
-            Check out my Github!
-         </a>
+         <div class="github-container__link-wrapper">
+            <a href="https://github.com/tse018" target="_blank" class="github-container__link" aria-label="Go to my Github profile by clicking this link">
+               Check out my Github!
+            </a>
+         </div>
       </div>
    </div>
 </template>
@@ -82,4 +86,55 @@ export default {
 </script>
 
 <style>
+.github-container {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+}
+
+.github-container__contributions {
+   padding: 50px 20px 0 20px;
+   width: 80%;
+   margin: auto;
+}
+
+.github-container__flex-wrapper {
+   display: flex;
+   justify-content: end;
+   margin-inline: 200px;
+}
+
+.github-container__title {
+   font-size: var(--font-xxl);
+}
+
+.github-container__total-commits {
+   padding: 2px;
+   font-size: var(--font-xxl);
+   font-style: italic;
+   color: var(--font-color-highligth);
+}
+
+.github-container__link-wrapper {
+   font-size: var(--font-xxl);
+   margin-inline: 200px;
+
+}
+
+.github-container__link {
+   border: var(--read-border-radius);
+   margin: var(--read-margin);
+   min-width: var(--read-width);
+   transition: var(--read-transition);
+   padding: var(--read-padding);
+   color: var(--read-color);
+}
+
+.github-container__link:hover,
+.github-container__link:focus {
+   box-shadow: var(--read-hover-focus);
+   color: var(--read-hover-focus-color);
+}
+
+
 </style>
