@@ -16,6 +16,7 @@ const router = createRouter({
          top: 0,
          left: 0,
          behavior: "smooth",
+<<<<<<< HEAD:source/app/src/app/app.js
       })
 
       if (savedPosition) {
@@ -25,6 +26,9 @@ const router = createRouter({
          return { el: to.hash };
       }
       return { x: 0, y: 0 };
+=======
+      });
+>>>>>>> master:tema-8/project/app/src/app/app.js
    },
 });
 
