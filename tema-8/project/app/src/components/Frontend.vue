@@ -52,9 +52,5 @@ export default {
       justify-content: center;
       padding-top: 30px;
    }
-
-   .frontend-container__elements {
-      grid-template-columns: repeat(1, 1fr);
-   }
 }
 </style>

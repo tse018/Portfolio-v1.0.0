@@ -15,13 +15,7 @@
 </template>
 
 <script>
-import Icons from "../components/Icons.vue";
-
 export default {
-   components: {
-      Icons,
-   },
-
    data() {
       return {
          collapsed: false,
@@ -36,12 +30,6 @@ export default {
       },
    },
 
-   computed: {
-      toggleArrow() {
-         return {};
-      },
-   },
-
    methods: {
       toggle() {
          this.collapsed = !this.collapsed;
@@ -51,46 +39,11 @@ export default {
 </script>
 
 <style scoped>
-@media screen and (max-width: 1200px) {
-   .collapsible {
-      position: relative;
-      display: grid;
-      margin-bottom: 20px;
-   }
-
-   .collapsible__name {
-      padding: 20px;
-      color: var(--font-color-highligth);
-      border: 2px solid var(--font-color-highligth);
-      border-radius: 20%;
-   }
-   
-   .collapsible__content {
-      padding: 20px;
-      width: 500px;
-      min-height: 100px;
-      margin-top: -45px;
-      color: var(--font-color-highligth);
-   }
-
-   .collapsible__name {
-      transition: 2s;
-   }
-
-   .collapsible__name:hover,
-   .collapsible__name:focus {
-      box-shadow: inset 500px 0 0 0 var(--font-color-highligth);
-      color: black;
-   }
-}
-
-@media screen and (min-width: 1200px) {
    .collapsible {
       position: relative;
       display: flex;
       flex-direction: column;
       margin: 0 auto;
-      max-width: 550px;
    }
 
    .collapsible__name {
@@ -99,17 +52,6 @@ export default {
       border: 2px solid var(--font-color-highligth);
       border-radius: 20%;
       min-width: 500px;
-   }
-
-   .collapsible__content {
-      padding: 20px;
-      width: 500px;
-      min-height: 100px;
-      margin-top: -45px;
-      color: var(--font-color-highligth);
-   }
-
-   .collapsible__name {
       transition: 2s;
    }
 
@@ -118,5 +60,12 @@ export default {
       box-shadow: inset 500px 0 0 0 var(--font-color-highligth);
       color: black;
    }
-}
+
+   .collapsible__content {
+      padding: 20px;
+      width: 500px;
+      min-height: 100px;
+      margin: -30px -17px;
+      color: var(--font-color-highligth);
+   }
 </style>

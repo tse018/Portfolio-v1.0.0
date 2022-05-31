@@ -246,10 +246,4 @@ export default {
 .projects-container__tech-element {
    border-bottom: 2px solid var(--font-color-highligth);
 }
-
-@media screen and (max-width: 1200px) {
-   .projects-container {
-      padding-top: 5000px;
-   }
-}
 </style>
