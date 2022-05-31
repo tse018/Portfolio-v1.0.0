@@ -3,35 +3,31 @@ body {
    color: var(--font-color-primary);
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1200px) {
    h1 {
-      font-size: var(--font-xxl);
+      font-size: var(--font-heading-l);
    }
 
    h2 {
-      font-size: var(--font-xl);
+      font-size: var(--font-heading);
    }
 
    p {
       font-size: var(--font-l);
    }
-
-   a {
-      font-size: var(--font-xxl);
-   }
 }
 
 @media screen and (min-width: 1200px) {
    h1 {
-      font-size: var(--font-heading-xl);
+      font-size: var(--font-heading-xxl);
    }
 
    h2 {
-      font-size: var(--font-heading-l);
+      font-size: var(--font-heading-xl);
    }
 
    h3 {
-      font-size: var(--font-heading);
+      font-size: var(--font-heading-l);
    }
 
    p {

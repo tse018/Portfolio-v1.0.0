@@ -15,8 +15,9 @@
 	--font-xl: 20px;
 	--font-xxl: 22px;
 	--font-heading: 26px;
-	--font-heading-l: 48px;
-	--font-heading-xl: 72px;
+	--font-heading-l: 32px;
+	--font-heading-xl: 48px;
+	--font-heading-xxl: 72px;
 
 	--read-border-radius: 2px solid #64ffda;
 	/* I dunno but if its below 60px transition button will blink when hovering */

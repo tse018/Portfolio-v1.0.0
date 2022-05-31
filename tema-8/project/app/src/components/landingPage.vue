@@ -69,4 +69,10 @@ export default {
    bottom: 50vh;
    margin-right: 20px;
 }
+
+@media screen and (max-width: 1200px) {
+   .section-introduction__arrow  {
+      display: none;
+   }
+}
 </style>

@@ -118,7 +118,6 @@ export default {
 .github-container__link-wrapper {
    font-size: var(--font-xxl);
    margin-inline: 200px;
-
 }
 
 .github-container__link {
@@ -136,5 +135,24 @@ export default {
    color: var(--read-hover-focus-color);
 }
 
+@media screen and (max-width: 1200px) {
+   .github-container__contributions {
+      width: 100vw;
+      padding: 50px 20px 0 20px;
+   }
+
+   .github-container__flex-wrapper {
+      display: flex;
+      width: 100%;
+      margin-inline: 0;
+      justify-content: start;
+      padding-left: 50px;
+   }
+
+   .github-container__link-wrapper {
+      margin-inline: 0;
+      padding-top: 100px;
+   }
+}
 
 </style>
