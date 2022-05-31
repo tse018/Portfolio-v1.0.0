@@ -13,10 +13,8 @@
 
 <script>
 import sanityMixin from '../mixins/sanityMixin';
-
 export default {
    mixins: [sanityMixin],
-
    computed: {
       interactionDesign() {
          return this.$store.getters.getInteractionDesign.sort((a, b) => {
@@ -33,23 +31,19 @@ export default {
    width: 500px;
    padding-top: 10px;
 }
-
 .interaction-container__elements {
    display: grid;
    grid-template-columns: repeat(2, 1fr);
    gap: 20px;
 }
-
 .interaction-container__element {
    text-align: center;
    padding: 10px;
 }
-
 @media screen and (max-width: 1200px) {
    .interaction-container {
       width: 300px;
    }
-
    .interaction-container-container__elements{
       grid-template-columns: repeat(1, 1fr);
    }

@@ -1,12 +1,10 @@
 <template>
    <section class="collapsible">
-      <div class="collapsible__header">
-         <button class="collapsible__toggle" @click="toggle">
-            <div class="collapsible__name">
-               {{ title }}
-            </div>
-         </button>
-      </div>
+      <button class="collapsible__toggle" @click="toggle">
+         <h3 class="collapsible__name">
+            {{ title }}
+         </h3>
+      </button>
 
       <div class="collapsible__content" v-show="collapsed">
          <slot />
@@ -15,19 +13,12 @@
 </template>
 
 <script>
-import Icons from "../components/Icons.vue";
-
 export default {
-   components: {
-      Icons,
-   },
-
    data() {
       return {
          collapsed: false,
       };
    },
-
    props: {
       title: {
          type: String,
@@ -35,13 +26,6 @@ export default {
          default: "Click to see more",
       },
    },
-
-   computed: {
-      toggleArrow() {
-         return {};
-      },
-   },
-
    methods: {
       toggle() {
          this.collapsed = !this.collapsed;
@@ -51,88 +35,37 @@ export default {
 </script>
 
 <style scoped>
-@media screen and (max-width: 600px) {
-   .collapsible {
-      position: relative;
-      display: grid;
-      margin-bottom: 20px;
-   }
-
-   .collapsible__name {
-      padding: 20px;
-      color: var(--font-color-highligth);
-      border: 2px solid var(--font-color-highligth);
-      border-radius: 20%;
-   }
-
-   /* so when user click on Interaction design,
-   Semantic Technology get some more space bottom
-*/
-   .collapsible:nth-child(3) {
-      margin-bottom: 100px;
-   }
-
-   .collapsible__content {
-      padding: 20px;
-      width: 500px;
-      min-height: 100px;
-      margin-top: -45px;
-      color: var(--font-color-highligth);
-   }
-
-   .collapsible__name {
-      transition: 2s;
-   }
-
-   .collapsible__name:hover,
-   .collapsible__name:focus {
-      box-shadow: inset 500px 0 0 0 var(--font-color-highligth);
-      color: black;
-   }
+.collapsible {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   margin: 0 auto;
 }
-
-@media screen and (min-width: 1200px) {
-   .collapsible {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      margin: 0 auto;
-      max-width: 550px;
-      margin-bottom: 20px;
-   }
-
+.collapsible__name {
+   padding: 20px;
+   color: var(--font-color-highligth);
+   border: 2px solid var(--font-color-highligth);
+   border-radius: 20%;
+   min-width: 500px;
+   transition: 3s;
+}
+.collapsible__name:hover,
+.collapsible__name:focus {
+   box-shadow: inset 500px 0 0 0 var(--font-color-highligth);
+   color: black;
+}
+.collapsible__content {
+   padding: 20px;
+   width: 500px;
+   min-height: 100px;
+   color: var(--font-color-highligth);
+}
+@media screen and (max-width: 1200px) {
    .collapsible__name {
-      padding: 20px;
-      color: var(--font-color-highligth);
-      border: 2px solid var(--font-color-highligth);
-      border-radius: 20%;
-      margin: 20px;
-      min-width: 500px;
+      min-width: 300px;
    }
-
-   /* so when user click on Interaction design,
-   Semantic Technology get some more space bottom
-*/
-   .collapsible:nth-child(3) {
-      margin-bottom: 100px;
-   }
-
    .collapsible__content {
-      padding: 20px;
-      width: 500px;
-      min-height: 100px;
-      margin-top: -45px;
-      color: var(--font-color-highligth);
-   }
-
-   .collapsible__name {
-      transition: 2s;
-   }
-
-   .collapsible__name:hover,
-   .collapsible__name:focus {
-      box-shadow: inset 500px 0 0 0 var(--font-color-highligth);
-      color: black;
+      width: 300px;
    }
 }
 </style>

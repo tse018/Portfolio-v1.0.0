@@ -13,10 +13,8 @@
 
 <script>
 import sanityMixin from '../mixins/sanityMixin';
-
 export default {
    mixins: [sanityMixin],
-
    computed: {
       systemDevelopment() {
          return this.$store.getters.getSystemDevelopment.sort((a, b) => {
@@ -34,24 +32,19 @@ export default {
    padding-top: 10px;
    margin-bottom: 100px;
 }
-
 .system-container__elements {
    display: grid;
    grid-template-columns: repeat(2, 1fr);
    gap: 20px;
 }
-
 .system-container__element {
    text-align: center;
    padding: 10px;
 }
-
-
 @media screen and (max-width: 1200px) {
    .system-container {
       width: 300px;
    }
-
    .system-container-container__elements{
       grid-template-columns: repeat(1, 1fr);
    }

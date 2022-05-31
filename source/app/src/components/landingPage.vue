@@ -22,19 +22,15 @@
 import Icons from "../components/Icons.vue";
 import Github from "../components/Github.vue";
 import Footer from "../components/Footer.vue";
-
 import sanityMixin from "../mixins/sanityMixin";
 import scrollToSectionsMixins from '../mixins/scrollToSectionsMixins.js';
-
 export default {
    mixins: [sanityMixin, scrollToSectionsMixins],
-
    components: {
       Icons,
       Github,
       Footer,
    },
-
    computed: {
       data() {
          return this.$store.getters.getData;
@@ -52,25 +48,21 @@ export default {
    flex-direction: column;
    position: relative;
 }
-
 .section-introduction__name {
    display: flex;
    justify-content: center;
 }
-
 .section-introduction__work-title {
    display: flex;
    justify-content: center;
    color: var(--font-color-highligth);
 }
-
 .section-introduction__arrow {
    position: absolute;
    right: 0;
    bottom: 50vh;
    margin-right: 20px;
 }
-
 @media screen and (max-width: 1200px) {
    .section-introduction__arrow  {
       display: none;

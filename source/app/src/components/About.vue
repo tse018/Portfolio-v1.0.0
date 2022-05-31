@@ -3,47 +3,47 @@
 
    <div v-else>
       <section class="about-container" v-for="content in about">
-         <div class="about-container__introduction-container">
-            <article class="about-container__introduction-field">
-               <h2 class="about-container__introduction-title">
+         <article class="about-container__introduction">
+            <h3 class="about-container__title">
                {{ content.title }}
-            </h2>
+            </h3>
 
-               <p v-if="!readMoreClicked">
+            <button class="about-container__read-button" @click="readMore">
+               {{ buttonText }}
+            </button>
+
+            <div class="about-container__text-container">
+               <p v-if="!readMoreClicked" class="about-container__preview">
                   {{ content.introduction[0].children[0].text }}
                </p>
 
                <div v-else>
-                  <p class="about-container__introduction-scroll" v-for="paragraph in content.introduction">
+                  <p class="about-container__full-text" v-for="paragraph in content.introduction">
                      {{ paragraph.children[0].text }}
-                     <br />
-                     <br />
+                  <br />
+                  <br />
                   </p>
                </div>
+            </div>
 
-               <button class="about-container__read-button" @click="readMore">
+            <button class="about-container__read-button--mobile" @click="readMore">
                   {{ buttonText }}
-               </button>
-            </article>
-         </div>
+            </button>
+         </article>
       </section>
    </div>
 </template>
 
 <script>
 import Icons from "../components/Icons.vue";
-
 import sanityMixin from "../mixins/sanityMixin.js";
 import readMoreClicked from "../mixins/readMoreButtonMixins.js";
-import scrollToSectionsMixins from '../mixins/scrollToSectionsMixins.js';
-
+import scrollToSectionsMixins from "../mixins/scrollToSectionsMixins.js";
 export default {
    mixins: [sanityMixin, readMoreClicked, scrollToSectionsMixins],
-
    components: {
       Icons,
    },
-
    computed: {
       about() {
          return this.$store.getters.getAbout;
@@ -53,74 +53,78 @@ export default {
 </script>
 
 <style scoped>
-/* mobile */
-@media screen and (max-width: 600px) {
-   .about-container {
-      min-height: max-content;
-      overflow-y: hidden;
-   }
-
-   .about-container__introduction-field {
-      font-size: var(--desktop-font-size-paragraph);
-      padding: 25px;
-      width: 100%;
-      text-align: center;
-   }
-}
-
 .about-container {
-   display: flex;
-   flex-flow: row wrap;
    position: relative;
    width: 100vw;
-   padding-top: 100px;
+   height: 100vh;
+   padding-top: var(--scroll-padding-top);
 }
-
-.about-container__introduction-container {
-   width: 100%;
+.about-container__introduction {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+.about-container__title {
    display: flex;
    justify-content: center;
-   min-height: 100px;
+   margin-top: 10px;
 }
-
-.about-container__introduction-title {
-   font-size: var(--desktop-font-size-secondary-undertitle);
-   padding: 15px;
-}
-
-.about-container__introduction-field {
-   font-size: 20px;
-   width: 70ch;
-}
-
 .about-container__read-button {
-   width: 200px;
-   transition: 2s;
-   color: var(--font-color-highligth);
-   border: 2px solid var(--font-color-highligth);
-   margin-top: 20px;
+   margin: var(--read-margin);
+   color: var(--read-color);
+   width: var(--read-width);
+   padding: var(--read-padding);
+   transition: var(--read-transition);
+   border: var(--read-border-radius);
+   z-index: 100;
 }
-
 .about-container__read-button:hover,
-.about-container__read-button:focus {
-   box-shadow: inset 200px 0 0 0 var(--font-color-highligth);
-   color: black;
+.about-container__read:focus {
+   box-shadow: var(--read-hover-focus);
+   color: var(--read-hover-focus-color);
 }
-
-
-@media screen and (min-width: 2000px) {
-   .about-container__introduction-container {
-      padding-top: 50px;
+.about-container__read-button--mobile {
+   display: none;
+}
+.about-container__text-container {
+   display: flex;
+   justify-content: center;
+   margin-top: -50px;
+}
+.about-container__preview {
+   display: flex;
+   justify-content: center;
+   width: 60ch;
+   padding: 20px;
+   line-height: 32px;
+}
+.about-container__full-text {
+   display: flex;
+   justify-content: center;
+   width: 70ch;
+   padding: 5px;
+   line-height: 32px;
+}
+@media screen and (max-width: 1200px) {
+   .about-container {
+      overflow: auto;
    }
-
-   .about-container__introduction-field {
-      font-size: 24px;
-      width: 60ch;
-   }
-
    .about-container__read-button {
-      margin-top: 50px;
-}
-
+      visibility: hidden;
+   }
+   .about-container__read-button--mobile {
+      margin: var(--read-margin);
+      color: var(--read-color);
+      width: var(--read-width);
+      padding: var(--read-padding);
+      transition: var(--read-transition);
+      border: var(--read-border-radius);
+      display: block;
+   }
+   .about-container__full-text {
+      display: flex;
+      justify-content: center;
+      width: 35ch;
+   }
 }
 </style>

@@ -3,67 +3,69 @@
    <div v-else>
       <div class="education">
          <section class="education__container">
-            <nav class="education__container-navbar">
-               <ul class="education__container-elements">
-                  <li class="education__container__header-element">
+            <nav class="education__navbar">
+               <ul class="education__elements">
+                  <li class="education__element--header">
                      EDUCATION
                   </li>
 
-                  <li class="education__container-element" v-for="(school, index) in education" >
-                     <button class="education__container-tab" @click="changeTab(school._id)" :role="school.institute">
+                  <li class="education__element" v-for="(school, index) in education" >
+                     <button class="education__tab-button" @click="changeTab(school._id)" :role="school.institute">
                         {{ school.institute }}
+                     </button>
+                  </li> 
+
+                  <li class="education__element">
+                     <button class="education__read-button" @click="readMore">
+                        {{ buttonText }}
                      </button>
                   </li>
                </ul>
             </nav>
 
             <div class="education__content-container">
-               <article class="education__content-article" v-for="content in education" v-show="currentTab === content._id" :role="content.studyProgram">
-                  <h3 class="education__content-title">
+               <article class="education__article--mobile" v-for="content in education" v-show="currentTab === content._id" :role="content.studyProgram">
+                  <h3 class="education__title">
                      {{ content.studyProgram }}
                   </h3>
 
-                  <p class="education__content-year">
+                  <p class="education__year">
                      {{ content.startDate }} - {{ content.endDate }}
                   </p>
 
-                  <p v-if="!readMoreClicked" class="education__content-paragraph">
+                  <p v-if="!readMoreClicked" class="education__paragraph">
                      {{ content.description[0].children[0].text }}
                   </p>
 
-                  <p v-else class="education__content-paragraph" v-for="paragraph in content.description">
+                  <p v-else class="education__paragraph" v-for="paragraph in content.description">
                      {{ paragraph.children[0].text }}
                      <br />
                      <br />
                   </p>
 
-                  <button class="education__content-button" @click="readMore">
+                  <button class="education__read-button--mobile" @click="readMore">
                      {{ buttonText }}
                   </button>
                </article>
 
-               <article class="education__content-article" v-for="content in education" v-show="activeTab === content._id && !currentTab">
-                  <h3 class="education__content-title">
+               <article class="education__article" v-for="content in education" v-show="activeTab === content._id && !currentTab">
+                  <h3 class="education__title">
                      {{ content.studyProgram }}
                   </h3>
 
-                  <p class="education__content-year">
+                  <p class="education__year">
                      {{ content.startDate }} - {{ content.endDate }}
                   </p>
 
-                  <p class="education__content-paragraph" v-if="!readMoreClicked">
+                  <p class="education__paragraph" v-if="!readMoreClicked">
                      {{ content.description[0].children[0].text }}
                   </p>
 
-                  <p v-else class="education__content-paragraph" v-for="paragraph in content.description">
+                  <p v-else class="education__paragraph" v-for="paragraph in content.description">
                      {{ paragraph.children[0].text }}
                      <br />
                      <br />
                   </p>
-
-                  <button class="education__content-button" @click="readMore">
-                     {{ buttonText }}
-                  </button>
                </article>
             </div>
          </section>
@@ -74,25 +76,20 @@
 <script>
 import Icons from "../components/Icons.vue";
 import Collapsible from "../components/Collapsible.vue";
-
 import sanityMixin from "../mixins/sanityMixin.js";
 import changeTabsMixins from "../mixins/changeTabsMixins.js";
 import readMoreButtonMixin from "../mixins/readMoreButtonMixins.js";
 import scrollToSectionsMixins from '../mixins/scrollToSectionsMixins';
-
 export default {
    mixins: [sanityMixin, changeTabsMixins, readMoreButtonMixin, scrollToSectionsMixins],
-
    components: {
       Icons,
       Collapsible,
    },
-
    computed: {
       education() {
          return this.$store.getters.getEducation;
       },
-
       activeTab() {
          return this.$store.getters.getEducation[0]._id;
       },
@@ -101,162 +98,132 @@ export default {
 </script>
 
 <style scoped>
-/* mobile */
-@media screen and (max-width: 600px) {
+.education {
+   width: 100vw;
+   height: 100vh;
+   padding: var(--scroll-padding-top);
+}
+.education__container {
+   display: flex;
+}
+.education__navbar {
+   min-width: max-content;
+   min-height: max-content;
+   padding: 50px 20px;
+}
+.education__elements {
+   text-align: center;
+   text-decoration: underline 2px var(--font-color-highligth);
+   padding: 0 20px;
+}
+.education__element {
+   padding: 20px;
+   font-size: var(--font-xxl);
+}
+.education__element--header {
+   padding: 20px;
+   font-size: var(--font-xxl);
+}
+.education__tab-button {
+   border: var(--tab-border);
+   border-radius: 20%;
+   padding: var(--tab-padding);
+   color: var(--tab-color);
+   min-width: var(--tab-width);
+   transition: var(--tab-transition);
+   cursor: pointer;
+}
+.education__tab-button:hover,
+.education__tab-button:focus {
+   box-shadow: var(--tab-hover-focus);
+   color: var(--tab-hover-focus-color);
+}
+.education__content-container {
+   width: 100%;
+   padding-top: 25px;
+}
+.education__article {
+   width: 100%;
+   padding: 2px;
+}
+.education__article--mobile {
+   width: 100%;
+   padding: 2px;
+}
+.education__title {
+   display: flex;
+   justify-content: center;
+}
+.education__paragraph {
+   width: 60ch;
+   margin: auto;
+}
+.education__year {
+   display: flex;
+   justify-content: end;
+   margin: -55px 0 10px 0;
+   padding-top: 65px;
+   font-style: italic;
+}
+.education__read-button {
+   padding: var(--tab-padding);
+   border: var(--tab-border);
+   width: var(--tab-width);
+   color: var(--tab-color);
+   transition: var(--tab-transition);
+   margin-top: 100px;
+}
+.education__read-button:hover,
+.education__read-button:focus {
+   box-shadow: var(--read-hover-focus);
+   color: var(--read-hover-focus-color);
+}
+.education__read-button--mobile {
+   display: none;
+}
+@media screen and (max-width: 1200px) {
    .education {
-      min-width: 100%;
-      min-height: 100%;
+      overflow: scroll;
+      height: 100vh;
    }
-
+   .education__article {
+      display: none;
+   }
    .education__container {
       display: flex;
       flex-direction: column;
-      flex-wrap: wrap;
+      justify-content: center;
+      margin-left: -50px;
    }
-
-   .education__container-elements {
+   
+   .education__read-button {
+      display: none;
+   }
+   .education__title {
+      font-size: var(--font-xxl);
+      padding: 20px;
+      margin: -100px -50px 0 -50px;
       display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
+      justify-content: center;
    }
-
-   .education__container-element {
+   
+   .education__year {
+      display: flex;
+      justify-content: center;
+   }
+   .education__paragraph {
+      width: 30ch;
       padding: 20px;
-   }
-
-   .education__content-container {
-      padding: 20px;
-      margin: 20px;
-   }
-
-   .education__content-title {
-      text-align: center;
-      padding: 20px;
-   }
-
-   .education__container-tab {
-      padding: 20px;
-      color: var(--font-color-highligth);
-      border: 2px solid var(--font-color-highligth);
-      border-radius: 20%;
-      min-width: 200px;
-      transition: 5s;
-      cursor: pointer;
-   }
-
-   .education__container-tab:hover,
-   .education__container-tab:focus {
-      box-shadow: inset 500px 0 0 0 var(--font-color-highligth);
-      color: black;
-   }
-
-   .education__content-button {
-      margin: 20px 20px;
-      width: 200px;
-      transition: 2s;
-      color: var(--font-color-highligth);
-      border: 2px solid var(--font-color-highligth);
-   }
-
-   .education__content-button:hover,
-   .education__content-button:focus {
-      box-shadow: inset 200px 0 0 0 var(--font-color-highligth);
-      color: black;
-   }
-}
-
-/* desktop */
-@media screen and (min-width: 1200px) {
-   .education {
-      width: 100vw;
-      height: 100vh;
-      padding-top: 100px;
-   }
-
-   .education__container {
       display: flex;
    }
-
-   .education__container-navbar {
-      min-width: max-content;
-      min-height: max-content;
-      padding: 50px 20px;
-   }
-
-   .education__container__header-element {
-      text-align: center;
-      text-decoration: underline 2px var(--font-color-highligth);
-      padding: 0 20px;
-   }
-
-   .education__container-elements {
-      padding: 20px;
-   }
-
-   .education__container-element {
-      padding: 25px;
-   }
-
-   .education__container-tab {
-      padding: 20px;
-      color: var(--font-color-highligth);
-      border: 2px solid var(--font-color-highligth);
-      border-radius: 20%;
-      min-width: 200px;
-      transition: 3s;
-      cursor: pointer;
-   }
-
-   .education__container-tab:hover,
-   .education__container-tab:focus {
-      box-shadow: inset 500px 0 0 0 var(--font-color-highligth);
-      color: black;
-   }
-
-   .education__content-container {
-      width: 80%;
-      padding-bottom: 20px;
-   }
-
-   .education__content-article {
-      padding: 50px;
-      min-height: 100px;
-      font-size: 20px;
-   }
-
-   .education__content-title {
-      padding: 0 30px;
-   }
-
-   .education__content-year {
-      padding: 0 30px;
-      font-style: italic;
-   }
-
-   .education__content-paragraph {
-      padding: 0 30px;
-   }
-
-   .education__content-button {
-      margin: 20px 20px;
-      width: 200px;
-      transition: 2s;
-      color: var(--font-color-highligth);
-      border: 2px solid var(--font-color-highligth);
-   }
-
-   .education__content-button:hover,
-   .education__content-button:focus {
-      box-shadow: inset 200px 0 0 0 var(--font-color-highligth);
-      color: black;
-   }
-}
-
-
-@media screen and (min-width: 2000px) {
-   .education__content-container {
-      width: 60ch;
-      padding-bottom: 20px;
+   .education__read-button--mobile {
+      padding: var(--tab-padding);
+      border: var(--tab-border);
+      width: var(--tab-width);
+      color: var(--tab-color);
+      transition: var(--tab-transition);
+      margin-bottom: 50px;
+      display: block;
    }
 }
 </style>

@@ -29,7 +29,6 @@ export default {
          type: String,
       },
    },
-
    methods: {
       navigate() {
          
@@ -47,7 +46,6 @@ export default {
    background-color: var(--font-color-highligth);
    border-radius: 30px;
 }
-
 .menuClose {
    width: 40px;
    height: 40px;
@@ -57,7 +55,6 @@ export default {
    background-color: var(--font-color-highligth);
    border-radius: 30px;
 }
-
 .rigth-arrow {
    width: 70px;
    height: 70px;
@@ -65,7 +62,6 @@ export default {
    animation: bounceRight 2s infinite;
    fill: var(--font-color-primary);
 }
-
 @keyframes bounceRight {
    40% {
       -ms-transform: translateX(-30px);
