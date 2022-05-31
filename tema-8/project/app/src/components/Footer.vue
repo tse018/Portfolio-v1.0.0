@@ -11,14 +11,14 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 60px;   /* Height of the footer */
-  background: var(--background-footer-color);
+  height: 60px;
+  background: #6cf;
   z-index: 100;
 }
 
 .footer-container__content {
   margin-top: 15px;
   text-align: center;
-  color: black;
+  color: var(--font-shadow-effect);
 }
 </style>

@@ -89,7 +89,7 @@ export default {
 }
 
 .about-container__introduction-field {
-   font-size: 20px;
+
    width: 70ch;
 }
 
@@ -105,22 +105,5 @@ export default {
 .about-container__read-button:focus {
    box-shadow: inset 200px 0 0 0 var(--font-color-highligth);
    color: black;
-}
-
-
-@media screen and (min-width: 2000px) {
-   .about-container__introduction-container {
-      padding-top: 50px;
-   }
-
-   .about-container__introduction-field {
-      font-size: 24px;
-      width: 60ch;
-   }
-
-   .about-container__read-button {
-      margin-top: 50px;
-}
-
 }
 </style>

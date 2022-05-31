@@ -45,54 +45,5 @@ export default {
 </script>
 
 <style scoped>
-.section-introduction {
-   display: flex;
-   flex-direction: column;
-   flex-wrap: wrap;
-   position: relative;
-   height: 100vh;
-   width: 100vw;
-}
 
-.section-introduction__name {
-   margin-top: 10%;
-   text-align: center;
-   font-size: var(--desktop-font-size-title);
-}
-
-.section-introduction__work-title {
-   width: 100%;
-   display: flex;
-   justify-content: center;
-   color: var(--font-color-highligth);
-   font-size: var(--desktop-font-size-undertitle);
-}
-
-.section-introduction__arrow {
-   position: absolute;
-   right: 0;
-   bottom: 50%;
-   z-index: 100;
-}
-
-@media screen and (max-width: 600px) {
-   .section-introduction__arrow {
-      display: none;
-   }
-
-   .section-introduction {
-      padding: 20px;
-   }
-
-   .section-introduction__name {
-      font-size: 30px;
-   }
-
-   .section-introduction__work-title {
-      font-size: 24px;
-   }
-
-
-
-}
 </style>

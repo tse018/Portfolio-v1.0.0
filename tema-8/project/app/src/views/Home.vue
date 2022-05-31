@@ -2,14 +2,15 @@
    <Loader v-if="loading" />
    
    <div v-else>
-      <h2 ref="intro" style="display: block">
+<!--
+      <div ref="intro">
          <div class="container">
-            <div class="hi">
-               Welcome!
-            </div>
+            <h1 class="hi">
+               WELCOME
+            </h1>
          </div>
-      </h2>
-
+      </div>
+-->
       <main class="main-container" ref="main-container" @mousewheel="horizontalScrolling">
          <section class="main-container__section">
             <div id="home">
@@ -61,10 +62,9 @@ import Tech from "../components/TechSection.vue";
 import Loader from "../components/Loader.vue";
 
 import sanityMixin from "../mixins/sanityMixin.js";
-import introAnimation from '../mixins/introAnimation';
 
 export default {
-   mixins: [sanityMixin, introAnimation],
+   mixins: [sanityMixin],
 
    components: {
       LandingPage,
@@ -80,21 +80,27 @@ export default {
    async created() {
       this.fetchSanity();
 
-      this.sleep(3000).then(() => {
+      this.sleep(2000).then(() => {
          this.$refs["intro"].style.display = "none";
-      }, 3000);
+      }, 2000);
    },
 
    computed: {
       horizontalScrolling() {
          const scrollContainer = this.$refs["main-container"];
 
-         if (window.innerWidth > 600) {
+         if (window.innerWidth > 1200) {
             scrollContainer.addEventListener("wheel", (evt) => {
                evt.preventDefault();
                scrollContainer.scrollLeft += evt.deltaY;
             });
          }
+      },
+   },
+
+   methods: {
+      sleep(ms) {
+         return new Promise((resolve) => setTimeout(resolve, ms));
       },
    },
 };
@@ -104,27 +110,35 @@ export default {
 /* Mobile */
 @media screen and (max-width: 600px) {
    .main-container {
-      width: 100vw;
-      height: 100vh;
+      min-width: 100vw;
+      min-height: 100vh;
+      overflow-x: hidden;
    }
 
    .main-container__section {
-      min-width: 100vw;
-      min-height: 100vh;
+      min-width: 100%;
+      min-height: 100%;
    }
 }
 
 /* Desktop */
 @media screen and (min-width: 1200px) {
    .main-container {
-      max-height: 100vh;
+      height: 100vh;
+      width: 600vw;
       display: flex;
       overflow-y: hidden;
    }
+
    .main-container__section {
       height: 100%;
-      width: 100%;
+      min-width: 100%;
+
    }
+}
+
+.intro {
+   display: block;
 }
 
 .container {
@@ -136,12 +150,13 @@ export default {
    background-color: black;
 }
 
-.hi {
-   font-size: 100px;
-   color: var(--font-color-highligth);
-   animation-duration: 3s;
-   animation-name: intro;
-}
+   .hi {
+      font-size: 6vw;
+      color: var(--font-color-highligth);
+      animation-duration: 2s;
+      animation-name: intro;
+   }
+
 
 @keyframes intro {
    from {
