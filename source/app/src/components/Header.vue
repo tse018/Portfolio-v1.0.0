@@ -32,11 +32,10 @@ export default {
    },
 
    mounted() {
-/*
+
       this.sleep(3000).then(() => {
          this.$refs["header"].style.display = "block";
       }, 3000);
-*/
    },
 
    watch: {
@@ -45,7 +44,7 @@ export default {
          // users could click on same button twice and it would go back to front-page
          // with this watch, prevents from doing that and redirect to fullPath /, instead of  showing /home fullPath
          if(this.$route.fullPath === '/home') {
-            this.$router.push({ name: 'home'})
+            this.$router.push("/");
          }
       },
    },

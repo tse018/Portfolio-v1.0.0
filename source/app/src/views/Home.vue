@@ -2,7 +2,6 @@
    <Loader v-if="loading" />
    
    <div v-else>
-<!--
       <div ref="intro">
          <div class="container">
             <h1 class="hi">
@@ -10,7 +9,7 @@
             </h1>
          </div>
       </div>
--->
+
       <main class="main-container" ref="main-container" @mousewheel="horizontalScrolling">
          <section class="main-container__section">
             <div id="home">
@@ -81,11 +80,10 @@ export default {
 
    async created() {
       this.fetchSanity();
-/*
+
       this.sleep(2000).then(() => {
          this.$refs["intro"].style.display = "none";
       }, 2000);
-*/
    },
 
    computed: {
