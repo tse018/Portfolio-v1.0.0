@@ -49,10 +49,10 @@ export default {
 
    methods: {
       creatingMapbox() {
-         mapboxgl.accessToken = "pk.eyJ1IjoidHNlMDE4IiwiYSI6ImNsMmtkczJ2ZTAybmozY25reXE3MXpmMWUifQ.sm5TPLNYLn4Ozr1r7TCCZQ";
+         mapboxgl.accessToken = this.mapbox_id;
          const map = new mapboxgl.Map({
             container: "map", // container ID
-            style: "mapbox://styles/tse018/cl3fy4bep000i14qii6hxjxt0", // style URL
+            style: this.mapbox_map_id, // style URL
             center: [10.818701, 59.904822], // starting position [lng, lat]
             zoom: 11, // starting zoom
          });
