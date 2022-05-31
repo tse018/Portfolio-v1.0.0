@@ -24,9 +24,11 @@
                   <br />
                   </p>
                </div>
-
-               
             </div>
+
+            <button class="about-container__read-button--mobile" @click="readMore">
+                  {{ buttonText }}
+            </button>
          </article>
       </section>
    </div>
@@ -83,6 +85,10 @@ export default {
    z-index: 100;
 }
 
+.about-container__read-button--mobile {
+   display: none;
+}
+
 .about-container__text-container {
    display: flex;
    justify-content: center;
@@ -103,5 +109,33 @@ export default {
    width: 70ch;
    padding: 5px;
    line-height: 32px;
+}
+
+
+@media screen and (max-width: 600px) {
+   .about-container {
+      overflow: auto;
+   }
+
+   .about-container__read-button {
+      visibility: hidden;
+   }
+
+   .about-container__read-button--mobile {
+      margin: var(--read-margin);
+      color: var(--read-color);
+      width: var(--read-width);
+      padding: var(--read-padding);
+      transition: var(--read-transition);
+      border: var(--read-border-radius);
+   }
+
+   .about-container__full-text {
+      display: flex;
+      justify-content: center;
+      width: 35ch;
+   }
+
+
 }
 </style>
