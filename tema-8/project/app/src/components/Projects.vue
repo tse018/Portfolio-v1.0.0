@@ -141,6 +141,7 @@ export default {
    text-align: center;
    text-decoration: underline 2px var(--font-color-highligth);
    padding: 0 20px;
+   font-size: var(--font-xxl);
 }
 
 .projects-container__navbar-elements {
