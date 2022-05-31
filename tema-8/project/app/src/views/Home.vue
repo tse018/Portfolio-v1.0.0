@@ -32,19 +32,19 @@
 
          <section class="main-container__section">
             <div id="tech">
-               <Tech />
+            
             </div>
          </section>
 
          <section class="main-container__section">
             <div id="projects">
-               <Projects />
+          
             </div>
          </section>
 
          <section class="main-container__section">
             <div id="contact">
-               <Contact />
+       
             </div>
          </section>
       </main>

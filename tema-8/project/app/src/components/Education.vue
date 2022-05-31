@@ -5,7 +5,7 @@
          <section class="education__container">
             <nav class="education__navbar">
                <ul class="education__elements">
-                  <li class="education__element">
+                  <li class="education__element--header">
                      EDUCATION
                   </li>
 
@@ -24,7 +24,7 @@
             </nav>
 
             <div class="education__content-container">
-               <article class="education__article" v-for="content in education" v-show="currentTab === content._id" :role="content.studyProgram">
+               <article class="education__article--mobile" v-for="content in education" v-show="currentTab === content._id" :role="content.studyProgram">
                   <h3 class="education__title">
                      {{ content.studyProgram }}
                   </h3>
@@ -42,6 +42,10 @@
                      <br />
                      <br />
                   </p>
+
+                  <button class="education__read-button--mobile" @click="readMore">
+                     {{ buttonText }}
+                  </button>
                </article>
 
                <article class="education__article" v-for="content in education" v-show="activeTab === content._id && !currentTab">
@@ -99,6 +103,7 @@ export default {
 </script>
 
 <style scoped>
+
 .education {
    width: 100vw;
    height: 100vh;
@@ -108,6 +113,7 @@ export default {
 .education__container {
    display: flex;
 }
+
 
 .education__navbar {
    min-width: max-content;
@@ -122,6 +128,11 @@ export default {
 }
 
 .education__element {
+   padding: 20px;
+   font-size: var(--font-xxl);
+}
+
+.education__element--header {
    padding: 20px;
    font-size: var(--font-xxl);
 }
@@ -147,6 +158,11 @@ export default {
 }
 
 .education__article {
+   width: 100%;
+   padding: 2px;
+}
+
+.education__article--mobile {
    width: 100%;
    padding: 2px;
 }
@@ -182,7 +198,58 @@ export default {
 .education__read-button:focus {
    box-shadow: var(--read-hover-focus);
    color: var(--read-hover-focus-color);
-
 }
 
+.education__read-button--mobile {
+   display: none;
+}
+
+
+@media screen and (max-width: 1200px) {
+   .education__article {
+      display: none;
+   }
+
+   .education__container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: -50px;
+   }
+   
+   .education__read-button {
+      display: none;
+   }
+
+   .education__title {
+      font-size: var(--font-xxl);
+      padding: 20px;
+      margin: -100px -50px 0 -50px;
+      display: flex;
+      justify-content: center;
+   }
+   
+   .education__year {
+      display: flex;
+      justify-content: center;
+   }
+
+   .education__paragraph {
+      width: 30ch;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+   }
+
+   .education__read-button--mobile {
+      padding: var(--tab-padding);
+      border: var(--tab-border);
+      width: var(--tab-width);
+      color: var(--tab-color);
+      transition: var(--tab-transition);
+      margin-bottom: 50px;
+      display: flex;
+      justify-content: start;
+   }
+}
 </style>
