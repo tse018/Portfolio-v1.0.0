@@ -108,6 +108,7 @@ export default {
    width: 100vw;
    height: 100vh;
    padding: var(--scroll-padding-top);
+   overflow: auto;
 }
 
 .education__container {
@@ -204,8 +205,12 @@ export default {
    display: none;
 }
 
-
 @media screen and (max-width: 1200px) {
+   .education {
+      overflow: scroll;
+      height: 100vh;
+   }
+
    .education__article {
       display: none;
    }
@@ -238,7 +243,6 @@ export default {
       width: 30ch;
       padding: 20px;
       display: flex;
-      justify-content: center;
    }
 
    .education__read-button--mobile {

@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style scoped>
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1200px) {
    .collapsible {
       position: relative;
       display: grid;
@@ -64,14 +64,7 @@ export default {
       border: 2px solid var(--font-color-highligth);
       border-radius: 20%;
    }
-
-   /* so when user click on Interaction design,
-   Semantic Technology get some more space bottom
-*/
-   .collapsible:nth-child(3) {
-      margin-bottom: 100px;
-   }
-
+   
    .collapsible__content {
       padding: 20px;
       width: 500px;
@@ -98,7 +91,6 @@ export default {
       flex-direction: column;
       margin: 0 auto;
       max-width: 550px;
-      margin-bottom: 20px;
    }
 
    .collapsible__name {
@@ -106,15 +98,7 @@ export default {
       color: var(--font-color-highligth);
       border: 2px solid var(--font-color-highligth);
       border-radius: 20%;
-      margin: 20px;
       min-width: 500px;
-   }
-
-   /* so when user click on Interaction design,
-   Semantic Technology get some more space bottom
-*/
-   .collapsible:nth-child(3) {
-      margin-bottom: 100px;
    }
 
    .collapsible__content {

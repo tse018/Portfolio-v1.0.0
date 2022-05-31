@@ -44,4 +44,17 @@ export default {
    text-align: center;
    padding: 10px;
 }
+
+@media screen and (max-width: 1200px) {
+   .frontend-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding-top: 30px;
+   }
+
+   .frontend-container__elements {
+      grid-template-columns: repeat(1, 1fr);
+   }
+}
 </style>
