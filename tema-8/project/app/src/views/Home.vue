@@ -79,17 +79,18 @@ export default {
 
    async created() {
       this.fetchSanity();
-
+/*
       this.sleep(2000).then(() => {
          this.$refs["intro"].style.display = "none";
       }, 2000);
+*/
    },
 
    computed: {
       horizontalScrolling() {
          const scrollContainer = this.$refs["main-container"];
 
-         if (window.innerWidth > 1200) {
+         if (window.innerWidth > 600) {
             scrollContainer.addEventListener("wheel", (evt) => {
                evt.preventDefault();
                scrollContainer.scrollLeft += evt.deltaY;
@@ -110,14 +111,14 @@ export default {
 /* Mobile */
 @media screen and (max-width: 600px) {
    .main-container {
-      min-width: 100vw;
-      min-height: 100vh;
+      width: 100vw;
+      height: 100vh;
       overflow-x: hidden;
    }
 
    .main-container__section {
-      min-width: 100%;
-      min-height: 100%;
+      width: 100%;
+      height: 100%;
    }
 }
 
@@ -125,48 +126,14 @@ export default {
 @media screen and (min-width: 1200px) {
    .main-container {
       height: 100vh;
-      width: 600vw;
+      width: 100vw;
       display: flex;
       overflow-y: hidden;
    }
 
    .main-container__section {
       height: 100%;
-      min-width: 100%;
-
-   }
-}
-
-.intro {
-   display: block;
-}
-
-.container {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   height: 100vh;
-   overflow: hidden;
-   background-color: black;
-}
-
-   .hi {
-      font-size: 6vw;
-      color: var(--font-color-highligth);
-      animation-duration: 2s;
-      animation-name: intro;
-   }
-
-
-@keyframes intro {
-   from {
-      transform: scale(0);
-      opacity: 0;
-   }
-
-   to {
-      transform: scale(1) rotate(0);
-      opacity: 1;
+      width: 100%;
    }
 }
 </style>

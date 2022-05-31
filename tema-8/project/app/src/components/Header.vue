@@ -1,5 +1,5 @@
 <template>
-   <header class="header-container" ref="header" style="display: none">
+   <header class="header-container" ref="header">
       <nav class="header-container__navbar">
          <ul class="header-container__navbar-elements">
             <li class="header-container__navbar-element--mobile">
@@ -32,9 +32,11 @@ export default {
    },
 
    mounted() {
+/*
       this.sleep(3000).then(() => {
          this.$refs["header"].style.display = "block";
       }, 3000);
+*/
    },
 
    watch: {

@@ -10,7 +10,7 @@
 
          <button class="section-introduction__arrow" @click="scrollTo('about')" aria-label="go to about section">
             <RouterLink class="section-introduction__link" :to="{ name: 'home', params: { section: 'about' } }">
-               <Icons :icon="'rigth'" />
+               <Icons class="section-introduction__arrow" :icon="'rigth'" />
             </RouterLink>
          </button>
 
@@ -45,5 +45,28 @@ export default {
 </script>
 
 <style scoped>
+.section-introduction {
+   width: 100vw;
+   height: 100vh;
+   padding-top: var(--scroll-padding-top);
+   display: flex;
+   flex-direction: column;
+   position: relative;
+}
 
+.section-introduction__name {
+   display: flex;
+   justify-content: center;
+}
+
+.section-introduction__work-title {
+   display: flex;
+   justify-content: center;
+}
+
+.section-introduction__arrow {
+   position: absolute;
+   right: 0;
+   bottom: 50vh;
+}
 </style>
