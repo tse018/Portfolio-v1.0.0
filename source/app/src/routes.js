@@ -1,8 +1,8 @@
 import Home from './views/Home.vue';
-import PageNotFound from './views/PageNotFound.vue';
+//import PageNotFound from './views/PageNotFound.vue';
 
 export default [
-      { path: '/*' , redirect: '/'},
+      //{ path: '/*' , redirect: '/'},
       { name: "home",          path: "/",         component:  Home },
-      { name: "pagenotfound",  path: "/:pathMatch(.*)",    component: PageNotFound },
+      //{ name: "pagenotfound",  path: "/:pathMatch(.*)",    component: PageNotFound },
 ]
