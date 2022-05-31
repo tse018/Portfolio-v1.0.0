@@ -248,8 +248,7 @@ export default {
       color: var(--tab-color);
       transition: var(--tab-transition);
       margin-bottom: 50px;
-      display: flex;
-      justify-content: start;
+      display: block;
    }
 }
 </style>
