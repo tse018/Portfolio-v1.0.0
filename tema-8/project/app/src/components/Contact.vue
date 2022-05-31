@@ -70,6 +70,7 @@ export default {
             .addTo(map);
       },
 
+      // got source code from https://docs.mapbox.com/mapbox-gl-js/example/add-image-animated/
       blinkingCircle(map) {
          const size = 200;
 
@@ -227,7 +228,7 @@ export default {
 }
 
 .mapbox__email {
-   font-size: var(--tablet-font-size-secondary-undertitle);
+   font-size: var(--font-heading-l);
    color: var(--font-color-highligth);
    padding: 10px;
 }

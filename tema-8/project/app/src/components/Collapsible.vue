@@ -50,7 +50,7 @@ export default {
    border: 2px solid var(--font-color-highligth);
    border-radius: 20%;
    min-width: 500px;
-   transition: 2s;
+   transition: 3s;
 }
 
 .collapsible__name:hover,
@@ -63,7 +63,6 @@ export default {
    padding: 20px;
    width: 500px;
    min-height: 100px;
-   margin: -30px -17px;
    color: var(--font-color-highligth);
 }
 

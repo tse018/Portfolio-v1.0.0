@@ -138,6 +138,7 @@ export default {
 
 .education__tab-button {
    border: var(--tab-border);
+   border-radius: 20%;
    padding: var(--tab-padding);
    color: var(--tab-color);
    min-width: var(--tab-width);

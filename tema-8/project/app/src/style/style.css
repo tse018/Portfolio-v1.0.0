@@ -38,7 +38,6 @@ body {
 }
 
 @media screen and (max-width: 1200px) {
-
    body {
       font-size: var(--font-l);
    }

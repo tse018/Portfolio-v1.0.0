@@ -73,6 +73,7 @@ export default {
 .about-container__title {
    display: flex;
    justify-content: center;
+   margin-top: 10px;
 }
 
 .about-container__read-button {
