@@ -3,13 +3,13 @@
    <div v-else>
       <section class="contact-container">
          <div class="contact-container__content-container" v-for="data in contact">
-            <h3 class="contact-container__title">
+            <h2 class="contact-container__title">
                {{ data.title }}
-            </h3>
+            </h2>
 
-            <div class="contact-container__paragraphs" v-for="paragraph in data.description">
+            <p class="contact-container__paragraphs" v-for="paragraph in data.description">
                {{ paragraph.children[0].text }}
-            </div>
+            </p>
 
             <a class="contact-container__mail" :href="`mailto:${data.eMail}`" target="_blank"> Say Hello </a>
          </div>
@@ -190,6 +190,8 @@ export default {
    height: 100vh;
    padding-top: 100px;
    display: flex;
+   flex-direction: row;
+   flex-wrap: wrap
 }
 
 .contact-container__content-container {
@@ -247,7 +249,19 @@ export default {
    color: black;
 }
 
-@media screen and (max-width: 600px) {
-   
+@media screen and (max-width: 1200px) {
+   #map {
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+   }
+
+   .contact-container__content-container {
+      border: 2px solid red;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+   }
 }
 </style>
