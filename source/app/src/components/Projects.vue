@@ -284,6 +284,10 @@ export default {
 @media screen and (max-width: 1200px) {
    .projects-container {
       position: relative;
+      height: 100vh;
+      width: 100vw;
+      overflow-y: scroll;
+      overflow-x: hidden;
    }
 
    .projects-container__flex-navbar {
@@ -300,9 +304,12 @@ export default {
 
    .projects-container__navbar-header {
       position: absolute;
-      left: 50vw;
-      top: 0;
-      margin-top: 100px;
+      width: 100vw;
+      left: 0;
+      top: 50;
+      display: flex;
+      justify-content: center;
+      margin-top: -50px;
    }
 
    .projects-container__navbar-elements {
