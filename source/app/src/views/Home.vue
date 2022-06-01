@@ -90,16 +90,9 @@ export default {
 </script>
 
 <style>
-@media screen and (max-width: 1200px) {
-   .main-container {
-      width: 100vw;
-      height: 100vh;
-      overflow-x: hidden;
-   }
-   .main-container__section {
-      width: 100%;
-      height: 100%;
-   }
+.main-container__section {
+   width: 100%;
+   height: 100%;
 }
 
 @media screen and (min-width: 1200px) {
@@ -109,10 +102,13 @@ export default {
       display: flex;
       overflow-y: hidden;
    }
+}
 
-   .main-container__section {
-      height: 100%;
-      width: 100%;
+@media screen and (max-width: 1200px) {
+   .main-container {
+      width: 100vw;
+      height: 100vh;
+      overflow-x: hidden;
    }
 }
 </style>

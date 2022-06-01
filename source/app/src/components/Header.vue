@@ -55,24 +55,6 @@ export default {
 </script>
 
 <style scoped>
-@media screen and (max-width: 1200px) {
-   .header-container {
-      position: fixed;
-      width: 100%;
-      z-index: 100;
-   }
-
-   .header-container__navbar-element--mobile {
-      display: flex;
-      justify-content: end;
-      margin: -30px 10px 0 0;
-   }
-   
-   .header-container__navbar-element {
-      display: none;
-   }
-}
-
 @media screen and (min-width: 1200px) {
    .header-container {
       position: fixed;
@@ -84,11 +66,12 @@ export default {
       /* during animation this header will not show */
       display: none;
    }
+}
 
-   .header-container__navbar-elements {
-      display: flex;
-      justify-content: center;
-   }
+.header-container__navbar-elements {
+   display: flex;
+   justify-content: center;
+}
 
    .header-container__navbar-element {
       display: flex;
@@ -119,6 +102,19 @@ export default {
 
    .active {
       text-decoration: 5px underline var(--font-color-highligth);
+   }
+
+
+@media screen and (max-width: 1200px) {
+   .header-container__navbar-element--mobile {
+      display: flex;
+      width: 100%;
+      justify-content: end;
+      margin: 20px;
+   }
+   
+   .header-container__navbar-element {
+      display: none;
    }
 }
 </style>

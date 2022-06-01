@@ -13,7 +13,7 @@
   width: 100%;
   height: 60px;
   background: #6cf;
-  z-index: 100;
+  z-index: 10;
 }
 
 .footer-container__content {

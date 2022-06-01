@@ -4,12 +4,16 @@
       <section class="projects-container__flex-navbar">
          <nav class="projects-container__navbar">
             <ul class="projects-container__navbar-elements">
-               <li class="projects-container__navbar-header">
-                  PROJECTS
-               </li>
+               <li class="projects-container__navbar-header">PROJECTS</li>
 
-               <li class="projects-container__navbar-element" v-for="project in projects">
-                  <button class="projects-container__navbar-tab" @click="changeTab(project._id)">
+               <li
+                  class="projects-container__navbar-element"
+                  v-for="project in projects"
+               >
+                  <button
+                     class="projects-container__navbar-tab"
+                     @click="changeTab(project._id)"
+                  >
                      {{ project.title.toUpperCase() }}
                   </button>
                </li>
@@ -18,7 +22,11 @@
 
          <div class="projects-container__flex-content">
             <article class="projects-container__description-container">
-               <div class="projects-container__description-content" v-for="project in projects" v-show="activeTab === project._id && !currentTab">
+               <div
+                  class="projects-container__description-content"
+                  v-for="project in projects"
+                  v-show="activeTab === project._id && !currentTab"
+               >
                   <h3 class="projects-container__description-title">
                      {{ project.title.toUpperCase() }}
                   </h3>
@@ -31,7 +39,10 @@
                      </div>
 
                      <div class="projects-container__tech-container">
-                        <ul class="projects-container__tech-elements" v-for="tech in project.techStack">
+                        <ul
+                           class="projects-container__tech-elements"
+                           v-for="tech in project.techStack"
+                        >
                            <li class="projects-container__tech-element">
                               {{ tech }}
                            </li>
@@ -41,14 +52,22 @@
                      <ul class="projects-container__link-elements">
                         <li class="projects-container__link-element">
                            Github:
-                           <a class="projects-container__link" :href="`${project.github}`" target="_blank">
+                           <a
+                              class="projects-container__link"
+                              :href="`${project.github}`"
+                              target="_blank"
+                           >
                               {{ project.github }}
                            </a>
                         </li>
 
                         <li class="projects-container__link-element">
                            Netlify:
-                           <a class="projects-container__link" :href="`${project.netlify}`" target="_blank">
+                           <a
+                              class="projects-container__link"
+                              :href="`${project.netlify}`"
+                              target="_blank"
+                           >
                               {{ project.netlify }}
                            </a>
                         </li>
@@ -56,7 +75,11 @@
                   </div>
                </div>
 
-               <div class="projects-container__description-content" v-for="project in projects" v-show="currentTab === project._id">
+               <div
+                  class="projects-container__description-content"
+                  v-for="project in projects"
+                  v-show="currentTab === project._id"
+               >
                   <h3 class="projects-container__description-title">
                      {{ project.title.toUpperCase() }}
                   </h3>
@@ -69,7 +92,10 @@
                      </div>
 
                      <div class="projects-container__tech-container">
-                        <ul class="projects-container__tech-elements" v-for="tech in project.techStack">
+                        <ul
+                           class="projects-container__tech-elements"
+                           v-for="tech in project.techStack"
+                        >
                            <li class="projects-container__tech-element">
                               {{ tech }}
                            </li>
@@ -79,14 +105,22 @@
                      <ul class="projects-container__link-elements">
                         <li class="projects-container__link-element">
                            Github:
-                           <a class="projects-container__link" :href="`${project.github}`" target="_blank">
+                           <a
+                              class="projects-container__link"
+                              :href="`${project.github}`"
+                              target="_blank"
+                           >
                               {{ project.github }}
                            </a>
                         </li>
 
                         <li class="projects-container__link-element">
                            Netlify:
-                           <a class="projects-container__link" :href="`${project.netlify}`" target="_blank">
+                           <a
+                              class="projects-container__link"
+                              :href="`${project.netlify}`"
+                              target="_blank"
+                           >
                               {{ project.netlify }}
                            </a>
                         </li>
@@ -145,7 +179,6 @@ export default {
 }
 
 .projects-container__navbar-elements {
-   justify-content: center;
    max-width: 400px;
    overflow: auto;
 }
@@ -246,5 +279,62 @@ export default {
 
 .projects-container__tech-element {
    border-bottom: 2px solid var(--font-color-highligth);
+}
+
+@media screen and (max-width: 1200px) {
+   .projects-container {
+      position: relative;
+   }
+
+   .projects-container__flex-navbar {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+   }
+
+   .projects-container__navbar {
+      width: 100vw;
+      justify-content: center;
+      width: 100%;
+   }
+
+   .projects-container__navbar-header {
+      position: absolute;
+      left: 50vw;
+      top: 0;
+      margin-top: 100px;
+   }
+
+   .projects-container__navbar-elements {
+      display: flex;
+      width: 100%;
+   }
+
+   .projects-container__navbar-element {
+      width: max-content;
+   }
+
+   .projects-container__description-container {
+      margin-top: -50px;
+      width: 100vw;
+   }
+
+   .projects-container__description-title {
+      display: flex;
+      justify-content: center;
+   }
+
+   .projects-container__description-content {
+      margin: 0;
+      width: 100%;
+   }
+
+   .projects-container__paragraph-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+   }
 }
 </style>
