@@ -39,7 +39,6 @@ export default {
    async created() {
       const token = import.meta.env.VITE_GITHUB_KEY;
       const username = import.meta.env.VITE_GITHUB_USERNAME;
-
       
       const headers = {
          Authorization: `bearer ${token}`,
