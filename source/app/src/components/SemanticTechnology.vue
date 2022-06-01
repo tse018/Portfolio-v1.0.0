@@ -31,8 +31,7 @@ export default {
 .semantic-container {
    border: 2px solid var(--font-color-highligth);
    width: 500px;
-   padding-top: 10px;
-   margin-bottom: 100px;
+   margin:-20px 0 0 -20px;
 }
 
 .semantic-container__elements {

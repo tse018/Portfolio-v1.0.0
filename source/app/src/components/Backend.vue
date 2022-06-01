@@ -31,21 +31,25 @@ export default {
 .backend-container {
    border: 2px solid var(--font-color-highligth);
    width: 500px;
-   padding-top: 10px;
+   margin: -20px 0 0 -20px;
 }
+
 .backend-container__elements {
    display: grid;
    grid-template-columns: repeat(2, 1fr);
    gap: 20px;
 }
+
 .backend-container__element {
    text-align: center;
    padding: 10px;
 }
+
 @media screen and (max-width: 1200px) {
    .backend-container {
       width: 300px;
    }
+
    .backend-container__elements{
       grid-template-columns: repeat(1, 1fr);
    }

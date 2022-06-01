@@ -207,6 +207,7 @@ export default {
    .education {
       overflow: scroll;
       height: 100vh;
+      width: 100vw;
    }
 
    .education__article {

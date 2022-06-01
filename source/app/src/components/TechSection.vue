@@ -88,23 +88,22 @@ export default {
 }
 
 .technology__grid-item {
-   padding: 20px;
    min-height: 100px;
-   text-align: center;
 }
 
 @media screen and (max-width: 1200px) {
    .technology {
       width: 100vw;
       height: 100vh;
-      overflow: auto;
+      overflow-y: scroll;
+      overflow-x: hidden;
    }
 
    .technology__grid-container {
       display: grid;
       grid-template-columns: repeat(1, 1fr);
       gap: 20px;
-      width: 100%;
+      width: 100vw;
       margin-left: -100px;
    } 
 }

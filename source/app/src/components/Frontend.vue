@@ -31,7 +31,7 @@ export default {
 .frontend-container {
    border: 2px solid var(--font-color-highligth);
    width: 500px;
-   padding-top: 10px;
+   margin:-20px 0 0 -20px;
 }
 
 .frontend-container__elements {
