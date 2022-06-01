@@ -24,7 +24,7 @@
             </nav>
 
             <div class="education__content-container">
-               <article class="education__article--mobile" v-for="content in education" v-show="currentTab === content._id" :role="content.studyProgram">
+               <article class="education__article" v-for="content in education" v-show="currentTab === content._id" :role="content.studyProgram">
                   <h3 class="education__title">
                      {{ content.studyProgram }}
                   </h3>
@@ -43,9 +43,11 @@
                      <br />
                   </p>
 
-                  <button class="education__read-button--mobile" @click="readMore">
-                     {{ buttonText }}
-                  </button>
+                  <div class="education__read-wrapper">
+                     <button class="education__read-button--mobile" @click="readMore">
+                        {{ buttonText }}
+                     </button>
+                  </div>
                </article>
 
                <article class="education__article" v-for="content in education" v-show="activeTab === content._id && !currentTab">
@@ -66,6 +68,12 @@
                      <br />
                      <br />
                   </p>
+                  
+                  <div class="education__read-wrapper">
+                     <button class="education__read-button--mobile" @click="readMore">
+                        {{ buttonText }}
+                     </button>
+                  </div>
                </article>
             </div>
          </section>
@@ -205,13 +213,27 @@ export default {
 
 @media screen and (max-width: 1200px) {
    .education {
-      overflow: scroll;
+      overflow-y: scroll;
+      overflow-x: hidden;
       height: 100vh;
       width: 100vw;
+      position: relative;
    }
 
-   .education__article {
-      display: none;
+   .education__elements {
+      display: flex;
+      width: 100%;
+      overflow: scroll;
+      margin: -60px -70px 0;
+   }
+
+   .education__element--header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
    }
 
    .education__container {
@@ -225,10 +247,15 @@ export default {
       display: none;
    }
 
+   .education__article {
+      width: 100vw;
+      margin-left: -50px;
+   }
+
    .education__title {
+      width: 100%;
       font-size: var(--font-xxl);
       padding: 20px;
-      margin: -100px -50px 0 -50px;
       display: flex;
       justify-content: center;
    }
@@ -244,14 +271,21 @@ export default {
       display: flex;
    }
 
+   .education__read-wrapper {
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+   }
+
    .education__read-button--mobile {
       padding: var(--tab-padding);
       border: var(--tab-border);
       width: var(--tab-width);
       color: var(--tab-color);
       transition: var(--tab-transition);
-      margin-bottom: 50px;
-      display: block;
+      display: flex;
+      justify-content: center;
    }
 }
+
 </style>

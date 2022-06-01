@@ -123,7 +123,7 @@ export default {
 @media screen and (max-width: 1200px) {
    .about-container {
       width: 100vw;
-      min-height: 100vh;
+      max-height: max-content;
       overflow: auto;
    }
 
