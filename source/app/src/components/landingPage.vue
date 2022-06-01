@@ -1,5 +1,5 @@
 <template>
-      <section class="section-introduction">
+      <section class="section-introduction" ref="animation">
          <h1 class="section-introduction__name">
             THANUSHAN SELLATHURAI
          </h1>
@@ -22,15 +22,31 @@
 import Icons from "../components/Icons.vue";
 import Github from "../components/Github.vue";
 import Footer from "../components/Footer.vue";
+
 import sanityMixin from "../mixins/sanityMixin";
 import scrollToSectionsMixins from '../mixins/scrollToSectionsMixins.js';
+
 export default {
    mixins: [sanityMixin, scrollToSectionsMixins],
+
    components: {
       Icons,
       Github,
       Footer,
    },
+
+   mounted() {
+      this.sleep(0).then(() => {
+         this.$refs["header"].style.display = "block";
+      });
+   },
+
+   methods: {
+      sleep(ms) {
+         return new Promise((resolve) => setTimeout(resolve, ms));
+      },
+   },
+
    computed: {
       data() {
          return this.$store.getters.getData;
@@ -47,25 +63,45 @@ export default {
    display: flex;
    flex-direction: column;
    position: relative;
+   animation-duration: 3s;
+      animation-name: intro;
 }
+
 .section-introduction__name {
    display: flex;
    justify-content: center;
 }
+
 .section-introduction__work-title {
    display: flex;
    justify-content: center;
    color: var(--font-color-highligth);
 }
+
 .section-introduction__arrow {
    position: absolute;
    right: 0;
    bottom: 50vh;
    margin-right: 20px;
 }
+
 @media screen and (max-width: 1200px) {
    .section-introduction__arrow  {
       display: none;
    }
 }
+
+
+
+@keyframes intro {
+   from {
+      transform: scale(0);
+      opacity: 0;
+   }
+   to {
+      transform: scale(1) rotate(0);
+      opacity: 1;
+   }
+}
+
 </style>

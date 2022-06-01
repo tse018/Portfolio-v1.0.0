@@ -40,9 +40,12 @@ import Icons from "./Icons.vue";
 import InteractionDesign from "./InteractionDesign.vue";
 import SemanticTechnology from "./SemanticTechnology.vue";
 import SystemDevelopment from "./SystemDevelopment.vue";
+
 import sanityMixin from "../mixins/sanityMixin.js";
+
 export default {
    mixins: [sanityMixin],
+
    components: {
       Backend,
       Collapsible,
@@ -53,6 +56,7 @@ export default {
       SemanticTechnology,
       SystemDevelopment,
    },
+
    data() {
       return {
          title: {
@@ -74,6 +78,7 @@ export default {
    height: 100vh;
    padding: var(--scroll-padding-top);
 }
+
 .technology__grid-container {
    width: 100%;
    display: grid;
@@ -81,16 +86,19 @@ export default {
    gap: 20px;
    padding-top: 50px;
 }
+
 .technology__grid-item {
    padding: 20px;
    min-height: 100px;
    text-align: center;
 }
+
 @media screen and (max-width: 1200px) {
    .technology {
       width: 100vw;
       height: 100vh;
    }
+
    .technology__grid-container {
       display: grid;
       grid-template-columns: repeat(1, 1fr);

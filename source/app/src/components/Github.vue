@@ -35,12 +35,18 @@ export default {
          loading: null,
       };
    },
+   
    async created() {
       const token = import.meta.env.VITE_GITHUB_KEY;
       const username = import.meta.env.VITE_GITHUB_USERNAME;
+
+      
       const headers = {
          Authorization: `bearer ${token}`,
       };
+
+      // Sending Graqphl query which I tried out in github graqphl playground
+      // source coude: https://docs.github.com/en/graphql/overview/explorer
       const url = "https://api.github.com/graphql";
       const body = {
          query: `query {
@@ -75,6 +81,9 @@ export default {
          body: JSON.stringify(body),
          headers: headers,
       });
+
+      // probably better way to do this!!
+      // this REST-API have to layer which can be destructured
       const { data } = await response.json();
       const { user } = data;
       this.result = user;
@@ -88,29 +97,35 @@ export default {
    display: flex;
    flex-direction: column;
 }
+
 .github-container__contributions {
    padding: 50px 20px 0 20px;
    width: 80%;
    margin: auto;
 }
+
 .github-container__flex-wrapper {
    display: flex;
    justify-content: end;
    margin-inline: 200px;
 }
+
 .github-container__title {
    font-size: var(--font-xxl);
 }
+
 .github-container__total-commits {
    padding: 2px;
    font-size: var(--font-xxl);
    font-style: italic;
    color: var(--font-color-highligth);
 }
+
 .github-container__link-wrapper {
    font-size: var(--font-xxl);
    margin-inline: 200px;
 }
+
 .github-container__link {
    border: var(--read-border-radius);
    margin: var(--read-margin);
@@ -119,16 +134,19 @@ export default {
    padding: var(--read-padding);
    color: var(--read-color);
 }
+
 .github-container__link:hover,
 .github-container__link:focus {
    box-shadow: var(--read-hover-focus);
    color: var(--read-hover-focus-color);
 }
+
 @media screen and (max-width: 1200px) {
    .github-container__contributions {
       width: 100vw;
       padding: 50px 20px 0 20px;
    }
+
    .github-container__flex-wrapper {
       display: flex;
       width: 100%;
@@ -136,6 +154,7 @@ export default {
       justify-content: start;
       padding-left: 50px;
    }
+
    .github-container__link-wrapper {
       margin-inline: 0;
       padding-top: 100px;

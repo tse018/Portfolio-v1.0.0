@@ -23,30 +23,23 @@
 
 <script>
 import sanityMixin from "../mixins/sanityMixin.js";
-
 import mapboxgl from "mapbox-gl";
-
 export default {
    mixins: [sanityMixin],
-
-
    data() {
       return {
          mapbox_id: import.meta.env.VITE_MAPBOX_ID,
          mapbox_map_id: import.meta.env.VITE_MAPBOX_MAP,
       };
    },
-
    mounted() {
       this.creatingMapbox();
    },
-
    computed: {
       contact() {
          return this.$store.getters.getContact;
       },
    },
-
    methods: {
       creatingMapbox() {
          mapboxgl.accessToken = this.mapbox_id;
@@ -56,11 +49,9 @@ export default {
             center: [10.818701, 59.904822], // starting position [lng, lat]
             zoom: 11, // starting zoom
          });
-
          this.blinkingCircle(map);
          this.message(map);
       },
-
       message(map) {
          const popup = new mapboxgl.Popup({ closeOnClick: false })
             .setLngLat([10.757933, 59.911491])
@@ -69,18 +60,15 @@ export default {
             )
             .addTo(map);
       },
-
       // got source code from https://docs.mapbox.com/mapbox-gl-js/example/add-image-animated/
       blinkingCircle(map) {
          const size = 200;
-
          // This implements `StyleImageInterface`
          // to draw a pulsing dot icon on the map.
          const pulsingDot = {
             width: size,
             height: size,
             data: new Uint8Array(size * size * 4),
-
             // When the layer is added to the map,
             // get the rendering context for the map canvas.
             onAdd() {
@@ -89,16 +77,13 @@ export default {
                canvas.height = this.height;
                this.context = canvas.getContext("2d");
             },
-
             // Call once before every frame where the icon will be used.
             render() {
                const duration = 1000;
                const t = (performance.now() % duration) / duration;
-
                const radius = (size / 2) * 0.3;
                const outerRadius = (size / 2) * 0.7 * t + radius;
                const context = this.context;
-
                // Draw the outer circle.
                context.clearRect(0, 0, this.width, this.height);
                context.beginPath();
@@ -109,10 +94,8 @@ export default {
                   0,
                   Math.PI * 2
                );
-
                context.fillStyle = `rgba(255, 200, 200, ${1 - t})`;
                context.fill();
-
                // Draw the inner circle.
                context.beginPath();
                context.arc(
@@ -122,13 +105,11 @@ export default {
                   0,
                   Math.PI * 2
                );
-
                context.fillStyle = "#64ffda";
                context.strokeStyle = "#141E30";
                context.lineWidth = 2 + 4 * (1 - t);
                context.fill();
                context.stroke();
-
                // Update this image's data with data from the canvas.
                this.data = context.getImageData(
                   0,
@@ -136,19 +117,15 @@ export default {
                   this.width,
                   this.height
                ).data;
-
                // Continuously repaint the map, resulting
                // in the smooth animation of the dot.
                map.triggerRepaint();
-
                // Return `true` to let the map know that the image was updated.
                return true;
             },
          };
-
          map.on("load", () => {
             map.addImage("pulsing-dot", pulsingDot, { pixelRatio: 2 });
-
             map.addSource("dot-point", {
                type: "geojson",
                data: {
@@ -164,7 +141,6 @@ export default {
                   ],
                },
             });
-
             map.addLayer({
                id: "layer-with-pulsing-dot",
                type: "symbol",
@@ -185,7 +161,6 @@ export default {
    height: 100%;
    pointer-events: none;
 }
-
 .contact-container {
    width: 100vw;
    height: 100vh;
@@ -194,45 +169,37 @@ export default {
    flex-direction: row;
    flex-wrap: wrap
 }
-
 .contact-container__content-container {
    width: 30%;
    padding: 20px;
    height: max-content;
 }
-
 .contact-container__title {
    color: var(--font-color-highligth);
    text-align: center;
    padding: 20px;
 }
-
 .contact-container__paragraphs {
    padding: 0 20px 20px 20px;
    width: 30ch;
    margin: auto;
 }
-
 .contact-container__map-container {
    width: 70%;
 }
-
 .mapboxgl-popup-close-button {
    display: none;
 }
-
 .mapboxgl-popup-content {
    border: 2px solid var(--font-color-highligth);
    background: var(--background-primary);
    min-width: max-content;
 }
-
 .mapbox__email {
    font-size: var(--font-heading-l);
    color: var(--font-color-highligth);
    padding: 10px;
 }
-
 .contact-container__mail {
    display: flex;
    justify-content: center;
@@ -243,20 +210,17 @@ export default {
    color: var(--font-color-highligth);
    border: 2px solid var(--font-color-highligth);
 }
-
 .contact-container__mail:hover,
 .contact-container__mail:focus {
    box-shadow: inset 200px 0 0 0 var(--font-color-highligth);
    color: black;
 }
-
 @media screen and (max-width: 1200px) {
    #map {
       width: 100vw;
       height: 100vh;
       pointer-events: none;
    }
-
    .contact-container__content-container {
       width: 100%;
       display: flex;

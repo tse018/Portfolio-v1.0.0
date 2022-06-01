@@ -15,6 +15,7 @@
   background: #6cf;
   z-index: 100;
 }
+
 .footer-container__content {
   margin-top: 15px;
   text-align: center;

@@ -13,6 +13,7 @@
 
 <script>
 import sanityMixin from '../mixins/sanityMixin';
+
 export default {
    mixins: [sanityMixin],
    

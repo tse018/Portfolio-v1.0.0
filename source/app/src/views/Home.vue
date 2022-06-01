@@ -2,17 +2,8 @@
    <Loader v-if="loading" />
    
    <div v-else>
-<!--
-      <div ref="intro">
-         <div class="container">
-            <h1 class="hi">
-               WELCOME
-            </h1>
-         </div>
-      </div>
--->
       <main class="main-container" ref="main-container" @mousewheel="horizontalScrolling">
-         <section class="main-container__section">
+         <section ref="main-animation" class="main-container__section">
             <div id="home">
                <LandingPage />
             </div>
@@ -61,10 +52,12 @@ import Icons from "../components/Icons.vue";
 import Tech from "../components/TechSection.vue";
 import Loader from "../components/Loader.vue";
 import Github from "../components/Github.vue";
+
 import sanityMixin from "../mixins/sanityMixin.js";
 
 export default {
    mixins: [sanityMixin],
+
    components: {
       LandingPage,
       About,
@@ -76,17 +69,15 @@ export default {
       Loader,
       Github,
    },
+
    async created() {
       this.fetchSanity();
-/*
-      this.sleep(2000).then(() => {
-         this.$refs["intro"].style.display = "none";
-      }, 2000);
-*/
    },
+
    computed: {
       horizontalScrolling() {
          const scrollContainer = this.$refs["main-container"];
+
          if (window.innerWidth > 1200) {
             scrollContainer.addEventListener("wheel", (evt) => {
                evt.preventDefault();
@@ -95,16 +86,10 @@ export default {
          }
       },
    },
-   methods: {
-      sleep(ms) {
-         return new Promise((resolve) => setTimeout(resolve, ms));
-      },
-   },
 };
 </script>
 
 <style>
-/* Mobile */
 @media screen and (max-width: 1200px) {
    .main-container {
       width: 100vw;
@@ -116,7 +101,7 @@ export default {
       height: 100%;
    }
 }
-/* Desktop */
+
 @media screen and (min-width: 1200px) {
    .main-container {
       height: 100vh;

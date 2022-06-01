@@ -92,15 +92,19 @@ span {
 .covers span:nth-child(3) {
   animation-delay: 0.285714s;
 }
+
 .covers span:nth-child(4) {
   animation-delay: 0.428571s;
 }
+
 .covers span:nth-child(5) {
   animation-delay: 0.571428s;
 }
+
 .covers span:nth-child(6) {
   animation-delay: 0.714285s;
 }
+
 .covers span:nth-child(7) {
   animation-delay: 0.857142s;
 }

@@ -15,8 +15,10 @@
 
 <script>
 import sanityMixin from '../mixins/sanityMixin';
+
 export default {
    mixins: [sanityMixin],
+
    computed: {
       database() {
          return this.$store.getters.getDatabase.sort((a, b) => {
@@ -33,19 +35,23 @@ export default {
    width: 500px;
    padding-top: 10px;
 }
+
 .database-container__elements {
    display: grid;
    grid-template-columns: repeat(2, 1fr);
    gap: 20px;
 }
+
 .database-container__element {
    text-align: center;
    padding: 10px;
 }
+
 @media screen and (max-width: 1200px) {
    .database-container {
       width: 300px;
    }
+
    .database-container-container__elements{
       grid-template-columns: repeat(1, 1fr);
    }

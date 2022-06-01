@@ -36,14 +36,18 @@
 
 <script>
 import Icons from "../components/Icons.vue";
+
 import sanityMixin from "../mixins/sanityMixin.js";
 import readMoreClicked from "../mixins/readMoreButtonMixins.js";
 import scrollToSectionsMixins from "../mixins/scrollToSectionsMixins.js";
+
 export default {
    mixins: [sanityMixin, readMoreClicked, scrollToSectionsMixins],
+
    components: {
       Icons,
    },
+
    computed: {
       about() {
          return this.$store.getters.getAbout;
@@ -59,16 +63,19 @@ export default {
    height: 100vh;
    padding-top: var(--scroll-padding-top);
 }
+
 .about-container__introduction {
    display: flex;
    flex-direction: column;
    justify-content: center;
 }
+
 .about-container__title {
    display: flex;
    justify-content: center;
    margin-top: 10px;
 }
+
 .about-container__read-button {
    margin: var(--read-margin);
    color: var(--read-color);
@@ -78,19 +85,23 @@ export default {
    border: var(--read-border-radius);
    z-index: 100;
 }
+
 .about-container__read-button:hover,
 .about-container__read:focus {
    box-shadow: var(--read-hover-focus);
    color: var(--read-hover-focus-color);
 }
+
 .about-container__read-button--mobile {
    display: none;
 }
+
 .about-container__text-container {
    display: flex;
    justify-content: center;
    margin-top: -50px;
 }
+
 .about-container__preview {
    display: flex;
    justify-content: center;
@@ -98,6 +109,7 @@ export default {
    padding: 20px;
    line-height: 32px;
 }
+
 .about-container__full-text {
    display: flex;
    justify-content: center;
@@ -105,13 +117,16 @@ export default {
    padding: 5px;
    line-height: 32px;
 }
+
 @media screen and (max-width: 1200px) {
    .about-container {
       overflow: auto;
    }
+
    .about-container__read-button {
       visibility: hidden;
    }
+
    .about-container__read-button--mobile {
       margin: var(--read-margin);
       color: var(--read-color);
@@ -121,6 +136,7 @@ export default {
       border: var(--read-border-radius);
       display: block;
    }
+   
    .about-container__full-text {
       display: flex;
       justify-content: center;

@@ -19,6 +19,7 @@ export default {
          collapsed: false,
       };
    },
+   
    props: {
       title: {
          type: String,
@@ -26,6 +27,7 @@ export default {
          default: "Click to see more",
       },
    },
+
    methods: {
       toggle() {
          this.collapsed = !this.collapsed;
@@ -41,6 +43,7 @@ export default {
    flex-direction: column;
    margin: 0 auto;
 }
+
 .collapsible__name {
    padding: 20px;
    color: var(--font-color-highligth);
@@ -49,21 +52,25 @@ export default {
    min-width: 500px;
    transition: 3s;
 }
+
 .collapsible__name:hover,
 .collapsible__name:focus {
    box-shadow: inset 500px 0 0 0 var(--font-color-highligth);
    color: black;
 }
+
 .collapsible__content {
    padding: 20px;
    width: 500px;
    min-height: 100px;
    color: var(--font-color-highligth);
 }
+
 @media screen and (max-width: 1200px) {
    .collapsible__name {
       min-width: 300px;
    }
+
    .collapsible__content {
       width: 300px;
    }

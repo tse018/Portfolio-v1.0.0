@@ -13,8 +13,10 @@
 
 <script>
 import sanityMixin from '../mixins/sanityMixin';
+
 export default {
    mixins: [sanityMixin],
+
    computed: {
       frontend() {
          return this.$store.getters.getFrontend.sort((a, b) => {
@@ -31,19 +33,23 @@ export default {
    width: 500px;
    padding-top: 10px;
 }
+
 .frontend-container__elements {
    display: grid;
    grid-template-columns: repeat(2, 1fr);
    gap: 20px;
 }
+
 .frontend-container__element {
    text-align: center;
    padding: 10px;
 }
+
 @media screen and (max-width: 1200px) {
    .frontend-container {
       width: 300px;
    }
+
    .frontend-container__elements{
       grid-template-columns: repeat(1, 1fr);
    }

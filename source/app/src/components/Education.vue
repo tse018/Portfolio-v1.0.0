@@ -76,20 +76,25 @@
 <script>
 import Icons from "../components/Icons.vue";
 import Collapsible from "../components/Collapsible.vue";
+
 import sanityMixin from "../mixins/sanityMixin.js";
 import changeTabsMixins from "../mixins/changeTabsMixins.js";
 import readMoreButtonMixin from "../mixins/readMoreButtonMixins.js";
 import scrollToSectionsMixins from '../mixins/scrollToSectionsMixins';
+
 export default {
    mixins: [sanityMixin, changeTabsMixins, readMoreButtonMixin, scrollToSectionsMixins],
+
    components: {
       Icons,
       Collapsible,
    },
+
    computed: {
       education() {
          return this.$store.getters.getEducation;
       },
+
       activeTab() {
          return this.$store.getters.getEducation[0]._id;
       },
@@ -103,27 +108,33 @@ export default {
    height: 100vh;
    padding: var(--scroll-padding-top);
 }
+
 .education__container {
    display: flex;
 }
+
 .education__navbar {
    min-width: max-content;
    min-height: max-content;
    padding: 50px 20px;
 }
+
 .education__elements {
    text-align: center;
    text-decoration: underline 2px var(--font-color-highligth);
    padding: 0 20px;
 }
+
 .education__element {
    padding: 20px;
    font-size: var(--font-xxl);
 }
+
 .education__element--header {
    padding: 20px;
    font-size: var(--font-xxl);
 }
+
 .education__tab-button {
    border: var(--tab-border);
    border-radius: 20%;
@@ -133,31 +144,38 @@ export default {
    transition: var(--tab-transition);
    cursor: pointer;
 }
+
 .education__tab-button:hover,
 .education__tab-button:focus {
    box-shadow: var(--tab-hover-focus);
    color: var(--tab-hover-focus-color);
 }
+
 .education__content-container {
    width: 100%;
    padding-top: 25px;
 }
+
 .education__article {
    width: 100%;
    padding: 2px;
 }
+
 .education__article--mobile {
    width: 100%;
    padding: 2px;
 }
+
 .education__title {
    display: flex;
    justify-content: center;
 }
+
 .education__paragraph {
    width: 60ch;
    margin: auto;
 }
+
 .education__year {
    display: flex;
    justify-content: end;
@@ -165,6 +183,7 @@ export default {
    padding-top: 65px;
    font-style: italic;
 }
+
 .education__read-button {
    padding: var(--tab-padding);
    border: var(--tab-border);
@@ -173,32 +192,38 @@ export default {
    transition: var(--tab-transition);
    margin-top: 100px;
 }
+
 .education__read-button:hover,
 .education__read-button:focus {
    box-shadow: var(--read-hover-focus);
    color: var(--read-hover-focus-color);
 }
+
 .education__read-button--mobile {
    display: none;
 }
+
 @media screen and (max-width: 1200px) {
    .education {
       overflow: scroll;
       height: 100vh;
    }
+
    .education__article {
       display: none;
    }
+
    .education__container {
       display: flex;
       flex-direction: column;
       justify-content: center;
       margin-left: -50px;
    }
-   
+
    .education__read-button {
       display: none;
    }
+
    .education__title {
       font-size: var(--font-xxl);
       padding: 20px;
@@ -211,11 +236,13 @@ export default {
       display: flex;
       justify-content: center;
    }
+
    .education__paragraph {
       width: 30ch;
       padding: 20px;
       display: flex;
    }
+
    .education__read-button--mobile {
       padding: var(--tab-padding);
       border: var(--tab-border);

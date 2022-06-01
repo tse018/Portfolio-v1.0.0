@@ -1,5 +1,3 @@
-
-   
 <template>
    <header class="header-container" ref="header">
       <nav class="header-container__navbar">
@@ -22,20 +20,22 @@
 
 <script>
 import MobileMenu from "../components/MobileMenu.vue";
+
 import scrollToSectionMixins from '../mixins/scrollToSectionsMixins.js';
 import introAnimation from '../mixins/introAnimation.js';
+
 export default {
    mixins: [scrollToSectionMixins, introAnimation],
    components: {
       MobileMenu,
    },
+   
    mounted() {
-/*
       this.sleep(3000).then(() => {
          this.$refs["header"].style.display = "block";
       }, 3000);
-*/
    },
+
    watch: {
       $route() {
          // this fixes the bug with when scroll to path: "/",
@@ -50,23 +50,24 @@ export default {
 </script>
 
 <style scoped>
-/* Mobile */
 @media screen and (max-width: 1200px) {
    .header-container {
       position: fixed;
       width: 100%;
       z-index: 100;
    }
+
    .header-container__navbar-element--mobile {
       display: flex;
       justify-content: end;
       margin: -30px 10px 0 0;
    }
+   
    .header-container__navbar-element {
       display: none;
    }
 }
-/* desktop */
+
 @media screen and (min-width: 1200px) {
    .header-container {
       position: fixed;
@@ -75,33 +76,42 @@ export default {
       background-color: #141E30;
       opacity: 0.5;
       z-index: 100;
+      /* during animation this header will not show */
+      display: none;
    }
+
    .header-container__navbar-elements {
       display: flex;
       justify-content: center;
    }
+
    .header-container__navbar-element {
       display: flex;
       padding: 20px;
    }
+
    .header-container__navbar-element--mobile {
       display: none;
    }
+
    .header-container__navbar-link {
       color: var(--font-color-highligth);
       padding: 20px;
       cursor: pointer;
    }
+
    .header-container__navbar-link:hover {
       text-decoration: 5px underline var(--font-color-highligth);
    }
+
    .header-container__navbar--0 {
       text-decoration: 5px underline var(--font-color-highligth);
    }
-   /* highligthing the active routerlink button */
+
    .router-link-active {
       text-decoration: 5px underline var(--font-color-highligth);
    }
+
    .active {
       text-decoration: 5px underline var(--font-color-highligth);
    }
