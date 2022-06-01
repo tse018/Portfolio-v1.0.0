@@ -97,13 +97,14 @@ export default {
    .technology {
       width: 100vw;
       height: 100vh;
+      overflow: auto;
    }
 
    .technology__grid-container {
       display: grid;
       grid-template-columns: repeat(1, 1fr);
       gap: 20px;
-      width: 100vw;
+      width: 100%;
       margin-left: -100px;
    } 
 }

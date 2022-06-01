@@ -226,6 +226,7 @@ export default {
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
+      padding-top: var(--scroll-padding-top);
    }
 }
 </style>

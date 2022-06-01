@@ -52,7 +52,7 @@ export default {
    flex-direction: column;
    position: relative;
    animation-duration: 3s;
-      animation-name: intro;
+   animation-name: intro;
 }
 
 .section-introduction__name {

@@ -5,10 +5,10 @@
    </button>
 
    <nav class="mobile-toggle__container" v-if="showNavbar">
-      <ul class="mobile-toggle__container-elements">
-         <li v-for="(data, index) in navbar" class="mobile-toggle-__navbar-elements">
-            <a class="mobile-toggle__navbar-link" @click="scrollTo(data.path)" :key="data.id">
-               <RouterLink class="header-container__navbar-link" :to="{ name: 'home', params: { id: data.path } }" @click="displayMenu">
+      <ul class="mobile-toggle__elements">
+         <li v-for="(data, index) in navbar" class="mobile-toggle__element">
+            <a class="mobile-toggle__navbar" @click="scrollTo(data.path)" :key="data.id">
+               <RouterLink class="mobile-toggle__link" :to="{ name: 'home', params: { id: data.path } }" @click="displayMenu">
                   {{ data.id }}
                </RouterLink>
             </a>
@@ -44,58 +44,42 @@ export default {
 </script>
 
 <style scoped>
-@media screen and (max-width: 980px) {
-   .mobile-toggle {
-      z-index: 100;
-   }
-
-   .mobile-toggle__container {
-      position: absolute;
-      width: 70%;
-      height: 100vh;
-      top: 0;
-      right: 0;
-      margin-top: -50px;
-      background-color: blue;
-   }
-
-   .mobile-toggle__container-elements {
-
-      z-index: 100;
-      text-align: center;
-      color: white;
-   }
-
-   .mobile-toggle__container-element {
-      margin-top: 50px;
-   }
+.mobile-toggle {
+   position: fixed;
+   z-index: 1000;
 }
 
-@media screen and (min-width: 981px) {
-   .mobile-toggle {
-      z-index: 100;
-      margin: 20px 20px 0 0;
-   }
-
-   .mobile-toggle__container {
-      position: absolute;
-      width: 70%;
-      height: 95vh;
-      top: 0;
-      right: 0;
-      background-color: transparent;
-   }
-
-   .mobile-toggle__container-elements {
-      width: 100%;
-      height: 100%;
-      z-index: 100;
-      text-align: center;
-      padding: 10px 0 0 0;
-   }
-
-   .mobile-toggle__container-element {
-      margin-top: 50px;
-   }
+.mobile-toggle__container {
+   position: absolute;
+   background: white;
+   width: 50%;
+   height: 100%;
+   z-index: 100;
 }
+
+.mobile-toggle__elements {
+   padding: 20px;
+   width: 200px;
+}
+
+.mobile-toggle__element {
+   padding: 5px;
+}
+
+.mobile-toggle__navbar {
+   padding: 20px;
+   width: 200px;
+   display: flex;
+   justify-content: center;
+}
+
+.mobile-toggle__link {
+   width: 200px;
+   text-align: center;
+   text-decoration: underline 2px ;
+   color: var(--font-color-effect);
+}
+
+
+
 </style>
