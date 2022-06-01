@@ -46,7 +46,7 @@ export default {
    .backend-container {
       width: 300px;
    }
-   .backend-container-container__elements{
+   .backend-container__elements{
       grid-template-columns: repeat(1, 1fr);
    }
 }

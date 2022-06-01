@@ -52,7 +52,7 @@ export default {
       width: 300px;
    }
 
-   .system-container-container__elements{
+   .system-container__elements {
       grid-template-columns: repeat(1, 1fr);
    }
 }

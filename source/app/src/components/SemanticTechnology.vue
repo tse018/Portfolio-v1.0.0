@@ -51,7 +51,7 @@ export default {
       width: 300px;
    }
 
-   .semantic-container-container__elements{
+   .semantic-container__elements{
       grid-template-columns: repeat(1, 1fr);
    }
 }

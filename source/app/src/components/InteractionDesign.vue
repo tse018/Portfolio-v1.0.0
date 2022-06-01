@@ -51,7 +51,7 @@ export default {
       width: 300px;
    }
 
-   .interaction-container-container__elements{
+   .interaction-container__elements{
       grid-template-columns: repeat(1, 1fr);
    }
 }

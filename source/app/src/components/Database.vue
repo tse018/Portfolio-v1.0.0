@@ -52,7 +52,7 @@ export default {
       width: 300px;
    }
 
-   .database-container-container__elements{
+   .database-container__elements{
       grid-template-columns: repeat(1, 1fr);
    }
 }

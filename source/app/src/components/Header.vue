@@ -30,7 +30,7 @@ export default {
    },
    
    mounted() {
-      this.sleep(3000).then(() => {
+      this.show(3000).then(() => {
          this.$refs["header"].style.display = "block";
       }, 3000);
    },
@@ -47,7 +47,7 @@ export default {
    },
 
    methods: {
-      sleep(ms) {
+      show(ms) {
          return new Promise((resolve) => setTimeout(resolve, ms));
       },
    },
