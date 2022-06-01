@@ -216,11 +216,16 @@ export default {
    color: black;
 }
 @media screen and (max-width: 1200px) {
+   .contact-container__title {
+      margin-top: -150px;
+   }
+   
    #map {
       width: 100vw;
       height: 100vh;
       pointer-events: none;
    }
+
    .contact-container__content-container {
       width: 100%;
       display: flex;

@@ -146,6 +146,7 @@ export default {
       border: var(--read-border-radius);
       display: flex;
       justify-content: center;
+      margin-bottom: 100px;
    }
 
    .about-container__title {
