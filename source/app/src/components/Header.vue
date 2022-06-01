@@ -22,10 +22,9 @@
 import MobileMenu from "../components/MobileMenu.vue";
 
 import scrollToSectionMixins from '../mixins/scrollToSectionsMixins.js';
-import introAnimation from '../mixins/introAnimation.js';
 
 export default {
-   mixins: [scrollToSectionMixins, introAnimation],
+   mixins: [scrollToSectionMixins],
    components: {
       MobileMenu,
    },
@@ -44,6 +43,12 @@ export default {
          if(this.$route.fullPath === '/home') {
             this.$router.push({ name: 'home'})
          }
+      },
+   },
+
+   methods: {
+      sleep(ms) {
+         return new Promise((resolve) => setTimeout(resolve, ms));
       },
    },
 };

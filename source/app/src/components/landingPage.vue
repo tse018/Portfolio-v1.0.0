@@ -1,5 +1,5 @@
 <template>
-      <section class="section-introduction" ref="animation">
+      <section class="section-introduction">
          <h1 class="section-introduction__name">
             THANUSHAN SELLATHURAI
          </h1>
@@ -33,18 +33,6 @@ export default {
       Icons,
       Github,
       Footer,
-   },
-
-   mounted() {
-      this.sleep(0).then(() => {
-         this.$refs["header"].style.display = "block";
-      });
-   },
-
-   methods: {
-      sleep(ms) {
-         return new Promise((resolve) => setTimeout(resolve, ms));
-      },
    },
 
    computed: {
@@ -91,8 +79,6 @@ export default {
    }
 }
 
-
-
 @keyframes intro {
    from {
       transform: scale(0);
@@ -103,5 +89,4 @@ export default {
       opacity: 1;
    }
 }
-
 </style>
