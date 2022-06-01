@@ -220,13 +220,6 @@ export default {
       position: relative;
    }
 
-   .education__elements {
-      display: flex;
-      width: 100%;
-      overflow: scroll;
-      margin: -60px -70px 0;
-   }
-
    .education__element--header {
       position: absolute;
       top: 0;
@@ -235,6 +228,14 @@ export default {
       display: flex;
       justify-content: center;
    }
+
+   .education__elements {
+      display: flex;
+      width: 100%;
+      overflow: scroll;
+      margin: -60px -70px 0;
+   }
+
 
    .education__container {
       display: flex;
@@ -288,4 +289,20 @@ export default {
    }
 }
 
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+   .education__elements {
+      display: flex;
+      width: 100vw;
+      overflow: scroll;
+      justify-content: center;
+   }
+
+   .education__paragraph {
+      width: 60ch;
+      padding: 20px;
+      display: flex;
+   }
+
+}
 </style>

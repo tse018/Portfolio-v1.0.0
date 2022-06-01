@@ -166,4 +166,14 @@ export default {
       width: 35ch;
    }
 }
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+   .about-container__preview {
+      width: 60ch;
+   }
+   
+   .about-container__full-text {
+      width: 60ch;
+   }
+}
 </style>

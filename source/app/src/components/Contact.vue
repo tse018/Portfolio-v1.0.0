@@ -250,4 +250,10 @@ export default {
       padding-top: var(--scroll-padding-top);
    }
 }
+
+@media screen and (min-width: 600px) and (max-width: 1200px) {
+   .contact-container__paragraphs {
+      width: 60ch;
+   }
+}
 </style>

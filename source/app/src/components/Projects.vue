@@ -179,7 +179,7 @@ export default {
 }
 
 .projects-container__navbar-elements {
-   max-width: 400px;
+   min-width: 400px;
    overflow: auto;
 }
 
@@ -341,6 +341,27 @@ export default {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      padding: 20px;
+   }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+   .projects-container__paragraph-container {
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+   }
+
+   .projects-container__paragraph-full {
+      padding: 20px;
+      width: 60ch;
+      margin: auto;
+   }
+
+   .projects-container__tech-element {
+      margin-left: 50px;
       padding: 20px;
    }
 }
