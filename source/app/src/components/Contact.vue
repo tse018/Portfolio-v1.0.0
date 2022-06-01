@@ -1,5 +1,6 @@
 <template>
    <div v-if="loading">Loading...</div>
+   
    <div v-else>
       <section class="contact-container">
          <div class="contact-container__content-container" v-for="data in contact">
@@ -24,22 +25,27 @@
 <script>
 import sanityMixin from "../mixins/sanityMixin.js";
 import mapboxgl from "mapbox-gl";
+
 export default {
    mixins: [sanityMixin],
+
    data() {
       return {
          mapbox_id: import.meta.env.VITE_MAPBOX_ID,
          mapbox_map_id: import.meta.env.VITE_MAPBOX_MAP,
       };
    },
+
    mounted() {
       this.creatingMapbox();
    },
+
    computed: {
       contact() {
          return this.$store.getters.getContact;
       },
    },
+
    methods: {
       creatingMapbox() {
          mapboxgl.accessToken = this.mapbox_id;
@@ -52,6 +58,7 @@ export default {
          this.blinkingCircle(map);
          this.message(map);
       },
+
       message(map) {
          const popup = new mapboxgl.Popup({ closeOnClick: false })
             .setLngLat([10.757933, 59.911491])
@@ -60,6 +67,7 @@ export default {
             )
             .addTo(map);
       },
+
       // got source code from https://docs.mapbox.com/mapbox-gl-js/example/add-image-animated/
       blinkingCircle(map) {
          const size = 200;
@@ -111,12 +119,7 @@ export default {
                context.fill();
                context.stroke();
                // Update this image's data with data from the canvas.
-               this.data = context.getImageData(
-                  0,
-                  0,
-                  this.width,
-                  this.height
-               ).data;
+               this.data = context.getImageData(0, 0, this.width, this.height).data;
                // Continuously repaint the map, resulting
                // in the smooth animation of the dot.
                map.triggerRepaint();
@@ -124,6 +127,7 @@ export default {
                return true;
             },
          };
+
          map.on("load", () => {
             map.addImage("pulsing-dot", pulsingDot, { pixelRatio: 2 });
             map.addSource("dot-point", {
@@ -141,6 +145,7 @@ export default {
                   ],
                },
             });
+
             map.addLayer({
                id: "layer-with-pulsing-dot",
                type: "symbol",
@@ -161,6 +166,7 @@ export default {
    height: 100%;
    pointer-events: none;
 }
+
 .contact-container {
    width: 100vw;
    height: 100vh;
@@ -169,37 +175,45 @@ export default {
    flex-direction: row;
    flex-wrap: wrap
 }
+
 .contact-container__content-container {
    width: 30%;
    padding: 20px;
    height: max-content;
 }
+
 .contact-container__title {
    color: var(--font-color-highligth);
    text-align: center;
    padding: 20px;
 }
+
 .contact-container__paragraphs {
    padding: 0 20px 20px 20px;
    width: 30ch;
    margin: auto;
 }
+
 .contact-container__map-container {
    width: 70%;
 }
+
 .mapboxgl-popup-close-button {
    display: none;
 }
+
 .mapboxgl-popup-content {
    border: 2px solid var(--font-color-highligth);
    background: var(--background-primary);
    min-width: max-content;
 }
+
 .mapbox__email {
    font-size: var(--font-heading-l);
    color: var(--font-color-highligth);
    padding: 10px;
 }
+
 .contact-container__mail {
    display: flex;
    justify-content: center;
@@ -210,16 +224,18 @@ export default {
    color: var(--font-color-highligth);
    border: 2px solid var(--font-color-highligth);
 }
+
 .contact-container__mail:hover,
 .contact-container__mail:focus {
    box-shadow: inset 200px 0 0 0 var(--font-color-highligth);
    color: black;
 }
+
 @media screen and (max-width: 1200px) {
    .contact-container__title {
       margin-top: -150px;
    }
-   
+
    #map {
       width: 100vw;
       height: 100vh;

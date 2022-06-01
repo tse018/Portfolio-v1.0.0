@@ -77,6 +77,7 @@ export default {
    width: 100vw;
    height: 100vh;
    padding: var(--scroll-padding-top);
+   margin-top: 55px;
 }
 
 .technology__grid-container {
