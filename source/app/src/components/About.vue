@@ -1,5 +1,5 @@
 <template>
-   <div v-if="loading">Loading...</div>
+   <div v-if="loading"> Loading... </div>
 
    <div v-else>
       <section class="about-container" v-for="content in about">

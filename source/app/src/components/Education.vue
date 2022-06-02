@@ -1,5 +1,6 @@
 <template>
-   <div v-if="loading">Loading...</div>
+   <div v-if="loading"> Loading... </div>
+
    <div v-else>
       <div class="education">
          <section class="education__container">
@@ -236,7 +237,6 @@ export default {
       margin: -60px -70px 0;
    }
 
-
    .education__container {
       display: flex;
       flex-direction: column;
@@ -289,7 +289,6 @@ export default {
    }
 }
 
-
 @media screen and (min-width: 601px) and (max-width: 1200px) {
    .education__elements {
       display: flex;
@@ -303,6 +302,5 @@ export default {
       padding: 20px;
       display: flex;
    }
-
 }
 </style>

@@ -1,5 +1,6 @@
 <template>
-   <div v-if="loading">Loading...</div>
+   <div v-if="loading"> Loading... </div>
+   
    <div v-else>
       <div class="github-container">
          <img class="github-container__contributions" src="https://ghchart.rshah.org/243B55/tse018" alt="picture of my github profile number of contributions done day for day " />

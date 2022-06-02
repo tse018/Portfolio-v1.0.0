@@ -1,5 +1,5 @@
 <template>
-   <Loader v-if="loading" />
+   <div v-if="loading"> Loading... </div>
    
    <div v-else>
       <main class="main-container" ref="main-container" @mousewheel="horizontalScrolling">
@@ -50,7 +50,6 @@ import LandingPage from "../components/landingPage.vue";
 import Projects from "../components/Projects.vue";
 import Icons from "../components/Icons.vue";
 import Tech from "../components/TechSection.vue";
-import Loader from "../components/Loader.vue";
 import Github from "../components/Github.vue";
 
 import sanityMixin from "../mixins/sanityMixin.js";
@@ -66,7 +65,6 @@ export default {
       Contact,
       Icons,
       Tech,
-      Loader,
       Github,
    },
 

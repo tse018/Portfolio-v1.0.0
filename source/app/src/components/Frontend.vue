@@ -1,5 +1,6 @@
 <template>
-   <div v-if="loading">Loading...</div>
+   <div v-if="loading"> Loading... </div>
+   
    <div v-else>
       <section class="frontend-container">
          <ul class="frontend-container__elements">

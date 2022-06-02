@@ -13,7 +13,9 @@
                <Icons :icon="'rigth'" />
             </RouterLink>
          </button>
+
          <Github />
+         
          <Footer />
       </section>
 </template>

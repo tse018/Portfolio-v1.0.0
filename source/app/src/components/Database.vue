@@ -1,7 +1,8 @@
 
    
 <template>
-   <div v-if="loading">Loading...</div>
+   <div v-if="loading"> Loading... </div>
+   
    <div v-else>
       <section class="database-container">
          <ul class="database-container__elements">

@@ -1,5 +1,6 @@
 <template>
-   <div v-if="loading">Loading...</div>
+   <div v-if="loading"> Loading... </div>
+   
    <div v-else>
       <section class="semantic-container">
          <ul class="semantic-container__elements">
