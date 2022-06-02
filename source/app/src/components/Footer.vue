@@ -1,7 +1,7 @@
 <template>
   <footer class="footer-container">
     <p class="footer-container__content">
-      Built in Vue JS, Vuex, Vue Router, Sanity, 
+      BUILT IN VUE JS, VUEX, VUE ROUTER AND SANITY
     </p>
   </footer>
 </template>
@@ -12,13 +12,15 @@
   bottom: 0;
   width: 100%;
   height: 60px;
-  background: #6cf;
+  background: #141E30;;
   z-index: 10;
+  opacity: 0.5;
 }
 
 .footer-container__content {
-  margin-top: 15px;
   text-align: center;
-  color: var(--font-shadow-effect);
+  color: var(--font-color-highligth);
+  font-size: var(--font-heading-l);
+
 }
 </style>

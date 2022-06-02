@@ -277,10 +277,6 @@ export default {
    color: var(--font-color-highligth);
 }
 
-.projects-container__tech-element {
-   border-bottom: 2px solid var(--font-color-highligth);
-}
-
 @media screen and (max-width: 1200px) {
    .projects-container {
       position: relative;
