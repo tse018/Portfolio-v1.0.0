@@ -188,7 +188,7 @@ export default {
 .education__year {
    display: flex;
    justify-content: end;
-   margin: -55px 0 10px 0;
+   margin: -55px 10vw 10px 0;
    padding-top: 65px;
    font-style: italic;
 }
