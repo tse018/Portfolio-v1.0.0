@@ -21,6 +21,5 @@
   text-align: center;
   color: var(--font-color-highligth);
   font-size: var(--font-heading-l);
-
 }
 </style>
