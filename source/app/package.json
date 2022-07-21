@@ -14,7 +14,10 @@
     "@mapbox/mapbox-gl-geocoder": "^2.3.0",
     "@sanity/cli": "^2.30.0",
     "@sanity/client": "^3.3.0",
+    "eslint": "^8.14.0",
+    "glob-parent": "^6.0.2",
     "mapbox-gl": "^2.8.2",
+    "requires": "^1.0.2",
     "vue": "^3.2.31",
     "vue-router": "^4.0.14",
     "vuex": "^4.0.2"
