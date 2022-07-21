@@ -13,7 +13,9 @@
                <Icons :icon="'rigth'" />
             </RouterLink>
          </button>
+
          <Github />
+         
          <Footer />
       </section>
 </template>
@@ -51,6 +53,8 @@ export default {
    display: flex;
    flex-direction: column;
    position: relative;
+   animation-duration: 3s;
+   animation-name: intro;
 }
 
 .section-introduction__name {
@@ -74,6 +78,17 @@ export default {
 @media screen and (max-width: 1200px) {
    .section-introduction__arrow  {
       display: none;
+   }
+}
+
+@keyframes intro {
+   from {
+      transform: scale(0);
+      opacity: 0;
+   }
+   to {
+      transform: scale(1) rotate(0);
+      opacity: 1;
    }
 }
 </style>

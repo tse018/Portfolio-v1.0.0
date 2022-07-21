@@ -1,5 +1,6 @@
 <template>
-   <div v-if="loading">Loading...</div>
+   <div v-if="loading"> Loading... </div>
+   
    <div v-else>
       <section class="frontend-container">
          <ul class="frontend-container__elements">
@@ -31,7 +32,7 @@ export default {
 .frontend-container {
    border: 2px solid var(--font-color-highligth);
    width: 500px;
-   padding-top: 10px;
+   margin:-20px 0 0 -20px;
 }
 
 .frontend-container__elements {

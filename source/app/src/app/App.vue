@@ -4,23 +4,29 @@
 </template>
 
 <script>
-import Header from '../components/Header.vue';
+import Header from "../components/Header.vue";
 
-import seoMixin from '../mixins/seoMixin.js';
+import seoMixin from "../mixins/seoMixin.js";
 
 export default {
    mixins: [seoMixin],
 
    components: {
-      Header, 
+      Header,
    },
 
    async created() {
       this.metaTags({
-         title: 'Thanushan Sellathurai Portfolio',
-		});
+         title: "Thanushan Sellathurai Portfolio",
+      });
+
+      window.onresize = function() {
+         if (window.innerWidth < 1200) {
+            this.router.go()
+         }
+      };
    },
-}
+};
 </script>
 
 <style>

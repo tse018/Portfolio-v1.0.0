@@ -1,86 +1,69 @@
 body {
    background: var(--background-primary);
    color: var(--font-color-primary);
-   font-weight: var(--font-weigth-default);
 }
 
-/* Mobile */
-@media screen and (max-width: 600px) {
-   body {
-      font-size: var(--mobile-font-size-default);
-      margin: var(--margin-mobile);
-   }
-
-   h1 {
-      font-size: var(--mobile-font-size-title);
-      font-weight: var(--font-weigth-bold);
-   }
-
-   h2 {
-      font-size: var(--mobile-font-size-undertitle);
-   }
-
-   h3 {
-      font-size: var(--mobile-font-size-secondary-undertitle);
-   }
-}
-
-/* Tablet */
-@media screen and (min-width: 601px) and (max-width: 980px) {
-   body {
-      font-size: var(--tablet-font-size-default);
-   }
-
-   h1 {
-      font-size: var(--tablet-font-size-title);
-      font-weight: var(--font-weigth-bold);
-   }
-
-   h2 {
-      font-size: var(--tablet-font-size-undertitle);
-   }
-
-   h3 {
-      font-size: var(--tablet-font-size-secondary-undertitle);
-   }
-}
-
-@media screen and (min-width: 981) and (max-width: 1200px) {
-   body {
-      font-size: var(--tablet-font-size-default);
-   }
-
-   h1 {
-      font-size: var(--tablet-font-size-title);
-      font-weight: var(--font-weigth-bold);
-   }
-
-   h2 {
-      font-size: var(--tablet-font-size-undertitle);
-   }
-
-   h3 {
-      font-size: var(--tablet-font-size-secondary-undertitle);
-   }
-}
-
-/* Desktop */
 @media screen and (min-width: 1200px) {
    body {
-      font-size: var(--desktop-font-size-default);
+      font-size: var(--font-xl);
    }
 
    h1 {
-      font-size: var(--desktop-font-size-title);
-      font-weight: var(--font-weigth-bold);
+      font-size: var(--font-heading-xxl);
    }
 
    h2 {
-      font-size: var(--desktop-font-size-undertitle);
+      font-size: var(--font-heading-xl);
    }
 
    h3 {
-      font-size: var(--desktop-font-size-secondary-undertitle);
+      font-size: var(--font-heading-l);
+   }
+
+   p {
+      font-size: var(--font-xl);
+   }
+
+   a {
+      font-size: var(--font-xxl);
+   }
+
+   button {
+      font-size: var(--font-xxl);
+   }
+
+   li {
+      font-size: var(--font-xl);
+   }
+}
+
+@media screen and (max-width: 1200px) {
+   body {
+      font-size: var(--font-l);
+   }
+
+   h1 {
+      font-size: var(--font-heading-l);
+   }
+
+   h2 {
+      font-size: var(--font-heading);
+   }
+
+   p {
+      font-size: var(--font-l);
+   }
+
+   a {
+      font-size: var(--font-xl);
+   }
+
+   li {
+      font-size: var(--font-l);
+   }
+
+   button {
+      font-size: var(--font-xl);
    }
 }
 
@@ -88,19 +71,17 @@ span {
    display: inline;
 }
 
-   /* width */
-   ::-webkit-scrollbar {
-      width: 10px;
-      margin-left: 200px;
-   }
+/* Global editing browser scrolling bar */
+::-webkit-scrollbar {
+   width: 10px;
+   margin-left: 200px;
+}
 
-   /* Handle */
-   ::-webkit-scrollbar-thumb {
-      background: var(--font-color-highligth);
-      border-radius: 10px;
-   }
+::-webkit-scrollbar-thumb {
+   background: #64ffda;
+   border-radius: 10px;
+}
 
-   /* Handle on hover */
-   ::-webkit-scrollbar-thumb:hover {
-      background: var(--font-color-highligth);
+::-webkit-scrollbar-thumb:hover {
+   background: #64ffda;
 }

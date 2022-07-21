@@ -1,35 +1,32 @@
 <template>
-   <div v-if="loading">Loading...</div>
+   <div v-if="loading"> Loading... </div>
+   
    <div v-else>
-      <section class="technology-container">
-         <div class="technology-container__flex-wrapper">
-            <div>
-               <Collapsible v-model:title="title.frontend">
-                  <Frontend />
-               </Collapsible>
+      <section class="technology">
+         <div class="technology__grid-container">
+            <Collapsible class="technology__grid-item" v-model:title="title.frontend">
+               <Frontend />
+            </Collapsible>
 
-               <Collapsible v-model:title="title.interactionDesign">
-                  <InteractionDesign />
-               </Collapsible>
+            <Collapsible class="technology__grid-item" v-model:title="title.interactionDesign">
+               <InteractionDesign />
+            </Collapsible>
 
-               <Collapsible v-model:title="title.semanticTechnology">
-                  <SemanticTechnology />
-               </Collapsible>
-            </div>
+            <Collapsible class="technology__grid-item" v-model:title="title.semanticTechnology">
+               <SemanticTechnology />
+            </Collapsible>
 
-            <div>
-               <Collapsible v-model:title="title.backend">
-                  <Backend />
-               </Collapsible>
+            <Collapsible class="technology__grid-item"  v-model:title="title.database">
+               <Database />
+            </Collapsible>
 
-               <Collapsible v-model:title="title.database">
-                  <Database />
-               </Collapsible>
+            <Collapsible class="technology__grid-item" v-model:title="title.backend">
+               <Backend />
+            </Collapsible>
 
-               <Collapsible v-model:title="title.systemDevelopment">
-                  <systemDevelopment />
-               </Collapsible>
-            </div>
+            <Collapsible class="technology__grid-item" v-model:title="title.systemDevelopment">
+               <systemDevelopment />
+            </Collapsible>
          </div>
       </section>
    </div>
@@ -77,35 +74,39 @@ export default {
 </script>
 
 <style scoped>
-@media screen and (max-width: 600px) {
-   .technology-container {
-      height: 100%;
-      width: 100%;
-   }
-   
-   .technology-container__flex-wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-   }
+.technology {
+   width: 100vw;
+   height: 100vh;
+   padding: var(--scroll-padding-top);
+   margin-top: 55px;
 }
 
-@media screen and (min-width: 1200px) {
-   .technology-container {
-   display: flex;
-   flex-direction: column;
-   flex-wrap: wrap;
-   height: 100vh;
-   width: 100vw;
-   padding-top: 150px;
+.technology__grid-container {
+   width: 100%;
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   gap: 20px;
+   padding-top: 50px;
+}
+
+.technology__grid-item {
+   min-height: 100px;
+}
+
+@media screen and (max-width: 1200px) {
+   .technology {
+      width: 100vw;
+      height: 100vh;
+      overflow-y: scroll;
+      overflow-x: hidden;
    }
 
-   .technology-container__flex-wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-      justify-content: center;
-      gap: 10%;
-   }
+   .technology__grid-container {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+      width: 100vw;
+      margin-left: -100px;
+   } 
 }
 </style>

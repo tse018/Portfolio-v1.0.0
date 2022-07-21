@@ -1,5 +1,6 @@
 <template>
-   <div v-if="loading">Loading...</div>
+   <div v-if="loading"> Loading... </div>
+
    <div v-else>
       <section class="backend-container">
          <ul class="backend-container__elements">
@@ -31,7 +32,7 @@ export default {
 .backend-container {
    border: 2px solid var(--font-color-highligth);
    width: 500px;
-   padding-top: 10px;
+   margin: -20px 0 0 -20px;
 }
 
 .backend-container__elements {
@@ -50,7 +51,7 @@ export default {
       width: 300px;
    }
 
-   .backend-container-container__elements{
+   .backend-container__elements{
       grid-template-columns: repeat(1, 1fr);
    }
 }

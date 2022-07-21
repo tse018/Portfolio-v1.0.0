@@ -1,5 +1,6 @@
 <template>
-   <div v-if="loading">Loading...</div>
+   <div v-if="loading"> Loading... </div>
+   
    <div v-else>
       <section class="system-container">
          <ul class="system-container__elements">
@@ -15,6 +16,7 @@
 import sanityMixin from '../mixins/sanityMixin';
 
 export default {
+   
    mixins: [sanityMixin],
 
    computed: {
@@ -31,8 +33,7 @@ export default {
 .system-container {
    border: 2px solid var(--font-color-highligth);
    width: 500px;
-   padding-top: 10px;
-   margin-bottom: 100px;
+   margin: -20px 0 0 -20px;
 }
 
 .system-container__elements {
@@ -46,13 +47,12 @@ export default {
    padding: 10px;
 }
 
-
 @media screen and (max-width: 1200px) {
    .system-container {
       width: 300px;
    }
 
-   .system-container-container__elements{
+   .system-container__elements {
       grid-template-columns: repeat(1, 1fr);
    }
 }

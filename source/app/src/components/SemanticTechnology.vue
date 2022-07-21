@@ -1,5 +1,6 @@
 <template>
-   <div v-if="loading">Loading...</div>
+   <div v-if="loading"> Loading... </div>
+   
    <div v-else>
       <section class="semantic-container">
          <ul class="semantic-container__elements">
@@ -31,8 +32,7 @@ export default {
 .semantic-container {
    border: 2px solid var(--font-color-highligth);
    width: 500px;
-   padding-top: 10px;
-      margin-bottom: 100px;
+   margin:-20px 0 0 -20px;
 }
 
 .semantic-container__elements {
@@ -51,7 +51,7 @@ export default {
       width: 300px;
    }
 
-   .semantic-container-container__elements{
+   .semantic-container__elements{
       grid-template-columns: repeat(1, 1fr);
    }
 }

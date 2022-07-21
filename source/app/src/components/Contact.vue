@@ -1,5 +1,6 @@
 <template>
-   <div v-if="loading">Loading...</div>
+   <div v-if="loading"> Loading... </div>
+   
    <div v-else>
       <section class="contact-container">
          <div class="contact-container__content-container" v-for="data in contact">
@@ -23,12 +24,10 @@
 
 <script>
 import sanityMixin from "../mixins/sanityMixin.js";
-
 import mapboxgl from "mapbox-gl";
 
 export default {
    mixins: [sanityMixin],
-
 
    data() {
       return {
@@ -49,14 +48,13 @@ export default {
 
    methods: {
       creatingMapbox() {
-         mapboxgl.accessToken = "pk.eyJ1IjoidHNlMDE4IiwiYSI6ImNsMmtkczJ2ZTAybmozY25reXE3MXpmMWUifQ.sm5TPLNYLn4Ozr1r7TCCZQ";
+         mapboxgl.accessToken = this.mapbox_id;
          const map = new mapboxgl.Map({
             container: "map", // container ID
-            style: "mapbox://styles/tse018/cl3fy4bep000i14qii6hxjxt0", // style URL
+            style: this.mapbox_map_id, // style URL
             center: [10.818701, 59.904822], // starting position [lng, lat]
             zoom: 11, // starting zoom
          });
-
          this.blinkingCircle(map);
          this.message(map);
       },
@@ -73,14 +71,12 @@ export default {
       // got source code from https://docs.mapbox.com/mapbox-gl-js/example/add-image-animated/
       blinkingCircle(map) {
          const size = 200;
-
          // This implements `StyleImageInterface`
          // to draw a pulsing dot icon on the map.
          const pulsingDot = {
             width: size,
             height: size,
             data: new Uint8Array(size * size * 4),
-
             // When the layer is added to the map,
             // get the rendering context for the map canvas.
             onAdd() {
@@ -89,16 +85,13 @@ export default {
                canvas.height = this.height;
                this.context = canvas.getContext("2d");
             },
-
             // Call once before every frame where the icon will be used.
             render() {
                const duration = 1000;
                const t = (performance.now() % duration) / duration;
-
                const radius = (size / 2) * 0.3;
                const outerRadius = (size / 2) * 0.7 * t + radius;
                const context = this.context;
-
                // Draw the outer circle.
                context.clearRect(0, 0, this.width, this.height);
                context.beginPath();
@@ -109,10 +102,8 @@ export default {
                   0,
                   Math.PI * 2
                );
-
                context.fillStyle = `rgba(255, 200, 200, ${1 - t})`;
                context.fill();
-
                // Draw the inner circle.
                context.beginPath();
                context.arc(
@@ -122,25 +113,16 @@ export default {
                   0,
                   Math.PI * 2
                );
-
                context.fillStyle = "#64ffda";
                context.strokeStyle = "#141E30";
                context.lineWidth = 2 + 4 * (1 - t);
                context.fill();
                context.stroke();
-
                // Update this image's data with data from the canvas.
-               this.data = context.getImageData(
-                  0,
-                  0,
-                  this.width,
-                  this.height
-               ).data;
-
+               this.data = context.getImageData(0, 0, this.width, this.height).data;
                // Continuously repaint the map, resulting
                // in the smooth animation of the dot.
                map.triggerRepaint();
-
                // Return `true` to let the map know that the image was updated.
                return true;
             },
@@ -148,7 +130,6 @@ export default {
 
          map.on("load", () => {
             map.addImage("pulsing-dot", pulsingDot, { pixelRatio: 2 });
-
             map.addSource("dot-point", {
                type: "geojson",
                data: {
@@ -251,6 +232,10 @@ export default {
 }
 
 @media screen and (max-width: 1200px) {
+   .contact-container__title {
+      margin-top: -150px;
+   }
+
    #map {
       width: 100vw;
       height: 100vh;
@@ -262,6 +247,13 @@ export default {
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
+      padding-top: var(--scroll-padding-top);
+   }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1200px) {
+   .contact-container__paragraphs {
+      width: 60ch;
    }
 }
 </style>

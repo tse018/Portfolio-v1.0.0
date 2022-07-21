@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@mapbox/mapbox-gl-geocoder": "^5.0.1",
+    "@mapbox/mapbox-gl-geocoder": "^2.3.0",
     "@sanity/cli": "^2.30.0",
     "@sanity/client": "^3.3.0",
     "mapbox-gl": "^2.8.2",

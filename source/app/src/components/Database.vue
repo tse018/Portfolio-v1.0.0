@@ -1,5 +1,8 @@
+
+   
 <template>
-   <div v-if="loading">Loading...</div>
+   <div v-if="loading"> Loading... </div>
+   
    <div v-else>
       <section class="database-container">
          <ul class="database-container__elements">
@@ -31,7 +34,7 @@ export default {
 .database-container {
    border: 2px solid var(--font-color-highligth);
    width: 500px;
-   padding-top: 10px;
+   margin:-20px 0 0 -20px;
 }
 
 .database-container__elements {
@@ -50,7 +53,7 @@ export default {
       width: 300px;
    }
 
-   .database-container-container__elements{
+   .database-container__elements{
       grid-template-columns: repeat(1, 1fr);
    }
 }

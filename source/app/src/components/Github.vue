@@ -1,5 +1,6 @@
 <template>
-   <div v-if="loading">Loading...</div>
+   <div v-if="loading"> Loading... </div>
+   
    <div v-else>
       <div class="github-container">
          <img class="github-container__contributions" src="https://ghchart.rshah.org/243B55/tse018" alt="picture of my github profile number of contributions done day for day " />
@@ -35,15 +36,17 @@ export default {
          loading: null,
       };
    },
-
+   
    async created() {
       const token = import.meta.env.VITE_GITHUB_KEY;
       const username = import.meta.env.VITE_GITHUB_USERNAME;
-
+      
       const headers = {
          Authorization: `bearer ${token}`,
       };
 
+      // Sending Graqphl query which I tried out in github graqphl playground
+      // source coude: https://docs.github.com/en/graphql/overview/explorer
       const url = "https://api.github.com/graphql";
       const body = {
          query: `query {
@@ -73,11 +76,15 @@ export default {
          }
       }`,
       };
+      
       const response = await fetch(url, {
          method: "POST",
          body: JSON.stringify(body),
          headers: headers,
       });
+
+      // probably better way to do this!!
+      // this REST-API have to layer which can be destructured
       const { data } = await response.json();
       const { user } = data;
       this.result = user;
@@ -154,5 +161,4 @@ export default {
       padding-top: 100px;
    }
 }
-
 </style>

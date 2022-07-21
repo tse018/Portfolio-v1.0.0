@@ -29,7 +29,7 @@ export default {
          type: String,
       },
    },
-
+   
    methods: {
       navigate() {
          
@@ -71,6 +71,7 @@ export default {
       -ms-transform: translateX(-30px);
       transform: translateX(-30px);
    }
+
    60% {
       -ms-transform: translateX(-15px);
       transform: translateX(-15px);

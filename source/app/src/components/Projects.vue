@@ -1,5 +1,6 @@
 <template>
-   <div v-if="loading">Loading...</div>
+   <div v-if="loading"> Loading... </div>
+
    <div v-else class="projects-container">
       <section class="projects-container__flex-navbar">
          <nav class="projects-container__navbar">
@@ -56,7 +57,7 @@
                   </div>
                </div>
 
-               <div class="projects-container__description-content" v-for="project in projects" v-show="currentTab === project._id">
+               <div class="projects-container__description-content"  v-for="project in projects" v-show="currentTab === project._id">
                   <h3 class="projects-container__description-title">
                      {{ project.title.toUpperCase() }}
                   </h3>
@@ -145,8 +146,7 @@ export default {
 }
 
 .projects-container__navbar-elements {
-   justify-content: center;
-   max-width: 400px;
+   min-width: 400px;
    overflow: auto;
 }
 
@@ -244,7 +244,88 @@ export default {
    color: var(--font-color-highligth);
 }
 
-.projects-container__tech-element {
-   border-bottom: 2px solid var(--font-color-highligth);
+@media screen and (max-width: 1200px) {
+   .projects-container {
+      position: relative;
+      height: 100vh;
+      width: 100vw;
+      overflow-y: scroll;
+      overflow-x: hidden;
+   }
+
+   .projects-container__flex-navbar {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+   }
+
+   .projects-container__navbar {
+      width: 100vw;
+      justify-content: center;
+      width: 100%;
+   }
+
+   .projects-container__navbar-header {
+      position: absolute;
+      width: 100vw;
+      left: 0;
+      top: 50;
+      display: flex;
+      justify-content: center;
+      margin-top: -50px;
+   }
+
+   .projects-container__navbar-elements {
+      display: flex;
+      width: 100%;
+   }
+
+   .projects-container__navbar-element {
+      width: max-content;
+   }
+
+   .projects-container__description-container {
+      margin-top: -50px;
+      width: 100vw;
+   }
+
+   .projects-container__description-title {
+      display: flex;
+      justify-content: center;
+   }
+
+   .projects-container__description-content {
+      margin: 0;
+      width: 100%;
+   }
+
+   .projects-container__paragraph-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+   }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+   .projects-container__paragraph-container {
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+   }
+
+   .projects-container__paragraph-full {
+      padding: 20px;
+      width: 60ch;
+      margin: auto;
+   }
+
+   .projects-container__tech-element {
+      margin-left: 50px;
+      padding: 20px;
+   }
 }
 </style>

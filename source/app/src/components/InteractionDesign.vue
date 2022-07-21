@@ -1,5 +1,6 @@
 <template>
-   <div v-if="loading">Loading...</div>
+   <div v-if="loading"> Loading... </div>
+   
    <div v-else>
       <section class="interaction-container">
          <ul class="interaction-container__elements">
@@ -15,6 +16,7 @@
 import sanityMixin from '../mixins/sanityMixin';
 
 export default {
+
    mixins: [sanityMixin],
 
    computed: {
@@ -31,7 +33,7 @@ export default {
 .interaction-container {
    border: 2px solid var(--font-color-highligth);
    width: 500px;
-   padding-top: 10px;
+   margin: -20px 0 0 -20px;
 }
 
 .interaction-container__elements {
@@ -50,7 +52,7 @@ export default {
       width: 300px;
    }
 
-   .interaction-container-container__elements{
+   .interaction-container__elements{
       grid-template-columns: repeat(1, 1fr);
    }
 }

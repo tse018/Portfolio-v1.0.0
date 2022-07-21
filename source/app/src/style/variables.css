@@ -1,45 +1,44 @@
 :root {
-	/* Colors */
 	--background-primary: #141E30;  /* fallback for old browsers */
 	--background-primary: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
 	--background-primary: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-	--background-header: #141E30;
-	--background-footer-color: #6cf;
-
 	--font-color-primary: #e6f1ff;
-	--font-color-secondary: white;
+	--font-color-secondary: #fff;
 	--font-color-highligth: #64ffda;
-	--font-shadow-effect: #14011dbe;
+	--font-color-effect: #14011dbe;
 
-	/* body margin */
-	--margin-mobile: 30px 0 0 0;
+	--font-xl: 12px;
+	--font-s: 14px;
+	--font-m: 16px;
+	--font-l: 18px; 
+	--font-xl: 20px;
+	--font-xxl: 22px;
+	--font-heading: 24px;
+	--font-heading-l: 26px;
+	--font-heading-xl: 48px;
+	--font-heading-xxl: 72px;
 
-	/* Mobile font-sizes */
-	--mobile-font-size-title: 45px;
-	--mobile-font-size-undertitle: 30px;
-	--mobile-font-size-secondary-undertitle: 25px;
-	--mobile-font-size-default: 18px;
+	--read-border-radius: 2px solid #64ffda;
+	/* I dunno but if its below 60px transition button will blink when hovering */
+	--read-margin: 0 60px; 
+	--read-color: #64ffda;
+	--read-width: 200px;
+	--read-padding: 20px;
+	--read-transition: 2s;
+	--read-hover-focus: inset 300px 0 0 #64ffda;
+	--read-hover-focus-color: black;
+	
+	--tab-padding: 20px;
+	--tab-border: 2px solid #64ffda;
+	--tab-width: 200px;
+	--tab-transition: 2s;
+	--tab-color: #64ffda;
+	--tab-hover-focus: inset 500px 0 0 0 #64ffda;
+	--tab-hover-focus-color: black;
 
-	/* Tablet font-sizes */
-	--tablet-font-size-title: 50px;
-	--tablet-font-size-undertitle: 40px;
-	--tablet-font-size-secondary-undertitle: 32px;
-	--tablet-font-size-footer: 28px;
-	--tablet-font-size-default: 24px;
+	--scroll-padding-top: 100px;
 
-	/* Desktop font-sizes */
-	--desktop-font-size-title: 80px;
-	--desktop-font-size-undertitle: 50px;
-	--desktop-font-size-secondary-undertitle: 26px;
-	--desktop-font-size-default: 20px;
-	--desktop-font-size-paragraph: 25px;
-	--desktop-font-size-animation: 22px;
-
-	/* font-weigth */
-	--font-weigth-bold: 800;
-	--font-weigth-default: 400;
-
-	/* line-heigth */
-	--font-line-heigth: 80px;
+	--text: 50ch;
+	--large-text: 60ch;
 }
